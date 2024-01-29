@@ -1,0 +1,198 @@
+html {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: "#111217";
+  /* background-color: #1a1a1e !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1200'%3E%3Cg stroke='%231A1A1E' stroke-width='0' %3E%3Cpath fill='%23151519' d='M0 0h5000L0 5000z'/%3E%3Cpath fill='%2318181c' d='M0 0l4687.5 312.5L0 5000z'/%3E%3Cpath fill='%231b1b1f' d='M0 0l4375 625L0 5000z'/%3E%3Cpath fill='%231d1e22' d='M0 0l4062.5 937.5L0 5000z'/%3E%3Cpath fill='%23202026' d='M0 0l3750 1250L0 5000z'/%3E%3Cpath fill='%23232329' d='M0 0l3437.5 1562.5L0 5000z'/%3E%3Cpath fill='%2326262c' d='M0 0l3125 1875L0 5000z'/%3E%3Cpath fill='%23292930' d='M0 0l2812.5 2187.5L0 5000z'/%3E%3Cpath fill='%232c2c33' d='M0 0l2500 2500L0 5000z'/%3E%3Cpath fill='%232f2f37' d='M0 0l2187.5 2812.5L0 5000z'/%3E%3Cpath fill='%2332323a' d='M0 0l1875 3125L0 5000z'/%3E%3Cpath fill='%2335353e' d='M0 0l1562.5 3437.5L0 5000z'/%3E%3Cpath fill='%23383841' d='M0 0l1250 3750L0 5000z'/%3E%3Cpath fill='%233c3c45' d='M0 0l937.5 4062.5L0 5000z'/%3E%3Cpath fill='%233f3f48' d='M0 0l625 4375L0 5000z'/%3E%3Cpath fill='%2342424C' d='M0 0l312.5 4687.5L0 5000z'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover; */
+  overflow-y: auto;
+}
+
+body::-webkit-scrollbar {
+  background-color: transparent;
+  max-width: 6px;
+  height: 5px;
+}
+
+body:hover::-webkit-scrollbar-thumb {
+  background-color: #242c39;
+  border-radius: 0.8em;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #2b3545;
+}
+
+.tournament-scroll::-webkit-scrollbar {
+  background-color: transparent;
+  max-width: 6px;
+  height: 5px;
+}
+
+.tournament-scroll::-webkit-scrollbar-thumb {
+  background-color: #242c39;
+  border-radius: 0.8em;
+}
+
+.tournament-scroll::-webkit-scrollbar-thumb:hover {
+  background: #2b3545;
+}
+
+.cash-scroll::-webkit-scrollbar {
+  background-color: transparent;
+  max-width: 6px;
+  height: 5px;
+}
+
+.cash-scroll::-webkit-scrollbar-thumb {
+  background-color: #242c39;
+  border-radius: 0.8em;
+}
+
+.cash-scroll::-webkit-scrollbar-thumb:hover {
+  background: #2b3545;
+}
+
+.scrim-scroll::-webkit-scrollbar {
+  background-color: transparent;
+  max-width: 6px;
+  height: 5px;
+}
+
+.scrim-scroll::-webkit-scrollbar-thumb {
+  background-color: #242c39;
+  border-radius: 0.8em;
+}
+
+.scrim-scroll::-webkit-scrollbar-thumb:hover {
+  background: #2b3545;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0.8em;
+}
+
+.scroll-container::-webkit-scrollbar {
+  background-color: transparent;
+  width: 6px;
+  color: "#fff";
+  border-radius: 2px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.scroll-container:hover::-webkit-scrollbar-thumb {
+  background-color: #242c39;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0.8em;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #2b3545;
+}
+
+.state-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0.8em;
+}
+
+.state-scroll::-webkit-scrollbar {
+  background-color: transparent;
+  max-height: 6px;
+  color: "#fff";
+  border-radius: 2px;
+}
+
+.state-scroll::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.state-scroll:hover::-webkit-scrollbar-thumb {
+  background-color: #242c39;
+}
+
+.state-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0.8em;
+}
+
+.state-scroll::-webkit-scrollbar-thumb:hover {
+  background: #2b3545;
+}
+
+#root {
+  min-height: 100%;
+  position: relative;
+  margin: 0;
+  overflow: auto;
+}
+
+#deposit-input {
+  margin-top: 2;
+  background-color: #f5f5f5;
+  font-size: 28px;
+  padding: 8px 15px;
+  border: 0;
+  border-radius: 4px;
+  color: #333;
+}
+
+#paypal-input {
+  margin-top: 2;
+  background-color: #f5f5f5;
+  font-size: 28px;
+  padding: 8px 15px;
+  border: 0;
+  border-radius: 4px;
+  color: #4f5266;
+}
+
+#price-input {
+  margin-top: 2;
+  background-color: #ffffff;
+  border: 2px solid #ff9505;
+  font-size: 24px;
+  padding: 8px 15px;
+  border: 0;
+  border-radius: 3px;
+  color: #4f5266;
+  margin-left: 4 !important;
+}
+
+.active {
+  transform: translateX(0%);
+}
+
+#toast-progress.active {
+  animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+  100% {
+    width: 0%;
+  }
+}
+
+.ui.default.dropdown:not(.button) > .text,
+.ui.dropdown:not(.button) > .default.text {
+  color: #40c9ff;
+}
+
+css-oz2tnw-MuiButtonBase-root-MuiListItemButton-root.Mui-selected {
+  background-color: "#6ede8a";
+}
