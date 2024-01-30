@@ -34,7 +34,7 @@ const NewCashMatchItem = (props) => {
   // methods
   const handleJoinOpen = () => {
     if (home) {
-      navigate("/cash-matches");
+      navigate("/valorant/cash-matches");
       return;
     }
     if (store?.user) {

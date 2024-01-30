@@ -21,12 +21,12 @@ const RulesAndTOS = () => {
   const navigate = useNavigate();
 
   const handleRulePress = () => {
-    navigate("/rules");
+    navigate("/valorant/rules");
     return;
   };
 
   const handleTOSPress = () => {
-    navigate("/tos");
+    navigate("/valorant/tos");
     return;
   };
 

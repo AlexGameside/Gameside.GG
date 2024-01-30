@@ -248,7 +248,7 @@ const NewNavBar = () => {
   };
 
   const handleCloseModal = () => {
-    navigate("/");
+    navigate("/valorant/");
     setOpenModal(false);
   };
 
@@ -963,7 +963,7 @@ const NewNavBar = () => {
                 onMouseLeave={() => setAvatarHovered(false)}
                 onClick={() => {
                   if (store?.user) {
-                    navigate("/profile/teams");
+                    navigate("/valorant/profile/teams");
                   }
                 }}
               >

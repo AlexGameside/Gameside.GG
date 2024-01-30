@@ -44,7 +44,7 @@ const Teams = (props) => {
   // get teams
   useEffect(() => {
     if (!user) {
-      navigate("/profile");
+      navigate("/valorant/profile");
       return;
     }
     setTeams(userTeams);

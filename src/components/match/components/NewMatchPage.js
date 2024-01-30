@@ -168,7 +168,7 @@ const NewMatchPage = () => {
     }
 
     if (!canUserView) {
-      navigate("/");
+      navigate("/valorant/");
       return;
     }
   }, [userPermsLoading]);

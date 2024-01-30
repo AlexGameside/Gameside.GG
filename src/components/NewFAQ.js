@@ -188,7 +188,7 @@ const NewFAQ = () => {
                           transform: "scale(1.1)",
                         },
                       }}
-                      onClick={() => navigate("/profile/accounts")}
+                      onClick={() => navigate("/valorant/profile/accounts")}
                     >
                       Linked Accounts.
                     </span>{" "}

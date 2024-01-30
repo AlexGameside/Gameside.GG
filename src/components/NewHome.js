@@ -33,7 +33,7 @@ import whiteLogo from "../assets/blue-logo.png";
 import backgroundVideo from "../assets/val-vid-background.mp4";
 import HomeFeatureItem from "./home/HomeFeatureItem.js";
 
-const NewHome = () => {
+const ValHome = () => {
   // variables
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
@@ -312,7 +312,7 @@ const NewHome = () => {
                     <Grid item>
                       <NewOutlineButton
                         label="View All"
-                        onClick={() => navigate("/tournaments")}
+                        onClick={() => navigate("/valorant/tournaments")}
                       />
                     </Grid>
                   </Grid>
@@ -387,7 +387,7 @@ const NewHome = () => {
               buttonLabel="Find scrims"
               image={scrimsHome}
               mobileImage={scrimsHomeMobile}
-              onClick={() => navigate("/scrims")}
+              onClick={() => navigate("/valorant/scrims")}
             />
 
             <HomeFeatureItem
@@ -396,7 +396,7 @@ const NewHome = () => {
               buttonLabel="Find cash matches"
               image={cashMatchesHome}
               mobileImage={cashMatchesHomeMobile}
-              onClick={() => navigate("/cash-matches")}
+              onClick={() => navigate("/valorant/cash-matches")}
             />
 
             <HomeFeatureItem
@@ -405,7 +405,7 @@ const NewHome = () => {
               buttonLabel="Find tournaments"
               image={tournamentHome}
               mobileImage={tournamentHomeMobile}
-              onClick={() => navigate("/tournaments")}
+              onClick={() => navigate("/valorant/tournaments")}
             />
 
             <HomeFeatureItem
@@ -414,7 +414,7 @@ const NewHome = () => {
               buttonLabel="Find scrims"
               image={vetoHome}
               mobileImage={vetoHomeMobile}
-              onClick={() => navigate("/scrims")}
+              onClick={() => navigate("/valorant/scrims")}
             />
 
             <HomeFeatureItem
@@ -423,7 +423,7 @@ const NewHome = () => {
               buttonLabel="Learn more"
               image={vpHome}
               mobileImage={vpHomeMobile}
-              onClick={() => navigate("/premium")}
+              onClick={() => navigate("/valorant/premium")}
             />
           </Grid>
         </Grid>
@@ -432,4 +432,4 @@ const NewHome = () => {
   );
 };
 
-export default NewHome;
+export default ValHome;

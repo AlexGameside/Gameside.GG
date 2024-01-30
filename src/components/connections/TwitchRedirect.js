@@ -54,7 +54,7 @@ const TwitchRedirect = () => {
 
   useEffect(() => {
     if (!loading) {
-      navigate("/profile/accounts");
+      navigate("/valorant/profile/accounts");
     }
   }, [loading]);
 

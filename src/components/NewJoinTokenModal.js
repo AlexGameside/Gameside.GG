@@ -621,7 +621,7 @@ const NewJoinTokenModal = (props) => {
                   <Grid
                     item
                     sx={styles.rulesHover}
-                    onClick={() => navigate("/support/rules")}
+                    onClick={() => navigate("/valorant/support/rules")}
                   >
                     <Typography style={styles.rulesValue}>rules.</Typography>
                   </Grid>

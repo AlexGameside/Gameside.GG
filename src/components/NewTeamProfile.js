@@ -66,7 +66,7 @@ const NewTeamProfile = () => {
         newUserData.userTeams = [...newTeams];
         dispatch({ type: SET_USER, payload: newUserData });
         setLeaveLoading(false);
-        navigate("/profile/teams");
+        navigate("/valorant/profile/teams");
         return;
       } else {
         setError(res?.message);
@@ -121,7 +121,7 @@ const NewTeamProfile = () => {
 
   useEffect(() => {
     if (teamToRemove) {
-      navigate("/profile/teams");
+      navigate("/valorant/profile/teams");
       return;
     }
   }, [teamToRemove]);
@@ -169,7 +169,7 @@ const NewTeamProfile = () => {
       />
       <Grid item>
         <NewOutlineButton
-          onClick={() => navigate("/profile/teams")}
+          onClick={() => navigate("/valorant/profile/teams")}
           label={"Back to Teams"}
         />
       </Grid>

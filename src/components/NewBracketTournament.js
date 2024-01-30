@@ -154,7 +154,7 @@ const NewBracketTournament = () => {
       if (!res?.error) {
         setDeleteLoading(false);
         setSuccess(res?.message);
-        navigate("/tournaments");
+        navigate("/valorant/tournaments");
         return;
       } else {
         setError(res?.message);
@@ -744,7 +744,7 @@ const NewBracketTournament = () => {
       >
         <Grid item>
           <NewOutlineButton
-            onClick={() => navigate("/tournaments")}
+            onClick={() => navigate("/valorant/tournaments")}
             label={"Back to Tournaments"}
           />
         </Grid>

@@ -200,7 +200,7 @@ const NewNavMenu = (props) => {
         <NewListItem
           label="Scrims"
           onClick={() => {
-            navigate("/scrims");
+            navigate("/valorant/scrims");
           }}
         >
           <FaSkullCrossbones
@@ -214,7 +214,7 @@ const NewNavMenu = (props) => {
         <NewListItem
           label="Cash Matches"
           onClick={() => {
-            navigate("/cash-matches");
+            navigate("/valorant/cash-matches");
           }}
         >
           <FaPiggyBank
@@ -228,7 +228,7 @@ const NewNavMenu = (props) => {
         <NewListItem
           label="Tournaments"
           onClick={() => {
-            navigate("/tournaments");
+            navigate("/valorant/tournaments");
           }}
         >
           <FaTrophy
@@ -242,7 +242,7 @@ const NewNavMenu = (props) => {
         <NewListItem
           label="Leaderboard"
           onClick={() => {
-            navigate("/leaderboard");
+            navigate("/valorant/leaderboard");
           }}
         >
           <MdLeaderboard
@@ -257,7 +257,7 @@ const NewNavMenu = (props) => {
           <NewListItem
             label="Staff Panel"
             onClick={() => {
-              navigate("/profile/staff-panel");
+              navigate("/valorant/profile/staff-panel");
             }}
           >
             <FaShieldAlt
@@ -276,7 +276,7 @@ const NewNavMenu = (props) => {
         <NewListItem
           label="Premium"
           onClick={() => {
-            navigate("/premium");
+            navigate("/valorant/premium");
           }}
         >
           <FaCrown
@@ -290,7 +290,7 @@ const NewNavMenu = (props) => {
         <NewListItem
           label="Badges"
           onClick={() => {
-            navigate("/badges");
+            navigate("/valorant/badges");
           }}
         >
           <BsPersonBadgeFill
@@ -304,7 +304,7 @@ const NewNavMenu = (props) => {
         <NewListItem
           label="Support"
           onClick={() => {
-            navigate("/support");
+            navigate("/valorant/support");
           }}
         >
           <MdContactSupport

@@ -291,7 +291,7 @@ const JoinTokenDialog = (props) => {
           rowSpacing={{ xs: 1, sm: 2, md: 3, lg: 4 }}
           sx={{ minHeight: "100%" }}
         >
-          <Grid item item={{ width: "100%" }}>
+          <Grid item={{ width: "100%" }}>
             <Typography sx={styles.label}>Select Team</Typography>
             <Dropdown
               placeholder="Select Team"
@@ -386,7 +386,7 @@ const JoinTokenDialog = (props) => {
                   textDecoration: "underline",
                 }}
                 onClick={() => {
-                  navigate("/rules");
+                  navigate("/valorant/rules");
                   return;
                 }}
               >

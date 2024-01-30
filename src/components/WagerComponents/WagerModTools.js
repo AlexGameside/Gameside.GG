@@ -143,7 +143,7 @@ const WagerModTools = (props) => {
               component="span"
               size="large"
               sx={styles.modButton}
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/valorant/")}
             >
               <HomeIcon />
             </IconButton>

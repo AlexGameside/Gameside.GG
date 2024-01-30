@@ -37,7 +37,7 @@ const StaffPanel = () => {
         setLoading(false);
         return;
       } else {
-        navigate("/profile/teams");
+        navigate("/valorant/profile/teams");
         return;
       }
     }

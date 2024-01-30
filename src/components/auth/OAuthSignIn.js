@@ -59,7 +59,7 @@ const OAuthSignIn = () => {
       if (!error) {
         navigate("/");
       } else {
-        navigate("/login?failed=true");
+        navigate("/valorant/login?failed=true");
       }
     }
   }, [loading]);

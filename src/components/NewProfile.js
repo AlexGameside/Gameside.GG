@@ -333,7 +333,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "teams" || selected === "team"}
                     label={"Teams"}
-                    onClick={() => navigate("/profile/teams")}
+                    onClick={() => navigate("/valorant/profile/teams")}
                   >
                     <FaUsers
                       style={{
@@ -346,7 +346,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "history"}
                     label={"History"}
-                    onClick={() => navigate("/profile/history")}
+                    onClick={() => navigate("/valorant/profile/history")}
                   >
                     <MdHistory
                       style={{
@@ -359,7 +359,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "accounts"}
                     label={"Connections"}
-                    onClick={() => navigate("/profile/accounts")}
+                    onClick={() => navigate("/valorant/profile/accounts")}
                   >
                     <GiShare
                       style={{
@@ -372,7 +372,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "wallet"}
                     label={"Transactions"}
-                    onClick={() => navigate("/profile/wallet")}
+                    onClick={() => navigate("/valorant/profile/wallet")}
                   >
                     <MdCompareArrows
                       style={{
@@ -385,7 +385,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "premium"}
                     label={"Premium"}
-                    onClick={() => navigate("/profile/premium")}
+                    onClick={() => navigate("/valorant/profile/premium")}
                   >
                     <FaCrown
                       style={{
@@ -398,7 +398,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "badges"}
                     label={"My Badges"}
-                    onClick={() => navigate("/profile/badges")}
+                    onClick={() => navigate("/valorant/profile/badges")}
                   >
                     <BsPersonBadgeFill
                       style={{
@@ -412,7 +412,7 @@ const NewProfile = () => {
                     <NewListItem
                       selected={selected === "staff-panel"}
                       label={"Staff Panel"}
-                      onClick={() => navigate("/profile/staff-panel")}
+                      onClick={() => navigate("/valorant/profile/staff-panel")}
                     >
                       <FaShieldAlt
                         style={{
@@ -476,7 +476,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="Teams"
                   small={true}
-                  onClick={() => navigate("/profile/teams")}
+                  onClick={() => navigate("/valorant/profile/teams")}
                 />
               </Grid>
 
@@ -484,7 +484,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="history"
                   small={true}
-                  onClick={() => navigate("/profile/history")}
+                  onClick={() => navigate("/valorant/profile/history")}
                 />
               </Grid>
 
@@ -492,7 +492,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="connections"
                   small={true}
-                  onClick={() => navigate("/profile/accounts")}
+                  onClick={() => navigate("/valorant/profile/accounts")}
                 />
               </Grid>
 
@@ -500,7 +500,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="transactions"
                   small={true}
-                  onClick={() => navigate("/profile/wallet")}
+                  onClick={() => navigate("/valorant/profile/wallet")}
                 />
               </Grid>
 
@@ -508,7 +508,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="premium"
                   small={true}
-                  onClick={() => navigate("/profile/premium")}
+                  onClick={() => navigate("/valorant/profile/premium")}
                 />
               </Grid>
 
@@ -517,7 +517,7 @@ const NewProfile = () => {
                   <NewSecondaryButton
                     label="staff"
                     small={true}
-                    onClick={() => navigate("/profile/staff-panel")}
+                    onClick={() => navigate("/valorant/profile/staff-panel")}
                   />
                 </Grid>
               )}
