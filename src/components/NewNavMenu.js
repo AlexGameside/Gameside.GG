@@ -89,6 +89,7 @@ const NewNavMenu = (props) => {
       color: theme.text(),
     },
   };
+  console.log('test');
 
   return (
     <Menu

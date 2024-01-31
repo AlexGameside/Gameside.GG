@@ -34,6 +34,7 @@ import NewMatchPage from "./components/match/components/NewMatchPage";
 import Wallet from "./components/profile/Wallet";
 import TwitterRedirect from "./components/connections/TwitterRedirect";
 import ProfileSettings from "./components/profile/ProfileSettings";
+import FortHome from './components/FortHome.js'
 import PremiumHome from "./components/premium/PremiumHome";
 import Premium from "./components/profile/Premium";
 import StaffPanel from "./components/profile/staff_panel/StaffPanel";
@@ -123,7 +124,7 @@ function App() {
     return null;
   };
 
-  const isValHomeRoute = location.pathname.startsWith("/valorant/"); // Prob will expand this logic for future games
+  const isGameHomeRoute = location.pathname.startsWith("/valorant") || location.pathname.startsWith("/fortnite"); // Prob will expand this logic for future games
 
   return (
     <Grid
@@ -143,7 +144,7 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Store initialStore={store} dispatch={storeDispatch}>
-            {isValHomeRoute | location.pathname === "/valorant" ? ( // Conditionally render for "/valorant/" and its child routes
+            {isGameHomeRoute | (location.pathname === "/valorant" || location.pathname === 'fortnite') ? ( // Conditionally render for "/valorant/" and its child routes
               <>
                 <NewNavBar />
                 <CreateButton />
@@ -176,7 +177,11 @@ function App() {
                   <Route path="signup" element={<NewSignupLoginModal />} />
                   <Route path="login" element={<NewSignupLoginModal />} />
                 </Route>
-
+                <Route path="/fortnite" element={<FortHome />} />
+                <Route path="/fortnite/premium" element={<PremiumHome />} />
+                <Route path="/fortnite/leaderboards" element={<NewLeaderboards />} />
+                <Route path="/fortnite/cash-matches" element={<NewCashMatches />} />
+                <Route path="/fortnite/tournaments" element={<NewTournaments />} />
                 {/* Valorant routes */}
                 <Route path="/valorant" element={<ValHome />} />
                 <Route path="/valorant/signup" element={<NewSignupLoginModal />} />
