@@ -6,6 +6,7 @@ import { FaTiktok, FaTwitter } from "react-icons/fa";
 import { BsDiscord } from "react-icons/bs";
 import blackFullLogo from "../assets/black-half-logo.png";
 import whiteFullLogo from "../assets/tkns-red-logo-word.png";
+import gamesideWhiteWord from "../assets/Gameside_White_Word.png"
 import { useContext } from "react";
 import { StoreContext } from "../context/NewStoreContext";
 
@@ -79,7 +80,7 @@ const Footer = () => {
           >
             <Grid item onClick={() => navigate("/")}>
               <Img
-                src={tknsLogo}
+                src={gamesideWhiteWord}
                 alt="Logo"
                 sx={{
                   maxWidth: 150,
@@ -114,7 +115,7 @@ const Footer = () => {
                   <Typography
                     sx={styles.icons}
                     onClick={() =>
-                      window.open("https://discord.gg/tknsgg", "_blank")
+                      window.open("https://discord.gg/QHMPUC3xk9", "_blank")
                     }
                   >
                     <BsDiscord />
@@ -145,7 +146,7 @@ const Footer = () => {
           >
             <Grid item>
               <Typography sx={{ color: theme.text() }}>
-                &copy; 2022 Tkns LLC
+                &copy; 2024 Gameside LLC
               </Typography>
             </Grid>
 

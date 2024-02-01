@@ -8,6 +8,7 @@ import createTheme from '../utils/theme';
 import NewSignupLoginModal from '../components/NewSignupLoginModal';
 import { useNavigate } from 'react-router-dom';
 import CountdownSignupModal from '../components/CountdownSignupModal';
+import constants from '../utils/constants';
 
 
 const CountdownPage = () => {
@@ -46,7 +47,12 @@ const CountdownPage = () => {
     countdownText: {
       fontSize: 25,
       paddingBottom: "20px",
+      fontFamily: 'Syne, sans-serif',
     },
+    signedUpText: {
+      fontSize: 25,
+      fontFamily: 'Syne, sans-serif',
+    }
   };
 
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
@@ -77,10 +83,15 @@ const CountdownPage = () => {
           date={epoch} 
           renderer={renderer} 
         />
-        <NewPrimaryButton 
-          label="sign up"
-          onClick={handleOpenModal}
-        />
+        {store?.user ? (
+          <Typography sx={styles.signedUpText}>Signed up!</Typography> // Corrected the closing tag here
+        ) : (
+          <NewPrimaryButton 
+            label="sign up"
+            backgroundColor={constants.primaryRed} // Ensure constants is defined/imported
+            onClick={handleOpenModal}
+          />
+        )}
       </div>
     </>
   )

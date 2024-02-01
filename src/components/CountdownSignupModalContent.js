@@ -9,6 +9,7 @@ import NewPrimaryButton from "../custom_components/NewPrimaryButton";
 import DiscordButton from "../custom_components/DiscordButton";
 import TwitchButton from "../custom_components/TwitchButton";
 import GoogleButton from "../custom_components/GoogleButton";
+import constants from "../utils/constants";
 // import jwt_decode from "jwt-decode";
 
 const CountdownSignupModalContent = (props) => {
@@ -68,7 +69,7 @@ const CountdownSignupModalContent = (props) => {
         setLoading(false);
         setError(null);
         setSuccess(
-          "Successfully registered. Please verify your email to login."
+          "Successfully registered. You've been added to the database, come back March 1, 2024."
         );
         setDate("");
         setName("");
@@ -383,6 +384,7 @@ const CountdownSignupModalContent = (props) => {
             <Grid item sx={{ minWidth: "100%" }}>
               <NewPrimaryButton
                 label="sign up"
+                backgroundColor={constants.primaryRed}
                 loading={loading}
                 onClick={handleRegister}
                 fullWidth={true}

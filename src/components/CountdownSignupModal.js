@@ -10,7 +10,6 @@ import NewForgotModalContent from "./NewForgotModalContent";
 import { useSearchParams, useLocation } from "react-router-dom";
 import NewResetPassModalContent from "./NewResetPassModalContent";
 import whiteLogo from "../assets/blue-logo.png";
-import gamesideLogo from "../assets/gameside-logo.png";
 import NewAlert from "../custom_components/NewAlert";
 import { addRefCodeView } from "../utils/API";
 import CountdownSignupModalContent from "./CountdownSignupModalContent";
@@ -173,7 +172,6 @@ const CountdownSignupModal = (props) => {
           <NewAlert label={error} clearMessage={() => setError(null)} />
         ) : null}
         <DialogTitle sx={styles.title}>
-          <img src={gamesideLogo} style={{ width: 100 }} />
           {handleClose ? (
             <IconButton
               aria-label="close"

@@ -5,6 +5,7 @@ const constants = {
   white: "#ffffff",
   whiteHovered: "#424242",
   red: "#f44336",
+  primaryRed: "#E72953",
   offWhite: "#bdbdbd",
   blue: "#29b6f6",
   blueHovered: "#039be5",
