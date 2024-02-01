@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Verify from "./components/Verify.js";
 import RequireAuth from "./components/RequireAuth";
 import { Grid, useMediaQuery } from "@mui/material";
@@ -44,6 +44,8 @@ import LinkDiscord from "./components/auth/LinkDiscord";
 import LinkTwitch from "./components/auth/LinkTwitch";
 import Home from "./views/Home.js";
 import HomeNavBar from "./components/HomeNavBar.js";
+import CountdownPage from "./views/Countdown.js";
+import CountdownSignupModal from "./components/CountdownSignupModal.js";
 
 const initialStore = {
   mode: "dark",
@@ -60,6 +62,7 @@ function App() {
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const isMobile = useMediaQuery("(max-width:500px)");
   const location = useLocation();
+  const navigate = useNavigate();
   const theme = createTheme({
     typography: {
       fontFamily: "Inter",
@@ -73,9 +76,18 @@ function App() {
         `,
       },
     },
+    palette: {
+      mode: "dark",
+    },
   });
 
   const [store, storeDispatch] = useReducer(storeReducer, initialStore);
+  // Don't let anyone leave countdown route
+  const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown";
+  useEffect(() => {
+    if (!isCountdown)
+      navigate("/countdown")
+  }, [isCountdown]);
 
   useEffect(() => {
     const path = location?.pathname?.split("/")[1];
@@ -143,7 +155,7 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Store initialStore={store} dispatch={storeDispatch}>
-            {isValHomeRoute | location.pathname === "/valorant" ? ( // Conditionally render for "/valorant/" and its child routes
+            {/* {isValHomeRoute | location.pathname === "/valorant" ? ( // Conditionally render for "/valorant/" and its child routes
               <>
                 <NewNavBar />
                 <CreateButton />
@@ -152,7 +164,7 @@ function App() {
               <>
                 <HomeNavBar />
               </>
-            )}
+            )} */}
             <Grid
               container
               sx={{
@@ -163,14 +175,19 @@ function App() {
                 minWidth: "100%",
                 flexDirection: "column",
                 position: "relative",
-                paddingLeft: getPaddingLeft(),
-                paddingRight: getPaddingRight(),
-                paddingTop: getPaddingTop(),
+                // paddingLeft: getPaddingLeft(),
+                // paddingRight: getPaddingRight(),
+                // paddingTop: getPaddingTop(),
                 paddingBottom: 4,
               }}
             >
               <Wrapper />
               <Routes>
+                {/* Countdown */}
+                <Route path="/countdown" element={<CountdownPage />}>
+                  <Route path="signup" element={<CountdownSignupModal />} />
+                </Route>
+
                 {/* Base routes */}
                 <Route path="/" element={<Home />}>
                   <Route path="signup" element={<NewSignupLoginModal />} />
