@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Verify from "./components/Verify.js";
 import RequireAuth from "./components/RequireAuth";
 import { Grid, useMediaQuery } from "@mui/material";
@@ -11,7 +11,7 @@ import { useEffect, useLayoutEffect, useReducer } from "react";
 import NewProfile from "./components/NewProfile";
 import NewTeams from "./components/NewTeams";
 import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
-import ValHome from "./components/NewHome";
+import NewHome from "./components/NewHome";
 import NewMatchHistory from "./components/NewMatchHistory";
 import NewSupport from "./components/NewSupport";
 import NewContactUs from "./components/NewContactUs";
@@ -42,10 +42,6 @@ import MyBadges from "./components/profile/MyBadges";
 import OAuthSignIn from "./components/auth/OAuthSignIn";
 import LinkDiscord from "./components/auth/LinkDiscord";
 import LinkTwitch from "./components/auth/LinkTwitch";
-import Home from "./views/Home.js";
-import HomeNavBar from "./components/HomeNavBar.js";
-import CountdownPage from "./views/Countdown.js";
-import CountdownSignupModal from "./components/CountdownSignupModal.js";
 
 const initialStore = {
   mode: "dark",
@@ -62,7 +58,6 @@ function App() {
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const isMobile = useMediaQuery("(max-width:500px)");
   const location = useLocation();
-  const navigate = useNavigate();
   const theme = createTheme({
     typography: {
       fontFamily: "Inter",
@@ -76,18 +71,9 @@ function App() {
         `,
       },
     },
-    palette: {
-      mode: "dark",
-    },
   });
 
   const [store, storeDispatch] = useReducer(storeReducer, initialStore);
-  // Don't let anyone leave countdown route
-  const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown";
-  useEffect(() => {
-    if (!isCountdown)
-      navigate("/countdown")
-  }, [isCountdown]);
 
   useEffect(() => {
     const path = location?.pathname?.split("/")[1];
@@ -135,8 +121,6 @@ function App() {
     return null;
   };
 
-  const isValHomeRoute = location.pathname.startsWith("/valorant/"); // Prob will expand this logic for future games
-
   return (
     <Grid
       container
@@ -155,16 +139,8 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Store initialStore={store} dispatch={storeDispatch}>
-            {/* {isValHomeRoute | location.pathname === "/valorant" ? ( // Conditionally render for "/valorant/" and its child routes
-              <>
-                <NewNavBar />
-                <CreateButton />
-              </>
-            ) : (
-              <>
-                <HomeNavBar />
-              </>
-            )} */}
+            <NewNavBar />
+            <CreateButton />
             <Grid
               container
               sx={{
@@ -175,58 +151,130 @@ function App() {
                 minWidth: "100%",
                 flexDirection: "column",
                 position: "relative",
-                // paddingLeft: getPaddingLeft(),
-                // paddingRight: getPaddingRight(),
-                // paddingTop: getPaddingTop(),
+                paddingLeft: getPaddingLeft(),
+                paddingRight: getPaddingRight(),
+                paddingTop: getPaddingTop(),
                 paddingBottom: 4,
               }}
             >
               <Wrapper />
               <Routes>
-                {/* Countdown */}
-                <Route path="/countdown" element={<CountdownPage />}>
-                  <Route path="signup" element={<CountdownSignupModal />} />
-                </Route>
-
-                {/* Base routes */}
-                <Route path="/" element={<Home />}>
+                <Route path="/" exact element={<NewHome />}>
                   <Route path="signup" element={<NewSignupLoginModal />} />
                   <Route path="login" element={<NewSignupLoginModal />} />
                 </Route>
-
-                {/* Valorant routes */}
-                <Route path="/valorant" element={<ValHome />} />
-                <Route path="/valorant/signup" element={<NewSignupLoginModal />} />
-                <Route path="/valorant/login" element={<NewSignupLoginModal />} />
-                <Route path="/valorant/token/:id" element={<RequireAuth><NewMatchPage /></RequireAuth>} />
-                <Route path="/valorant/tournament/:id" element={<NewBracketTournament />} />
-                <Route path="/valorant/support" element={<NewSupport />}>
+                <Route
+                  path="/token/:id"
+                  element={
+                    <RequireAuth>
+                      <NewMatchPage />
+                    </RequireAuth>
+                  }
+                />
+                <Route
+                  path="/tournament/:id"
+                  element={<NewBracketTournament />}
+                />
+                <Route path="/support" element={<NewSupport />}>
                   <Route path="rules" element={<NewRules />} />
                   <Route path="tos" element={<NewTOS />} />
                   <Route path="privacy-policy" element={<NewPrivacyPolicy />} />
                   <Route path="contact" element={<NewContactUs />} />
                   <Route path="faq" element={<NewFAQ />} />
                 </Route>
-                <Route path="/valorant/verify" element={<Verify />} />
-                <Route path="/valorant/leaderboard" element={<NewLeaderboards />} />
-                <Route path="/valorant/tournaments" element={<NewTournaments />} />
-                <Route path="/valorant/scrims" element={<NewScrims />} />
-                <Route path="/valorant/cash-matches" element={<NewCashMatches />} />
-                <Route path="/valorant/twitchWebhook" element={<LinkTwitch />} />
-                <Route path="/valorant/twitterWebhook" element={<TwitterRedirect />} />
-                <Route path="/valorant/premium" element={<PremiumHome />} />
-                <Route path="/valorant/badges" element={<AllBadges />} />
-                <Route path="/valorant/oauth-signin" element={<OAuthSignIn />} />
-                <Route path="/valorant/discord-link" element={<LinkDiscord />} />
-                <Route path="/valorant/profile" element={<RequireAuth><NewProfile /></RequireAuth>}>
-                  <Route path="/valorant/profile/teams" element={<RequireAuth><NewTeams /></RequireAuth>} />
-                  <Route path="/valorant/profile/team/:id" element={<RequireAuth><NewTeamProfile /></RequireAuth>} />
-                  <Route path="/valorant/profile/history" element={<RequireAuth><NewMatchHistory /></RequireAuth>} />
-                  <Route path="/valorant/profile/wallet" element={<RequireAuth><Wallet /></RequireAuth>} />
-                  <Route path="/valorant/profile/accounts" element={<RequireAuth><NewConnections /></RequireAuth>} />
-                  <Route path="/valorant/profile/premium" element={<RequireAuth><Premium /></RequireAuth>} />
-                  <Route path="/valorant/profile/badges" element={<RequireAuth><MyBadges /></RequireAuth>} />
-                  <Route path="/valorant/profile/staff-panel" element={<RequireAuth><StaffPanel /></RequireAuth>} />
+
+                <Route path="/verify" element={<Verify />} />
+                <Route path="/leaderboard" element={<NewLeaderboards />} />
+                <Route path="/tournaments" element={<NewTournaments />} />
+                <Route path="/scrims" element={<NewScrims />} />
+                <Route path="/cash-matches" element={<NewCashMatches />} />
+                <Route path="/twitchWebhook" element={<LinkTwitch />} />
+                <Route path="/twitterWebhook" element={<TwitterRedirect />} />
+                <Route path="/premium" element={<PremiumHome />} />
+                <Route path="/badges" element={<AllBadges />} />
+                <Route path="/oauth-signin" element={<OAuthSignIn />} />
+                <Route path="/discord-link" element={<LinkDiscord />} />
+
+                <Route
+                  path="/profile"
+                  element={
+                    <RequireAuth>
+                      <NewProfile />
+                    </RequireAuth>
+                  }
+                >
+                  <Route
+                    path="teams"
+                    element={
+                      <RequireAuth>
+                        <NewTeams />
+                      </RequireAuth>
+                    }
+                  />
+                  <Route
+                    path={"team/:id"}
+                    element={
+                      <RequireAuth>
+                        <NewTeamProfile />
+                      </RequireAuth>
+                    }
+                  />
+                  <Route
+                    path="history"
+                    element={
+                      <RequireAuth>
+                        <NewMatchHistory />
+                      </RequireAuth>
+                    }
+                  />
+                  <Route
+                    path="wallet"
+                    element={
+                      <RequireAuth>
+                        <Wallet />
+                      </RequireAuth>
+                    }
+                  />
+                  <Route
+                    path="accounts"
+                    element={
+                      <RequireAuth>
+                        <NewConnections />
+                      </RequireAuth>
+                    }
+                  />
+                  <Route
+                    path="premium"
+                    element={
+                      <RequireAuth>
+                        <Premium />
+                      </RequireAuth>
+                    }
+                  />
+                  <Route
+                    path="badges"
+                    element={
+                      <RequireAuth>
+                        <MyBadges />
+                      </RequireAuth>
+                    }
+                  />
+                  <Route
+                    path="staff-panel"
+                    element={
+                      <RequireAuth>
+                        <StaffPanel />
+                      </RequireAuth>
+                    }
+                  />
+                  {/* <Route
+                      path="settings"
+                      element={
+                        <RequireAuth>
+                          <ProfileSettings />
+                        </RequireAuth>
+                      }
+                    /> */}
                 </Route>
               </Routes>
             </Grid>
