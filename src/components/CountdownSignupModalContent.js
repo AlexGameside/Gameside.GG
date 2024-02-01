@@ -69,7 +69,7 @@ const CountdownSignupModalContent = (props) => {
         setLoading(false);
         setError(null);
         setSuccess(
-          "Successfully registered. You've been added to the database, come back March 1, 2024."
+          "Successfully registered. Verify your email and your account will be complete. Come back March 1!"
         );
         setDate("");
         setName("");

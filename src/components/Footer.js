@@ -105,7 +105,7 @@ const Footer = () => {
                   <Typography
                     sx={styles.icons}
                     onClick={() =>
-                      window.open("https://twitter.com/tknsdotgg", "_blank")
+                      window.open("https://twitter.com/GamesideGG", "_blank")
                     }
                   >
                     <FaTwitter />
