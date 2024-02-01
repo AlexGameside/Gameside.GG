@@ -859,7 +859,7 @@ const NewNavBar = () => {
                   return;
                 }
                 // window.location.href = `${constants.clientURL}/token/${store?.currentTokenId}`;
-                navigate(`/token/${store?.currentTokenId}`);
+                navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}token/${store?.currentTokenId}`);
               }}
               onMouseEnter={(e) => {
                 setHovered(true);

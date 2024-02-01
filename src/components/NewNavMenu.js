@@ -89,7 +89,6 @@ const NewNavMenu = (props) => {
       color: theme.text(),
     },
   };
-  console.log('test');
 
   return (
     <Menu
@@ -188,7 +187,7 @@ const NewNavMenu = (props) => {
         store?.currentTokenId != null ? (
           <NewListItem
             label="Current Match"
-            onClick={() => navigate(`/token/${store?.currentTokenId}`)}
+            onClick={() => navigate(`/valorant/token/${store?.currentTokenId}`)}
           >
             <BsRecordFill style={{ color: theme.red(), fontSize: 24 }} />
           </NewListItem>

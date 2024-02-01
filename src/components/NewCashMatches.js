@@ -58,6 +58,7 @@ const NewCashMatches = () => {
   const [searchParams, _] = useSearchParams();
   const [hasMore, setHasMore] = useState(true);
   const [skip, setSkip] = useState(0);
+  const gameId = isValorant ? "VAL" : isFortnite ? "FN" : null;
 
   // methods
   const getMatches = (filters, filtered = false) => {
@@ -82,6 +83,7 @@ const NewCashMatches = () => {
       isScrimMatch: null,
       limit: 9,
       skip,
+      game: gameId,
       matchType: map,
       region,
       teamSize,
@@ -128,6 +130,7 @@ const NewCashMatches = () => {
     let newFilters = {
       isScrimMatch: null,
       limit: 9,
+      game: gameId,
       skip: 0,
     };
 

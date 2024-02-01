@@ -21,7 +21,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import NewDropdown from "./NewDropdown";
 import useAxios from "../utils/useAxios";
 import { joinWager } from "../utils/API";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import useSocket from "../utils/useSocket";
 import {
   teamOptions,
@@ -43,6 +43,9 @@ const NewJoinCashMatchModal = (props) => {
   const api = useAxios();
   const dispatch = useContext(StoreDispatch);
   const { sendJoinEvent, tokenToRemove } = useSocket(token?._id);
+  const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant");
   const numFormatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -95,7 +98,7 @@ const NewJoinCashMatchModal = (props) => {
           wagerId: token?._id,
         });
         setLoading(false);
-        navigate(`/token/${token?._id}`);
+        navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}token/${token?._id}`);
         handleClose();
       } else {
         clearFilters();

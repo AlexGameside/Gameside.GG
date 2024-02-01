@@ -47,6 +47,7 @@ const NewCreateCashMatchModal = (props) => {
   const api = useAxios();
   const location = useLocation();
   const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant") || location.pathname === 'valorant'; 
   const navigate = useNavigate();
 
   // state
@@ -171,7 +172,7 @@ const NewCreateCashMatchModal = (props) => {
       if (!res?.error) {
         setLoading(false);
         dispatch({ type: SET_CURRENT_TOKEN, payload: res?.wager?._id });
-        navigate(`/token/${res?.wager?._id}`);
+        navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}token/${res?.wager?._id}`);
         handleClose();
       } else {
         setLoading(false);

@@ -4,6 +4,7 @@ import { StoreContext } from "../../../context/NewStoreContext";
 import createTheme from "../../../utils/theme";
 import Avatar from "avataaars";
 import UserProfileModal from "../../user/UserProfileModal";
+import { useLocation } from 'react-router-dom';
 
 const PlayerItem = (props) => {
   // variables
@@ -18,7 +19,6 @@ const PlayerItem = (props) => {
   } = props;
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
-
   const [open, setOpen] = useState(false);
   const [userHovered, setUserHovered] = useState(null);
 
@@ -135,7 +135,7 @@ const PlayerItem = (props) => {
                     color: theme.metaText(),
                   }}
                 >
-                  <span style={{ fontWeight: 300 }}>Riot id</span>{" "}
+                  <span style={{ fontWeight: 300 }}>{match?.game === 'FN' ? 'Epic Id: ' : match?.game === 'VAL' ? 'Riot Id: ' : null}</span>{" "}
                   {userSet[user]?.gameUsername}
                 </Typography>
               )}
