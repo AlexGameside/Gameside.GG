@@ -31,7 +31,7 @@ import {
 } from "../utils/helperMethods";
 import { BiPlus, BiX, BiCheck } from "react-icons/bi";
 import { createWager } from "../utils/API";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import NewSecondaryButton from "../custom_components/NewSecondaryButton";
 import NewPrimaryButton from "../custom_components/NewPrimaryButton";
 import BubbleButton from "../custom_components/BubbleButton";
@@ -45,13 +45,15 @@ const NewCreateCashMatchModal = (props) => {
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const isMobile = useMediaQuery("(max-width:500px)");
   const api = useAxios();
+  const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
   const navigate = useNavigate();
 
   // state
   const [closeHovered, setCloseHovered] = useState(false);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
-  const [game, _] = useState("VAL");
+  const [game, _] = useState(location.pathname.startsWith("/fortnite") ? "FN" : location.pathname.startsWith("/valorant") ? "VAL" : null);
   const [entryFee, setEntryFee] = useState(null);
   const [region, setRegion] = useState(null);
   const [matchType, setMatchType] = useState(null);
@@ -336,6 +338,8 @@ const NewCreateCashMatchModal = (props) => {
                           justifyContent="start"
                           columnSpacing={{ xs: 2 }}
                         >
+                        {!isFortnite && (
+                          <>
                           <Grid item>
                             <BubbleButton
                               title={"Vote For Maps (Best of 3)"}
@@ -358,10 +362,12 @@ const NewCreateCashMatchModal = (props) => {
                               size="small"
                             />
                           </Grid>
+                          </> 
+                        )}
                         </Grid>
                       </Grid>
 
-                      {chooseMap ? (
+                      {chooseMap || isFortnite ? (
                         <Grid item sx={{ width: "100%" }}>
                           <NewDropdown
                             options={determineMatchOptions(game)}

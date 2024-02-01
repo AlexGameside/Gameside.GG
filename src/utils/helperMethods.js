@@ -325,9 +325,9 @@ const fortMatchOptions = [
   { title: "Zone Wars", value: "ZW" },
   { title: "Box Fights", value: "BOX" },
   { title: "Realistics", value: "REAL" },
-  { title: "PG/Build Fight", value: "PG" },
-  { title: "Arena Kill Race", value: "ARENA_RACE" },
-  { title: "Kill Race", value: "RACE" },
+  { title: "Build Fight", value: "PG" },
+  { title: "Ranked Kill Race", value: "ARENA_RACE" },
+  { title: "Unranked Kill Race", value: "RACE" },
 ];
 const ValMatchOptions = [
   { title: "None", value: null },

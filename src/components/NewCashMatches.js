@@ -18,12 +18,13 @@ import NewDropdown from "./NewDropdown";
 import {
   determineTeamSizeOptions,
   ValMatchOptions,
+  fortMatchOptions,
   valRegions,
 } from "../utils/helperMethods";
 import { FaPiggyBank } from "react-icons/fa";
 import NewSignupLoginModal from "./NewSignupLoginModal";
 import NewJoinScrimModal from "./NewJoinScrimModal";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLocation } from "react-router-dom";
 import useSocket from "../utils/useSocket";
 import NewCashMatchItem from "./NewCashMatchItem";
 import NewCreateCashMatchModal from "./NewCreateCashMatchModal";
@@ -38,6 +39,9 @@ const NewCashMatches = () => {
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const dispatch = useContext(StoreDispatch);
   const { socketTokens, tokenToRemove } = useSocket();
+  const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant");
 
   // state
   const [loading, setLoading] = useState(true);
@@ -330,7 +334,7 @@ const NewCashMatches = () => {
               >
                 <Grid item sx={{ minWidth: 150 }}>
                   <NewDropdown
-                    options={ValMatchOptions}
+                    options={isFortnite ? fortMatchOptions : isValorant ? ValMatchOptions : null}
                     placeholder="Map"
                     onChange={(value) => setMap(value)}
                   />
@@ -346,7 +350,7 @@ const NewCashMatches = () => {
 
                 <Grid item sx={{ minWidth: 150 }}>
                   <NewDropdown
-                    options={determineTeamSizeOptions("VAL", null)}
+                    options={determineTeamSizeOptions(isFortnite ? "FN" : isValorant ? "VAL" : null, null)}
                     placeholder="Team Size"
                     onChange={(value) => setTeamSize(value)}
                   />

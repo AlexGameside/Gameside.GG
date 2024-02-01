@@ -182,6 +182,7 @@ function App() {
                 <Route path="/fortnite/leaderboards" element={<NewLeaderboards />} />
                 <Route path="/fortnite/cash-matches" element={<NewCashMatches />} />
                 <Route path="/fortnite/tournaments" element={<NewTournaments />} />
+                <Route path="/fortnite/token/:id" element={<RequireAuth><NewMatchPage /></RequireAuth>} />
                 {/* Valorant routes */}
                 <Route path="/valorant" element={<ValHome />} />
                 <Route path="/valorant/signup" element={<NewSignupLoginModal />} />

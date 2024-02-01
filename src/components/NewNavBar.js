@@ -33,6 +33,7 @@ import {
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import FortMenu from './FortMenu';
+import FortDrawer from './FortDrawer';
 import { SET_MODE, StoreDispatch } from "../context/NewStoreContext";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdNotifications } from "react-icons/io";
@@ -116,7 +117,7 @@ const NewNavBar = () => {
     currency: "USD",
   });
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite"); 
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
   const isValorant = location.pathname.startsWith("/valorant");
 
   const anchorRef = useRef();
@@ -1009,21 +1010,39 @@ const NewNavBar = () => {
         </Grid>
       </AppBar>
       {drawerOpen && isDesktop ? (
-        <NavDrawer
-          setDrawerHovered={setDrawerHovered}
-          inviteModalOpen={inviteModalOpen}
-          setSelectedTeam={setSelectedTeam}
-          setCreateTeamOpen={setCreateTeamOpen}
-          handleAddTeam={handleAddTeam}
-          setHoveredTeam={setHoveredTeam}
-          drawerOpen={drawerOpen}
-          setInviteModalOpen={setInviteModalOpen}
-          createTeamOpen={createTeamOpen}
-          selected={selected}
-          hoveredTeam={hoveredTeam}
-          loading={loading}
-        />
-      ) : null}
+  isFortnite ? (
+    <FortDrawer
+      setDrawerHovered={setDrawerHovered}
+      inviteModalOpen={inviteModalOpen}
+      setSelectedTeam={setSelectedTeam}
+      setCreateTeamOpen={setCreateTeamOpen}
+      handleAddTeam={handleAddTeam}
+      setHoveredTeam={setHoveredTeam}
+      drawerOpen={drawerOpen}
+      setInviteModalOpen={setInviteModalOpen}
+      createTeamOpen={createTeamOpen}
+      selected={selected}
+      hoveredTeam={hoveredTeam}
+      loading={loading}
+    />
+  ) : isValorant ? (
+    <NavDrawer
+      setDrawerHovered={setDrawerHovered}
+      inviteModalOpen={inviteModalOpen}
+      setSelectedTeam={setSelectedTeam}
+      setCreateTeamOpen={setCreateTeamOpen}
+      handleAddTeam={handleAddTeam}
+      setHoveredTeam={setHoveredTeam}
+      drawerOpen={drawerOpen}
+      setInviteModalOpen={setInviteModalOpen}
+      createTeamOpen={createTeamOpen}
+      selected={selected}
+      hoveredTeam={hoveredTeam}
+      loading={loading}
+    />
+  ) : null
+) : null}
+
 
       {!drawerOpen && isDesktop ? (
         <Drawer
