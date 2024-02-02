@@ -59,7 +59,7 @@ const NewTOS = () => {
               <Typography sx={styles.otherText}>
                 This document, our rules, policies, and the other documents
                 referenced make up our Terms of Service (“Terms”). The Terms are
-                a legally binding contract between you and Tkns LLC. This
+                a legally binding contract between you and Gameside LLC. This
                 contract sets out your rights and responsibilities when you use
                 our website. Please read them carefully.
               </Typography>
@@ -67,7 +67,7 @@ const NewTOS = () => {
             <Grid item>
               <Typography sx={styles.header}>2. CHANGES</Typography>
               <Typography sx={styles.otherText}>
-                Tkns LLC may amend the Terms at any time by posting a revised
+                Gameside LLC may amend the Terms at any time by posting a revised
                 version on our website. The revised version will be effective at
                 the time we post it. If we change the Terms in a way that
                 reduces your rights or increases your responsibilities, we will
@@ -123,7 +123,7 @@ const NewTOS = () => {
             <Grid item>
               <Typography sx={styles.header}>6. SECURITY</Typography>
               <Typography sx={styles.otherText}>
-                TknsLLC ensures the protection and honesty of the data it
+                Gameside LLC ensures the protection and honesty of the data it
                 gathers by utilizing fitting authoritative conventions,
                 specialized shields, and actual security controls intended to
                 restrict access, identify and forestall the unapproved access,
@@ -135,12 +135,12 @@ const NewTOS = () => {
               <Typography sx={styles.header}>7. TERMINATION</Typography>
               <Typography sx={styles.otherText}>
                 <Typography sx={styles.otherText}>
-                  7.1 Tkns LLC reserves the right to change, suspend, limit or
+                  7.1 Gameside LLC reserves the right to change, suspend, limit or
                   discontinue any of its services, in whole or in part at any
                   time for any reason, without notice (unless required by law).
                 </Typography>
                 <Typography sx={styles.otherText}>
-                  7.2 Tkns LLC may refuse service to anyone and may terminate or
+                  7.2 Gameside LLC may refuse service to anyone and may terminate or
                   suspend your services and your access to the website in whole
                   or in part at any time, for any reason, without notice (unless
                   required by law).{" "}
@@ -158,14 +158,14 @@ const NewTOS = () => {
             <Grid item>
               <Typography sx={styles.header}>9. LIMITATIONS</Typography>
               <Typography sx={styles.otherText}>
-                In no event will Tkns LLC be liable to you for any indirect,
+                In no event will Gameside LLC be liable to you for any indirect,
                 incidental, special, consequential or punitive damages
                 (including damages for loss of profits, goodwill, or any other
                 intangible loss) arising out of or relating to your access to or
                 use of, or your inability to access or use, the website or any
                 materials or content available through the website, whether
                 based on warranty, contract, tort (including negligence),
-                statute, or any other legal theory, and whether or not Tkns LLC
+                statute, or any other legal theory, and whether or not Gameside LLC
                 has been informed of the possibility of damage.
               </Typography>
             </Grid>
@@ -173,7 +173,7 @@ const NewTOS = () => {
               <Typography sx={styles.header}>10. IDEMNIFICATION</Typography>
               <Typography sx={styles.otherText}>
                 You agree that you will be responsible for your use of the
-                website, and you agree to defend and indemnify Tkns LLC from and
+                website, and you agree to defend and indemnify Gameside LLC from and
                 against every claim, liability, damage, loss, and expense,
                 including reasonable attorneys’ fees and costs, arising out of
                 or in any way connected with: (i) your access to, use of, or

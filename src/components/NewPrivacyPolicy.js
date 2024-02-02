@@ -93,7 +93,7 @@ const NewPrivacyPolicy = () => {
               <Typography sx={styles.header}>2. responsible body</Typography>
               <Typography sx={styles.otherText}>
                 Responsible for the processing of personal data on this website
-                is: Tkns LLC 651 N. Broad St., Suite 206 Middletown DE 19709
+                is: Gameside LLC 651 N. Broad St., Suite 206 Middletown DE 19709
               </Typography>
             </Grid>
             <Grid item>
