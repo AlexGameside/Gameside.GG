@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Box, Button, Grid, Typography } from '@mui/material';
+import { Box, Button, Grid, Typography, useMediaQuery } from '@mui/material';
 import Logo from '../assets/gameside-logo.png';
 import NewPrimaryButton from '../custom_components/NewPrimaryButton';
 import Countdown from 'react-countdown';
@@ -14,9 +14,12 @@ import constants from '../utils/constants';
 const CountdownPage = () => {
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
+  const isDesktop = useMediaQuery("(min-width:1025px)");
+  const isMobile = useMediaQuery("(max-width:500px)");
 
   const navigate = useNavigate();
   const [openModal, setOpenModal] = useState(false);
+  const [menuAnchor, setMenuAnchor] = useState(null);
 
   const date = new Date('2024-03-01T18:00:00Z');
   const epoch = date.getTime();
@@ -30,6 +33,10 @@ const CountdownPage = () => {
     setOpenModal(false);
   };
 
+  const handleMenuClose = () => {
+    setMenuAnchor(null);
+  };
+
   const styles = {
     container: {
       display: "flex",
@@ -41,18 +48,21 @@ const CountdownPage = () => {
       padding: "20px",
     },
     logo: {
-      maxWidth: "350px",
-      maxHeight: "350px",
+      maxWidth: isDesktop ? "500px" : isMobile ? "350px" : "400px",
+      maxHeight: isDesktop ? "500px" : isMobile ? "350px" : "400px",
     },
     countdownText: {
-      fontSize: 25,
+      fontSize: isDesktop ? 50 : isMobile ? 30 : 40,
       paddingBottom: "20px",
       fontFamily: 'Syne, sans-serif',
     },
     signedUpText: {
       fontSize: 25,
       fontFamily: 'Syne, sans-serif',
-    }
+    },
+    signUpButton: {
+      minWidth: "400px",
+    },
   };
 
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
@@ -76,6 +86,7 @@ const CountdownPage = () => {
       <CountdownSignupModal 
         open={openModal}
         onClose={handleCloseModal}
+        handleMenuClose={handleMenuClose}
       />
       <div style={styles.container}>
         <img src={Logo} alt="GameSide Logo" style={styles.logo} />
@@ -84,11 +95,12 @@ const CountdownPage = () => {
           renderer={renderer} 
         />
         {store?.user ? (
-          <Typography sx={styles.signedUpText}>Signed up!</Typography> // Corrected the closing tag here
+          <Typography sx={styles.signedUpText}>Signed up!</Typography>
         ) : (
-          <NewPrimaryButton 
+          <NewPrimaryButton
             label="sign up"
-            backgroundColor={constants.primaryRed} // Ensure constants is defined/imported
+            backgroundColor={constants.primaryRed}
+            fullWidth={true}
             onClick={handleOpenModal}
           />
         )}

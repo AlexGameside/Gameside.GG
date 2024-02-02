@@ -46,6 +46,7 @@ import Home from "./views/Home.js";
 import HomeNavBar from "./components/HomeNavBar.js";
 import CountdownPage from "./views/Countdown.js";
 import CountdownSignupModal from "./components/CountdownSignupModal.js";
+import CountdownSupport from "./components/CountdownSupport.js";
 
 const initialStore = {
   mode: "dark",
@@ -184,8 +185,14 @@ function App() {
               <Wrapper />
               <Routes>
                 {/* Countdown */}
-                <Route path="/countdown" element={<CountdownPage />}>
-                  <Route path="signup" element={<CountdownSignupModal />} />
+                <Route path="/countdown" element={<CountdownPage />} />
+                <Route path="/countdown/signup" element={<CountdownSignupModal />} />
+                <Route path="/countdown/support" element={<CountdownSupport />}>
+                  <Route path="rules" element={<NewRules />} />
+                  <Route path="tos" element={<NewTOS />} />
+                  <Route path="privacy-policy" element={<NewPrivacyPolicy />} />
+                  <Route path="contact" element={<NewContactUs />} />
+                  <Route path="faq" element={<NewFAQ />} />
                 </Route>
 
                 {/* Base routes */}

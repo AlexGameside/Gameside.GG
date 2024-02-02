@@ -33,11 +33,11 @@ const CountdownSignupModalContent = (props) => {
 
   // methods
   const showTOS = () => {
-    navigate("/valorant/tos");
+    navigate("/countdown/support/tos");
   };
 
   const showPrivacy = () => {
-    navigate("/valorant/privacypolicy");
+    navigate("/countdown/support/privacy-policy");
   };
 
   const handleRegister = () => {
@@ -185,45 +185,6 @@ const CountdownSignupModalContent = (props) => {
                     gap={{ xs: 0.5 }}
                   >
                   </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-
-            <Grid item sx={{ width: "100%" }}>
-              <DiscordButton label="Sign up with Discord" />
-            </Grid>
-
-            <Grid item sx={{ width: "100%" }}>
-              <TwitchButton label="Sign up with Twitch" />
-            </Grid>
-
-            <Grid item sx={{ width: "100%" }}>
-              <GoogleButton label="Sign up with Google" />
-            </Grid>
-
-            <Grid item sx={{ width: "100%" }}>
-              <Grid
-                container
-                justifyContent="center"
-                alignItems="center"
-                gap={{ xs: 1 }}
-              >
-                <Grid item flexGrow={1}>
-                  <Divider sx={{ backgroundColor: theme.border() }} />
-                </Grid>
-                <Grid item>
-                  <Typography
-                    sx={{
-                      fontSize: 14,
-                      color: theme.text(),
-                      fontWeight: 600,
-                    }}
-                  >
-                    or
-                  </Typography>
-                </Grid>
-                <Grid item flexGrow={1}>
-                  <Divider sx={{ backgroundColor: theme.border() }} />
                 </Grid>
               </Grid>
             </Grid>
