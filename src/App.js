@@ -73,6 +73,9 @@ function App() {
         `,
       },
     },
+    palette: {
+      mode: "dark",
+    }
   });
 
   const [store, storeDispatch] = useReducer(storeReducer, initialStore);

@@ -3,10 +3,16 @@ import { Card, CardMedia, CardContent, Typography } from '@mui/material';
 
 const HomePageGameCard = ({ gameName, posterSrc }) => {
   const cardStyle = {
-    position: 'relative',
-    width:'100%',
+    width: "100%",
     borderRadius: 4,
     boxShadow: "0px 6px 14px -6px rgba(24, 39, 75, 0.12), 0px 10px 32px -4px rgba(24,39,75,0.1)",
+    // height:"1000px",
+    // width: "1000px"
+    minheight:"300px",
+    maxHeight: "450px",
+    minWidth: "300px",
+    maxWidth: "450px",
+    display: "flex"
   };
 
   const footerStyle = {
@@ -25,12 +31,13 @@ const HomePageGameCard = ({ gameName, posterSrc }) => {
         component="img"
         image={posterSrc} // The source URL for the game's poster image
         alt={gameName}
-        sx={{height: '65%', objectFit: 'cover'}}
-      />
-      <CardContent sx={{ flexGrow: 1 }} />
+        sx={{height: '100%', objectFit: 'cover'}}
+      /> 
+      <CardContent >
       <div style={footerStyle}>
         <Typography variant="h6">{gameName}</Typography>
       </div>
+      </CardContent>
     </Card>
   );
 };
