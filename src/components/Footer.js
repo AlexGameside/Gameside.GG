@@ -157,7 +157,7 @@ const Footer = () => {
             <Grid item>
               <Typography
                 sx={styles.supportLinks}
-                onClick={() => navigate("/support/privacy-policy")}
+                onClick={() => navigate("/countdown/support/privacy-policy")} // Remove countdown march 1
               >
                 Privacy Policy
               </Typography>
@@ -170,7 +170,7 @@ const Footer = () => {
             <Grid item>
               <Typography
                 sx={styles.supportLinks}
-                onClick={() => navigate("/support/tos")}
+                onClick={() => navigate("/countdown/support/tos")} // Remove countdown march 1
               >
                 Terms of Service
               </Typography>
@@ -183,7 +183,7 @@ const Footer = () => {
             <Grid item>
               <Typography
                 sx={styles.supportLinks}
-                onClick={() => navigate("/support/contact")}
+                onClick={() => navigate("/countdown/support/contact")} // Remove countdown march 1
               >
                 Contact Us
               </Typography>
