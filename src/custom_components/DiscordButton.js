@@ -11,7 +11,7 @@ const DiscordButton = (props) => {
   const theme = createTheme(store.mode);
 
   const verifyDiscord = () => {
-    window.open(`${constants.serverURL}/api/verifyDiscord`, "_self");
+    window.open(`${constants.serverUrl}/api/verifyDiscord`, "_self");
   };
 
   return (

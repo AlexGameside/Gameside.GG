@@ -17,9 +17,9 @@ const constants = {
   lightGray: "#B9B9B9",
   whiteHoveredLight: "#e0e0e0",
   //
-  //serverURL: "https://tkns-server.herokuapp.com",
-  // serverURL: "https://tkns-staff-beta.herokuapp.com",
-  // serverURL: "http://localhost:8080",
+  //serverUrl: "https://tkns-server.herokuapp.com",
+  // serverUrl: "https://tkns-staff-beta.herokuapp.com",
+  // serverUrl: "http://localhost:8080",
   serverUrl: "https://gamesideserver-d425191deecc.herokuapp.com",
   //clientUrl: "https://tkns.gg",
   // clientUrl: "https://fntokens.gg",
@@ -27,7 +27,7 @@ const constants = {
   clientUrl: "https://gameside.gg",
   // clientUrl: "http://localhost:3000",
   // clientUrl: "https://battlewiseclient.z22.web.core.windows.net/",
-  // serverURL: "https://battlewise-server.herokuapp.com",
+  // serverUrl: "https://battlewise-server.herokuapp.com",
   // new colors
   newBlue: "#40c9ff",
   newOrange: "#ff9100",

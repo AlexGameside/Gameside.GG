@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import socketIOClient from "socket.io-client";
 import constants from "./constants";
 
-const SOCKET_SERVER_URL = constants.serverURL;
+const SOCKET_SERVER_URL = constants.serverUrl;
 
 // events
 const NEW_CHAT_EVENT = "newChatMessage";

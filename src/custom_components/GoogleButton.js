@@ -11,7 +11,7 @@ const GoogleButton = (props) => {
   const theme = createTheme(store.mode);
 
   const verifyGoogle = () => {
-    window.open(`${constants.serverURL}/api/google-signup`, "_self");
+    window.open(`${constants.serverUrl}/api/google-signup`, "_self");
   };
 
   return (

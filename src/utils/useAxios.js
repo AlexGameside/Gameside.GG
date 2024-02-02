@@ -2,7 +2,7 @@ import axios from "axios";
 import createTokenProvider from "./TokenUtils";
 import constants from "./constants";
 
-const baseURL = `${constants.serverURL}/api`;
+const baseURL = `${constants.serverUrl}/api`;
 
 const useAxios = (token = null) => {
   const accessToken = token ?? localStorage.getItem("accessToken");
