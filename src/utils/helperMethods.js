@@ -7,11 +7,11 @@ const getTokenMatchType = (matchType) => {
     case "REAL":
       return "Realistics";
     case "PG":
-      return "PG/Build Fights";
+      return "Build Fights";
     case "RACE":
-      return "Kill Race";
+      return "Unranked Kill Race";
     case "ARENA_RACE":
-      return "Arena Kill Race";
+      return "Ranked Kill Race";
     case "ASCENT":
       return "Ascent";
     case "BIND":
@@ -77,8 +77,8 @@ const getCurrentTokenTitle = (teamSize, matchType) => {
         return "5v5";
     }
   };
-
-  return `${getTokenSize()} ${getTokenMatchType(matchType)}`;
+  const title = `${getTokenSize()} ${getTokenMatchType(matchType)}`;
+  return title;
 };
 
 const getDateForMatch = (id) => {

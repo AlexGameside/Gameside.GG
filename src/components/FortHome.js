@@ -31,7 +31,7 @@ import vetoHomeMobile from "../assets/veto-home-mobile.png";
 import vpHome from "../assets/vp-home.png";
 import vpHomeMobile from "../assets/vp-home-mobile.png";
 import whiteLogo from "../assets/blue-logo.png";
-import backgroundVideo from "../assets/val-vid-background.mp4";
+import backgroundVideo from "../assets/fort-vid-background.mp4";
 import HomeFeatureItem from "./home/HomeFeatureItem.js";
 
 const FortHome = () => {
@@ -51,53 +51,45 @@ const FortHome = () => {
     direction: "horizontal",
   });
   const scrollRef = useRef();
-  const fakeScrims = [
-    { match_type: "BIND", team_size: 5, region: "CENTRAL" },
-    { match_type: "ICEBOX", team_size: 5, region: "NAE" },
-    { match_type: "ASCENT", team_size: 5, region: "NAW", password: "hello" },
-    { match_type: "FRACTURE", team_size: 5, region: "EU" },
-    { match_type: "ASCENT", team_size: 5, region: "NAE" },
-    { match_type: "BREEZE", team_size: 5, region: "OCE", password: "ducks" },
-  ];
   const fakeCashMatches = [
     {
-      match_type: "ICEBOX",
-      team_size: 3,
-      region: "CENTRAL",
-      entry_fee: 1.3,
-      first_to: 13,
-    },
-    {
-      match_type: "ASCENT",
-      team_size: 5,
+      match_type: "BOX",
+      team_size: 1,
       region: "NAE",
       entry_fee: 5.25,
       password: "hello",
       first_to: 9,
     },
     {
-      match_type: "BIND",
-      team_size: 4,
+      match_type: "REAL",
+      team_size: 1,
       region: "NAW",
       entry_fee: 2.5,
       first_to: 13,
     },
     {
-      match_type: "BREEZE",
+      match_type: "PG",
       team_size: 2,
       region: "EU",
       entry_fee: 0.25,
       first_to: 5,
     },
     {
-      match_type: "HAVEN",
-      team_size: 5,
+      match_type: "ZW",
+      team_size: 1,
+      region: "CENTRAL",
+      entry_fee: 1.3,
+      first_to: 13,
+    },
+    {
+      match_type: "ARENA_RACE",
+      team_size: 2,
       region: "NAE",
       entry_fee: 3.5,
       first_to: 13,
     },
     {
-      match_type: "FRACTURE",
+      match_type: "RACE",
       team_size: 3,
       region: "OCE",
       entry_fee: 10,
@@ -107,10 +99,8 @@ const FortHome = () => {
 
   // state
   const [tournamentsLoading, setTournamentsLoading] = useState(true);
-  const [scrimsLoading, setScrimsLoading] = useState(true);
   const [cashMatchesLoading, setCashMatchesLoading] = useState(true);
   const [upcomingTournaments, setUpcomingTournaments] = useState(null);
-  const [scrims, setScrims] = useState(fakeScrims);
   const [cashMatches, setCashMatches] = useState(fakeCashMatches);
 
   // methods
@@ -125,18 +115,6 @@ const FortHome = () => {
         setUpcomingTournaments([]);
         return;
       }
-    });
-  };
-
-  const getScrims = (filters) => {
-    getWagers(filters).then((res) => {
-      if (!res?.error) {
-        setScrimsLoading(false);
-        setScrims(res?.wagers);
-        return;
-      }
-      setScrimsLoading(false);
-      setScrims([]);
     });
   };
 
@@ -177,12 +155,6 @@ const FortHome = () => {
         skip: 0,
         limit: 8,
       });
-    }
-  }, []);
-
-  useEffect(() => {
-    if (scrims == null) {
-      getScrims({ game: "VAL", isScrimMatch: true, teamSize: 5, limit: 8 });
     }
   }, []);
 
@@ -245,7 +217,7 @@ const FortHome = () => {
                   textAlign: "center",
                 }}
               >
-                The home of competitive Valorant.
+                The home of competitive Fortnite.
               </Typography>
             </Grid>
           </Grid>
@@ -365,10 +337,6 @@ const FortHome = () => {
             </Grid>
 
             <Grid item sx={styles.scrollContainer}>
-              <HomeScrimsScroller scrims={scrims} />
-            </Grid>
-
-            <Grid item sx={styles.scrollContainer}>
               <HomeMatchesScroller cashMatches={cashMatches} />
             </Grid>
           </Grid>
@@ -396,7 +364,7 @@ const FortHome = () => {
               title="Tournaments and ladders."
               description="Compete in bracket style tournaments and ladders to take home cash prizes."
               buttonLabel="Find tournaments"
-              image={tournamentHome}
+              image={fortniteBus}
               mobileImage={fortniteBus}
               onClick={() => navigate("/fortnite/tournaments")}
             />

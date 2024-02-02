@@ -183,6 +183,16 @@ function App() {
                 <Route path="/fortnite/cash-matches" element={<NewCashMatches />} />
                 <Route path="/fortnite/tournaments" element={<NewTournaments />} />
                 <Route path="/fortnite/token/:id" element={<RequireAuth><NewMatchPage /></RequireAuth>} />
+                <Route path="/fortnite/profile" element={<RequireAuth><NewProfile /></RequireAuth>}>
+                  <Route path="/fortnite/profile/teams" element={<RequireAuth><NewTeams /></RequireAuth>} />
+                  <Route path="/fortnite/profile/team/:id" element={<RequireAuth><NewTeamProfile /></RequireAuth>} />
+                  <Route path="/fortnite/profile/history" element={<RequireAuth><NewMatchHistory /></RequireAuth>} />
+                  <Route path="/fortnite/profile/wallet" element={<RequireAuth><Wallet /></RequireAuth>} />
+                  <Route path="/fortnite/profile/accounts" element={<RequireAuth><NewConnections /></RequireAuth>} />
+                  <Route path="/fortnite/profile/premium" element={<RequireAuth><Premium /></RequireAuth>} />
+                  <Route path="/fortnite/profile/badges" element={<RequireAuth><MyBadges /></RequireAuth>} />
+                  <Route path="/fortnite/profile/staff-panel" element={<RequireAuth><StaffPanel /></RequireAuth>} />
+                  </Route>
                 {/* Valorant routes */}
                 <Route path="/valorant" element={<ValHome />} />
                 <Route path="/valorant/signup" element={<NewSignupLoginModal />} />

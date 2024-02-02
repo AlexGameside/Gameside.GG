@@ -599,7 +599,7 @@ const FortDrawer = (props) => {
             }}
             onClick={() => {
               if (store?.user) {
-                navigate("/valorant/profile/teams");
+                navigate("/fortnite/profile/teams");
               }
             }}
             onMouseEnter={() => {

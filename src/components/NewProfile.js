@@ -28,6 +28,8 @@ const NewProfile = () => {
   const theme = createTheme(store.mode);
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant");
   const navigate = useNavigate();
   const dispatch = useContext(StoreDispatch);
   const numFormatter = new Intl.NumberFormat("en-US", {
@@ -333,7 +335,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "teams" || selected === "team"}
                     label={"Teams"}
-                    onClick={() => navigate("/valorant/profile/teams")}
+                    onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/teams`)}
                   >
                     <FaUsers
                       style={{
@@ -346,7 +348,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "history"}
                     label={"History"}
-                    onClick={() => navigate("/valorant/profile/history")}
+                    onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/history`)}
                   >
                     <MdHistory
                       style={{
@@ -359,7 +361,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "accounts"}
                     label={"Connections"}
-                    onClick={() => navigate("/valorant/profile/accounts")}
+                    onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/accounts`)}
                   >
                     <GiShare
                       style={{
@@ -372,7 +374,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "wallet"}
                     label={"Transactions"}
-                    onClick={() => navigate("/valorant/profile/wallet")}
+                    onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/wallet`)}
                   >
                     <MdCompareArrows
                       style={{
@@ -385,7 +387,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "premium"}
                     label={"Premium"}
-                    onClick={() => navigate("/valorant/profile/premium")}
+                    onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/premium`)}
                   >
                     <FaCrown
                       style={{
@@ -398,7 +400,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "badges"}
                     label={"My Badges"}
-                    onClick={() => navigate("/valorant/profile/badges")}
+                    onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/badges`)}
                   >
                     <BsPersonBadgeFill
                       style={{
@@ -412,7 +414,7 @@ const NewProfile = () => {
                     <NewListItem
                       selected={selected === "staff-panel"}
                       label={"Staff Panel"}
-                      onClick={() => navigate("/valorant/profile/staff-panel")}
+                      onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/staff-panel`)}
                     >
                       <FaShieldAlt
                         style={{
@@ -476,7 +478,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="Teams"
                   small={true}
-                  onClick={() => navigate("/valorant/profile/teams")}
+                  onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/teams`)}
                 />
               </Grid>
 
@@ -484,7 +486,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="history"
                   small={true}
-                  onClick={() => navigate("/valorant/profile/history")}
+                  onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/history`)}
                 />
               </Grid>
 
@@ -492,7 +494,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="connections"
                   small={true}
-                  onClick={() => navigate("/valorant/profile/accounts")}
+                  onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/accounts`)}
                 />
               </Grid>
 
@@ -500,7 +502,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="transactions"
                   small={true}
-                  onClick={() => navigate("/valorant/profile/wallet")}
+                  onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/wallet`)}
                 />
               </Grid>
 
@@ -508,7 +510,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="premium"
                   small={true}
-                  onClick={() => navigate("/valorant/profile/premium")}
+                  onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/premium`)}
                 />
               </Grid>
 
@@ -517,7 +519,7 @@ const NewProfile = () => {
                   <NewSecondaryButton
                     label="staff"
                     small={true}
-                    onClick={() => navigate("/valorant/profile/staff-panel")}
+                    onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/staff-panel`)}
                   />
                 </Grid>
               )}
