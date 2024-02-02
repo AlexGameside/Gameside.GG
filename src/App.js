@@ -182,6 +182,7 @@ function App() {
                 <Route path="/fortnite/leaderboards" element={<NewLeaderboards />} />
                 <Route path="/fortnite/cash-matches" element={<NewCashMatches />} />
                 <Route path="/fortnite/tournaments" element={<NewTournaments />} />
+                <Route path="/fortnite/tournament/:id" element={<NewBracketTournament />} />
                 <Route path="/fortnite/token/:id" element={<RequireAuth><NewMatchPage /></RequireAuth>} />
                 <Route path="/fortnite/profile" element={<RequireAuth><NewProfile /></RequireAuth>}>
                   <Route path="/fortnite/profile/teams" element={<RequireAuth><NewTeams /></RequireAuth>} />

@@ -324,7 +324,7 @@ const FortHome = () => {
                               tournament={tournament}
                               key={i}
                               onClick={() =>
-                                navigate(`/tournament/${tournament?._id}`)
+                                navigate(`/fortnite/tournament/${tournament?._id}`)
                               }
                             />
                           );

@@ -243,7 +243,7 @@ import {
             <NewListItem
               label="Staff Panel"
               onClick={() => {
-                navigate("/valorant/profile/staff-panel");
+                navigate("/fortnite/profile/staff-panel");
               }}
             >
               <FaShieldAlt

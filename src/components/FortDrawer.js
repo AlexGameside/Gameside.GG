@@ -303,7 +303,7 @@ const FortDrawer = (props) => {
                             },
                           }}
                           onClick={() =>
-                            navigate(`/tournament/${tournament?._id}`)
+                            navigate(`/fortnite/tournament/${tournament?._id}`)
                           }
                         >
                           <Grid
@@ -471,7 +471,7 @@ const FortDrawer = (props) => {
                           onMouseLeave={() => setHoveredTeam(null)}
                           onClick={() => {
                             setSelectedTeam(team);
-                            navigate(`/profile/team/${team?._id}`, {
+                            navigate(`/fortnite/profile/team/${team?._id}`, {
                               state: {
                                 team,
                                 index: i,

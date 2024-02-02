@@ -125,7 +125,7 @@ const NewNavMenu = (props) => {
                   backgroundColor: theme.cardHover(),
                 },
               }}
-              onClick={() => navigate("/profile/teams")}
+              onClick={() => navigate("/valorant/profile/teams")}
             >
               <Grid
                 container
