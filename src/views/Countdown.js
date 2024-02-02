@@ -52,7 +52,7 @@ const CountdownPage = () => {
       maxHeight: isDesktop ? "500px" : isMobile ? "350px" : "400px",
     },
     countdownText: {
-      fontSize: isDesktop ? 50 : isMobile ? 30 : 40,
+      fontSize: isDesktop ? 50 : isMobile ? 25 : 40,
       paddingBottom: "20px",
       fontFamily: 'Syne, sans-serif',
     },
