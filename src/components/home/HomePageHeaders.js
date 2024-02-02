@@ -20,11 +20,11 @@ const HomePageHeaders = () => {
       };
     
     return (
-        <diV>
+        <div>
             <Typography variant="h4" gutterBottom align='left' style={headingStyle}>Find Matchmaking</Typography>
             <Typography variant= "h5" gutterBottom align='left' style={headingStyle}>Play Tournaments </Typography>
             <Typography variant ="subtitle1" gutterBottom align='left' style={subtitleStyle}>Let's play your favorite games!</Typography>
-        </diV>
+        </div>
     );
 };
 

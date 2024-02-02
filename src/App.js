@@ -160,15 +160,8 @@ function App() {
               container
               sx={{
                 display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                minHeight: "100vh",
-                minWidth: "100%",
                 flexDirection: "column",
                 position: "relative",
-                paddingLeft: getPaddingLeft(),
-                paddingRight: getPaddingRight(),
-                paddingTop: getPaddingTop(),
                 paddingBottom: 4,
               }}
             >

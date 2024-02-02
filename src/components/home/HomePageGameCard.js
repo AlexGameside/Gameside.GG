@@ -1,44 +1,46 @@
 import React from 'react';
-import { Card, CardMedia, CardContent, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
+import styled from 'styled-components';
+
+const FooterWrapper = styled.div`
+display: flex;
+flex-direction: row;
+width: 100%;
+background-color: rgba(82, 82, 45, 0.6);
+padding: '8px';
+justify-content: center;
+`;
+
+const CardWrapper = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+border-radius: 16px;
+overflow: hidden;
+height: 100%;
+width: 100%;
+align-items: center;
+`;
+
+const CardImage = styled.div`
+  display: flex;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+`;
 
 const HomePageGameCard = ({ gameName, posterSrc }) => {
-  const cardStyle = {
-    width: "100%",
-    borderRadius: 4,
-    boxShadow: "0px 6px 14px -6px rgba(24, 39, 75, 0.12), 0px 10px 32px -4px rgba(24,39,75,0.1)",
-    // height:"1000px",
-    // width: "1000px"
-    minheight:"300px",
-    maxHeight: "450px",
-    minWidth: "300px",
-    maxWidth: "450px",
-    display: "flex"
-  };
-
-  const footerStyle = {
-    position: 'absolute',
-    bottom: 0,
-    width: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)', // Semi-transparent black
-    color: 'white',
-    padding: '8px', // Adjust padding as needed
-    textAlign: 'center', // Centers the text
-  };
-
   return (
-    <Card sx={cardStyle}>
-      <CardMedia
-        component="img"
-        image={posterSrc} // The source URL for the game's poster image
-        alt={gameName}
-        sx={{height: '100%', objectFit: 'cover'}}
-      /> 
-      <CardContent >
-      <div style={footerStyle}>
-        <Typography variant="h6">{gameName}</Typography>
-      </div>
-      </CardContent>
-    </Card>
+    <CardWrapper>
+    <CardImage style={{backgroundImage: `url(${posterSrc})`, backgroundPosition: 'center', backgroundSize: 'cover'}} alt={gameName}>
+    <FooterWrapper>
+    <Typography variant="h6">{gameName}</Typography>
+    </FooterWrapper>
+    </CardImage>
+    </CardWrapper>
   );
 };
 

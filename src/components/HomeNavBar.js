@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 
 const HomeNavBar = () => {
-  const isDesktop = useMediaQuery("(min-width:1025px)");
   const isMobile = useMediaQuery("(max-width:500px)");
 
   const styles = {
@@ -14,7 +13,7 @@ const HomeNavBar = () => {
       justifyContent: "center",
       alignItems: "center",
       flexDirection: "row",
-      height: isDesktop ? 56 : 50,
+      height: 50,
       width: "100%",
       backgroundColor: "transparent",
     },
