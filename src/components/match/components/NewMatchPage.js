@@ -56,7 +56,7 @@ const NewMatchPage = () => {
   const handleCopyMatchURL = () => {
     if (match?.isTourneyMatch) {
       navigator.clipboard.writeText(
-        `${constants.clientURL}/tournament/${match?.tourneyId}`
+        `${constants.clientUrl}/tournament/${match?.tourneyId}`
       );
       setCopied(true);
       return;
@@ -65,20 +65,20 @@ const NewMatchPage = () => {
     if (match?.state === 0) {
       if (match?.isScrimMatch) {
         navigator.clipboard.writeText(
-          `${constants.clientURL}/scrims?join=${match?.wagerid}`
+          `${constants.clientUrl}/scrims?join=${match?.wagerid}`
         );
         setCopied(true);
         return;
       } else {
         navigator.clipboard.writeText(
-          `${constants.clientURL}/cash-matches?join=${match?.wagerid}`
+          `${constants.clientUrl}/cash-matches?join=${match?.wagerid}`
         );
         setCopied(true);
         return;
       }
     } else {
       navigator.clipboard.writeText(
-        `${constants.clientURL}/token/${match?.wagerid}`
+        `${constants.clientUrl}/token/${match?.wagerid}`
       );
       setCopied(true);
       return;

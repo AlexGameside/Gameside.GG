@@ -269,7 +269,7 @@ const NewNotificationMenu = (props) => {
                 label="View Tournament"
                 loading={acceptLoading}
                 onClick={() => {
-                  window.location.href = `${constants.clientURL}/tournament/${noti?.attached?._id}`;
+                  window.location.href = `${constants.clientUrl}/tournament/${noti?.attached?._id}`;
                   return;
                 }}
               />
@@ -303,7 +303,7 @@ const NewNotificationMenu = (props) => {
                 label="View Match"
                 loading={acceptLoading}
                 onClick={() => {
-                  window.location.href = `${constants.clientURL}/token/${noti?.attached}`;
+                  window.location.href = `${constants.clientUrl}/token/${noti?.attached}`;
                   return;
                 }}
               />

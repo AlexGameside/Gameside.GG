@@ -847,7 +847,7 @@ const NewNavBar = () => {
                 if (params?.id === store?.currentTokenId) {
                   return;
                 }
-                // window.location.href = `${constants.clientURL}/token/${store?.currentTokenId}`;
+                // window.location.href = `${constants.clientUrl}/token/${store?.currentTokenId}`;
                 navigate(`/token/${store?.currentTokenId}`);
               }}
               onMouseEnter={(e) => {

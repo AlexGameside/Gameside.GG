@@ -33,7 +33,7 @@ const NewDepositModal = (props) => {
   const payload = {
     username: "arya",
     amount: depositAmount,
-    redirect: `${constants.clientURL}/profile`,
+    redirect: `${constants.clientUrl}/profile`,
     default: {
       name: store?.user?.username,
     },
