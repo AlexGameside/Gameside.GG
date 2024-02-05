@@ -50,6 +50,7 @@ const MiddleWrapper = styled.div`
   padding: 64px 0;
   align-items: center;
   height: 100%;
+  width: 100%;
   padding-left: 120px;
   padding-right: 120px;
   justify-content: space-between;
@@ -80,6 +81,18 @@ const MiddleCards = styled.div`
   justify-content: flex-start;
   height: 400px;
   width: 100%;
+`;
+
+
+const BottomWrapper = styled.div`
+display: flex;
+flex-direction: row;
+flex: 1;
+padding: 64px 0;
+align-items: center;
+height: 100%;
+padding-left: 120px;
+justify-content: space-between;
 `;
 
 const ScrollView = styled.div`
@@ -136,6 +149,21 @@ const Home = () => {
         </MiddleCards>
         </ScrollView>
         </MiddleWrapper>
+        <BottomWrapper>
+          <ScrollView>
+            <MiddleCards>
+            {games.map((game, index) => (
+            <MiddleCardContainer>
+              <HomePageGameCard key={index} gameName={game.name} posterSrc={game.poster} />
+            </MiddleCardContainer>
+          ))}
+            </MiddleCards>
+            </ScrollView>
+        <MiddleText>
+        <MiddleHeader>{'Tournaments'}</MiddleHeader>
+        <MiddleSubtext>{descriptionTextMatch}</MiddleSubtext>
+          </MiddleText>
+        </BottomWrapper>
     </HomeWrapper>
   );
 };
