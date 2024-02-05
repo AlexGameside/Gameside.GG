@@ -87,14 +87,14 @@ function App() {
 
   // Don't let anyone leave countdown route if they do not have a role less than 2
   const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown";
-  const verify = searchParams.get("verify");
+  const code = searchParams.get("code");
 
   useEffect(() => {
-    const isVerifyingEmail = Boolean(verify);
+    const isVerifyingEmail = Boolean(code);
     const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
   
     if (isVerifyingEmail) {
-      navigate(`/countdown?verify=${verify}`);
+      navigate(`/countdown/verify?code=${code}`);
     } else {
       if (!isCountdown && shouldRedirectToCountdown) {
         navigate("/countdown");
@@ -102,7 +102,7 @@ function App() {
         navigate("/");
       }
     }
-  }, [navigate, isCountdown, store, verify]);
+  }, [navigate, isCountdown, store, code]);
 
   useEffect(() => {
     const path = location?.pathname?.split("/")[1];
