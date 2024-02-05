@@ -13,19 +13,19 @@ const HeaderGamesWrapper = styled.div`
   align-items: flex-start;
   padding-top: 16px;
   width: 100%;
-  height: 285px;
+  height: 428px;
 `;
 
 const GameCardContainer = styled.div`
   height: 100%;
   width: 100%;
-  max-width: 205px;
+  max-width: 308px;
   padding-right: 16px;
 `;
 
 const MiddleCardContainer = styled.div`
   height: 100%;
-  min-width: 310px;
+  min-width: 465px;
   padding-right: 16px;
 `;
 
@@ -44,6 +44,24 @@ const HeaderWrapper = styled.div`
   scroll-snap-align: start;
 `
 
+const JoinDiscordButton = styled.div`
+  width: 183px;
+  height: 48px;
+  padding: 12px 25px;
+  border-radius: 12px;
+  border: 1px solid; // Add your preferred color
+  background-color: #7289da; // Discord brand color, adjust as needed
+  color: white; // Text color, adjust as needed
+  font-size: 16px; // Adjust as needed
+  position: relative;
+  top: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+`
+
 const MiddleWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -53,8 +71,6 @@ const MiddleWrapper = styled.div`
   height: 100%;
   padding-top:120px;
   padding-left: 120px;
-  padding-right: 120px;
-  padding-bottom:120px;
   justify-content: space-between;
   scroll-snap-align: start;
 `;
@@ -82,7 +98,16 @@ const MiddleCards = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  height: 400px;
+  height: 600px;
+  width: 100%;
+`;
+
+
+const EndCards = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 600px;
   width: 100%;
 `;
 
@@ -95,7 +120,7 @@ padding: 64px 0;
 align-items: center;
 height: 100%;
 padding-top:120px;
-padding-left: 120px;
+padding-right:120px;
 justify-content: space-between;
 scroll-snap-align: start;
 `;
@@ -104,8 +129,9 @@ const ScrollView = styled.div`
   overflow-x: scroll;
   display: flex;
   height: 100%;
-  max-width: 400px;
-  flex-shrink: 0; /* Prevent shrinking beyond specified width */
+  max-width: 600px;
+  flex-shrink: 1; /* Prevent shrinking beyond specified width */
+  flex-grow: 1;
   /* Add any other styling as needed */
 `;
 
@@ -126,6 +152,9 @@ const Home = () => {
         <div>
           <HomePageHeaders />
         </div>
+        <JoinDiscordButton as="a" href="https://discord.gg/sbVXAEJC" target="_blank">
+          Join Discord
+        </JoinDiscordButton>
         <HeaderGamesWrapper>
           {games.map((game, index) => (
             <GameCardContainer>
@@ -156,13 +185,13 @@ const Home = () => {
         </MiddleWrapper>
         <BottomWrapper>
           <ScrollView>
-            <MiddleCards>
+            <EndCards>
             {games.map((game, index) => (
             <MiddleCardContainer>
               <HomePageGameCard key={index} gameName={game.name} posterSrc={game.poster} />
             </MiddleCardContainer>
           ))}
-            </MiddleCards>
+            </EndCards>
             </ScrollView>
         <MiddleText>
         <MiddleHeader>{'Tournaments'}</MiddleHeader>
