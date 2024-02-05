@@ -11,7 +11,7 @@ const TwitchButton = (props) => {
   const theme = createTheme(store.mode);
 
   const verifyTwitch = () => {
-    window.open(`${constants.serverURL}/api/twitch-signup`, "_self");
+    window.open(`${constants.serverUrl}/api/twitch-signup`, "_self");
   };
 
   return (

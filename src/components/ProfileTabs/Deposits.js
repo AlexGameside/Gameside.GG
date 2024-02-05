@@ -78,7 +78,7 @@ const Deposits = () => {
   const payload = {
     username: "arya",
     amount: selected < 5 ? 5 : selected,
-    redirect: `${constants.clientURL}/profile`,
+    redirect: `${constants.clientUrl}/profile`,
     default: {
       name: store?.user?.username,
     },

@@ -105,7 +105,7 @@ const StaffPanelDisputes = () => {
                     sx={styles.disputeContainer}
                     key={i}
                     onClick={() =>
-                      openDispute(`${constants.clientURL}/token/${id}`)
+                      openDispute(`${constants.clientUrl}/token/${id}`)
                     }
                   >
                     <Typography sx={styles.disputeText}>{id}</Typography>

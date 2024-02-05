@@ -2,7 +2,7 @@ import axios from "axios";
 import constants from "./constants";
 import useAxios from "./useAxios";
 
-const route = `${constants.serverURL}/api`;
+const route = `${constants.serverUrl}/api`;
 
 export const login = async (username, password) => {
   return await axios({
@@ -1003,7 +1003,7 @@ export const submitTwitch = async (useAxios, code) => {
 
 export const generateTwitterAuth = async () => {
   return await axios
-    .get(`${constants.serverURL}/user/twitter`)
+    .get(`${constants.serverUrl}/user/twitter`)
     .then((res) => res.data)
     .catch((err) => {
       return {

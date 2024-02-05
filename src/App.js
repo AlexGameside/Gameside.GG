@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import Verify from "./components/Verify.js";
 import RequireAuth from "./components/RequireAuth";
 import { Grid, useMediaQuery } from "@mui/material";
@@ -45,6 +45,9 @@ import LinkDiscord from "./components/auth/LinkDiscord";
 import LinkTwitch from "./components/auth/LinkTwitch";
 import Home from "./views/Home.js";
 import HomeNavBar from "./components/HomeNavBar.js";
+import CountdownPage from "./views/Countdown.js";
+import CountdownSignupLoginModal from "./components/CountdownSignupLoginModal.js";
+import CountdownSupport from "./components/CountdownSupport.js";
 
 const initialStore = {
   mode: "dark",
@@ -60,7 +63,9 @@ const initialStore = {
 function App() {
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const isMobile = useMediaQuery("(max-width:500px)");
+  const [searchParams, _] = useSearchParams();
   const location = useLocation();
+  const navigate = useNavigate();
   const theme = createTheme({
     typography: {
       fontFamily: "Inter",
@@ -74,9 +79,31 @@ function App() {
         `,
       },
     },
+    palette: {
+      mode: "dark",
+    },
   });
 
   const [store, storeDispatch] = useReducer(storeReducer, initialStore);
+
+  // Don't let anyone leave countdown route if they do not have a role less than 2
+  const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown";
+  const code = searchParams.get("code");
+
+  useEffect(() => {
+    const isVerifyingEmail = Boolean(code);
+    const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
+  
+    if (isVerifyingEmail) {
+      navigate(`/countdown/verify?code=${code}`);
+    } else {
+      if (!isCountdown && shouldRedirectToCountdown) {
+        navigate("/countdown");
+      } else if (isCountdown && store?.user?.role >= 2) {
+        navigate("/");
+      }
+    }
+  }, [navigate, isCountdown, store, code]);
 
   useEffect(() => {
     const path = location?.pathname?.split("/")[1];
@@ -164,14 +191,26 @@ function App() {
                 minWidth: "100%",
                 flexDirection: "column",
                 position: "relative",
-                paddingLeft: getPaddingLeft(),
-                paddingRight: getPaddingRight(),
-                paddingTop: getPaddingTop(),
+                // paddingLeft: getPaddingLeft(),
+                // paddingRight: getPaddingRight(),
+                // paddingTop: getPaddingTop(),
                 paddingBottom: 4,
               }}
             >
               <Wrapper />
               <Routes>
+                {/* Countdown */}
+                <Route path="/countdown" element={<CountdownPage />} />
+                <Route path="/countdown/signup" element={<CountdownSignupLoginModal />} />
+                <Route path="/countdown/login" element={<CountdownSignupLoginModal />} />
+                <Route path="/countdown/support" element={<CountdownSupport />}>
+                  <Route path="rules" element={<NewRules />} />
+                  <Route path="tos" element={<NewTOS />} />
+                  <Route path="privacy-policy" element={<NewPrivacyPolicy />} />
+                  <Route path="contact" element={<NewContactUs />} />
+                  <Route path="faq" element={<NewFAQ />} />
+                </Route>
+                <Route path="/countdown/verify" element={<Verify />} />
                 {/* Base routes */}
                 <Route path="/" element={<Home />}>
                   <Route path="signup" element={<NewSignupLoginModal />} />

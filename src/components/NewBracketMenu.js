@@ -42,7 +42,7 @@ const NewBracketMenu = (props) => {
           "&:hover": { backgroundColor: theme.skeleton() },
         }}
         onClick={() =>
-          window.open(`${constants.clientURL}/token/${matchId}`, "_blank")
+          window.open(`${constants.clientUrl}/token/${matchId}`, "_blank")
         }
       >
         <Grid
