@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import Verify from "./components/Verify.js";
 import RequireAuth from "./components/RequireAuth";
 import { Grid, useMediaQuery } from "@mui/material";
@@ -62,6 +62,7 @@ const initialStore = {
 function App() {
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const isMobile = useMediaQuery("(max-width:500px)");
+  const [searchParams, _] = useSearchParams();
   const location = useLocation();
   const navigate = useNavigate();
   const theme = createTheme({
@@ -84,16 +85,21 @@ function App() {
 
   const [store, storeDispatch] = useReducer(storeReducer, initialStore);
 
-  // Don't let anyone leave countdown route if they do not have a role of 1
-  const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown"; 
+  // Don't let anyone leave countdown route if they do not have a role less than 2
+  const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown";
+  const verify = searchParams.get("verify");
+
   useEffect(() => {
+    // Determine if the user is attempting to verify their email
+    const isVerifyingEmail = Boolean(verify);
     const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
-    if (!isCountdown && shouldRedirectToCountdown) {
+
+    if (!isCountdown && shouldRedirectToCountdown && !isVerifyingEmail) {
       navigate("/countdown");
-    } else if (store?.user?.role >= 2) {
+    } else if (isCountdown && store?.user?.role >= 2) {
       navigate("/");
     }
-  }, [isCountdown, store]);
+  }, [navigate, isCountdown, store, verify]);
 
   useEffect(() => {
     const path = location?.pathname?.split("/")[1];
