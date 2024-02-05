@@ -32,15 +32,16 @@ const MiddleCardContainer = styled.div`
 const HomeWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
-  justify-content: flex-start;
-  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100vh;
+  scroll-snap-type: y mandatory;
 `;
 
 const HeaderWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  scroll-snap-align: start;
 `
 
 const MiddleWrapper = styled.div`
@@ -50,10 +51,12 @@ const MiddleWrapper = styled.div`
   padding: 64px 0;
   align-items: center;
   height: 100%;
-  width: 100%;
+  padding-top:120px;
   padding-left: 120px;
   padding-right: 120px;
+  padding-bottom:120px;
   justify-content: space-between;
+  scroll-snap-align: start;
 `;
 
 const MiddleText = styled.div`
@@ -68,9 +71,9 @@ const MiddleHeader = styled.div`
 `;
 
 const MiddleSubtext = styled.div`
-        fontFamily: 'Syne, sans-serif';
-        fontSize: 14px;
-        fontWeight: 400;
+        font-family: 'Syne, sans-serif';
+        font-size: 14px;
+        font-weight: 400;
         flex-wrap: wrap;
         max-width: 400px;
 `;
@@ -91,8 +94,10 @@ flex: 1;
 padding: 64px 0;
 align-items: center;
 height: 100%;
+padding-top:120px;
 padding-left: 120px;
 justify-content: space-between;
+scroll-snap-align: start;
 `;
 
 const ScrollView = styled.div`
