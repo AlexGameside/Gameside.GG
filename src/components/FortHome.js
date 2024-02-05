@@ -7,7 +7,7 @@ import createTheme from "../utils/theme.js";
 import { StoreContext } from "../context/NewStoreContext";
 import { useMediaQuery } from "@mui/material";
 import NewNavBar from "./NewNavBar.js";
-import fortniteBus from '../assets/fortnite_bus.png';
+import FortniteBus from '../assets/NewAssets/fortnite_bus.png';
 import { useNavigate } from "react-router-dom";
 import useDraggableScroll from "use-draggable-scroll";
 import SectionHeader from "../custom_components/SectionHeader";
@@ -364,8 +364,8 @@ const FortHome = () => {
               title="Tournaments and ladders."
               description="Compete in bracket style tournaments and ladders to take home cash prizes."
               buttonLabel="Find tournaments"
-              image={fortniteBus}
-              mobileImage={fortniteBus}
+              image={FortniteBus}
+              mobileImage={FortniteBus}
               onClick={() => navigate("/fortnite/tournaments")}
             />
 
