@@ -90,14 +90,19 @@ function App() {
   const verify = searchParams.get("verify");
 
   useEffect(() => {
-    // Determine if the user is attempting to verify their email
     const isVerifyingEmail = Boolean(verify);
     const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
-
-    if (!isCountdown && shouldRedirectToCountdown && !isVerifyingEmail) {
-      navigate("/countdown");
-    } else if (isCountdown && store?.user?.role >= 2) {
-      navigate("/");
+  
+    if (isVerifyingEmail) {
+      if (!isCountdown) {
+        navigate(`/countdown?verify=${verify}`);
+      }
+    } else {
+      if (!isCountdown && shouldRedirectToCountdown) {
+        navigate("/countdown");
+      } else if (isCountdown && store?.user?.role >= 2) {
+        navigate("/");
+      }
     }
   }, [navigate, isCountdown, store, verify]);
 
