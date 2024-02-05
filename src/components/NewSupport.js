@@ -133,31 +133,31 @@ const NewSupport = () => {
                 <MatchTabButton
                   label="Contact Us"
                   selected={selected == "contact"}
-                  onClick={() => navigate("/support/contact")}
+                  onClick={() => navigate("/valorant/support/contact")}
                 />
 
                 <MatchTabButton
                   label="FAQ"
                   selected={selected === "FAQ"}
-                  onClick={() => navigate("/support/FAQ")}
+                  onClick={() => navigate("/valorant/support/FAQ")}
                 />
 
                 <MatchTabButton
                   label="Rules"
                   selected={selected == "rules"}
-                  onClick={() => navigate("/support/rules")}
+                  onClick={() => navigate("/valorant/support/rules")}
                 />
 
                 <MatchTabButton
                   label="Terms of Service"
                   selected={selected == "tos"}
-                  onClick={() => navigate("/support/tos")}
+                  onClick={() => navigate("/valorant/support/tos")}
                 />
 
                 <MatchTabButton
                   label="Privacy Policy"
                   selected={selected == "privacy-policy"}
-                  onClick={() => navigate("/support/privacy-policy")}
+                  onClick={() => navigate("/valorant/support/privacy-policy")}
                 />
               </Grid>
             </Grid>

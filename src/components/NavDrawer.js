@@ -167,7 +167,7 @@ const NavDrawer = (props) => {
               selected={selected === "home"}
               label="Home"
               onClick={() => {
-                navigate("/");
+                navigate("/valorant");
               }}
             >
               <HiHome
@@ -182,7 +182,7 @@ const NavDrawer = (props) => {
               selected={selected === "scrims"}
               label="Scrims"
               onClick={() => {
-                navigate("/scrims");
+                navigate("/valorant/scrims");
               }}
             >
               <FaSkullCrossbones
@@ -197,7 +197,7 @@ const NavDrawer = (props) => {
               selected={selected === "cash"}
               label="Cash Matches"
               onClick={() => {
-                navigate("/cash-matches");
+                navigate("/valorant/cash-matches");
               }}
             >
               <FaPiggyBank
@@ -212,7 +212,7 @@ const NavDrawer = (props) => {
               selected={selected === "tournaments"}
               label="Tournaments"
               onClick={() => {
-                navigate("/tournaments");
+                navigate("/valorant/tournaments");
               }}
             >
               <FaTrophy
@@ -227,7 +227,7 @@ const NavDrawer = (props) => {
               selected={selected === "leaderboard"}
               label="Leaderboard"
               onClick={() => {
-                navigate("/leaderboard");
+                navigate("/valorant/leaderboard");
               }}
             >
               <MdLeaderboard
@@ -242,7 +242,7 @@ const NavDrawer = (props) => {
               selected={selected === "premium"}
               label="Premium"
               onClick={() => {
-                navigate("/premium");
+                navigate("/valorant/premium");
               }}
             >
               <FaCrown
@@ -387,7 +387,7 @@ const NavDrawer = (props) => {
                 if (!store?.user) {
                   setLoginOpen(true);
                 } else {
-                  navigate("/tournaments");
+                  navigate("/valorant/tournaments");
                 }
               }}
             >
@@ -486,7 +486,7 @@ const NavDrawer = (props) => {
                           onMouseLeave={() => setHoveredTeam(null)}
                           onClick={() => {
                             setSelectedTeam(team);
-                            navigate(`/profile/team/${team?._id}`, {
+                            navigate(`/valorant/profile/team/${team?._id}`, {
                               state: {
                                 team,
                                 index: i,
@@ -614,7 +614,7 @@ const NavDrawer = (props) => {
             }}
             onClick={() => {
               if (store?.user) {
-                navigate("/profile/teams");
+                navigate("/valorant/profile/teams");
               }
             }}
             onMouseEnter={() => {

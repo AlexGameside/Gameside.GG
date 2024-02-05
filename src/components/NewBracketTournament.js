@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState, useRef } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import {
   FaWallet,
   FaGlobeAmericas,
@@ -63,6 +63,9 @@ const NewBracketTournament = () => {
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
   const params = useParams();
+  const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant");
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const navigate = useNavigate();
   const ref = useRef(null);
@@ -154,7 +157,7 @@ const NewBracketTournament = () => {
       if (!res?.error) {
         setDeleteLoading(false);
         setSuccess(res?.message);
-        navigate("/tournaments");
+        navigate("/valorant/tournaments");
         return;
       } else {
         setError(res?.message);
@@ -744,7 +747,7 @@ const NewBracketTournament = () => {
       >
         <Grid item>
           <NewOutlineButton
-            onClick={() => navigate("/tournaments")}
+            onClick={() => navigate("/valorant/tournaments")}
             label={"Back to Tournaments"}
           />
         </Grid>
@@ -1264,7 +1267,7 @@ const NewBracketTournament = () => {
                               </Grid>
                             </Grid>
                           </Grid>
-
+                          {isValorant && (
                           <Grid item sx={{ width: "100%" }}>
                             <Grid
                               container
@@ -1281,7 +1284,8 @@ const NewBracketTournament = () => {
                                 />
                               </Grid>
 
-                              <Grid item>
+
+                                <Grid item>
                                 <Typography
                                   sx={{
                                     fontSize: 15,
@@ -1294,7 +1298,7 @@ const NewBracketTournament = () => {
                               </Grid>
                             </Grid>
                           </Grid>
-
+                          )}
                           <Grid item sx={{ width: "100%" }}>
                             <Grid
                               container
@@ -1520,9 +1524,9 @@ const NewBracketTournament = () => {
                         >
                           <Grid item>
                             <SectionHeader label="Rules" />
-                          </Grid>
-
-                          <Grid item>
+                            {isValorant && (
+                            <>
+                            <Grid item>
                             <Typography
                               sx={{
                                 fontSize: 15,
@@ -1606,6 +1610,10 @@ const NewBracketTournament = () => {
                               <br /> the pick/ban system
                             </Typography>
                           </Grid>
+                            </>
+                          )}
+                          </Grid>
+
                         </Grid>
                       </Grid>
 

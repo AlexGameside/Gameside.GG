@@ -16,7 +16,7 @@ const Transactions = (props) => {
 
   useEffect(() => {
     if (!user) {
-      navigate("/profile");
+      navigate("/valorant/profile");
       return;
     }
     getTransactions(api, user?.username).then((res) => {

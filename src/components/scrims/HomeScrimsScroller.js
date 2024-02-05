@@ -38,7 +38,7 @@ const HomeScrimsScroller = (props) => {
             <Grid item>
               <NewOutlineButton
                 label="View All"
-                onClick={() => navigate("/scrims")}
+                onClick={() => navigate("/valorant/scrims")}
               />
             </Grid>
           </Grid>

@@ -47,7 +47,7 @@ const LinkDiscord = () => {
   useEffect(() => {
     if (store?.user && !loading) {
       if (error) {
-        navigate("/profile/accounts", {
+        navigate("/valorant/profile/accounts", {
           state: {
             error,
           },
@@ -57,7 +57,7 @@ const LinkDiscord = () => {
       let newUser = store?.user;
       newUser.connections[10] = discordConnection;
       dispatch({ type: SET_USER, payload: { ...newUser } });
-      navigate("/profile/accounts");
+      navigate("/valorant/profile/accounts");
     }
   }, [store?.user]);
 

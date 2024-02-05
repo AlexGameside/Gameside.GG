@@ -23,7 +23,7 @@ import NewDropdown from "./NewDropdown";
 import { Checkbox } from "semantic-ui-react";
 import useAxios from "../utils/useAxios";
 import { joinWager } from "../utils/API";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import useSocket from "../utils/useSocket";
 
 const NewJoinTokenModal = (props) => {
@@ -34,6 +34,10 @@ const NewJoinTokenModal = (props) => {
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const navigate = useNavigate();
   const api = useAxios();
+  const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant");
+
   const dispatch = useContext(StoreDispatch);
   const { sendJoinEvent, tokenToRemove } = useSocket(token?._id);
   const numFormatter = new Intl.NumberFormat("en-US", {
@@ -86,7 +90,7 @@ const NewJoinTokenModal = (props) => {
           wagerId: token?._id,
         });
         setLoading(false);
-        navigate(`/token/${token?._id}`);
+        navigate(`/token/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}${token?._id}`);
         handleClose();
       } else {
         clearFilters();
@@ -621,7 +625,7 @@ const NewJoinTokenModal = (props) => {
                   <Grid
                     item
                     sx={styles.rulesHover}
-                    onClick={() => navigate("/support/rules")}
+                    onClick={() => navigate("/valorant/support/rules")}
                   >
                     <Typography style={styles.rulesValue}>rules.</Typography>
                   </Grid>

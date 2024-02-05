@@ -106,7 +106,7 @@ const StaffPanelReferrals = () => {
   }, []);
 
   if (store?.user?.role < 500) {
-    navigate("/profile");
+    navigate("/valorant/profile");
     return;
   }
 

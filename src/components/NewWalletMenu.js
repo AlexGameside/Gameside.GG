@@ -117,7 +117,7 @@ const NewWalletMenu = (props) => {
             <Grid
               item
               sx={{ paddingLeft: 2, paddingRight: 2 }}
-              onClick={() => navigate("/profile/wallet")}
+              onClick={() => navigate("/valorant/profile/wallet")}
             >
               <Typography sx={styles.transactions}>
                 View Transactions

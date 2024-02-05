@@ -140,7 +140,7 @@ const NewTokenMatchPlayer = (props) => {
               item
               onClick={() => {
                 if (store?.user?.role >= 100) {
-                  navigate("/profile/staff-panel", {
+                  navigate("/valorant/profile/staff-panel", {
                     state: {
                       route: "panel",
                       user: user,

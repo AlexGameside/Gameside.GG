@@ -10,6 +10,7 @@ import { StoreContext } from "../context/NewStoreContext";
 import createTheme from "../utils/theme";
 import { canCreateTournaments } from "../utils/gatekeeper";
 import NewDropdown from "./NewDropdown";
+import { useLocation } from 'react-router-dom';
 import { getBracketTournaments } from "../utils/API";
 import NewTournamentItem from "./NewTournamentItem";
 import NewCreateBracketTournamentModal from "./NewCreateBracketTournamentModal";
@@ -33,7 +34,10 @@ const NewTournaments = () => {
   ];
 
   // state
-  const [game, _] = useState(null);
+  const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant");
+  const [game, _] = useState(isFortnite ? "FN" : isValorant ? "VAL" : null);
   const [tournamentState, setTournamentState] = useState(0);
   const [tournaments, setTournaments] = useState(null);
   const [openCreateModal, setOpenCreateModal] = useState(false);
@@ -107,7 +111,7 @@ const NewTournaments = () => {
       getTournaments({
         region: null,
         tournamentState: 0,
-        game: null,
+        game: game,
         limit: 8,
         skip,
       });

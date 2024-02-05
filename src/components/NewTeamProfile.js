@@ -36,6 +36,8 @@ const NewTeamProfile = () => {
     currency: "USD",
   });
   const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant");
   const navigate = useNavigate();
   const ref = useRef(null);
   const { onMouseDown } = useDraggableScroll(ref, {
@@ -66,7 +68,7 @@ const NewTeamProfile = () => {
         newUserData.userTeams = [...newTeams];
         dispatch({ type: SET_USER, payload: newUserData });
         setLeaveLoading(false);
-        navigate("/profile/teams");
+        navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}profile/teams`);
         return;
       } else {
         setError(res?.message);
@@ -121,7 +123,7 @@ const NewTeamProfile = () => {
 
   useEffect(() => {
     if (teamToRemove) {
-      navigate("/profile/teams");
+      navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}profile/teams`);
       return;
     }
   }, [teamToRemove]);
@@ -169,7 +171,7 @@ const NewTeamProfile = () => {
       />
       <Grid item>
         <NewOutlineButton
-          onClick={() => navigate("/profile/teams")}
+          onClick={() => navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}profile/teams`)}
           label={"Back to Teams"}
         />
       </Grid>

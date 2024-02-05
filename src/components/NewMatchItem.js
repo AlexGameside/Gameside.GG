@@ -30,7 +30,7 @@ const NewMatchItem = (props) => {
   // methods
   const handleJoinOpen = () => {
     if (home) {
-      navigate("/scrims");
+      navigate("/valorant/scrims");
       return;
     }
 

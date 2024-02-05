@@ -57,7 +57,7 @@ const TwitterRedirect = () => {
 
   useEffect(() => {
     if (!loading) {
-      navigate("/profile/accounts");
+      navigate("/valorant/profile/accounts");
     }
   }, [loading]);
 

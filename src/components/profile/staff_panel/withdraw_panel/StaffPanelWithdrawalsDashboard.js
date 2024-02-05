@@ -121,7 +121,7 @@ const StaffPanelWithdrawalsDashboard = () => {
   }, []);
 
   if (store?.user?.role < 501) {
-    navigate("/profile");
+    navigate("/valorant/profile");
     return;
   }
 

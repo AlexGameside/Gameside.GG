@@ -32,11 +32,11 @@ const NewSignupModalContent = (props) => {
 
   // methods
   const showTOS = () => {
-    navigate("/tos");
+    navigate("/valorant/tos");
   };
 
   const showPrivacy = () => {
-    navigate("/privacypolicy");
+    navigate("/valorant/privacypolicy");
   };
 
   const handleRegister = () => {
