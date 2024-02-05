@@ -307,7 +307,7 @@ const CreateTokenDialog = (props) => {
       if (!res.error) {
         setLoading(false);
         dispatch({ type: SET_CURRENT_WAGER, payload: res.wager });
-        navigate(`/token/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}${res?.wager?._id}`, {
+        navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}token/${res?.wager?._id}`, {
           state: {
             wager: res?.wager?._id,
           },
