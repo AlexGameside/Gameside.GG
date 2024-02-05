@@ -22,7 +22,7 @@ import constants from "../utils/constants";
 import { useContext, useEffect, useState } from "react";
 import useAxios from "../utils/useAxios";
 import { getUserTeams, createWager } from "../utils/API";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Dropdown, Input, Label } from "semantic-ui-react";
 import { useMediaQuery } from "@mui/material";
 
@@ -167,6 +167,10 @@ const CreateTokenDialog = (props) => {
   const [teamMembers, setTeamMembers] = useState([]);
   const [putUpBlue, setPutUpBlue] = useState(null);
   const matches = useMediaQuery("(min-width:900px)");
+  const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant");
+
 
   const handleSelectedTeamChange = (e) => {
     setTeamError(false);
@@ -303,7 +307,7 @@ const CreateTokenDialog = (props) => {
       if (!res.error) {
         setLoading(false);
         dispatch({ type: SET_CURRENT_WAGER, payload: res.wager });
-        navigate(`/token/${res?.wager?._id}`, {
+        navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}token/${res?.wager?._id}`, {
           state: {
             wager: res?.wager?._id,
           },

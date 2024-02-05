@@ -39,7 +39,6 @@ const HomeNavBar = () => {
   const handleMenuClose = () => {
     setMenuAnchor(null);
   };
-
   const styles = {
     navBar: {
       display: "flex",

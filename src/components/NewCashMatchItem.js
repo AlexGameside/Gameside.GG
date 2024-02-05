@@ -12,13 +12,17 @@ import NewSignupLoginModal from "./NewSignupLoginModal";
 import NewTokenPasswordModal from "./NewTokenPasswordModal";
 import NewJoinCashMatchModal from "./NewJoinCashMatchModal";
 import NewPrimaryOutlineButton from "../custom_components/NewPrimaryOutlineButton";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const NewCashMatchItem = (props) => {
   const { match, home = false } = props;
+  console.log(match);
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
   const navigate = useNavigate();
+  const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite");
+  const isValorant = location.pathname.startsWith("/valorant");
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const numFormatter = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -34,7 +38,7 @@ const NewCashMatchItem = (props) => {
   // methods
   const handleJoinOpen = () => {
     if (home) {
-      navigate("/valorant/cash-matches");
+      navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/cash-matches`);
       return;
     }
     if (store?.user) {
