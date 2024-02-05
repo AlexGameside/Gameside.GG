@@ -7,7 +7,7 @@ import { StoreContext } from '../context/NewStoreContext';
 import createTheme from '../utils/theme';
 import NewSignupLoginModal from '../components/NewSignupLoginModal';
 import { useNavigate } from 'react-router-dom';
-import CountdownSignupModal from '../components/CountdownSignupModal';
+import CountdownSignupModal from '../components/CountdownSignupLoginModal';
 import constants from '../utils/constants';
 
 
@@ -59,6 +59,7 @@ const CountdownPage = () => {
     signedUpText: {
       fontSize: 25,
       fontFamily: 'Syne, sans-serif',
+      color: constants.primaryRed,
     },
     signUpButton: {
       minWidth: "400px",
@@ -95,10 +96,10 @@ const CountdownPage = () => {
           renderer={renderer} 
         />
         {store?.user ? (
-          <Typography sx={styles.signedUpText}>Signed up!</Typography>
+          <Typography sx={styles.signedUpText}>Signed up! Come back March 1 or request access to our beta.</Typography>
         ) : (
           <NewPrimaryButton
-            label="sign up"
+            label="sign up / login"
             backgroundColor={constants.primaryRed}
             fullWidth={true}
             onClick={handleOpenModal}

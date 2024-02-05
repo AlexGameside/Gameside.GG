@@ -163,7 +163,7 @@ const CountdownSignupModalContent = (props) => {
           <Grid
             container
             direction="column"
-            alignItems="center"
+            alignItems="flex-start"
             justifyContent="center"
             gap={{ xs: 2 }}
           >
@@ -184,6 +184,27 @@ const CountdownSignupModalContent = (props) => {
                     alignItems="center"
                     gap={{ xs: 0.5 }}
                   >
+                    <Grid item>
+                      <Typography sx={styles.subtitle}>
+                        Already have an account?
+                      </Typography>
+                    </Grid>
+
+                    <Grid
+                      item
+                      sx={{ "&:hover": { cursor: "pointer" } }}
+                      onClick={showLogin}
+                    >
+                      <Typography
+                        sx={{
+                          fontSize: 16,
+                          fontWeight: 600,
+                          color: constants.primaryRed,
+                        }}
+                      >
+                        Login.
+                      </Typography>
+                    </Grid>
                   </Grid>
                 </Grid>
               </Grid>
@@ -377,7 +398,7 @@ const CountdownSignupModalContent = (props) => {
                     style={{
                       fontSize: 12,
                       fontWeight: 600,
-                      color: theme.primary(),
+                      color: constants.primaryRed,
                     }}
                   >
                     terms of service
@@ -401,7 +422,7 @@ const CountdownSignupModalContent = (props) => {
                     style={{
                       fontSize: 12,
                       fontWeight: 600,
-                      color: theme.primary(),
+                      color: constants.primaryRed,
                     }}
                   >
                     privacy policy.

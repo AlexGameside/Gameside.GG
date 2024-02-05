@@ -3,6 +3,7 @@ import { StoreContext } from "../context/NewStoreContext";
 import createTheme from "../utils/theme";
 import styled from "styled-components";
 import { Grid, Typography } from "@mui/material";
+import constants from "../utils/constants";
 
 // styles
 const TknsInput = styled.input`
@@ -100,7 +101,7 @@ const NewInput = (props) => {
       <Grid item sx={{ flexGrow: 1 }}>
         <TknsInput
           border={theme.border()}
-          borderHover={disabled ? theme.border() : theme.primary()}
+          borderHover={disabled ? theme.border() : constants.primaryRed}
           borderRadius={type === "number" ? 0 : 8}
           backgroundColor={"#0d1015"}
           color={disabled ? theme.metaText() : theme.text()}
@@ -151,7 +152,7 @@ const NewInput = (props) => {
   ) : (
     <TknsInput
       border={theme.border()}
-      borderHover={disabled ? theme.border() : theme.primary()}
+      borderHover={disabled ? theme.border() : constants.primaryRed}
       borderRadius={8}
       backgroundColor={disabled ? theme.cardHover() : theme.cardDark()}
       color={disabled ? theme.metaText() : theme.text()}

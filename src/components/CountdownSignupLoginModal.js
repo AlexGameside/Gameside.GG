@@ -13,6 +13,8 @@ import whiteLogo from "../assets/blue-logo.png";
 import NewAlert from "../custom_components/NewAlert";
 import { addRefCodeView } from "../utils/API";
 import CountdownSignupModalContent from "./CountdownSignupModalContent";
+import CountdownLoginModalContent from "./CountdownLoginModalContent";
+import CountdownForgotModalContent from "./CountdownForgotModalContent";
 
 const CountdownSignupModal = (props) => {
   // variables
@@ -189,7 +191,19 @@ const CountdownSignupModal = (props) => {
             </IconButton>
           ) : null}
         </DialogTitle>
-        <CountdownSignupModalContent />
+        {showLogin ? (
+          <CountdownLoginModalContent 
+            showSignup={handleShowSignup}
+            showForgot={handleShowForgot}
+            handleClose={handleClose}
+          />
+        ): null}
+        {showForgot ? (
+          <CountdownForgotModalContent showLogin={handleShowLogin} />
+        ) : null}
+        {showSignup ? (
+          <CountdownSignupModalContent showLogin={handleShowLogin} />
+        ): null}
       </Dialog>
     </>
   );

@@ -45,7 +45,7 @@ import LinkTwitch from "./components/auth/LinkTwitch";
 import Home from "./views/Home.js";
 import HomeNavBar from "./components/HomeNavBar.js";
 import CountdownPage from "./views/Countdown.js";
-import CountdownSignupModal from "./components/CountdownSignupModal.js";
+import CountdownSignupModal from "./components/CountdownSignupLoginModal.js";
 import CountdownSupport from "./components/CountdownSupport.js";
 
 const initialStore = {
@@ -83,12 +83,17 @@ function App() {
   });
 
   const [store, storeDispatch] = useReducer(storeReducer, initialStore);
-  // Don't let anyone leave countdown route
-  const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown";
+
+  // Don't let anyone leave countdown route if they do not have a role of 1
+  const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown"; 
   useEffect(() => {
-    if (!isCountdown)
-      navigate("/countdown")
-  }, [isCountdown]);
+    const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
+    if (!isCountdown && shouldRedirectToCountdown) {
+      navigate("/countdown");
+    } else if (store?.user?.role >= 2) {
+      navigate("/");
+    }
+  }, [isCountdown, store]);
 
   useEffect(() => {
     const path = location?.pathname?.split("/")[1];
@@ -194,6 +199,7 @@ function App() {
                   <Route path="contact" element={<NewContactUs />} />
                   <Route path="faq" element={<NewFAQ />} />
                 </Route>
+                <Route path="/countdown/verify" element={<Verify />} />
 
                 {/* Base routes */}
                 <Route path="/" element={<Home />}>
