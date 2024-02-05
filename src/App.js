@@ -94,9 +94,7 @@ function App() {
     const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
   
     if (isVerifyingEmail) {
-      if (!isCountdown) {
-        navigate(`/countdown?verify=${verify}`);
-      }
+      navigate(`/countdown?verify=${verify}`);
     } else {
       if (!isCountdown && shouldRedirectToCountdown) {
         navigate("/countdown");
