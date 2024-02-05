@@ -45,7 +45,7 @@ import LinkTwitch from "./components/auth/LinkTwitch";
 import Home from "./views/Home.js";
 import HomeNavBar from "./components/HomeNavBar.js";
 import CountdownPage from "./views/Countdown.js";
-import CountdownSignupModal from "./components/CountdownSignupLoginModal.js";
+import CountdownSignupLoginModal from "./components/CountdownSignupLoginModal.js";
 import CountdownSupport from "./components/CountdownSupport.js";
 
 const initialStore = {
@@ -191,7 +191,8 @@ function App() {
               <Routes>
                 {/* Countdown */}
                 <Route path="/countdown" element={<CountdownPage />} />
-                <Route path="/countdown/signup" element={<CountdownSignupModal />} />
+                <Route path="/countdown/signup" element={<CountdownSignupLoginModal />} />
+                <Route path="/countdown/login" element={<CountdownSignupLoginModal />} />
                 <Route path="/countdown/support" element={<CountdownSupport />}>
                   <Route path="rules" element={<NewRules />} />
                   <Route path="tos" element={<NewTOS />} />
