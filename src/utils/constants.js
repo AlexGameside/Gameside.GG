@@ -22,8 +22,8 @@ const constants = {
   //clientURL: "https://tkns.gg",
   // clientURL: "https://fntokens.gg",
   clientURL: "http://localhost:3000",
-  // clientURL: "https://battlewiseclient.z22.web.core.windows.net/",
-  // serverURL: "https://battlewise-server.herokuapp.com",
+  //clientURL: "https://battlewiseclient.z22.web.core.windows.net/",
+ // serverURL: "https://battlewise-server.herokuapp.com",
   // new colors
   newBlue: "#40c9ff",
   newOrange: "#ff9100",
