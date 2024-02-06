@@ -23,6 +23,7 @@ overflow: hidden;
 height: 100%;
 width: 100%;
 align-items: center;
+cursor: pointer;
 `;
 
 const CardImage = styled.div`

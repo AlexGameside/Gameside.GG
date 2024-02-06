@@ -83,19 +83,6 @@ const MiddleText = styled.div`
   flex-direction: column;
 `;
 
-const MiddleHeader = styled.div`
-        font-family: 'Syne, sans-serif';
-        font-size: 80px;
-        font-weight: 700;
-`;
-
-const MiddleSubtext = styled.div`
-        font-family: 'Oxygen, sans-serif';
-        font-size: 14px;
-        font-weight: 400;
-        flex-wrap: wrap;
-        max-width: 400px;
-`;
 
 const MiddleCards = styled.div`
   display: flex;
@@ -103,6 +90,8 @@ const MiddleCards = styled.div`
   justify-content: flex-start;
   height: 600px;
   width: 100%;
+  left-margin: 50px;
+  right-margin: 100px;
 `;
 
 
@@ -206,26 +195,3 @@ const Home = () => {
 };
 
 export default Home;
-
-
-      /* <Grid container spacing={2} sx={{mt: 4}}>
-        <Grid item xs={12} sm={8}>
-          <DescriptionCard title="Matchmaking" description={descriptionTextMatch}/>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-        {games.slice(0, 1).map((game, index) => (
-              <HomePageGameCard key={index} gameName={game.name} posterSrc={game.poster} />
-            ))}
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={2} sx={{ mt: 4}}>
-      {games.slice(1, 2).map((game, index) => (
-              <HomePageGameCard key={index} gameName={game.name} posterSrc={game.poster} />
-            ))}
-        <Grid item xs = {12} sm={8}>
-          <DescriptionCard title="Tournaments" description={descirptionTextTourney} />
-        </Grid>
-        <Grid item xs = {12} sm={4}>
-        </Grid>
-      </Grid> */
