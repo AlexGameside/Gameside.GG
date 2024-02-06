@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import HomePageHeaders from "../components/home/HomePageHeaders.js";
 import HomePageGameCard from '../components/home/HomePageGameCard.js';
 import DescriptionCard from '../components/home/DescriptionCard.js';
@@ -33,7 +33,7 @@ const HomeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  height: 100vh;
+  height: 100%;
   scroll-snap-type: y mandatory;
 `;
 
@@ -106,7 +106,7 @@ const MiddleCards = styled.div`
 const EndCards = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   height: 600px;
   width: 100%;
 `;
@@ -136,11 +136,18 @@ const ScrollView = styled.div`
 `;
 
 const Home = () => {
-
+  const endScrollViewRef = useRef(null);
   const games = [
     {name: 'Fortnite', poster:fortniteLogo},
     {name: 'Valorant', poster: valorantLogo},
   ];
+
+   useEffect(() => {
+    // Set the initial scroll position to the maximum value
+    if (endScrollViewRef.current) {
+      endScrollViewRef.current.scrollLeft = endScrollViewRef.current.scrollWidth;
+    }
+  }, []);
 
   const descriptionTextMatch = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   const descirptionTextTourney = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -184,7 +191,7 @@ const Home = () => {
         </ScrollView>
         </MiddleWrapper>
         <BottomWrapper>
-          <ScrollView>
+          <ScrollView ref={endScrollViewRef}>
             <EndCards>
             {games.map((game, index) => (
             <MiddleCardContainer>
