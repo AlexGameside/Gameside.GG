@@ -9,6 +9,7 @@ const constants = {
   offWhite: "#bdbdbd",
   blue: "#29b6f6",
   blueHovered: "#039be5",
+  primaryRed: "#E72953",
   red: "#f44336",
   redHovered: "#d50000",
   green: "#66bb6a",

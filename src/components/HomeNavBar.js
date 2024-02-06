@@ -45,7 +45,7 @@ const HomeNavBar = () => {
       justifyContent: "center",
       alignItems: "center",
       flexDirection: "row",
-      height: isDesktop ? 56 : 50,
+      height: 50,
       width: "100%",
       backgroundColor: constants.black,
     },
