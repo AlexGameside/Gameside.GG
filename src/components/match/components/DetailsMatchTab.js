@@ -18,6 +18,7 @@ import {
   getRankLabel,
   getTokenMatchType,
 } from "../../../utils/helperMethods";
+import { useLocation } from 'react-router-dom';
 import createTheme from "../../../utils/theme";
 import DetailsMatchItem from "./DetailsMatchItem";
 import useDraggableScroll from "use-draggable-scroll";
@@ -30,6 +31,9 @@ const DetailsMatchTab = (props) => {
     style: "currency",
     currency: "USD",
   });
+  const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant");
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const ref = useRef(null);
   const { onMouseDown } = useDraggableScroll(ref, {
@@ -186,6 +190,8 @@ const DetailsMatchTab = (props) => {
             alignItems="start"
             gap={{ xs: 2 }}
           >
+          {isValorant && (
+            <>
             <Grid item>
               <SectionHeader label="Game Settings" home />
             </Grid>
@@ -204,6 +210,8 @@ const DetailsMatchTab = (props) => {
                 <DetailsMatchItem label={"Agent Switching"} value={"No"} />
               </Grid>
             </Grid>
+            </>
+          )}
           </Grid>
         </Grid>
 
@@ -227,6 +235,8 @@ const DetailsMatchTab = (props) => {
                 alignItems="start"
                 gap={{ xs: 2 }}
               >
+              {isValorant && (
+                <>
                 <Grid item>
                   <Typography sx={styles.rules}>
                     - In First to 7 matches, play 4 rounds and then switch
@@ -263,6 +273,8 @@ const DetailsMatchTab = (props) => {
                     carries on, proven by match history.
                   </Typography>
                 </Grid>
+                </>
+              )}
               </Grid>
             </Grid>
           </Grid>

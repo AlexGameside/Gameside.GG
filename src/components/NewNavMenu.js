@@ -125,7 +125,7 @@ const NewNavMenu = (props) => {
                   backgroundColor: theme.cardHover(),
                 },
               }}
-              onClick={() => navigate("/profile/teams")}
+              onClick={() => navigate("/valorant/profile/teams")}
             >
               <Grid
                 container
@@ -187,7 +187,7 @@ const NewNavMenu = (props) => {
         store?.currentTokenId != null ? (
           <NewListItem
             label="Current Match"
-            onClick={() => navigate(`/token/${store?.currentTokenId}`)}
+            onClick={() => navigate(`/valorant/token/${store?.currentTokenId}`)}
           >
             <BsRecordFill style={{ color: theme.red(), fontSize: 24 }} />
           </NewListItem>

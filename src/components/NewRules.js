@@ -243,7 +243,7 @@ const NewRules = () => {
                       never change the outcome of a match, in extreme scenarios
                       we may penalize users. Do NOT claim a win if your opponent
                       is toxic, report them after the match in our Discord.
-                      (discord.gg/tkns)
+                      (discord.gg/QHMPUC3xk9)
                     </li>
                     <li style={styles.otherText}>
                       If a player's platform or Epic Name is incorrect, the

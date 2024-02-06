@@ -9,7 +9,7 @@ import { Grid, Typography, useMediaQuery } from "@mui/material";
 import { FaUsers } from "react-icons/fa";
 import NewTeamModal from "./NewTeamModal";
 import NewCreateTeamModal from "./NewCreateTeamModal";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { getFullDateForMatch, getTournamentDate } from "../utils/helperMethods";
 import NewPrimaryButton from "../custom_components/NewPrimaryButton";
 import Header from "../custom_components/Header";
@@ -20,6 +20,9 @@ const NewTeams = () => {
   const theme = createTheme(store.mode);
   const dispatch = useContext(StoreDispatch);
   const isDesktop = useMediaQuery("(min-width:1025px)");
+  const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant");
   const isMobile = useMediaQuery("(max-width:500px)");
   const navigate = useNavigate();
 
@@ -179,7 +182,7 @@ const NewTeams = () => {
                     position: "relative",
                   }}
                   onClick={() =>
-                    navigate(`/profile/team/${team?._id}`, {
+                    navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/team/${team?._id}`, {
                       state: {
                         team,
                         index: i,

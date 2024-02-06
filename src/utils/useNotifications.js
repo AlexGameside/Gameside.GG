@@ -30,7 +30,7 @@ const useNotifications = (username) => {
   const socketRef = useRef();
 
   useEffect(() => {
-    socketRef.current = socketIOClient(constants.serverURL, {
+    socketRef.current = socketIOClient(constants.serverUrl, {
       query: { username },
       // transports: ["websocket", "polling"],
     });

@@ -2,7 +2,7 @@ import { Grid } from "@mui/material";
 import NewCashMatchItem from "../NewCashMatchItem";
 import SectionHeader from "../../custom_components/SectionHeader";
 import NewOutlineButton from "../../custom_components/NewOutlineButton";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useRef } from "react";
 import useDraggableScroll from "use-draggable-scroll";
 
@@ -10,6 +10,9 @@ const HomeMatchesScroller = (props) => {
   const { cashMatches } = props;
   const ref = useRef(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant");
   const { onMouseDown } = useDraggableScroll(ref, {
     direction: "horizontal",
   });
@@ -39,7 +42,7 @@ const HomeMatchesScroller = (props) => {
             <Grid item>
               <NewOutlineButton
                 label="View All"
-                onClick={() => navigate("/valorant/cash-matches")}
+                onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/cash-matches`)}
               />
             </Grid>
           </Grid>

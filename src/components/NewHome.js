@@ -30,7 +30,7 @@ import vetoHomeMobile from "../assets/veto-home-mobile.png";
 import vpHome from "../assets/vp-home.png";
 import vpHomeMobile from "../assets/vp-home-mobile.png";
 import whiteLogo from "../assets/blue-logo.png";
-import backgroundVideo from "../assets/val-vid-background.mp4";
+
 import HomeFeatureItem from "./home/HomeFeatureItem.js";
 
 const ValHome = () => {
@@ -279,7 +279,7 @@ const ValHome = () => {
               filter: "blur(3px)",
             }}
           >
-            <source src={backgroundVideo} type="video/mp4" />
+            
           </video>
         </Grid>
 
@@ -351,7 +351,7 @@ const ValHome = () => {
                               tournament={tournament}
                               key={i}
                               onClick={() =>
-                                navigate(`/tournament/${tournament?._id}`)
+                                navigate(`/fortnite/tournament/${tournament?._id}`)
                               }
                             />
                           );

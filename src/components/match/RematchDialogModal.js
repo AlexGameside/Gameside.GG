@@ -32,7 +32,7 @@ const RematchDialogModal = (props) => {
     acceptRematch(api, wager?.tokendata?.wagerid).then((res) => {
       if (!res?.error) {
         setAcceptLoading(false);
-        window.location.href = `${constants.clientURL}/token/${res?.tokenId}`;
+        window.location.href = `${constants.clientUrl}/token/${res?.tokenId}`;
         return;
       }
       setAcceptLoading(false);

@@ -6,6 +6,7 @@ import { FaTiktok, FaTwitter } from "react-icons/fa";
 import { BsDiscord } from "react-icons/bs";
 import blackFullLogo from "../assets/black-half-logo.png";
 import whiteFullLogo from "../assets/tkns-red-logo-word.png";
+import gamesideWhiteWord from "../assets/Gameside_White_Word.png"
 import { useContext } from "react";
 import { StoreContext } from "../context/NewStoreContext";
 
@@ -27,16 +28,12 @@ const Footer = () => {
       backgroundColor: "transparent",
       minHeight: 200,
       borderTop: `1px solid ${theme.border()}`,
-      paddingLeft: store?.drawerOpen
-        ? 50
-        : isDesktop
+      paddingLeft: isDesktop
         ? "15%"
         : isMobile
         ? 2
         : 4,
-      paddingRight: store?.drawerOpen
-        ? 6
-        : isDesktop
+      paddingRight: isDesktop
         ? "15%"
         : isMobile
         ? 2
@@ -83,7 +80,7 @@ const Footer = () => {
           >
             <Grid item onClick={() => navigate("/")}>
               <Img
-                src={tknsLogo}
+                src={gamesideWhiteWord}
                 alt="Logo"
                 sx={{
                   maxWidth: 150,
@@ -108,7 +105,7 @@ const Footer = () => {
                   <Typography
                     sx={styles.icons}
                     onClick={() =>
-                      window.open("https://twitter.com/tknsdotgg", "_blank")
+                      window.open("https://twitter.com/GamesideGG", "_blank")
                     }
                   >
                     <FaTwitter />
@@ -118,7 +115,7 @@ const Footer = () => {
                   <Typography
                     sx={styles.icons}
                     onClick={() =>
-                      window.open("https://discord.gg/tknsgg", "_blank")
+                      window.open("https://discord.gg/QHMPUC3xk9", "_blank")
                     }
                   >
                     <BsDiscord />
@@ -149,7 +146,7 @@ const Footer = () => {
           >
             <Grid item>
               <Typography sx={{ color: theme.text() }}>
-                &copy; 2022 Tkns LLC
+                &copy; 2024 Gameside LLC
               </Typography>
             </Grid>
 
@@ -160,7 +157,7 @@ const Footer = () => {
             <Grid item>
               <Typography
                 sx={styles.supportLinks}
-                onClick={() => navigate("/support/privacy-policy")}
+                onClick={() => navigate("/countdown/support/privacy-policy")} // Remove countdown march 1
               >
                 Privacy Policy
               </Typography>
@@ -173,7 +170,7 @@ const Footer = () => {
             <Grid item>
               <Typography
                 sx={styles.supportLinks}
-                onClick={() => navigate("/support/tos")}
+                onClick={() => navigate("/countdown/support/tos")} // Remove countdown march 1
               >
                 Terms of Service
               </Typography>
@@ -186,7 +183,7 @@ const Footer = () => {
             <Grid item>
               <Typography
                 sx={styles.supportLinks}
-                onClick={() => navigate("/support/contact")}
+                onClick={() => navigate("/countdown/support/contact")} // Remove countdown march 1
               >
                 Contact Us
               </Typography>

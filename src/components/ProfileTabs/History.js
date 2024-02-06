@@ -98,7 +98,7 @@ const History = (props) => {
               const splitId = match?.wager_id?.split("/");
               splitId?.splice(3, 1, "token");
               const matchId = splitId?.join("/")?.split("token/")[1];
-              const url = `${constants.clientURL}/token/${matchId}`;
+              const url = `${constants.clientUrl}/token/${matchId}`;
               return (
                 <Grid item key={i}>
                   <Paper

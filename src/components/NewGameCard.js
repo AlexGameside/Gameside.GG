@@ -3,7 +3,6 @@ import constants from "../utils/constants";
 import valorantLogo from "../assets/valorant-logo.PNG";
 import fortniteLogo from "../assets/fortnite-logo.PNG";
 import fifaLogo from "../assets/fifa-logo.PNG";
-import twoklogo from "../assets/2k-logo.PNG";
 import clashLogo from "../assets/clash-logo.png";
 import fiveMLogo from "../assets/fivem-logo.png";
 import createTheme from "../utils/theme";

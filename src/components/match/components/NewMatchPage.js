@@ -5,7 +5,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { StoreContext } from "../../../context/NewStoreContext";
 import createTheme from "../../../utils/theme";
 import useAxios from "../../../utils/useAxios";
@@ -51,12 +51,15 @@ const NewMatchPage = () => {
   const [showStaffTools, setShowStaffTools] = useState(false);
   const [copied, setCopied] = useState(false);
   const [chatHovered, setChatHovered] = useState(false);
+  const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant");
 
   // methods
   const handleCopyMatchURL = () => {
     if (match?.isTourneyMatch) {
       navigator.clipboard.writeText(
-        `${constants.clientURL}/tournament/${match?.tourneyId}`
+        `${constants.clientURL}/${isValorant ? 'valorant' : isFortnite ? 'fortnite' : null}tournament/${match?.tourneyId}`
       );
       setCopied(true);
       return;
@@ -65,20 +68,20 @@ const NewMatchPage = () => {
     if (match?.state === 0) {
       if (match?.isScrimMatch) {
         navigator.clipboard.writeText(
-          `${constants.clientURL}/scrims?join=${match?.wagerid}`
+          `${constants.clientURL}/valorant/scrims?join=${match?.wagerid}`
         );
         setCopied(true);
         return;
       } else {
         navigator.clipboard.writeText(
-          `${constants.clientURL}/cash-matches?join=${match?.wagerid}`
+          `${constants.clientURL}/${isValorant ? 'valorant' : isFortnite ? 'fortnite' : null}/cash-matches?join=${match?.wagerid}`
         );
         setCopied(true);
         return;
       }
     } else {
       navigator.clipboard.writeText(
-        `${constants.clientURL}/token/${match?.wagerid}`
+        `${constants.clientURL}/${isValorant ? 'valorant' : isFortnite ? 'fortnite' : null}/token/${match?.wagerid}`
       );
       setCopied(true);
       return;

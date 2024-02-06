@@ -11,7 +11,7 @@ const useWagers = (wagerId) => {
   const socketRef = useRef();
 
   useEffect(() => {
-    socketRef.current = socketIOClient(constants.serverURL, {
+    socketRef.current = socketIOClient(constants.serverUrl, {
       query: { wagerId },
       // transports: ["websocket", "polling"],
     });
