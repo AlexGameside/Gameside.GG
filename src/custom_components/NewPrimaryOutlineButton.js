@@ -2,6 +2,7 @@ import { Button, CircularProgress, useMediaQuery } from "@mui/material";
 import { useContext } from "react";
 import { StoreContext } from "../context/NewStoreContext";
 import createTheme from "../utils/theme";
+import constants from "../utils/constants";
 
 const NewPrimaryOutlineButton = (props) => {
   const {
@@ -20,7 +21,7 @@ const NewPrimaryOutlineButton = (props) => {
     button: {
       color: theme.white(),
       border: `2px solid ${
-        complementary ? theme.complementary() : theme.primary()
+        complementary ? theme.complementary() : constants.primaryRed
       }`,
       fontSize: 11,
       fontWeight: 700,
@@ -34,7 +35,7 @@ const NewPrimaryOutlineButton = (props) => {
         color: theme.white(),
         backgroundColor: complementary
           ? theme.complementary()
-          : theme.primary(),
+          : constants.primaryRed,
         boxShadow: "0 0",
       },
     },

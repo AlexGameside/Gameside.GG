@@ -96,17 +96,19 @@ function App() {
   
     if (isVerifyingEmail) {
       navigate(`/countdown/verify?code=${code}`);
-    } else {
-      if (!isCountdown && shouldRedirectToCountdown) {
-        navigate("/countdown");
-      } else if (isCountdown && store?.user?.role >= 2) {
-        navigate("/");
-      }
+      return;
+    }
+  
+    if (shouldRedirectToCountdown && !isCountdown) {
+      navigate("/countdown");
+    } else if (isCountdown && store?.user?.role >= 2) {
+      navigate("/");
     }
   }, [navigate, isCountdown, store, code]);
 
+  const path = location?.pathname?.split("/")[1];
   useEffect(() => {
-    const path = location?.pathname?.split("/")[1];
+    // path = location?.pathname?.split("/")[1];
 
     if (path === "") {
       storeDispatch({ type: SET_IS_HOME_PAGE, payload: true });
@@ -116,26 +118,35 @@ function App() {
   }, [location.pathname]);
 
   const getPaddingTop = () => {
-    if (store?.isHomePage) {
-      return isDesktop ? 7 : 6;
+    if (path === "" || path === "countdown") {
+      return 0;
+    }
+    else if (path === "valorant" || path === "fortnite") {
+      return isDesktop ? 10 : 9;
     } else {
       return isDesktop ? 10 : 8;
     }
   };
 
   const getPaddingLeft = () => {
-    if (store?.isHomePage) {
-      return store?.drawerOpen ? 35 : isDesktop ? 4 : 0;
+    if (path === "" || path === "countdown") {
+      return 0;
+    }
+    else if (path === "valorant" || path === "fortnite") {
+      return store?.drawerOpen ? 40 : isDesktop ? 8 : 4;
     } else {
       return store?.drawerOpen ? 50 : isDesktop ? "15%" : isMobile ? 2 : 4;
     }
   };
 
   const getPaddingRight = () => {
-    if (store?.isHomePage) {
+    if (path === "" || path === "countdown") {
       return 0;
+    }
+    else if (path === "valorant" || path === "fortnite") {
+      return isDesktop ? 6 : 4;
     } else {
-      return store?.drawerOpen ? "10%" : isDesktop ? "15%" : isMobile ? 2 : 4;
+      return store?.drawerOpen ? 50 : isDesktop ? "15%" : isMobile ? 2 : 4;
     }
   };
 
@@ -171,30 +182,36 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Store initialStore={store} dispatch={storeDispatch}>
-            {isGameHomeRoute | (location.pathname === "/valorant" || location.pathname === 'fortnite') ? ( // Conditionally render for "/valorant/" and its child routes
-              <>
-                <NewNavBar />
-                <CreateButton />
-              </>
-            ) : (
-              <>
+            {
+              isGameHomeRoute | (location.pathname === "/valorant" || location.pathname === "/fortnite") ? (
+                <>
+                  <NewNavBar />
+                  <CreateButton />
+                </>
+              ) : 
+              store?.user && store?.user?.role >= 2 ? (
                 <HomeNavBar />
-              </>
-            )}
+              ) : null
+            }
             <Grid
               container
               sx={{
                 display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                minHeight: "100vh",
+                minWidth: "100%",
                 flexDirection: "column",
                 position: "relative",
-                // paddingLeft: getPaddingLeft(),
-                // paddingRight: getPaddingRight(),
-                // paddingTop: getPaddingTop(),
+                paddingLeft: getPaddingLeft(),
+                paddingRight: getPaddingRight(),
+                paddingTop: getPaddingTop(),
                 paddingBottom: 4,
               }}
             >
               <Wrapper />
               <Routes>
+
                 {/* Countdown */}
                 <Route path="/countdown" element={<CountdownPage />} />
                 <Route path="/countdown/signup" element={<CountdownSignupLoginModal />} />
@@ -207,11 +224,14 @@ function App() {
                   <Route path="faq" element={<NewFAQ />} />
                 </Route>
                 <Route path="/countdown/verify" element={<Verify />} />
+
                 {/* Base routes */}
                 <Route path="/" element={<Home />}>
                   <Route path="signup" element={<NewSignupLoginModal />} />
                   <Route path="login" element={<NewSignupLoginModal />} />
                 </Route>
+
+                {/* Fornite Routes */}
                 <Route path="/fortnite" element={<FortHome />} />
                 <Route path="/fortnite/premium" element={<PremiumHome />} />
                 <Route path="/fortnite/leaderboards" element={<NewLeaderboards />} />
@@ -228,7 +248,8 @@ function App() {
                   <Route path="/fortnite/profile/premium" element={<RequireAuth><Premium /></RequireAuth>} />
                   <Route path="/fortnite/profile/badges" element={<RequireAuth><MyBadges /></RequireAuth>} />
                   <Route path="/fortnite/profile/staff-panel" element={<RequireAuth><StaffPanel /></RequireAuth>} />
-                  </Route>
+                </Route>
+
                 {/* Valorant routes */}
                 <Route path="/valorant" element={<ValHome />} />
                 <Route path="/valorant/signup" element={<NewSignupLoginModal />} />

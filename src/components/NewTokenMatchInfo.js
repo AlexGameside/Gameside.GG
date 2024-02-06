@@ -187,7 +187,7 @@ const NewTokenMatchInfo = (props) => {
                           window.open("https://discord.gg/tmftokens", "_blank");
                           return;
                         } else {
-                          window.open("https://discord.gg/tknsgg", "_blank");
+                          window.open("https://discord.gg/QHMPUC3xk9", "_blank");
                           return;
                         }
                       }}

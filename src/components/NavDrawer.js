@@ -165,7 +165,7 @@ const NavDrawer = (props) => {
           <Grid container direction="column" alignItems="start">
             <NewListItem
               selected={selected === "home"}
-              label="Home"
+              label="Valorant Home"
               onClick={() => {
                 navigate("/valorant");
               }}

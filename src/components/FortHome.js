@@ -31,6 +31,7 @@ import vetoHomeMobile from "../assets/veto-home-mobile.png";
 import vpHome from "../assets/vp-home.png";
 import vpHomeMobile from "../assets/vp-home-mobile.png";
 import whiteLogo from "../assets/blue-logo.png";
+import GamesideWhiteLogo from "../assets/Gameside_White_Word_Trimmed.png";
 import backgroundVideo from "../assets/fort-vid-background.mp4";
 import HomeFeatureItem from "./home/HomeFeatureItem.js";
 
@@ -203,7 +204,7 @@ const FortHome = () => {
           >
             <Grid item>
               <img
-                src={whiteLogo}
+                src={GamesideWhiteLogo}
                 style={{ width: isDesktop ? 600 : isMobile ? 200 : 400 }}
               />
             </Grid>

@@ -161,7 +161,7 @@ const WagerChat = (props) => {
         />
       </Paper>
       <Button
-        href="https://discord.gg/tknsgg"
+        href="https://discord.gg/QHMPUC3xk9"
         variant="contained"
         size="large"
         sx={styles.discord}

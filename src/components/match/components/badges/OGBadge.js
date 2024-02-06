@@ -9,7 +9,7 @@ const OGBadge = () => {
   const theme = createTheme(store.mode);
 
   return (
-    <Badge label="TknsGG OG User" color={theme.offWhite()}>
+    <Badge label="Gameside OG User" color={theme.offWhite()}>
       <OGFN size={36} />
     </Badge>
   );

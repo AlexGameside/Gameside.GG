@@ -165,7 +165,7 @@ const FortDrawer = (props) => {
           <Grid container direction="column" alignItems="start">
             <NewListItem
               selected={selected === "home"}
-              label="Home"
+              label="Fortnite Home"
               onClick={() => {
                 navigate("/fortnite");
               }}

@@ -29,6 +29,7 @@ import {
   useSearchParams,
   useLocation,
   useParams,
+  Link,
 } from "react-router-dom";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
@@ -54,6 +55,7 @@ import NewBracketTournamentWinModal from "./NewBracketTournamentWinModal";
 import NewBracketTournamentEarnedModal from "./NewBracketTournamentEarnedModal";
 import ListItem from "../custom_components/ListItem";
 import newLogo from "../assets/tkns-logo.png";
+import GamesideLogoWord from "../assets/Gameside_White_Word_Trimmed.png";
 import CustomIconButton from "../custom_components/CustomIconButton";
 import logo from "../assets/tkns-red-logo-word.png";
 import UserProfileModal from "./user/UserProfileModal";
@@ -494,6 +496,8 @@ const NewNavBar = () => {
     }
   }, [teamToRemove]);
 
+  const baseRoute = location.pathname.split('/')[1];
+
   // styles
   const styles = {
     navBar: {
@@ -512,6 +516,13 @@ const NewNavBar = () => {
         transform: "scale(1.1)",
       },
     },
+    gamesideLogo: {
+      maxWidth: 120,
+      "&:hover": {
+        cursor: "pointer",
+        transform: "scale(1.1)",
+      },
+    },
     linkContainer: {
       transition: "all .2s ease-in-out",
       "&:hover": {
@@ -521,11 +532,10 @@ const NewNavBar = () => {
     },
     link: {
       fontWeight: 600,
-      color: theme.metaText(),
+      color: theme.text(),
       fontSize: 15,
       "&:hover": {
         cursor: "pointer",
-        color: theme.text(),
       },
     },
     login: {
@@ -692,11 +702,11 @@ const NewNavBar = () => {
       <NewNotificationMenu anchor={notiAnchor} handleClose={handleNotiClose} />
 
       {isValorant && (
-      <NewNavMenu anchor={menuAnchor} handleClose={handleMenuClose} />
+        <NewNavMenu anchor={menuAnchor} handleClose={handleMenuClose} />
       )}
 
-        {isFortnite && (
-      <FortMenu anchor={menuAnchor} handleClose={handleMenuClose} />
+      {isFortnite && (
+        <FortMenu anchor={menuAnchor} handleClose={handleMenuClose} />
       )}
 
       <AppBar
@@ -802,52 +812,36 @@ const NewNavBar = () => {
               direction="row"
               justifyContent="center"
               alignItems="center"
-              gap={{ xs: 2 }}
+              gap={{ xs: 5 }}
             >
-              <Grid item sx={{ paddingTop: 1 }}>
+              <Grid item sx={{ ...styles.gamesideLogo, paddingTop: 1 }}>
                 <img
-                  src={whiteLogo}
+                  src={GamesideLogoWord}
                   alt="logo"
-                  style={{
-                    maxWidth: 120,
-                  }}
+                  style={styles.gamesideLogo}
+                  onClick={() => navigate("/")}
                 />
               </Grid>
-
-              {isDesktop ? (
-                <Grid
-                  item
-                  sx={{ position: "relative", width: 300 }}
-                  ref={containerRef}
-                >
-                  <NewInput
-                    placeholder="Search Users"
-                    onChange={(value) => {
-                      setSearch(value);
-                    }}
-                    value={search}
-                    onKeyDown={handleSearch}
-                    disabled={searchLoading}
-                    onBlur={clearSearch}
-                  />
-
-                  {showResults ? (
-                    <div style={{ position: "absolute", top: 50 }}>
-                      <SearchResults
-                        results={searchResults}
-                        loading={searchLoading}
-                        setUserSelected={setUserSelected}
-                        setOpen={setOpenProfile}
-                        open={showResults}
-                        onClose={() => setShowResults(false)}
-                        isProfileOpen={openProfile}
-                        containerRef={containerRef}
-                        search={searchTerm}
-                      />
-                    </div>
-                  ) : null}
-                </Grid>
-              ) : null}
+              {isDesktop && (
+                <>
+                  <Grid item>
+                    <Link to={`/${baseRoute}/cash-matches`} style={styles.link}>Matches</Link>
+                  </Grid>
+                  <Grid item>
+                    <Link to={`/${baseRoute}/tournaments`} style={styles.link}>Tournaments</Link>
+                  </Grid>
+                  {baseRoute !== 'fortnite' && (
+                    <Grid item>
+                      <Link to="fortnite" style={styles.link}>Fortnite</Link>
+                    </Grid>
+                  )}
+                  {baseRoute !== 'valorant' && (
+                    <Grid item>
+                      <Link to="/valorant" style={styles.link}>Valorant</Link>
+                    </Grid>
+                  )}
+                </>
+              )}
             </Grid>
           </Grid>
 
@@ -926,7 +920,7 @@ const NewNavBar = () => {
                   <FaWallet
                     style={{
                       fontSize: 20,
-                      color: walletAnchor ? theme.primary() : theme.text(),
+                      color: walletAnchor ? theme.white() : theme.text(),
                     }}
                   />
                 </NewCustomIconButton>
@@ -942,7 +936,7 @@ const NewNavBar = () => {
                   <MdNotifications
                     style={{
                       fontSize: 24,
-                      color: notiAnchor ? theme.primary() : theme.text(),
+                      color: notiAnchor ? theme.white() : theme.text(),
                     }}
                   />
                 </NewCustomIconButton>
@@ -957,7 +951,7 @@ const NewNavBar = () => {
                 <CgMenuGridR
                   style={{
                     fontSize: 24,
-                    color: isMenuOpen ? theme.primary() : theme.text(),
+                    color: isMenuOpen ? theme.white() : theme.text(),
                   }}
                 />
               </NewCustomIconButton>
@@ -974,7 +968,7 @@ const NewNavBar = () => {
                 onMouseLeave={() => setAvatarHovered(false)}
                 onClick={() => {
                   if (store?.user) {
-                    navigate("/valorant/profile/teams");
+                    navigate(`/${baseRoute}/profile/teams`);
                   }
                 }}
               >
