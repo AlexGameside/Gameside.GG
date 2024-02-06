@@ -1,6 +1,9 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const FooterWrapper = styled.div`
 display: flex;
@@ -33,8 +36,19 @@ const CardImage = styled.div`
 `;
 
 const HomePageGameCard = ({ gameName, posterSrc }) => {
+
+
+  
+const navigate = useNavigate();
+
+const handleGameClick = () => {
+  const gamePath = `/${gameName.toLowerCase()}`;
+  navigate(gamePath)
+}
+
+
   return (
-    <CardWrapper>
+    <CardWrapper onClick={handleGameClick}>
     <CardImage style={{backgroundImage: `url(${posterSrc})`, backgroundPosition: 'center', backgroundSize: 'cover'}} alt={gameName}>
     <FooterWrapper>
     <Typography variant="h6">{gameName}</Typography>

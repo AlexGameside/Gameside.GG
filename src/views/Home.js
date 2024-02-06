@@ -1,11 +1,13 @@
 import React, {useEffect, useRef} from 'react';
 import HomePageHeaders from "../components/home/HomePageHeaders.js";
 import HomePageGameCard from '../components/home/HomePageGameCard.js';
-import DescriptionCard from '../components/home/DescriptionCard.js';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import fortniteLogo from '../assets/fortniteCard.jpg';
 import BackgroundImage from '../assets/homebackground.png'
 import valorantLogo from '../assets/valorantCard.png';
+
+
+
 
 const HeaderGamesWrapper = styled.div`
   display: flex; 
@@ -49,12 +51,13 @@ const JoinDiscordButton = styled.div`
   height: 48px;
   padding: 12px 25px;
   border-radius: 12px;
-  border: 1px solid; // Add your preferred color
-  background-color: #7289da; // Discord brand color, adjust as needed
-  color: white; // Text color, adjust as needed
-  font-size: 16px; // Adjust as needed
+  border: 1px solid; 
+  border-color: #000000;
+  background-color: #7289da;
+  color: white; 
+  font-size: 16px; 
   position: relative;
-  top: 350px;
+  top: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,12 +85,12 @@ const MiddleText = styled.div`
 
 const MiddleHeader = styled.div`
         font-family: 'Syne, sans-serif';
-        font-size: 48px;
+        font-size: 80px;
         font-weight: 700;
 `;
 
 const MiddleSubtext = styled.div`
-        font-family: 'Syne, sans-serif';
+        font-family: 'Oxygen, sans-serif';
         font-size: 14px;
         font-weight: 400;
         flex-wrap: wrap;
@@ -142,6 +145,7 @@ const Home = () => {
     {name: 'Valorant', poster: valorantLogo},
   ];
 
+
    useEffect(() => {
     // Set the initial scroll position to the maximum value
     if (endScrollViewRef.current) {
@@ -149,8 +153,6 @@ const Home = () => {
     }
   }, []);
 
-  const descriptionTextMatch = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  const descirptionTextTourney = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
   return (
     <HomeWrapper>
@@ -164,8 +166,8 @@ const Home = () => {
         </JoinDiscordButton>
         <HeaderGamesWrapper>
           {games.map((game, index) => (
-            <GameCardContainer>
-              <HomePageGameCard key={index} gameName={game.name} posterSrc={game.poster} />
+            <GameCardContainer key={index}>
+              <HomePageGameCard  gameName={game.name} posterSrc={game.poster} />
             </GameCardContainer>
           ))}
         </HeaderGamesWrapper>
@@ -173,18 +175,13 @@ const Home = () => {
         </HeaderWrapper>
         <MiddleWrapper>
         <MiddleText>
-        <MiddleHeader>
-        {'Matchmaking'}
-        </MiddleHeader>
-            <MiddleSubtext>
-              {descriptionTextMatch}
-            </MiddleSubtext>
+        <HomePageHeaders context={'middleWrapper'}></HomePageHeaders>
         </MiddleText>
         <ScrollView>
         <MiddleCards>
         {games.map((game, index) => (
-            <MiddleCardContainer>
-              <HomePageGameCard key={index} gameName={game.name} posterSrc={game.poster} />
+            <MiddleCardContainer key={index}>
+              <HomePageGameCard  gameName={game.name} posterSrc={game.poster} />
             </MiddleCardContainer>
           ))}
         </MiddleCards>
@@ -194,15 +191,14 @@ const Home = () => {
           <ScrollView ref={endScrollViewRef}>
             <EndCards>
             {games.map((game, index) => (
-            <MiddleCardContainer>
-              <HomePageGameCard key={index} gameName={game.name} posterSrc={game.poster} />
+            <MiddleCardContainer key={index}>
+              <HomePageGameCard gameName={game.name} posterSrc={game.poster} />
             </MiddleCardContainer>
           ))}
             </EndCards>
             </ScrollView>
         <MiddleText>
-        <MiddleHeader>{'Tournaments'}</MiddleHeader>
-        <MiddleSubtext>{descriptionTextMatch}</MiddleSubtext>
+        <HomePageHeaders context={'bottomWrapper'}></HomePageHeaders>
           </MiddleText>
         </BottomWrapper>
     </HomeWrapper>
