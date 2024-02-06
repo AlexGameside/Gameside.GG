@@ -172,16 +172,17 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Store initialStore={store} dispatch={storeDispatch}>
-            {isGameHomeRoute | (location.pathname === "/valorant" || location.pathname === 'fortnite') ? ( // Conditionally render for "/valorant/" and its child routes
-              <>
-                <NewNavBar />
-                <CreateButton />
-              </>
-            ) : (
-              <>
+            {
+              isGameHomeRoute | (location.pathname === "/valorant" || location.pathname === "/fortnite") ? (
+                <>
+                  <NewNavBar />
+                  <CreateButton />
+                </>
+              ) : 
+              store?.user ? (
                 <HomeNavBar />
-              </>
-            )}
+              ) : null
+            }
             <Grid
               container
               sx={{

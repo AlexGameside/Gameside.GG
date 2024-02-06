@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { StoreContext } from "../context/NewStoreContext";
 import createTheme from "../utils/theme";
 import { Button } from "@mui/material";
+import constants from "../utils/constants";
 
 const BubbleButton = (props) => {
   // variables
@@ -12,7 +13,7 @@ const BubbleButton = (props) => {
   // styles
   const styles = {
     selected: {
-      backgroundColor: theme.primary(),
+      backgroundColor: constants.primaryRed,
       fontSize: 11,
       fontWeight: 700,
       color: theme.white(),
@@ -21,7 +22,7 @@ const BubbleButton = (props) => {
       borderRadius: 50,
       textTransform: "none",
       "&:hover": {
-        backgroundColor: theme.primary(),
+        backgroundColor: constants.primaryRed,
         cursor: "pointer",
         boxShadow: "0 0",
       },

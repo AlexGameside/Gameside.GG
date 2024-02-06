@@ -29,6 +29,7 @@ import {
   useSearchParams,
   useLocation,
   useParams,
+  Link,
 } from "react-router-dom";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
@@ -54,6 +55,7 @@ import NewBracketTournamentWinModal from "./NewBracketTournamentWinModal";
 import NewBracketTournamentEarnedModal from "./NewBracketTournamentEarnedModal";
 import ListItem from "../custom_components/ListItem";
 import newLogo from "../assets/tkns-logo.png";
+import GamesideLogoWord from "../assets/Gameside_White_Word_Trimmed.png";
 import CustomIconButton from "../custom_components/CustomIconButton";
 import logo from "../assets/tkns-red-logo-word.png";
 import UserProfileModal from "./user/UserProfileModal";
@@ -692,11 +694,11 @@ const NewNavBar = () => {
       <NewNotificationMenu anchor={notiAnchor} handleClose={handleNotiClose} />
 
       {isValorant && (
-      <NewNavMenu anchor={menuAnchor} handleClose={handleMenuClose} />
+        <NewNavMenu anchor={menuAnchor} handleClose={handleMenuClose} />
       )}
 
-        {isFortnite && (
-      <FortMenu anchor={menuAnchor} handleClose={handleMenuClose} />
+      {isFortnite && (
+        <FortMenu anchor={menuAnchor} handleClose={handleMenuClose} />
       )}
 
       <AppBar
@@ -806,48 +808,23 @@ const NewNavBar = () => {
             >
               <Grid item sx={{ paddingTop: 1 }}>
                 <img
-                  src={whiteLogo}
+                  src={GamesideLogoWord}
                   alt="logo"
                   style={{
                     maxWidth: 120,
                   }}
                 />
               </Grid>
-
-              {isDesktop ? (
-                <Grid
-                  item
-                  sx={{ position: "relative", width: 300 }}
-                  ref={containerRef}
-                >
-                  <NewInput
-                    placeholder="Search Users"
-                    onChange={(value) => {
-                      setSearch(value);
-                    }}
-                    value={search}
-                    onKeyDown={handleSearch}
-                    disabled={searchLoading}
-                    onBlur={clearSearch}
-                  />
-
-                  {showResults ? (
-                    <div style={{ position: "absolute", top: 50 }}>
-                      <SearchResults
-                        results={searchResults}
-                        loading={searchLoading}
-                        setUserSelected={setUserSelected}
-                        setOpen={setOpenProfile}
-                        open={showResults}
-                        onClose={() => setShowResults(false)}
-                        isProfileOpen={openProfile}
-                        containerRef={containerRef}
-                        search={searchTerm}
-                      />
-                    </div>
-                  ) : null}
-                </Grid>
-              ) : null}
+              {isDesktop && (
+                <>
+                  <Grid item>
+                    <Link to="/fortnite/cash-matches" style={styles.link}>Matches</Link>
+                  </Grid>
+                  <Grid item>
+                    <Link to="/fortnite/tournaments" style={styles.link}>Tournaments</Link>
+                  </Grid>
+                </>
+              )}
             </Grid>
           </Grid>
 
@@ -942,7 +919,7 @@ const NewNavBar = () => {
                   <MdNotifications
                     style={{
                       fontSize: 24,
-                      color: notiAnchor ? theme.primary() : theme.text(),
+                      color: notiAnchor ? constants.white : theme.text(),
                     }}
                   />
                 </NewCustomIconButton>

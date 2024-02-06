@@ -55,6 +55,7 @@ import NewBracketTournamentWinModal from "./NewBracketTournamentWinModal";
 import NewBracketTournamentEarnedModal from "./NewBracketTournamentEarnedModal";
 import ListItem from "../custom_components/ListItem";
 import newLogo from "../assets/tkns-logo.png";
+import GamesideLogoWord from "../assets/Gameside_White_Word_Trimmed.png";
 import CustomIconButton from "../custom_components/CustomIconButton";
 import logo from "../assets/tkns-red-logo-word.png";
 import UserProfileModal from "./user/UserProfileModal";
@@ -503,7 +504,7 @@ const HomeNavBar = () => {
       alignItems: "center",
       height: isDesktop ? 56 : 50,
       width: "100%",
-      backgroundColor: theme.card(),
+      backgroundColor: "transparent",
       boxShadow: theme.shadow(),
     },
     logo: {
@@ -696,8 +697,8 @@ const HomeNavBar = () => {
       <NewNavMenu anchor={menuAnchor} handleClose={handleMenuClose} />
       )}
 
-        {isFortnite && (
-      <FortMenu anchor={menuAnchor} handleClose={handleMenuClose} />
+      {isFortnite && (
+        <FortMenu anchor={menuAnchor} handleClose={handleMenuClose} />
       )}
 
       <AppBar
@@ -808,7 +809,7 @@ const HomeNavBar = () => {
               {/* will put new logo when alex supplies it */}
               <Grid item sx={{ paddingTop: 1 }}>
                 <img
-                  src={whiteLogo}
+                  src={GamesideLogoWord}
                   alt="logo"
                   style={{
                     maxWidth: 120,
@@ -817,12 +818,11 @@ const HomeNavBar = () => {
               </Grid>
               {isDesktop && (
                 <>
-                  {/* these links will be updated to route to new matches and tournaments pages */}
                   <Grid item>
-                    <Link to="/" style={styles.link}>Matches</Link>
+                    <Link to="/fortnite/cash-matches" style={styles.link}>Matches</Link>
                   </Grid>
                   <Grid item>
-                    <Link to="/" style={styles.link}>Tournaments</Link>
+                    <Link to="/fortnite/tournaments" style={styles.link}>Tournaments</Link>
                   </Grid>
                 </>
               )}
@@ -904,7 +904,7 @@ const HomeNavBar = () => {
                   <FaWallet
                     style={{
                       fontSize: 20,
-                      color: walletAnchor ? theme.primary() : theme.text(),
+                      color: walletAnchor ? constants.white : theme.text(),
                     }}
                   />
                 </NewCustomIconButton>
@@ -920,11 +920,25 @@ const HomeNavBar = () => {
                   <MdNotifications
                     style={{
                       fontSize: 24,
-                      color: notiAnchor ? theme.primary() : theme.text(),
+                      color: notiAnchor ? constants.white : theme.text(),
                     }}
                   />
                 </NewCustomIconButton>
               ) : null}
+
+              <NewCustomIconButton
+                label="Menu"
+                onClick={handleMenuClick}
+                aria-expanded={isMenuOpen ? true : null}
+                selected={isMenuOpen}
+              >
+                <CgMenuGridR
+                  style={{
+                    fontSize: 24,
+                    color: isMenuOpen ? constants.white : theme.text(),
+                  }}
+                />
+              </NewCustomIconButton>
 
               <Grid
                 item

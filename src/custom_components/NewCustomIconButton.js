@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import BadgeHover from "../components/match/components/badges/BadgeHover";
 import { StoreContext } from "../context/NewStoreContext";
 import createTheme from "../utils/theme";
+import constants from "../utils/constants";
 
 const NewCustomIconButton = (props) => {
   const { children, selected, onClick, unreadNotiCount = 0, label } = props;
@@ -18,7 +19,7 @@ const NewCustomIconButton = (props) => {
         height: 40,
         width: 40,
         borderRadius: 50,
-        backgroundColor: selected ? "#3c5f89" : theme.iconBackground(),
+        backgroundColor: selected ? constants.primaryRed : theme.iconBackground(),
         transition: "all .1s ease-in-out",
         "&:hover": {
           cursor: "pointer",

@@ -2,6 +2,7 @@ import { Button, CircularProgress, useMediaQuery, Grid } from "@mui/material";
 import { useContext } from "react";
 import { StoreContext } from "../context/NewStoreContext";
 import createTheme from "../utils/theme";
+import constants from "../utils/constants";
 
 const NewPrimaryButton = (props) => {
   const {
@@ -40,7 +41,7 @@ const NewPrimaryButton = (props) => {
       return backgroundColor;
     }
 
-    return theme.primary();
+    return constants.primaryRed;
   };
 
   const styles = {
