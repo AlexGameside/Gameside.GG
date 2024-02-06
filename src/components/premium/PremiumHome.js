@@ -120,7 +120,7 @@ const PremiumCard = (props) => {
               intent: "CAPTURE",
               purchase_units: [
                 {
-                  description: "TknsGG One Month Premium",
+                  description: "Gameside One Month Premium",
                   amount: {
                     currency_code: "USD",
                     value: 4.99,
@@ -170,7 +170,7 @@ const PremiumCard = (props) => {
               intent: "CAPTURE",
               purchase_units: [
                 {
-                  description: "TknsGG Three Months Premium",
+                  description: "Gameside Three Months Premium",
                   amount: {
                     currency_code: "USD",
                     value: 12.99,
@@ -220,7 +220,7 @@ const PremiumCard = (props) => {
               intent: "CAPTURE",
               purchase_units: [
                 {
-                  description: "TknsGG One Year Premium",
+                  description: "Gameside One Year Premium",
                   amount: {
                     currency_code: "USD",
                     value: 49.99,
@@ -438,7 +438,7 @@ const PremiumHome = () => {
           </Grid>
           <Grid item>
             <Typography sx={styles.subtitle}>
-              Playing Valorant has never been THIS profitable.
+              Playing video games has never been THIS profitable.
             </Typography>
           </Grid>
         </Grid>
@@ -623,7 +623,7 @@ const PremiumHome = () => {
                           color: theme.text(),
                         }}
                       >
-                        What is included with TknsGG Premium?
+                        What is included with Gameside Premium?
                       </Typography>
                     </Grid>
 

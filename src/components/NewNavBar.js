@@ -824,6 +824,16 @@ const NewNavBar = () => {
                   <Grid item>
                     <Link to={`/${baseRoute}/tournaments`} style={styles.link}>Tournaments</Link>
                   </Grid>
+                  {baseRoute !== 'fortnite' && (
+                    <Grid item>
+                      <Link to="fortnite" style={styles.link}>Fortnite</Link>
+                    </Grid>
+                  )}
+                  {baseRoute !== 'valorant' && (
+                    <Grid item>
+                      <Link to="/valorant" style={styles.link}>Valorant</Link>
+                    </Grid>
+                  )}
                 </>
               )}
             </Grid>
@@ -904,7 +914,7 @@ const NewNavBar = () => {
                   <FaWallet
                     style={{
                       fontSize: 20,
-                      color: walletAnchor ? theme.primary() : theme.text(),
+                      color: walletAnchor ? theme.white() : theme.text(),
                     }}
                   />
                 </NewCustomIconButton>
@@ -920,7 +930,7 @@ const NewNavBar = () => {
                   <MdNotifications
                     style={{
                       fontSize: 24,
-                      color: notiAnchor ? constants.white : theme.text(),
+                      color: notiAnchor ? theme.white() : theme.text(),
                     }}
                   />
                 </NewCustomIconButton>
@@ -935,7 +945,7 @@ const NewNavBar = () => {
                 <CgMenuGridR
                   style={{
                     fontSize: 24,
-                    color: isMenuOpen ? theme.primary() : theme.text(),
+                    color: isMenuOpen ? theme.white() : theme.text(),
                   }}
                 />
               </NewCustomIconButton>
@@ -952,7 +962,7 @@ const NewNavBar = () => {
                 onMouseLeave={() => setAvatarHovered(false)}
                 onClick={() => {
                   if (store?.user) {
-                    navigate("/valorant/profile/teams");
+                    navigate(`/${baseRoute}/profile/teams`);
                   }
                 }}
               >

@@ -6,6 +6,7 @@ import NewCreateMenu from "../components/NewCreateMenu";
 import NewSignupLoginModal from "./NewSignupLoginModal";
 import { useMediaQuery } from "@mui/material";
 import BadgeHover from "./match/components/badges/BadgeHover";
+import constants from "../utils/constants";
 
 const CreateButton = () => {
   const store = useContext(StoreContext);
@@ -53,7 +54,7 @@ const CreateButton = () => {
       width: 48,
       bottom: isDesktop ? 20 : 60,
       right: 30,
-      backgroundColor: open ? theme.complementary() : theme.primary(),
+      backgroundColor: open ? theme.complementary() : constants.primaryRed,
       boxShadow: theme.shadow(),
       transition: "all .2s ease-in-out",
       cursor: hovered ? "pointer" : "default",

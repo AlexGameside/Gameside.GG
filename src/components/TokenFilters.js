@@ -181,7 +181,7 @@ const TokenFilters = () => {
               </Grid>
               <Grid item>
                 <Button
-                  href="https://discord.gg/tknsgg"
+                  href="https://discord.gg/QHMPUC3xk9"
                   variant="contained"
                   size="large"
                   sx={styles.discordButton}

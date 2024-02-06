@@ -56,7 +56,7 @@ const NewConnectionCard = (props) => {
 
   // methods
   const handleCopyEpicBotName = () => {
-    navigator.clipboard.writeText("TknsGG");
+    navigator.clipboard.writeText("Gameside");
   };
 
   const handleRefreshEpic = () => {
@@ -465,7 +465,7 @@ const NewConnectionCard = (props) => {
                       style={styles.epicCopy}
                       onClick={handleCopyEpicBotName}
                     >
-                      TknsGG <FaCopy style={styles.epicCopy} />
+                      Gameside <FaCopy style={styles.epicCopy} />
                     </div>
                   </Typography>
                 </Grid>

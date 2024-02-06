@@ -159,7 +159,7 @@ const Epic = (props) => {
   };
 
   const handleCopyBotName = () => {
-    navigator.clipboard.writeText("TknsGG");
+    navigator.clipboard.writeText("Gameside");
   };
 
   const refreshEpic = () => {
@@ -306,7 +306,7 @@ const Epic = (props) => {
                 <Typography sx={styles.steps}>
                   1. On Fortnite, Add{" "}
                   <span style={{ fontWeight: 900 }}>
-                    TknsGG{" "}
+                    Gameside{" "}
                     <IconButton
                       component="span"
                       size="small"

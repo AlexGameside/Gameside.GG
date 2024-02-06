@@ -15,7 +15,7 @@ const BadgeInfoDialog = (props) => {
     switch (badge) {
       case "Not Zero Earned":
         return <NotZeroEarnedBadge size={150} />;
-      case "TknsGG Developer":
+      case "Gameside Developer":
         return <DevBadge size={150} />;
     }
   };

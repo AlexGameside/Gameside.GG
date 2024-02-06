@@ -30,6 +30,8 @@ import vetoHomeMobile from "../assets/veto-home-mobile.png";
 import vpHome from "../assets/vp-home.png";
 import vpHomeMobile from "../assets/vp-home-mobile.png";
 import whiteLogo from "../assets/blue-logo.png";
+import GamesideWhiteLogo from "../assets/Gameside_White_Word_Trimmed.png";
+import backgroundVideo from "../assets/val-vid-background.mp4";
 
 import HomeFeatureItem from "./home/HomeFeatureItem.js";
 
@@ -230,7 +232,7 @@ const ValHome = () => {
           >
             <Grid item>
               <img
-                src={whiteLogo}
+                src={GamesideWhiteLogo}
                 style={{ width: isDesktop ? 600 : isMobile ? 200 : 400 }}
               />
             </Grid>
@@ -279,7 +281,7 @@ const ValHome = () => {
               filter: "blur(3px)",
             }}
           >
-            
+            <source src={backgroundVideo} type="video/mp4" />
           </video>
         </Grid>
 
@@ -419,7 +421,7 @@ const ValHome = () => {
 
             <HomeFeatureItem
               title="Play anything and earn VP."
-              description="With TknsGG Premium, you can earn Valorant Points while playing scrims, cash matches, or tournaments."
+              description="With Gameside Premium, you can earn Valorant Points while playing scrims, cash matches, or tournaments."
               buttonLabel="Learn more"
               image={vpHome}
               mobileImage={vpHomeMobile}

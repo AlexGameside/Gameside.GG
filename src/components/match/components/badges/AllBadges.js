@@ -101,7 +101,7 @@ const AllBadges = () => {
           </Grid>
           <Grid item>
             <Typography sx={styles.subtitle}>
-              All the badges available on TknsGG. Badges are earned through
+              All the badges available on Gameside. Badges are earned through
               website achievements and some can only be received from a staff
               member. We are constantly adding new badges!
             </Typography>

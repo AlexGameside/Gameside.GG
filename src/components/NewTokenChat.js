@@ -475,7 +475,7 @@ const NewTokenChat = (props) => {
                     marginLeft: 1,
                   }}
                   onClick={() =>
-                    window.open("https://discord.gg/tknsgg", "_blank")
+                    window.open("https://discord.gg/QHMPUC3xk9", "_blank")
                   }
                 >
                   <FaDiscord

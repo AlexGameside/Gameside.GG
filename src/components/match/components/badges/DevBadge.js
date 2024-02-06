@@ -9,7 +9,7 @@ const DevBadge = () => {
   const theme = createTheme(store.mode);
 
   return (
-    <Badge label="TknsGG Developer" color={theme.purple()} moveDown={0.5}>
+    <Badge label="Gameside Developer" color={theme.purple()} moveDown={0.5}>
       <FaKeyboard style={{ fontSize: 32, color: theme.text() }} />
     </Badge>
   );

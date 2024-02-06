@@ -125,7 +125,7 @@ import {
                     backgroundColor: theme.cardHover(),
                   },
                 }}
-                onClick={() => navigate("/profile/teams")}
+                onClick={() => navigate("/fortnite/profile/teams")}
               >
                 <Grid
                   container

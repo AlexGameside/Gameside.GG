@@ -28,16 +28,20 @@ const Footer = () => {
       backgroundColor: "transparent",
       minHeight: 200,
       borderTop: `1px solid ${theme.border()}`,
-      paddingLeft: isDesktop
-        ? "15%"
-        : isMobile
-        ? 2
-        : 4,
-      paddingRight: isDesktop
-        ? "15%"
-        : isMobile
-        ? 2
-        : 4,
+      paddingLeft: store?.drawerOpen
+        ? 40
+        : isDesktop
+          ? "15%"
+          : isMobile
+            ? 2
+            : 4,
+      paddingRight: store?.drawerOpen
+        ? 10
+        : isDesktop
+          ? "15%"
+          : isMobile
+          ? 2
+          : 4,
       paddingBottom: isDesktop ? 0 : 6,
       paddingTop: 0,
     },

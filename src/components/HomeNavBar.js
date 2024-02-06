@@ -926,7 +926,7 @@ const HomeNavBar = () => {
                 </NewCustomIconButton>
               ) : null}
 
-              <NewCustomIconButton
+              {/* <NewCustomIconButton
                 label="Menu"
                 onClick={handleMenuClick}
                 aria-expanded={isMenuOpen ? true : null}
@@ -938,7 +938,7 @@ const HomeNavBar = () => {
                     color: isMenuOpen ? constants.white : theme.text(),
                   }}
                 />
-              </NewCustomIconButton>
+              </NewCustomIconButton> */}
 
               <Grid
                 item
@@ -952,7 +952,7 @@ const HomeNavBar = () => {
                 onMouseLeave={() => setAvatarHovered(false)}
                 onClick={() => {
                   if (store?.user) {
-                    navigate("/valorant/profile/teams");
+                    navigate("/fortnite/profile/teams");
                   }
                 }}
               >

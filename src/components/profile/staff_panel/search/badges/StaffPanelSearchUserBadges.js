@@ -133,8 +133,8 @@ const StaffPanelSearchUserBadges = (props) => {
                   giveOrRemoveBadge(
                     "isDev",
                     !isDev,
-                    "TknsGG Developer",
-                    "Achieved by being a developer for TknsGG."
+                    "Gameside Developer",
+                    "Achieved by being a developer for Gameside."
                   )
                 }
               />
