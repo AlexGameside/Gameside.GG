@@ -496,6 +496,8 @@ const NewNavBar = () => {
     }
   }, [teamToRemove]);
 
+  const baseRoute = location.pathname.split('/')[1];
+
   // styles
   const styles = {
     navBar: {
@@ -523,11 +525,10 @@ const NewNavBar = () => {
     },
     link: {
       fontWeight: 600,
-      color: theme.metaText(),
+      color: theme.text(),
       fontSize: 15,
       "&:hover": {
         cursor: "pointer",
-        color: theme.text(),
       },
     },
     login: {
@@ -804,7 +805,7 @@ const NewNavBar = () => {
               direction="row"
               justifyContent="center"
               alignItems="center"
-              gap={{ xs: 2 }}
+              gap={{ xs: 5 }}
             >
               <Grid item sx={{ paddingTop: 1 }}>
                 <img
@@ -818,10 +819,10 @@ const NewNavBar = () => {
               {isDesktop && (
                 <>
                   <Grid item>
-                    <Link to="/fortnite/cash-matches" style={styles.link}>Matches</Link>
+                    <Link to={`/${baseRoute}/cash-matches`} style={styles.link}>Matches</Link>
                   </Grid>
                   <Grid item>
-                    <Link to="/fortnite/tournaments" style={styles.link}>Tournaments</Link>
+                    <Link to={`/${baseRoute}/tournaments`} style={styles.link}>Tournaments</Link>
                   </Grid>
                 </>
               )}

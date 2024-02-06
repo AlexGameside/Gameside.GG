@@ -179,7 +179,7 @@ function App() {
                   <CreateButton />
                 </>
               ) : 
-              store?.user ? (
+              store?.user && store?.user?.role >= 2 ? (
                 <HomeNavBar />
               ) : null
             }
