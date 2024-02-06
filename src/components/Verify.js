@@ -29,7 +29,7 @@ const Verify = () => {
     if (!loading) {
       if (error) {
         navigate({
-          pathname: "/",
+          pathname: "/countdown",
           search: `?verify=false`,
         });
         return;
@@ -37,7 +37,7 @@ const Verify = () => {
 
       if (success) {
         navigate({
-          pathname: "/",
+          pathname: "/countdown",
           search: `?verify=true`,
         });
         return;

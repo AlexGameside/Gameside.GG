@@ -19,7 +19,7 @@ const NewTournamentMenu = (props) => {
   // methods
   const handleCopyTournamentURL = () => {
     navigator.clipboard.writeText(
-      `${constants.clientURL}/tournament/${tournamentId}`
+      `${constants.clientUrl}/tournament/${tournamentId}`
     );
     setCopied(true);
   };
@@ -81,7 +81,7 @@ const NewTournamentMenu = (props) => {
       <MenuItem
         sx={{ "&:hover": { backgroundColor: theme.skeleton() } }}
         onClick={() =>
-          (window.location.href = `${constants.clientURL}/tournament/${tournamentId}`)
+          (window.location.href = `${constants.clientUrl}/tournament/${tournamentId}`)
         }
       >
         <Grid

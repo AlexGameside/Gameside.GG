@@ -486,7 +486,7 @@ const NavDrawer = (props) => {
                           onMouseLeave={() => setHoveredTeam(null)}
                           onClick={() => {
                             setSelectedTeam(team);
-                            navigate(`/profile/team/${team?._id}`, {
+                            navigate(`/valorant/profile/team/${team?._id}`, {
                               state: {
                                 team,
                                 index: i,

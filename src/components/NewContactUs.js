@@ -100,7 +100,7 @@ const NewContactUs = () => {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Typography sx={styles.email}>support@tkns.gg</Typography>
+                  <Typography sx={styles.email}>management@gameside.gg</Typography>
                 </Grid>
               </Grid>
             </Grid>
@@ -141,10 +141,10 @@ const NewContactUs = () => {
                   item
                   sx={styles.discordContainer}
                   onClick={() =>
-                    window.open("https://discord.gg/tknsgg", "_blank")
+                    window.open("https://discord.gg/QHMPUC3xk9", "_blank")
                   }
                 >
-                  <Typography sx={styles.discord}>Tkns.GG</Typography>
+                  <Typography sx={styles.discord}>Gameside.GG</Typography>
                 </Grid>
               </Grid>
             </Grid>

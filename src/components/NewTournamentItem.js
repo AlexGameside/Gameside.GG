@@ -14,6 +14,7 @@ import {
 import Countdown from "react-countdown";
 import { BsThreeDots } from "react-icons/bs";
 import NewTournamentMenu from "./NewTournamentMenu";
+import { useLocation } from 'react-router-dom';
 import constants from "../utils/constants";
 import defaultThumbnail from "../assets/default-tournament.png";
 import { useNavigate } from "react-router-dom";
@@ -25,6 +26,9 @@ const NewTournamentItem = (props) => {
   const theme = createTheme(store.mode);
   const navigate = useNavigate();
   const isDesktop = useMediaQuery("(min-width:1025px)");
+  const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant");
   const isMobile = useMediaQuery("(max-width:500px)");
   const Img = styled("img")``;
   const numFormatter = new Intl.NumberFormat("en-US", {
@@ -112,7 +116,7 @@ const NewTournamentItem = (props) => {
         if (isMenuOpen) {
           return;
         }
-        navigate(`/tournament/${tournament?._id}`);
+        navigate(`/${isFortnite ? 'fortnite/' : isValorant ? 'valorant/' : null}tournament/${tournament?._id}`);
       }}
     >
       <NewTournamentMenu

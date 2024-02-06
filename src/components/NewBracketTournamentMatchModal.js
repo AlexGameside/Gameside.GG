@@ -162,7 +162,7 @@ const NewBracketTournamentMatchModal = (props) => {
                 <NewPrimaryButton
                   label="join match"
                   onClick={() =>
-                    (window.location.href = `${constants.clientURL}/token/${tokenId}`)
+                    (window.location.href = `${constants.clientUrl}/token/${tokenId}`)
                   }
                 />
               </Grid>

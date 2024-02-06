@@ -121,7 +121,7 @@ const NewFAQ = () => {
                     Can I deposit with Paypal?
                   </Typography>
                   <Typography sx={styles.text}>
-                    Currently on TknsGG, we do not offer Paypal deposits.
+                    Currently on Gameside, we do not offer Paypal deposits.
                   </Typography>
                 </Grid>
               </Grid>
@@ -140,10 +140,10 @@ const NewFAQ = () => {
                 </Grid>
                 <Grid item>
                   <Typography sx={styles.games}>
-                    How old do I need to be to compete on Tkns.GG?
+                    How old do I need to be to compete on Gameside?
                   </Typography>
                   <Typography sx={styles.text}>
-                    You can freely compete on TknsGG if you are above the age of
+                    You can freely compete on Gameside if you are above the age of
                     18. If you are not 18, you can compete above the age of 13
                     in the US and 16 in EU with parental consent.
                   </Typography>
@@ -230,7 +230,7 @@ const NewFAQ = () => {
                     Am I allowed to have multiple accounts?
                   </Typography>
                   <Typography sx={styles.text}>
-                    On TknsGG we do not allow a player to have multiple
+                    On Gameside we do not allow a player to have multiple
                     accounts.
                   </Typography>
                 </Grid>

@@ -74,7 +74,7 @@ const TeamModal = (props) => {
   // variables
   const api = useAxios();
   const socket = useRef(
-    io(constants.serverURL, {
+    io(constants.serverUrl, {
       username: user?.username,
     })
   );

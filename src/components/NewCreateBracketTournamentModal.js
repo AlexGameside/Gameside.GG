@@ -25,6 +25,7 @@ import {
 import BubbleButton from "../custom_components/BubbleButton";
 import { createBracketTournament } from "../utils/API";
 import FileBase64 from "react-file-base64";
+import { useLocation } from 'react-router-dom';
 import { styled } from "@mui/material/styles";
 import NewSecondaryButton from "../custom_components/NewSecondaryButton";
 import NewPrimaryButton from "../custom_components/NewPrimaryButton";
@@ -50,8 +51,11 @@ const NewCreateBracketTournamentModal = (props) => {
   const [success, setSuccess] = useState(null);
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1);
+  const location = useLocation();
+  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isValorant = location.pathname.startsWith("/valorant");
 
-  const [game, setGame] = useState("VAL");
+  const [game, setGame] = useState(isFortnite ? "FN" : isValorant ? "VAL" : null);
   const [region, setRegion] = useState(null);
   const [matchType, setMatchType] = useState("VOTE");
   const [teamSize, setTeamSize] = useState(null);

@@ -12,7 +12,7 @@ const useEpic = (username) => {
   const socketRef = useRef();
 
   useEffect(() => {
-    socketRef.current = socketIOClient(constants.serverURL, {
+    socketRef.current = socketIOClient(constants.serverUrl, {
       query: { username },
     });
 

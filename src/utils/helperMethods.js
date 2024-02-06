@@ -7,11 +7,11 @@ const getTokenMatchType = (matchType) => {
     case "REAL":
       return "Realistics";
     case "PG":
-      return "PG/Build Fights";
+      return "Build Fights";
     case "RACE":
-      return "Kill Race";
+      return "Unranked Kill Race";
     case "ARENA_RACE":
-      return "Arena Kill Race";
+      return "Ranked Kill Race";
     case "ASCENT":
       return "Ascent";
     case "BIND":
@@ -77,8 +77,8 @@ const getCurrentTokenTitle = (teamSize, matchType) => {
         return "5v5";
     }
   };
-
-  return `${getTokenSize()} ${getTokenMatchType(matchType)}`;
+  const title = `${getTokenSize()} ${getTokenMatchType(matchType)}`;
+  return title;
 };
 
 const getDateForMatch = (id) => {
@@ -325,9 +325,9 @@ const fortMatchOptions = [
   { title: "Zone Wars", value: "ZW" },
   { title: "Box Fights", value: "BOX" },
   { title: "Realistics", value: "REAL" },
-  { title: "PG/Build Fight", value: "PG" },
-  { title: "Arena Kill Race", value: "ARENA_RACE" },
-  { title: "Kill Race", value: "RACE" },
+  { title: "Build Fight", value: "PG" },
+  { title: "Ranked Kill Race", value: "ARENA_RACE" },
+  { title: "Unranked Kill Race", value: "RACE" },
 ];
 const ValMatchOptions = [
   { title: "None", value: null },

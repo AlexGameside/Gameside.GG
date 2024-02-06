@@ -14,7 +14,7 @@ const useActiveTokenSocket = () => {
   const [tokenToRemove, setTokenToRemove] = useState(null);
 
   useEffect(() => {
-    socketRef.current = socketIOClient(constants.serverURL);
+    socketRef.current = socketIOClient(constants.serverUrl);
 
     socketRef.current.on(NEW_ACTIVE_TOKEN, (newToken) => {
       setSocketTokens((oldTokens) => [...oldTokens, newToken]);
