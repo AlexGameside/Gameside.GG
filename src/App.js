@@ -96,12 +96,13 @@ function App() {
   
     if (isVerifyingEmail) {
       navigate(`/countdown/verify?code=${code}`);
-    } else {
-      if (!isCountdown && shouldRedirectToCountdown) {
-        navigate("/countdown");
-      } else if (isCountdown && store?.user?.role >= 2) {
-        navigate("/");
-      }
+      return;
+    }
+  
+    if (shouldRedirectToCountdown && !isCountdown) {
+      navigate("/countdown");
+    } else if (isCountdown && store?.user?.role >= 2) {
+      navigate("/");
     }
   }, [navigate, isCountdown, store, code]);
 
