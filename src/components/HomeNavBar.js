@@ -504,12 +504,19 @@ const HomeNavBar = () => {
       alignItems: "center",
       height: isDesktop ? 56 : 50,
       width: "100%",
-      backgroundColor: "transparent",
+      backgroundColor: theme.cardDark(),
       boxShadow: theme.shadow(),
     },
     logo: {
       transition: "all .3s ease-in-out",
       maxWidth: 30,
+      "&:hover": {
+        cursor: "pointer",
+        transform: "scale(1.1)",
+      },
+    },
+    gamesideLogo: {
+      maxWidth: 120,
       "&:hover": {
         cursor: "pointer",
         transform: "scale(1.1)",
@@ -806,14 +813,12 @@ const HomeNavBar = () => {
               alignItems="center"
               gap={{ xs: 5 }}
             >
-              {/* will put new logo when alex supplies it */}
-              <Grid item sx={{ paddingTop: 1 }}>
+              <Grid item sx={{ ...styles.gamesideLogo, paddingTop: 1 }}>
                 <img
                   src={GamesideLogoWord}
                   alt="logo"
-                  style={{
-                    maxWidth: 120,
-                  }}
+                  style={styles.gamesideLogo}
+                  onClick={() => navigate("/")}
                 />
               </Grid>
               {isDesktop && (

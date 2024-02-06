@@ -43,8 +43,6 @@ const CountdownPage = () => {
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
-      height: "100vh",
-      widht: "100vh",
       padding: "20px",
     },
     logo: {

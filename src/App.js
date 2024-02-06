@@ -129,7 +129,7 @@ function App() {
   };
 
   const getPaddingLeft = () => {
-    if (path === "/" || path === "countdown") {
+    if (path === "" || path === "countdown") {
       return 0;
     }
     else if (path === "valorant" || path === "fortnite") {
@@ -140,7 +140,7 @@ function App() {
   };
 
   const getPaddingRight = () => {
-    if (path === "/" || path === "countdown") {
+    if (path === "" || path === "countdown") {
       return 0;
     }
     else if (path === "valorant" || path === "fortnite") {
@@ -197,6 +197,10 @@ function App() {
               container
               sx={{
                 display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                minHeight: "100vh",
+                minWidth: "100%",
                 flexDirection: "column",
                 position: "relative",
                 paddingLeft: getPaddingLeft(),

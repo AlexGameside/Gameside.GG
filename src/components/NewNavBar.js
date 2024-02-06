@@ -516,6 +516,13 @@ const NewNavBar = () => {
         transform: "scale(1.1)",
       },
     },
+    gamesideLogo: {
+      maxWidth: 120,
+      "&:hover": {
+        cursor: "pointer",
+        transform: "scale(1.1)",
+      },
+    },
     linkContainer: {
       transition: "all .2s ease-in-out",
       "&:hover": {
@@ -807,13 +814,12 @@ const NewNavBar = () => {
               alignItems="center"
               gap={{ xs: 5 }}
             >
-              <Grid item sx={{ paddingTop: 1 }}>
+              <Grid item sx={{ ...styles.gamesideLogo, paddingTop: 1 }}>
                 <img
                   src={GamesideLogoWord}
                   alt="logo"
-                  style={{
-                    maxWidth: 120,
-                  }}
+                  style={styles.gamesideLogo}
+                  onClick={() => navigate("/")}
                 />
               </Grid>
               {isDesktop && (
