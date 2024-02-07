@@ -36,7 +36,7 @@ const HomeMatchesScroller = (props) => {
         <Grid item sx={{ width: "100%" }}>
           <Grid container justifyContent="space-between" alignItems="center">
             <Grid item>
-              <SectionHeader label="Find Cash Matches" home />
+              <SectionHeader label="Cash Matches" home />
             </Grid>
 
             <Grid item>
