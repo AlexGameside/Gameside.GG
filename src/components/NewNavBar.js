@@ -976,13 +976,13 @@ const NewNavBar = () => {
                   <BadgeHover label={"Profile"} />
                 ) : null}
 
-                {store.user && isDesktop ? (
+                {store.user ? (
                   <Avatar
                     style={{ width: 43, height: 43 }}
                     avatarStyle="Circle"
                     {...store?.user?.avatar[0]}
                   />
-                ) : loading && isDesktop ? (
+                ) : loading ? (
                   <Grid item sx={styles.iconsContainer}>
                     <Skeleton
                       variant="circular"
