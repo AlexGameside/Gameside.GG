@@ -12,6 +12,7 @@ import { BiLogOut } from "react-icons/bi";
 import { BsGearFill, BsPersonBadgeFill, BsRecordFill } from "react-icons/bs";
 import {
   FaCrown,
+  FaGamepad,
   FaPiggyBank,
   FaShieldAlt,
   FaSkullCrossbones,
@@ -193,7 +194,7 @@ const NewNavMenu = (props) => {
           </NewListItem>
         ) : null}
 
-        <NewListItem label="Home" onClick={() => navigate("/")}>
+        <NewListItem label="Home" onClick={() => navigate("/valorant")}>
           <HiHome style={{ color: theme.text(), fontSize: 24 }} />
         </NewListItem>
 
@@ -252,6 +253,20 @@ const NewNavMenu = (props) => {
             }}
           />
         </NewListItem>
+
+        <NewListItem
+            label="Fortnite"
+            onClick={() => {
+              navigate("/fortnite");
+            }}
+          >
+            <FaGamepad
+              style={{
+                color: theme.text(),
+                fontSize: 24,
+              }}
+            />
+          </NewListItem>
 
         {!store?.user || store?.user?.role < 100 ? null : (
           <NewListItem

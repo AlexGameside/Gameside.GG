@@ -1,6 +1,6 @@
 import createTheme from "../utils/theme";
 import { Grid, Typography, AppBar, useMediaQuery } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import { FaTiktok, FaTwitter } from "react-icons/fa";
 import { BsDiscord } from "react-icons/bs";
@@ -14,11 +14,35 @@ const Footer = () => {
   // variables
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
+  const location = useLocation();
   const tknsLogo = store.mode === "dark" ? whiteFullLogo : blackFullLogo;
   const navigate = useNavigate();
   const Img = styled("img")``;
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const isMobile = useMediaQuery("(max-width:500px)");
+
+  const path = location?.pathname?.split("/")[1];
+  const getPaddingLeft = () => {
+    if (path === "" || path === "countdown") {
+      return 2;
+    }
+    else if (path === "valorant" || path === "fortnite") {
+      return store?.drawerOpen ? 40 : isDesktop ? 8 : 4;
+    } else {
+      return store?.drawerOpen ? 50 : isDesktop ? "15%" : isMobile ? 2 : 4;
+    }
+  };
+
+  const getPaddingRight = () => {
+    if (path === "" || path === "countdown") {
+      return 2;
+    }
+    else if (path === "valorant" || path === "fortnite") {
+      return isDesktop ? 6 : 4;
+    } else {
+      return store?.drawerOpen ? 10 : isDesktop ? "15%" : isMobile ? 2 : 4;
+    }
+  };
 
   // styles
   const styles = {
@@ -28,20 +52,8 @@ const Footer = () => {
       backgroundColor: "transparent",
       minHeight: 200,
       borderTop: `1px solid ${theme.border()}`,
-      paddingLeft: store?.drawerOpen
-        ? 40
-        : isDesktop
-          ? "15%"
-          : isMobile
-            ? 2
-            : 4,
-      paddingRight: store?.drawerOpen
-        ? 10
-        : isDesktop
-          ? "15%"
-          : isMobile
-          ? 2
-          : 4,
+      paddingLeft: getPaddingLeft(),
+      paddingRight: getPaddingRight(),
       paddingBottom: isDesktop ? 0 : 6,
       paddingTop: 0,
     },

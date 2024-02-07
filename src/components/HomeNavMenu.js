@@ -1,6 +1,5 @@
 import {
     Menu,
-    MenuItem,
     Typography,
     Divider,
     useMediaQuery,
@@ -9,18 +8,12 @@ import {
   import Avatar from "avataaars";
   import { useContext, useState } from "react";
   import { BiLogOut } from "react-icons/bi";
-  import { BsGearFill, BsPersonBadgeFill, BsRecordFill } from "react-icons/bs";
+  import { BsPersonBadgeFill, BsRecordFill } from "react-icons/bs";
   import {
     FaCrown,
     FaGamepad,
-    FaPiggyBank,
     FaShieldAlt,
-    FaSkullCrossbones,
-    FaTrophy,
-    FaUser,
   } from "react-icons/fa";
-  import { GiPoliceBadge } from "react-icons/gi";
-  import { HiHome } from "react-icons/hi";
   import { MdContactSupport, MdLeaderboard } from "react-icons/md";
   import { useNavigate } from "react-router-dom";
   import {
@@ -29,13 +22,12 @@ import {
     SET_USER,
   } from "../context/NewStoreContext";
   import NewListItem from "../custom_components/NewListItem";
-  import NewPrimaryButton from "../custom_components/NewPrimaryButton";
   import { logout } from "../utils/API";
   import createAuthProvider from "../utils/AuthProvider";
   import createTheme from "../utils/theme";
   import NewSignupLoginModal from "./NewSignupLoginModal";
   
-  const FortMenu = (props) => {
+  const HomeNavMenu = (props) => {
     // variables
     const { anchor, handleClose } = props;
     const store = useContext(StoreContext);
@@ -193,46 +185,14 @@ import {
               <BsRecordFill style={{ color: theme.red(), fontSize: 24 }} />
             </NewListItem>
           ) : null}
-  
-          <NewListItem label="Home" onClick={() => navigate("/fortnite")}>
-            <HiHome style={{ color: theme.text(), fontSize: 24 }} />
-          </NewListItem>
 
           <NewListItem
-            label="Cash Matches"
+            label="Fortnite"
             onClick={() => {
-              navigate("/fortnite/cash-matches");
+              navigate("/fortnite");
             }}
           >
-            <FaPiggyBank
-              style={{
-                color: theme.text(),
-                fontSize: 24,
-              }}
-            />
-          </NewListItem>
-  
-          <NewListItem
-            label="Tournaments"
-            onClick={() => {
-              navigate("/fortnite/tournaments");
-            }}
-          >
-            <FaTrophy
-              style={{
-                color: theme.text(),
-                fontSize: 24,
-              }}
-            />
-          </NewListItem>
-  
-          <NewListItem
-            label="Leaderboard"
-            onClick={() => {
-              navigate("/fortnite/leaderboard");
-            }}
-          >
-            <MdLeaderboard
+            <FaGamepad
               style={{
                 color: theme.text(),
                 fontSize: 24,
@@ -306,7 +266,7 @@ import {
           <NewListItem
             label="Support"
             onClick={() => {
-              navigate("/valorant/support");
+              navigate("/fortnite/support");
             }}
           >
             <MdContactSupport
@@ -471,5 +431,5 @@ import {
     );
   };
   
-  export default FortMenu;
+  export default HomeNavMenu;
   

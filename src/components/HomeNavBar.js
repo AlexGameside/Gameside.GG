@@ -87,6 +87,7 @@ import SearchResults from "./search/SearchResults";
 import whiteLogo from "../assets/blue-logo.png";
 import BadgeHover from "./match/components/badges/BadgeHover";
 import CountdownSignupLoginModal from "./CountdownSignupLoginModal";
+import HomeNavMenu from "./HomeNavMenu";
 
 const HomeNavBar = () => {
   // variables
@@ -120,6 +121,8 @@ const HomeNavBar = () => {
     currency: "USD",
   });
   const location = useLocation();
+  const path = location?.pathname?.split("/")[1];
+  const isHome = Boolean(path === "");
   const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
   const isValorant = location.pathname.startsWith("/valorant");
 
@@ -700,8 +703,12 @@ const HomeNavBar = () => {
 
       <NewNotificationMenu anchor={notiAnchor} handleClose={handleNotiClose} />
 
+      {isHome && (
+        <HomeNavMenu anchor={menuAnchor} handleClose={handleMenuClose} />
+      )}
+
       {isValorant && (
-      <NewNavMenu anchor={menuAnchor} handleClose={handleMenuClose} />
+        <NewNavMenu anchor={menuAnchor} handleClose={handleMenuClose} />
       )}
 
       {isFortnite && (
@@ -931,7 +938,7 @@ const HomeNavBar = () => {
                 </NewCustomIconButton>
               ) : null}
 
-              {/* <NewCustomIconButton
+              <NewCustomIconButton
                 label="Menu"
                 onClick={handleMenuClick}
                 aria-expanded={isMenuOpen ? true : null}
@@ -943,7 +950,7 @@ const HomeNavBar = () => {
                     color: isMenuOpen ? constants.white : theme.text(),
                   }}
                 />
-              </NewCustomIconButton> */}
+              </NewCustomIconButton>
 
               <Grid
                 item
@@ -965,13 +972,13 @@ const HomeNavBar = () => {
                   <BadgeHover label={"Profile"} />
                 ) : null}
 
-                {store.user && isDesktop ? (
+                {store.user ? (
                   <Avatar
                     style={{ width: 43, height: 43 }}
                     avatarStyle="Circle"
                     {...store?.user?.avatar[0]}
                   />
-                ) : loading && isDesktop ? (
+                ) : loading ? (
                   <Grid item sx={styles.iconsContainer}>
                     <Skeleton
                       variant="circular"

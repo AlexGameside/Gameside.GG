@@ -71,7 +71,7 @@ const MatchToolsDialog = (props) => {
       userToPunish,
       store?.user?.username,
       punPoints,
-      `https://tkns.gg/token/${currentWagerStatus?.wagerid}`
+      `https://www.gameside.gg/token/${currentWagerStatus?.wagerid}`
     ).then((res) => {
       if (!res.error) {
         setSuccess(`${userToPunish} punished!`);

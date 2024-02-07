@@ -108,8 +108,6 @@ function App() {
 
   const path = location?.pathname?.split("/")[1];
   useEffect(() => {
-    // path = location?.pathname?.split("/")[1];
-
     if (path === "") {
       storeDispatch({ type: SET_IS_HOME_PAGE, payload: true });
     } else {
