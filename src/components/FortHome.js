@@ -8,6 +8,9 @@ import { StoreContext } from "../context/NewStoreContext";
 import { useMediaQuery } from "@mui/material";
 import NewNavBar from "./NewNavBar.js";
 import FortniteBus from '../assets/NewAssets/fortnite_bus.png';
+import FortniteBusMobile from '../assets/NewAssets/fortnite_bus_mobile.png';
+import FortniteCash from '../assets/NewAssets/fortnite_cash.png'
+import FortniteCashMobile from '../assets/NewAssets/fortnite_cash_mobile.png'
 import { useNavigate } from "react-router-dom";
 import useDraggableScroll from "use-draggable-scroll";
 import SectionHeader from "../custom_components/SectionHeader";
@@ -356,8 +359,8 @@ const FortHome = () => {
               title="Cash matches."
               description="Compete in wager style matches to start earning today."
               buttonLabel="Find cash matches"
-              image={cashMatchesHome}
-              mobileImage={cashMatchesHomeMobile}
+              image={FortniteCash}
+              mobileImage={FortniteCashMobile}
               onClick={() => navigate("/fortnite/cash-matches")}
             />
 
@@ -366,7 +369,7 @@ const FortHome = () => {
               description="Compete in bracket style tournaments and ladders to take home cash prizes."
               buttonLabel="Find tournaments"
               image={FortniteBus}
-              mobileImage={FortniteBus}
+              mobileImage={FortniteBusMobile}
               onClick={() => navigate("/fortnite/tournaments")}
             />
 
