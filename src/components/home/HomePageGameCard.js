@@ -9,7 +9,7 @@ const FooterWrapper = styled.div`
 display: flex;
 flex-direction: row;
 width: 100%;
-background-color: rgba(82, 82, 45, 0.6);
+background-color: rgba(82, 82, 90, 0.6);
 padding: '8px';
 justify-content: center;
 `;

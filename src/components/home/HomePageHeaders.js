@@ -1,21 +1,23 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Typography, useMediaQuery } from '@mui/material';
 
 
 
 
 const HomePageHeaders = ({context}) => {
 
+  const isMobile = useMediaQuery("(max-width:500px)");
+
     const headingStyle = {
         fontFamily: 'Syne, sans-serif',
-        fontSize: '80px',
+        fontSize: isMobile ? '18px' : '64px',
         fontWeight: 700,
       };
     
       // Inline styles for the subtitle
       const subtitleStyle = {
         fontFamily: 'Oxygen, sans-serif',
-        fontSize: '40px',
+        fontSize: isMobile ? '12px' : '18px',
         fontWeight: 400,
       };
 
