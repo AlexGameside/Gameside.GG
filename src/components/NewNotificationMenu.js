@@ -136,7 +136,7 @@ const NewNotificationMenu = (props) => {
         setLoading(false);
         setAcceptLoading(false);
         handleReadNoti(notification);
-        window.location.href = `https://tkns.gg/token/${res?.tokenId}`;
+        window.location.href = `https://www.gameside.gg/token/${res?.tokenId}`;
         return;
       }
       setAcceptLoading(false);

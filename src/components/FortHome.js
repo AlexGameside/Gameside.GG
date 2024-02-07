@@ -253,7 +253,7 @@ const FortHome = () => {
               filter: "blur(3px)",
             }}
           >
-            <source src={backgroundVideo} type="video/mp4" />
+            {isDesktop && <source src={backgroundVideo} type="video/mp4" />}
           </video>
         </Grid>
 

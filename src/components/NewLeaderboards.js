@@ -114,7 +114,7 @@ const NewLeaderboards = () => {
             </Grid>
             <Grid item>
               <Typography sx={styles.subtitle}>
-                Top 100 highest earners on Tkns.GG.
+                Top 100 highest earners on Gameside.
               </Typography>
             </Grid>
           </Grid>

@@ -61,7 +61,7 @@ const NewModTokenToolsModal = (props) => {
       userToPunish,
       store?.user?.username,
       punPoints,
-      `https://tkns.gg/token/${token?.wagerid}`
+      `https://www.gameside.gg/token/${token?.wagerid}`
     ).then((res) => {
       if (!res.error) {
         setError(null);
