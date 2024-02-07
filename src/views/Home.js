@@ -165,7 +165,7 @@ const Home = () => {
         </MiddleWrapper>
         <BottomWrapper isMobile={isMobile}>
           <EndScrollView isMobile={isMobile} ref={endScrollViewRef}>
-            <EndCards>
+            <EndCards isMobile={isMobile}>
             {games.map((game, index) => (
             <MiddleCardContainer isMobile={isMobile} key={index}>
               <HomePageGameCard gameName={game.name} posterSrc={game.poster} />
