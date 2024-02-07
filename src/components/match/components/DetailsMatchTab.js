@@ -275,6 +275,51 @@ const DetailsMatchTab = (props) => {
                 </Grid>
                 </>
               )}
+              {isFortnite && (
+                <>
+                <Grid item>
+                  <Typography sx={styles.rules}>
+                    - In First to 7 matches, play 4 rounds and then switch
+                    <br />
+                    attackers and defenders. In First to 9 matches, play 5<br />
+                    rounds and then switch. (Only applies to 2v2, 3v3 game
+                    modes).
+                  </Typography>
+                </Grid>
+
+                <Grid item>
+                  <Typography sx={styles.rules}>
+                  Box Fight
+Join the map with your opponent using this Map: 7620-0771-9529 (Clix Box fights)
+The pump should be a purple pump.
+The chosen host is Team 1, the other team is Team 2.
+Respawning mid-round is not allowed. The Round will result in a loss doing this.
+
+                  </Typography>
+                </Grid>
+
+                <Grid item>
+                  <Typography sx={styles.rules}>
+                  Zone Wars
+Join the map with your opponent using this Map: 6660-9625-9492 (Clix Zone wars)
+The pump should be a purple pump.
+The chosen host is Team 1, the other team is Team 2
+Respawning mid-round is not allowed. The Round will result in a loss doing this.
+                  </Typography>
+                </Grid>
+
+                <Grid item>
+                  <Typography sx={styles.rules}>
+                  Realistics 
+Join the map with your opponent using this Map: 6078-7811-0032 (Finest Realistics)
+The map should be played in default mode.
+The chosen host is Team 1, the other team is Team 2.
+If you end the game before the loot has been given, you will lose the round.
+Respawning mid-round is not allowed. The Round will result in a loss doing this.
+                  </Typography>
+                </Grid>
+                </>
+              )}
               </Grid>
             </Grid>
           </Grid>
