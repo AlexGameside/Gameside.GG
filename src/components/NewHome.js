@@ -388,7 +388,6 @@ const ValHome = () => {
               description="Find or create competitive scrims and compete to become the best."
               buttonLabel="Find scrims"
               image={scrimsHome}
-              mobileImage={scrimsHomeMobile}
               onClick={() => navigate("/valorant/scrims")}
             />
 
@@ -397,7 +396,6 @@ const ValHome = () => {
               description="Compete in wager style matches to start earning today."
               buttonLabel="Find cash matches"
               image={cashMatchesHome}
-              mobileImage={cashMatchesHomeMobile}
               onClick={() => navigate("/valorant/cash-matches")}
             />
 
@@ -406,7 +404,6 @@ const ValHome = () => {
               description="Compete in bracket style tournaments and ladders to take home cash prizes."
               buttonLabel="Find tournaments"
               image={tournamentHome}
-              mobileImage={tournamentHomeMobile}
               onClick={() => navigate("/valorant/tournaments")}
             />
 
@@ -415,7 +412,6 @@ const ValHome = () => {
               description="Pick and ban the matches you want to play during your matches and get the VCT map selection experience."
               buttonLabel="Find scrims"
               image={vetoHome}
-              mobileImage={vetoHomeMobile}
               onClick={() => navigate("/valorant/scrims")}
             />
 
@@ -424,7 +420,6 @@ const ValHome = () => {
               description="With Gameside Premium, you can earn Valorant Points while playing scrims, cash matches, or tournaments."
               buttonLabel="Learn more"
               image={vpHome}
-              mobileImage={vpHomeMobile}
               onClick={() => navigate("/valorant/premium")}
             />
           </Grid>
