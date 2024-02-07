@@ -359,8 +359,7 @@ const FortHome = () => {
               title="Cash matches."
               description="Compete in wager style matches to start earning today."
               buttonLabel="Find cash matches"
-              image={FortniteCash}
-              mobileImage={FortniteCashMobile}
+              image={cashMatchesHome}
               onClick={() => navigate("/fortnite/cash-matches")}
             />
 
@@ -369,7 +368,6 @@ const FortHome = () => {
               description="Compete in bracket style tournaments and ladders to take home cash prizes."
               buttonLabel="Find tournaments"
               image={FortniteBus}
-              mobileImage={FortniteBusMobile}
               onClick={() => navigate("/fortnite/tournaments")}
             />
 
