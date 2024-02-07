@@ -359,7 +359,7 @@ const FortHome = () => {
               title="Cash matches."
               description="Compete in wager style matches to start earning today."
               buttonLabel="Find cash matches"
-              image={cashMatchesHome}
+              image={FortniteCash}
               onClick={() => navigate("/fortnite/cash-matches")}
             />
 
