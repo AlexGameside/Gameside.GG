@@ -12,6 +12,7 @@ const HomePageHeaders = ({context}) => {
         fontFamily: 'Syne, sans-serif',
         fontSize: isMobile ? '18px' : '64px',
         fontWeight: 700,
+        maxWidth: isMobile ? '100px' : '1000px',
       };
     
       // Inline styles for the subtitle
@@ -19,15 +20,15 @@ const HomePageHeaders = ({context}) => {
         fontFamily: 'Oxygen, sans-serif',
         fontSize: isMobile ? '12px' : '18px',
         fontWeight: 400,
+        maxWidth: isMobile ? '100px' : '1000px',
       };
-
       let content;
       if (context === 'middleWrapper') {
         content = (
           <>
             <Typography variant="h4" gutterBottom align='left' style={{...headingStyle, marginRight: '100px'}}>Matchmaking</Typography>
             <Typography variant="subtitle1" gutterBottom align='left' style={{...subtitleStyle, marginRight: '100px'}}>
-            It's designed to quickly match you with others looking for a game, whether you're aiming for a casual play session or seeking competitors for a friendly wager.
+            {isMobile ? 'Quick matches for you and your friends!' : "It's designed to quickly match you with others looking for a game, whether you're aiming for a casual play session or seeking competitors for a friendly wager."}
             </Typography>
           </>
         );
@@ -36,7 +37,7 @@ const HomePageHeaders = ({context}) => {
           <>
             <Typography variant= "h5" gutterBottom align='left' style={{ ...headingStyle, marginLeft: '150px' }}>Tournaments</Typography>
             <Typography variant="subtitle1" gutterBottom align='left' style={{...subtitleStyle, marginLeft: '150px'}}>
-            Our tournament platform provides a comprehensive tool for organizing and participating in tournaments across multiple games, with flexible brackets that accommodate players of all levels and include cash prizes.
+            {isMobile ? 'Join tournaments easily' : "Our tournament platform provides a comprehensive tool for organizing and participating in tournaments across multiple games, with flexible brackets that accommodate players of all levels and include cash prizes."}
             </Typography>
           </>
         );
