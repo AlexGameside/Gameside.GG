@@ -119,6 +119,7 @@ const NewNavBar = () => {
     currency: "USD",
   });
   const location = useLocation();
+  const basePath = location.pathname.split('/')[1];
   const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
   const isValorant = location.pathname.startsWith("/valorant");
 
@@ -484,6 +485,15 @@ const NewNavBar = () => {
       }
     }
   }, [newTeam]);
+
+  useEffect(() => {
+    if(basePath === 'fortnite' || basePath === 'valorant') {
+      dispatch({
+        type: 'SET_CURRENT_GAME',
+        payload: basePath,
+      })
+    }
+  }, [basePath, dispatch]);
 
   useEffect(() => {
     if (teamToRemove) {
