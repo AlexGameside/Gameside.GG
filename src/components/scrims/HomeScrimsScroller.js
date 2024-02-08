@@ -32,7 +32,7 @@ const HomeScrimsScroller = (props) => {
         <Grid item sx={{ width: "100%" }}>
           <Grid container justifyContent="space-between" alignItems="center">
             <Grid item>
-              <SectionHeader label="Find Scrims" home />
+              <SectionHeader label="Scrims" home />
             </Grid>
 
             <Grid item>
