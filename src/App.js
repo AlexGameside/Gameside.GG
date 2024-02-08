@@ -90,21 +90,21 @@ function App() {
   const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown";
   const code = searchParams.get("code");
 
-  useEffect(() => {
-    const isVerifyingEmail = Boolean(code);
-    const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
+  // useEffect(() => {
+  //   const isVerifyingEmail = Boolean(code);
+  //   const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
   
-    if (isVerifyingEmail) {
-      navigate(`/countdown/verify?code=${code}`);
-      return;
-    }
+  //   if (isVerifyingEmail) {
+  //     navigate(`/countdown/verify?code=${code}`);
+  //     return;
+  //   }
   
-    if (shouldRedirectToCountdown && !isCountdown) {
-      navigate("/countdown");
-    } else if (isCountdown && store?.user?.role >= 2) {
-      navigate("/");
-    }
-  }, [navigate, isCountdown, store, code]);
+  //   if (shouldRedirectToCountdown && !isCountdown) {
+  //     navigate("/countdown");
+  //   } else if (isCountdown && store?.user?.role >= 2) {
+  //     navigate("/");
+  //   }
+  // }, [navigate, isCountdown, store, code]);
 
   const path = location?.pathname?.split("/")[1];
   useEffect(() => {
