@@ -110,7 +110,7 @@ const DepositDialogModal = (props) => {
             intent: "CAPTURE",
             purchase_units: [
               {
-                description: "TknsGG Funds",
+                description: "Gameside Funds",
                 amount: {
                   currency_code: "USD",
                   value: amount,
@@ -382,7 +382,7 @@ const DepositDialogModal = (props) => {
                 gap={{ xs: 1 }}
               >
                 <DepositBox
-                  onClick={() => {}}
+                  // onClick={() => {}}
                   title={numFormatter.format(5)}
                   label={"USD"}
                   onClick={() => {
@@ -392,7 +392,7 @@ const DepositDialogModal = (props) => {
                 />
 
                 <DepositBox
-                  onClick={() => {}}
+                  // onClick={() => {}}
                   title={numFormatter.format(10)}
                   label={"USD"}
                   onClick={() => {
@@ -402,7 +402,7 @@ const DepositDialogModal = (props) => {
                 />
 
                 <DepositBox
-                  onClick={() => {}}
+                  // onClick={() => {}}
                   title={numFormatter.format(25)}
                   label={"USD"}
                   onClick={() => {
