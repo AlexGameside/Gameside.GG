@@ -51,7 +51,7 @@ import CountdownSupport from "./components/CountdownSupport.js";
 
 const initialStore = {
   mode: "dark",
-  user: null,
+  user: JSON.parse(localStorage.getItem('user')) || null, // Retrieve user data from localStorage
   currentTokenId: null,
   activeTokens: [],
   openTokenDialogId: null,
@@ -90,21 +90,24 @@ function App() {
   const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown";
   const code = searchParams.get("code");
 
-  // useEffect(() => {
-  //   const isVerifyingEmail = Boolean(code);
-  //   const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
+    useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(store.user));
+  }, [store.user]);
+
+  console.log(store.user);
+
+  useEffect(() => {
+    const isVerifyingEmail = Boolean(code);
+    const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
   
-  //   if (isVerifyingEmail) {
-  //     navigate(`/countdown/verify?code=${code}`);
-  //     return;
-  //   }
-  
-  //   if (shouldRedirectToCountdown && !isCountdown) {
-  //     navigate("/countdown");
-  //   } else if (isCountdown && store?.user?.role >= 2) {
-  //     navigate("/");
-  //   }
-  // }, [navigate, isCountdown, store, code]);
+    if (isVerifyingEmail) {
+      navigate(`/countdown/verify?code=${code}`);
+      return;
+    }
+    if (shouldRedirectToCountdown && !isCountdown) {
+      navigate("/countdown");
+    }
+  }, [navigate, isCountdown, store, code]);
 
   const path = location?.pathname?.split("/")[1];
   useEffect(() => {
