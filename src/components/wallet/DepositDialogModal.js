@@ -123,6 +123,7 @@ const DepositDialogModal = (props) => {
         },
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
+          console.log("Order captured:", order);
           setIsCompletedState(true);
           setIsCustomState(false);
           setIsCheckoutState(false);
@@ -135,6 +136,7 @@ const DepositDialogModal = (props) => {
           setIsCompletedState(false);
         },
         onError: (err) => {
+          console.log("Error:", err);
           setIsCompletedState(false);
           setIsCustomState(false);
           setIsCheckoutState(false);
