@@ -28,7 +28,7 @@ const HomePageHeaders = ({context}) => {
           <>
             <Typography variant="h4" gutterBottom align='left' style={{...headingStyle, marginRight: '100px'}}>Matchmaking</Typography>
             <Typography variant="subtitle1" gutterBottom align='left' style={{...subtitleStyle, marginRight: '100px'}}>
-            {isMobile ? 'Quick match' : "It's designed to quickly match you with others looking for a game, whether you're aiming for a casual play session or seeking competitors for a friendly wager."}
+            {isMobile ? 'Quick matches for you and your friends!' : "It's designed to quickly match you with others looking for a game, whether you're aiming for a casual play session or seeking competitors for a friendly wager."}
             </Typography>
           </>
         );

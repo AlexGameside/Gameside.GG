@@ -711,7 +711,12 @@ const HomeNavBar = () => {
       <AppBar
         elevation={0}
         position="fixed"
-        sx={{ ...styles.navBar, zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        sx={{ ...styles.navBar, zIndex: (theme) => theme.zIndex.drawer + 1,
+          [`@media (max-width:500px)`]: {
+            paddingLeft: '8px',
+            paddingRight: '8px',
+          },
+        }}
       >
         <UserProfileModal
           username={userSelected}
@@ -948,6 +953,7 @@ const HomeNavBar = () => {
               <Grid
                 item
                 sx={{
+                  order: isMobile ? -1 : 0,
                   "&:hover": {
                     cursor: "pointer",
                   },
