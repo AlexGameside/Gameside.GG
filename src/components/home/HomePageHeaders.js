@@ -24,19 +24,25 @@ const HomePageHeaders = ({context}) => {
       };
       let content;
       if (context === 'middleWrapper') {
+
+        const middleWrapperStyle = isMobile ? {marginRight: '30px'} : {marginRight: '100px'}
+
         content = (
           <>
-            <Typography variant="h4" gutterBottom align='left' style={{...headingStyle, marginRight: '100px'}}>Matchmaking</Typography>
+            <Typography variant="h4" gutterBottom align='left' style={{...headingStyle, ...middleWrapperStyle}}>Matchmaking</Typography>
             <Typography variant="subtitle1" gutterBottom align='left' style={{...subtitleStyle, marginRight: '100px'}}>
             {isMobile ? 'Quick matches for you and your friends!' : "It's designed to quickly match you with others looking for a game, whether you're aiming for a casual play session or seeking competitors for a friendly wager."}
             </Typography>
           </>
         );
       } else if (context === 'bottomWrapper') {
+        
+
+        const bottomWrapperStyle = isMobile ? {marginRight: '30px'} : {marginLeft: '150px'};
         content = (
           <>
-            <Typography variant= "h5" gutterBottom align='left' style={{ ...headingStyle, marginLeft: '150px' }}>Tournaments</Typography>
-            <Typography variant="subtitle1" gutterBottom align='left' style={{...subtitleStyle, marginLeft: '150px'}}>
+            <Typography variant= "h5" gutterBottom align='left' style={{ ...headingStyle, ...bottomWrapperStyle }}>Tournaments</Typography>
+            <Typography variant="subtitle1" gutterBottom align='left' style={{...subtitleStyle, ...bottomWrapperStyle}}>
             {isMobile ? 'Join tournaments easily' : "Our tournament platform provides a comprehensive tool for organizing and participating in tournaments across multiple games, with flexible brackets that accommodate players of all levels and include cash prizes."}
             </Typography>
           </>

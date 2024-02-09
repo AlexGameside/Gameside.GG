@@ -98,22 +98,20 @@ scroll-snap-align: start;
 `;
 
 const ScrollView = styled.div`
-  overflow-x: ${props => props.isMobile ? 'hidden' : 'scroll'}; // Hide overflow on mobile, enable scroll on desktop
+  overflow-x: scroll;
   display: flex;
   height: 100%;
-  max-width: ${props => (props.isMobile ? 'none' : '400px')};
-  width: ${props => props.isMobile ? '100%' : 'auto'}; // Full width on mobile, auto on desktop
+  max-width: ${props => (props.isMobile ? '200px' : '400px')};
   flex-shrink: 1; /* Prevent shrinking beyond specified width */
   flex-grow: 1;
   /* Add any other styling as needed */
 `;
 
 const EndScrollView = styled.div`
-  overflow-x: ${props => props.isMobile ? 'hidden' : 'scroll'}; // Hide overflow on mobile, enable scroll on desktop
+  overflow-x: scroll;
   display: flex;
   height: 100%;
-  max-width: ${props => (props.isMobile ? 'none' : '400px')};
-  width: ${props => props.isMobile ? '100%' : 'auto'}; // Full width on mobile, auto on desktop
+  max-width: ${props => (props.isMobile ? '200px' : '400px')};
   /* Add any other styling as needed */
 `;
 
@@ -167,7 +165,7 @@ const Home = () => {
         </MiddleWrapper>
         <BottomWrapper isMobile={isMobile}>
           <EndScrollView isMobile={isMobile} ref={endScrollViewRef}>
-            <EndCards isMobile={isMobile}>
+            <EndCards>
             {games.map((game, index) => (
             <MiddleCardContainer isMobile={isMobile} key={index}>
               <HomePageGameCard gameName={game.name} posterSrc={game.poster} />
