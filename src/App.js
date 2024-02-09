@@ -5,9 +5,13 @@ import RequireAuth from "./components/RequireAuth";
 import { Grid, useMediaQuery } from "@mui/material";
 import Store, {
   SET_IS_HOME_PAGE,
+  SET_USER,
+  StoreDispatch,
   storeReducer,
 } from "./context/NewStoreContext";
-import { useEffect, useLayoutEffect, useReducer } from "react";
+import { useEffect, useLayoutEffect, useReducer, useContext } from "react";
+import { getUser } from "./utils/API";
+import useAxios from "./utils/useAxios";
 import NewProfile from "./components/NewProfile";
 import NewTeams from "./components/NewTeams";
 import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
@@ -63,6 +67,7 @@ const initialStore = {
 function App() {
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const isMobile = useMediaQuery("(max-width:500px)");
+  const dispatch = useContext(StoreDispatch);
   const [searchParams, _] = useSearchParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -84,17 +89,27 @@ function App() {
     },
   });
 
+  const api = useAxios()
+
   const [store, storeDispatch] = useReducer(storeReducer, initialStore);
 
   // Don't let anyone leave countdown route if they do not have a role less than 2
   const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown";
   const code = searchParams.get("code");
 
-    useEffect(() => {
-    localStorage.setItem('user', JSON.stringify(store.user));
-  }, [store.user]);
-
-  console.log(store.user);
+  useEffect(() => {
+    const fetchCurrentUser = async () => {
+        const currentUser = await getUser(api, store?.user?._id);
+        if (currentUser?.user !== store?.user) {
+          storeDispatch({ type: SET_USER, payload: currentUser?.user });
+          localStorage.setItem('user', JSON.stringify(currentUser?.user));
+      }
+    };
+  
+    // Initial call
+    fetchCurrentUser();
+  }, [store?.user]);
+  
 
   useEffect(() => {
     const isVerifyingEmail = Boolean(code);
