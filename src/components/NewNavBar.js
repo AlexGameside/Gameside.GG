@@ -16,6 +16,7 @@ import {
   StoreContext,
   SET_CURRENT_TOKEN,
   SET_DRAWER_STATE,
+  SET_CURRENT_GAME,
   SET_OPEN_MATCH_DIALOG_ID,
   SET_OPEN_TOKEN_DIALOG_ID,
 } from "../context/NewStoreContext";
@@ -120,6 +121,7 @@ const NewNavBar = () => {
   });
   const location = useLocation();
   const basePath = location.pathname.split('/')[1];
+  console.log(basePath);
   const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
   const isValorant = location.pathname.startsWith("/valorant");
 
@@ -489,7 +491,7 @@ const NewNavBar = () => {
   useEffect(() => {
     if(basePath === 'fortnite' || basePath === 'valorant') {
       dispatch({
-        type: 'SET_CURRENT_GAME',
+        type: SET_CURRENT_GAME,
         payload: basePath,
       })
     }
@@ -862,8 +864,8 @@ const NewNavBar = () => {
                 if (params?.id === store?.currentTokenId) {
                   return;
                 }
-                // window.location.href = `${constants.clientURL}/token/${store?.currentTokenId}`;
-                navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}token/${store?.currentTokenId}`);
+                // window.location.href = `${constants.clientURL}/token/${store?.currentTokenId}`; //  navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}token/${store?.currentTokenId}`);
+                navigate(`/${store?.currentGame}token/${store?.currentTokenId}`);
               }}
               onMouseEnter={(e) => {
                 setHovered(true);
