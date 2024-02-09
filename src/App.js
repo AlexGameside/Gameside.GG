@@ -107,11 +107,15 @@ function App() {
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
+      try {
         const currentUser = await getUser(api, store?.user?._id);
         if (currentUser?.user !== store?.user) {
           storeDispatch({ type: SET_USER, payload: currentUser?.user || '' });
           localStorage.setItem('user', JSON.stringify(currentUser?.user || ''));
       }
+    } catch {
+      
+    }
     };
   
     // Initial call

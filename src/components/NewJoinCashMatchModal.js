@@ -57,7 +57,7 @@ const NewJoinCashMatchModal = (props) => {
   const [loading, setLoading] = useState(false);
   const [team, setTeam] = useState(null);
   const [teamMembers, setTeamMembers] = useState(null);
-  const [putUpRed, setPutUpRed] = useState(null);
+  const [putUpRed, setPutUpRed] = useState(true);
 
   // methods
   const clearFilters = () => {
@@ -401,7 +401,7 @@ const NewJoinCashMatchModal = (props) => {
                 </Grid>
               </Grid>
 
-              {team != null ? (
+              {team != null && token?.team_size !== 1 ? (
                 <Grid item sx={{ width: "100%", marginTop: 1 }}>
                   <Grid
                     container
@@ -409,37 +409,10 @@ const NewJoinCashMatchModal = (props) => {
                     alignItems="center"
                     gap={{ xs: 2 }}
                   >
-                    <Grid
-                      item
-                      sx={{
-                        "&:hover": {
-                          cursor: "pointer",
-                        },
-                      }}
-                      onClick={() => setPutUpRed(!putUpRed)}
-                    >
-                      <div
-                        style={{
-                          height: 30,
-                          width: 30,
-                          backgroundColor: putUpRed
-                            ? theme.primary()
-                            : theme.background(),
-                          border: `2px solid ${theme.border()}`,
-                          borderRadius: 4,
-                        }}
-                      >
-                        {putUpRed ? (
-                          <BiCheck
-                            style={{ color: theme.white(), fontSize: 24 }}
-                          />
-                        ) : null}
-                      </div>
-                    </Grid>
 
                     <Grid item>
                       <Typography sx={styles.label}>
-                        Cover Entry Fee for Teammates?
+                        You are covering your teammates entry fee
                       </Typography>
                     </Grid>
                   </Grid>
