@@ -51,7 +51,7 @@ import CountdownSupport from "./components/CountdownSupport.js";
 
 const initialStore = {
   mode: "dark",
-  user: JSON.parse(localStorage.getItem('user')) || null, // Retrieve user data from localStorage
+  user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
   currentTokenId: null,
   activeTokens: [],
   openTokenDialogId: null,
