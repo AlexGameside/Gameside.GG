@@ -80,13 +80,11 @@ const NewCreateCashMatchModal = (props) => {
     setRounds(null);
     setPassword("");
     setShowPassword(false);
-    setPutUpBlue(false);
     onClose();
   };
 
   const handleSelectedTeamChange = (teamId, teamMembers) => {
     setShowMe(false);
-    setPutUpBlue(false);
     setTeam(teamId);
     setTeamMembers(teamMembers);
   };

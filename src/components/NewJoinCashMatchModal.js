@@ -65,7 +65,6 @@ const NewJoinCashMatchModal = (props) => {
     setLoading(false);
     setTeam(null);
     setTeamMembers(null);
-    setPutUpRed(null);
   };
 
   const handleClose = () => {
@@ -110,7 +109,6 @@ const NewJoinCashMatchModal = (props) => {
   };
 
   const handleSelectedTeamChange = (teamId, teamMembers) => {
-    setPutUpRed(null);
     setTeam(teamId);
     setTeamMembers(teamMembers);
   };
