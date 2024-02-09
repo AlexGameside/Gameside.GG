@@ -53,9 +53,18 @@ import CountdownPage from "./views/Countdown.js";
 import CountdownSignupLoginModal from "./components/CountdownSignupLoginModal.js";
 import CountdownSupport from "./components/CountdownSupport.js";
 
+function getUserStore() {
+  try {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user;
+  } catch {
+    return null;
+  }
+}
+
 const initialStore = {
   mode: "dark",
-  user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
+  user: getUserStore(), // Retrieve user data from localStorage
   currentTokenId: null,
   activeTokens: [],
   openTokenDialogId: null,
