@@ -234,8 +234,8 @@ function App() {
 
                 {/* Fornite Routes */}
                 <Route path="/fortnite" element={<FortHome />} />
-                <Route path="/fortnite/premium" element={<PremiumHome />} />
-                <Route path="/fortnite/leaderboards" element={<NewLeaderboards />} />
+                {/* <Route path="/fortnite/premium" element={<PremiumHome />} />
+                <Route path="/fortnite/leaderboards" element={<NewLeaderboards />} /> */}
                 <Route path="/fortnite/cash-matches" element={<NewCashMatches />} />
                 <Route path="/fortnite/tournaments" element={<NewTournaments />} />
                 <Route path="/fortnite/tournament/:id" element={<NewBracketTournament />} />
@@ -246,8 +246,8 @@ function App() {
                   <Route path="/fortnite/profile/history" element={<RequireAuth><NewMatchHistory /></RequireAuth>} />
                   <Route path="/fortnite/profile/wallet" element={<RequireAuth><Wallet /></RequireAuth>} />
                   <Route path="/fortnite/profile/accounts" element={<RequireAuth><NewConnections /></RequireAuth>} />
-                  <Route path="/fortnite/profile/premium" element={<RequireAuth><Premium /></RequireAuth>} />
-                  <Route path="/fortnite/profile/badges" element={<RequireAuth><MyBadges /></RequireAuth>} />
+                  {/* <Route path="/fortnite/profile/premium" element={<RequireAuth><Premium /></RequireAuth>} />
+                  <Route path="/fortnite/profile/badges" element={<RequireAuth><MyBadges /></RequireAuth>} /> */}
                   <Route path="/fortnite/profile/staff-panel" element={<RequireAuth><StaffPanel /></RequireAuth>} />
                 </Route>
 
@@ -265,14 +265,14 @@ function App() {
                   <Route path="faq" element={<NewFAQ />} />
                 </Route>
                 <Route path="/valorant/verify" element={<Verify />} />
-                <Route path="/valorant/leaderboard" element={<NewLeaderboards />} />
+                {/* <Route path="/valorant/leaderboard" element={<NewLeaderboards />} /> */}
                 <Route path="/valorant/tournaments" element={<NewTournaments />} />
                 <Route path="/valorant/scrims" element={<NewScrims />} />
                 <Route path="/valorant/cash-matches" element={<NewCashMatches />} />
                 <Route path="/valorant/twitchWebhook" element={<LinkTwitch />} />
                 <Route path="/valorant/twitterWebhook" element={<TwitterRedirect />} />
-                <Route path="/valorant/premium" element={<PremiumHome />} />
-                <Route path="/valorant/badges" element={<AllBadges />} />
+                {/* <Route path="/valorant/premium" element={<PremiumHome />} /> */}
+                {/* <Route path="/valorant/badges" element={<AllBadges />} /> */}
                 <Route path="/valorant/oauth-signin" element={<OAuthSignIn />} />
                 <Route path="/valorant/discord-link" element={<LinkDiscord />} />
                 <Route path="/valorant/profile" element={<RequireAuth><NewProfile /></RequireAuth>}>
@@ -281,7 +281,7 @@ function App() {
                   <Route path="/valorant/profile/history" element={<RequireAuth><NewMatchHistory /></RequireAuth>} />
                   <Route path="/valorant/profile/wallet" element={<RequireAuth><Wallet /></RequireAuth>} />
                   <Route path="/valorant/profile/accounts" element={<RequireAuth><NewConnections /></RequireAuth>} />
-                  <Route path="/valorant/profile/premium" element={<RequireAuth><Premium /></RequireAuth>} />
+                  {/* <Route path="/valorant/profile/premium" element={<RequireAuth><Premium /></RequireAuth>} /> */}
                   <Route path="/valorant/profile/badges" element={<RequireAuth><MyBadges /></RequireAuth>} />
                   <Route path="/valorant/profile/staff-panel" element={<RequireAuth><StaffPanel /></RequireAuth>} />
                 </Route>
