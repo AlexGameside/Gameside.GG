@@ -502,7 +502,7 @@ const HomeNavBar = () => {
       alignItems: "center",
       height: isDesktop ? 56 : 50,
       width: "100%",
-      backgroundColor: "transparent",
+      backgroundColor: theme.cardDark(),
       boxShadow: theme.shadow(),
     },
     logo: {
@@ -813,7 +813,6 @@ const HomeNavBar = () => {
               alignItems="center"
               gap={{ xs: 5 }}
             >
-              {/* will put new logo when alex supplies it */}
               <Grid item sx={{ paddingTop: 1 }}>
                 <img
                   src={GamesideLogoWord}

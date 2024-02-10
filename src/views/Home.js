@@ -120,7 +120,7 @@ const Home = () => {
   const isMobile = useMediaQuery("(max-width:500px)");
   const endScrollViewRef = useRef(null);
   const games = [
-    {name: 'Fortnite', poster:fortniteLogo},
+    {name: 'Fortnite', poster: fortniteLogo},
     {name: 'Valorant', poster: valorantLogo},
   ];
 
