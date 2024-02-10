@@ -121,7 +121,6 @@ const NewNavBar = () => {
   });
   const location = useLocation();
   const basePath = location.pathname.split('/')[1];
-  console.log(basePath);
   const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
   const isValorant = location.pathname.startsWith("/valorant");
 

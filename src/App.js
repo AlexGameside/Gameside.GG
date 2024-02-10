@@ -113,9 +113,9 @@ function App() {
           storeDispatch({ type: SET_USER, payload: currentUser?.user || '' });
           localStorage.setItem('user', JSON.stringify(currentUser?.user || ''));
       }
-    } catch {
-      
-    }
+      } catch {
+        
+      }
     };
   
     // Initial call
