@@ -223,7 +223,7 @@ const NavDrawer = (props) => {
               />
             </NewListItem>
 
-            <NewListItem
+            {/* <NewListItem
               selected={selected === "leaderboard"}
               label="Leaderboard"
               onClick={() => {
@@ -236,9 +236,9 @@ const NavDrawer = (props) => {
                   fontSize: 24,
                 }}
               />
-            </NewListItem>
+            </NewListItem> */}
 
-            <NewListItem
+            {/* <NewListItem
               selected={selected === "premium"}
               label="Premium"
               onClick={() => {
@@ -251,7 +251,7 @@ const NavDrawer = (props) => {
                   fontSize: 24,
                 }}
               />
-            </NewListItem>
+            </NewListItem> */}
           </Grid>
         </Grid>
 

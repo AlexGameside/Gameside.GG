@@ -16,7 +16,7 @@ const NewGameCard = (props) => {
     FORTNITE: fortniteLogo,
     FIFA: fifaLogo,
     FIVEM: fiveMLogo,
-    "2K": twoklogo,
+    // "2K": twoklogo,
     CLASH: clashLogo,
   };
   const store = useContext(StoreContext);
