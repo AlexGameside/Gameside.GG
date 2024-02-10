@@ -56,13 +56,13 @@ const NewMatchPage = () => {
   const isValorant = location.pathname.startsWith("/valorant");
   const game = match?.gameTitle
 
-    if (!isFortnite && game === 'Fortnite') {
-      navigate(`/fortnite/token/${match?.wagerid}`)
-    }
+    // if (!isFortnite && game === 'Fortnite') {
+    //   navigate(`/fortnite/token/${match?.wagerid}`)
+    // }
   
-    if (!isValorant && game === 'Valorant') {
-      navigate(`/valorant/token/${match?.wagerid}`)
-    }
+    // if (!isValorant && game === 'Valorant') {
+    //   navigate(`/valorant/token/${match?.wagerid}`)
+    // }
 
 
   // methods
