@@ -127,7 +127,7 @@ function App() {
   };
 
   const getPaddingLeft = () => {
-    if (path === "/" || path === "countdown") {
+    if (path === "" || path === "countdown") {
       return 0;
     }
     else if (path === "valorant" || path === "fortnite") {
@@ -138,7 +138,7 @@ function App() {
   };
 
   const getPaddingRight = () => {
-    if (path === "/" || path === "countdown") {
+    if (path === "" || path === "countdown") {
       return 0;
     }
     else if (path === "valorant" || path === "fortnite") {
