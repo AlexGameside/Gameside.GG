@@ -8,7 +8,6 @@ import { StoreContext } from "../context/NewStoreContext";
 import { useMediaQuery } from "@mui/material";
 import NewNavBar from "./NewNavBar.js";
 import FortniteBus from '../assets/NewAssets/fortnite_bus.png';
-import FortniteBusMobile from '../assets/NewAssets/fortnite_bus_mobile.png';
 import FortniteCash from '../assets/NewAssets/fortnite_cash.png'
 import FortniteCashMobile from '../assets/NewAssets/fortnite_cash_mobile.png'
 import { useNavigate } from "react-router-dom";
@@ -359,7 +358,7 @@ const FortHome = () => {
               title="Cash matches."
               description="Compete in wager style matches to start earning today."
               buttonLabel="Find cash matches"
-              image={cashMatchesHome}
+              image={FortniteCash}
               onClick={() => navigate("/fortnite/cash-matches")}
             />
 
