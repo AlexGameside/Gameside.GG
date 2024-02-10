@@ -141,7 +141,7 @@ const Footer = () => {
                   <Typography
                     sx={styles.icons}
                     onClick={() =>
-                      window.open("https://www.tiktok.com/@tkns.gg_", "_blank")
+                      window.open("https://www.tiktok.com/", "_blank")
                     }
                   >
                     <FaTiktok />
