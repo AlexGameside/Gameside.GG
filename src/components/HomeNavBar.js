@@ -398,9 +398,6 @@ const HomeNavBar = () => {
     if (path === "/") {
       setSelected("home");
     }
-    if (path === "/scrims") {
-      setSelected("scrims");
-    }
     if (path === "/tournaments") {
       setSelected("tournaments");
     }
