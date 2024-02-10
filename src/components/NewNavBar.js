@@ -863,8 +863,7 @@ const NewNavBar = () => {
                 if (params?.id === store?.currentTokenId) {
                   return;
                 }
-                // window.location.href = `${constants.clientURL}/token/${store?.currentTokenId}`; //  navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}token/${store?.currentTokenId}`);
-                navigate(`/${store?.currentGame}token/${store?.currentTokenId}`);
+             navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : 'fortnite/'}token/${store?.currentTokenId}`);
               }}
               onMouseEnter={(e) => {
                 setHovered(true);

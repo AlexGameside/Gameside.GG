@@ -157,6 +157,7 @@ const HomeNavBar = () => {
   const [walletAnchor, setWalletAnchor] = useState(null);
   const [unreadNotiCount, setUnreadNotiCount] = useState(0);
   const [rematchModalOpen, setRematchModalOpen] = useState(false);
+  console.log(store);
 
   // search
   const [search, setSearch] = useState(null);
@@ -844,7 +845,7 @@ const HomeNavBar = () => {
                   return;
                 }
                 // window.location.href = `${constants.clientURL}/token/${store?.currentTokenId}`;
-                navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}token/${store?.currentTokenId}`);
+                navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : 'fortnite/'}token/${store?.currentTokenId}`);
               }}
               onMouseEnter={(e) => {
                 setHovered(true);
