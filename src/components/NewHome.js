@@ -415,13 +415,13 @@ const ValHome = () => {
               onClick={() => navigate("/valorant/scrims")}
             />
 
-            {/* <HomeFeatureItem
+            <HomeFeatureItem
               title="Play anything and earn VP."
               description="With Gameside Premium, you can earn Valorant Points while playing scrims, cash matches, or tournaments."
               buttonLabel="Learn more"
               image={vpHome}
               onClick={() => navigate("/valorant/premium")}
-            /> */}
+            />
           </Grid>
         </Grid>
       </Grid>

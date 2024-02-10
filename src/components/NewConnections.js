@@ -11,11 +11,9 @@ import useDraggableScroll from "use-draggable-scroll";
 import ConnectionButton from "../custom_components/ConnectionButton";
 import SectionHeader from "../custom_components/SectionHeader";
 import riotGames from "../assets/riot-games.svg";
-import epicGames from '../assets/NewAssets/fortnite-logo.PNG'
 import twitter from "../assets/twitter.svg";
 import twitch from "../assets/twitch.svg";
 import discord from "../assets/discord.svg";
-import EpicConnectionModal from "./connections/EpicConnectionModal";
 import paypal from "../assets/paypal.svg";
 import youtube from "../assets/youtube.svg";
 import ConnectionItem from "./connections/ConnectionItem";
@@ -43,14 +41,12 @@ const NewConnections = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [riotOpen, setRiotOpen] = useState(false);
-  const [epicOpen, setEpicOpen] = useState(false);
   const [youtubeOpen, setYoutubeOpen] = useState(false);
   const [removeLoading, setRemoveLoading] = useState(false);
   const [twitterLoading, setTwitterLoading] = useState(false);
   const [twitchLoading, setTwitchLoading] = useState(false);
   const [youtubeLoading, setYoutubeLoading] = useState(false);
   const [riotLoading, setRiotLoading] = useState(false);
-  const [epicLoading, setEpicLoading] = useState(false);
   const [discordLoading, setDiscordLoading] = useState(false);
 
   // methods
@@ -158,10 +154,6 @@ const NewConnections = () => {
           open={riotOpen}
           onClose={() => setRiotOpen(false)}
         />
-        <EpicConnectionModal
-          open={epicOpen}
-          onClose={() => setEpicOpen(false)}
-        />
         <YoutubeConnectionModal
           open={youtubeOpen}
           onClose={() => setYoutubeOpen(false)}
@@ -225,14 +217,6 @@ const NewConnections = () => {
                 </ConnectionButton>
 
                 <ConnectionButton
-                  isLinked={store?.user?.epic}
-                  canLinkAgain={true}
-                  onClick={() => setEpicOpen(true)}
-                >
-                  <img src={epicGames} />
-                </ConnectionButton>
-
-                <ConnectionButton
                   isLinked={store?.user?.connections[3]}
                   canLinkAgain={true}
                   onClick={handleTwitterAuth}
@@ -283,7 +267,6 @@ const NewConnections = () => {
 
         {store?.user?.connections[0] ||
         store?.user?.connections[3] ||
-        store?.user?.epic ||
         store?.user?.connections[4] ||
         store?.user?.connections[7] ||
         store?.user?.connections[10] ? (
@@ -297,17 +280,6 @@ const NewConnections = () => {
                 loading={riotLoading}
               >
                 <img src={riotGames} />
-              </ConnectionItem>
-            ) : null}
-
-            {store?.user?.epic ? (
-              <ConnectionItem
-                value={store?.user?.epic}
-                canDelete={false}
-                label={"Epic Games"}
-                loading={epicLoading}
-              >
-                <img src={epicGames} />
               </ConnectionItem>
             ) : null}
 

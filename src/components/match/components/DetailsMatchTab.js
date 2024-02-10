@@ -279,6 +279,16 @@ const DetailsMatchTab = (props) => {
                 <>
                 <Grid item>
                   <Typography sx={styles.rules}>
+                    - In First to 7 matches, play 4 rounds and then switch
+                    <br />
+                    attackers and defenders. In First to 9 matches, play 5<br />
+                    rounds and then switch. (Only applies to 2v2, 3v3 game
+                    modes).
+                  </Typography>
+                </Grid>
+
+                <Grid item>
+                  <Typography sx={styles.rules}>
                   Box Fight
 Join the map with your opponent using this Map: 7620-0771-9529 (Clix Box fights)
 The pump should be a purple pump.

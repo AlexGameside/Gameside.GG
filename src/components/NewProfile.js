@@ -384,7 +384,7 @@ const NewProfile = () => {
                     />
                   </NewListItem>
 
-                  {/* <NewListItem
+                  <NewListItem
                     selected={selected === "premium"}
                     label={"Premium"}
                     onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/premium`)}
@@ -395,9 +395,9 @@ const NewProfile = () => {
                         fontSize: 24,
                       }}
                     />
-                  </NewListItem> */}
+                  </NewListItem>
 
-                  {/* <NewListItem
+                  <NewListItem
                     selected={selected === "badges"}
                     label={"My Badges"}
                     onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/badges`)}
@@ -408,7 +408,7 @@ const NewProfile = () => {
                         fontSize: 24,
                       }}
                     />
-                  </NewListItem> */}
+                  </NewListItem>
 
                   {store?.user?.role < 100 ? null : (
                     <NewListItem
@@ -506,13 +506,13 @@ const NewProfile = () => {
                 />
               </Grid>
 
-              {/* <Grid item>
+              <Grid item>
                 <NewSecondaryButton
                   label="premium"
                   small={true}
                   onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/premium`)}
                 />
-              </Grid> */}
+              </Grid>
 
               {store?.user?.role < 100 ? null : (
                 <Grid item>

@@ -93,16 +93,9 @@ const CountdownPage = () => {
           date={epoch} 
           renderer={renderer} 
         />
-        {store?.user?.role >= 2 ? (
-          <NewPrimaryButton
-            label="Enter GamesideGG"
-            backgroundColor={constants.primaryRed}
-            fullWidth={true}
-            onClick={() => {navigate('/')}}
-          />
-        ) : store?.user ? (
+        {store?.user ? (
           <Typography sx={styles.signedUpText}>Signed up! Come back March 1 or request access to our beta.</Typography>
-          ) : (
+        ) : (
           <NewPrimaryButton
             label="sign up / login"
             backgroundColor={constants.primaryRed}

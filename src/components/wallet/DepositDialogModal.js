@@ -110,7 +110,7 @@ const DepositDialogModal = (props) => {
             intent: "CAPTURE",
             purchase_units: [
               {
-                description: "Gameside Funds",
+                description: "TknsGG Funds",
                 amount: {
                   currency_code: "USD",
                   value: amount,
@@ -123,7 +123,6 @@ const DepositDialogModal = (props) => {
         },
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
-          console.log("Order captured:", order);
           setIsCompletedState(true);
           setIsCustomState(false);
           setIsCheckoutState(false);
@@ -136,7 +135,6 @@ const DepositDialogModal = (props) => {
           setIsCompletedState(false);
         },
         onError: (err) => {
-          console.log("Error:", err);
           setIsCompletedState(false);
           setIsCustomState(false);
           setIsCheckoutState(false);
@@ -384,7 +382,7 @@ const DepositDialogModal = (props) => {
                 gap={{ xs: 1 }}
               >
                 <DepositBox
-                  // onClick={() => {}}
+                  onClick={() => {}}
                   title={numFormatter.format(5)}
                   label={"USD"}
                   onClick={() => {
@@ -394,7 +392,7 @@ const DepositDialogModal = (props) => {
                 />
 
                 <DepositBox
-                  // onClick={() => {}}
+                  onClick={() => {}}
                   title={numFormatter.format(10)}
                   label={"USD"}
                   onClick={() => {
@@ -404,7 +402,7 @@ const DepositDialogModal = (props) => {
                 />
 
                 <DepositBox
-                  // onClick={() => {}}
+                  onClick={() => {}}
                   title={numFormatter.format(25)}
                   label={"USD"}
                   onClick={() => {

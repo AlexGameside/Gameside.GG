@@ -226,7 +226,7 @@ import {
             />
           </NewListItem>
   
-          {/* <NewListItem
+          <NewListItem
             label="Leaderboard"
             onClick={() => {
               navigate("/fortnite/leaderboard");
@@ -238,7 +238,7 @@ import {
                 fontSize: 24,
               }}
             />
-          </NewListItem> */}
+          </NewListItem>
 
           <NewListItem
             label="Valorant"
@@ -275,7 +275,7 @@ import {
             <Divider sx={{ backgroundColor: theme.border() }} />
           </Grid>
   
-          {/* <NewListItem
+          <NewListItem
             label="Premium"
             onClick={() => {
               navigate("/fortnite/premium");
@@ -287,9 +287,9 @@ import {
                 fontSize: 24,
               }}
             />
-          </NewListItem> */}
+          </NewListItem>
   
-          {/* <NewListItem
+          <NewListItem
             label="Badges"
             onClick={() => {
               navigate("/fortnite/badges");
@@ -301,7 +301,7 @@ import {
                 fontSize: 24,
               }}
             />
-          </NewListItem> */}
+          </NewListItem>
   
           <NewListItem
             label="Support"

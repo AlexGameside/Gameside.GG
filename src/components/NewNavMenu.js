@@ -240,7 +240,7 @@ const NewNavMenu = (props) => {
           />
         </NewListItem>
 
-        {/* <NewListItem
+        <NewListItem
           label="Leaderboard"
           onClick={() => {
             navigate("/valorant/leaderboard");
@@ -252,7 +252,7 @@ const NewNavMenu = (props) => {
               fontSize: 24,
             }}
           />
-        </NewListItem> */}
+        </NewListItem>
 
         <NewListItem
             label="Fortnite"
@@ -288,7 +288,7 @@ const NewNavMenu = (props) => {
           <Divider sx={{ backgroundColor: theme.border() }} />
         </Grid>
 
-        {/* <NewListItem
+        <NewListItem
           label="Premium"
           onClick={() => {
             navigate("/valorant/premium");
@@ -300,9 +300,9 @@ const NewNavMenu = (props) => {
               fontSize: 24,
             }}
           />
-        </NewListItem> */}
+        </NewListItem>
 
-        {/* <NewListItem
+        <NewListItem
           label="Badges"
           onClick={() => {
             navigate("/valorant/badges");
@@ -314,7 +314,7 @@ const NewNavMenu = (props) => {
               fontSize: 24,
             }}
           />
-        </NewListItem> */}
+        </NewListItem>
 
         <NewListItem
           label="Support"

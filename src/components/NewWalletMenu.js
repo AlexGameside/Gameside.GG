@@ -155,9 +155,9 @@ const NewWalletMenu = (props) => {
             alignItems="start"
             justifyContent="start"
           >
-            {/* <Grid item>
+            <Grid item>
               <Typography sx={styles.label}>Valorant Points</Typography>
-            </Grid> */}
+            </Grid>
             <Grid item>
               <Typography sx={styles.balance}>{store?.user?.points}</Typography>
             </Grid>

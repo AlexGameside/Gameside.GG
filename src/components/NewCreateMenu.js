@@ -6,7 +6,6 @@ import {
   StoreDispatch,
 } from "../context/NewStoreContext";
 import createTheme from "../utils/theme";
-import { useLocation } from 'react-router-dom';
 import { FaSkullCrossbones, FaPiggyBank, FaUsers } from "react-icons/fa";
 import NewCreateTeamModal from "./NewCreateTeamModal";
 import NewCreateScrimModal from "./NewCreateScrimModal";
@@ -39,8 +38,6 @@ const NewCreateMenu = (props) => {
   const theme = createTheme(store.mode);
   const dispatch = useContext(StoreDispatch);
   const wrapperRef = useRef(null);
-  const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
   const isDesktop = useMediaQuery("(min-width:1025px)");
 
   // state
@@ -218,7 +215,6 @@ const NewCreateMenu = (props) => {
                 handleCreateScrimOpen();
               }}
             >
-              {!isFortnite && (
               <Grid
                 container
                 justifyContent="start"
@@ -243,6 +239,7 @@ const NewCreateMenu = (props) => {
                     }}
                   />
                 </Grid>
+
                 <Grid item>
                   <Grid
                     container
@@ -262,7 +259,6 @@ const NewCreateMenu = (props) => {
                   </Grid>
                 </Grid>
               </Grid>
-              )}
             </Grid>
           </Grid>
         </Grid>

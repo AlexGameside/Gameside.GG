@@ -105,9 +105,6 @@ export const verify = async (code) => {
 };
 
 export const logout = async (refreshToken) => {
-  // Clear user data from localStorage
-  localStorage.removeItem('user');
-
   return await axios({
     method: "DELETE",
     data: {
@@ -120,7 +117,6 @@ export const logout = async (refreshToken) => {
       return { error: true, message: err?.response?.data?.message };
     });
 };
-
 
 export const renewToken = async (token) => {
   return await axios({
@@ -967,20 +963,6 @@ export const submitValId = async (useAxios, valId) => {
   return await useAxios
     .post(`user/val`, {
       valId,
-    })
-    .then((res) => res.data)
-    .catch((err) => {
-      return {
-        error: true,
-        message: err?.response?.data?.message,
-      };
-    });
-};
-
-export const submitEpicId = async (useAxios, epicId) => {
-  return await useAxios
-    .post(`user/epic`, {
-      epicId,
     })
     .then((res) => res.data)
     .catch((err) => {

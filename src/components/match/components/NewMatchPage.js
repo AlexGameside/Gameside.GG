@@ -59,7 +59,7 @@ const NewMatchPage = () => {
   const handleCopyMatchURL = () => {
     if (match?.isTourneyMatch) {
       navigator.clipboard.writeText(
-        `${constants.clientUrl}/${isValorant ? 'valorant' : isFortnite ? 'fortnite' : null}tournament/${match?.tourneyId}`
+        `${constants.clientURL}/${isValorant ? 'valorant' : isFortnite ? 'fortnite' : null}tournament/${match?.tourneyId}`
       );
       setCopied(true);
       return;
@@ -68,20 +68,20 @@ const NewMatchPage = () => {
     if (match?.state === 0) {
       if (match?.isScrimMatch) {
         navigator.clipboard.writeText(
-          `${constants.clientUrl}/valorant/scrims?join=${match?.wagerid}`
+          `${constants.clientURL}/valorant/scrims?join=${match?.wagerid}`
         );
         setCopied(true);
         return;
       } else {
         navigator.clipboard.writeText(
-          `${constants.clientUrl}/${isValorant ? 'valorant' : isFortnite ? 'fortnite' : null}/cash-matches?join=${match?.wagerid}`
+          `${constants.clientURL}/${isValorant ? 'valorant' : isFortnite ? 'fortnite' : null}/cash-matches?join=${match?.wagerid}`
         );
         setCopied(true);
         return;
       }
     } else {
       navigator.clipboard.writeText(
-        `${constants.clientUrl}/${isValorant ? 'valorant' : isFortnite ? 'fortnite' : null}/token/${match?.wagerid}`
+        `${constants.clientURL}/${isValorant ? 'valorant' : isFortnite ? 'fortnite' : null}/token/${match?.wagerid}`
       );
       setCopied(true);
       return;

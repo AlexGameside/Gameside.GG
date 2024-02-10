@@ -65,7 +65,7 @@ const NewCreateCashMatchModal = (props) => {
   const [password, setPassword] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const [showMe, setShowMe] = useState(true);
-  const [putUpBlue, setPutUpBlue] = useState(true);
+  const [putUpBlue, setPutUpBlue] = useState(false);
   const [chooseMap, setChooseMap] = useState(false);
 
   // methods
@@ -80,11 +80,13 @@ const NewCreateCashMatchModal = (props) => {
     setRounds(null);
     setPassword("");
     setShowPassword(false);
+    setPutUpBlue(false);
     onClose();
   };
 
   const handleSelectedTeamChange = (teamId, teamMembers) => {
     setShowMe(false);
+    setPutUpBlue(false);
     setTeam(teamId);
     setTeamMembers(teamMembers);
   };
@@ -507,9 +509,37 @@ const NewCreateCashMatchModal = (props) => {
                         alignItems="center"
                         gap={{ xs: 2 }}
                       >
+                        <Grid
+                          item
+                          sx={{
+                            "&:hover": {
+                              cursor: "pointer",
+                            },
+                          }}
+                          onClick={() => setPutUpBlue(!putUpBlue)}
+                        >
+                          <div
+                            style={{
+                              height: 30,
+                              width: 30,
+                              backgroundColor: putUpBlue
+                                ? theme.primary()
+                                : theme.background(),
+                              border: `2px solid ${theme.border()}`,
+                              borderRadius: 4,
+                            }}
+                          >
+                            {putUpBlue ? (
+                              <BiCheck
+                                style={{ color: theme.white(), fontSize: 24 }}
+                              />
+                            ) : null}
+                          </div>
+                        </Grid>
+
                         <Grid item>
                           <Typography sx={styles.label}>
-                          You are covering your teammates entry fee
+                            Cover Entry Fee for Teammates?
                           </Typography>
                         </Grid>
                       </Grid>
