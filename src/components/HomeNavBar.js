@@ -157,7 +157,6 @@ const HomeNavBar = () => {
   const [walletAnchor, setWalletAnchor] = useState(null);
   const [unreadNotiCount, setUnreadNotiCount] = useState(0);
   const [rematchModalOpen, setRematchModalOpen] = useState(false);
-  console.log(store);
 
   // search
   const [search, setSearch] = useState(null);

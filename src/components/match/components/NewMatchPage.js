@@ -55,14 +55,12 @@ const NewMatchPage = () => {
   const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
   const isValorant = location.pathname.startsWith("/valorant");
   const game = match?.gameTitle
-  console.log(game);
 
     if (!isFortnite && game === 'Fortnite') {
       navigate(`/fortnite/token/${match?.wagerid}`)
     }
   
     if (!isValorant && game === 'Valorant') {
-      console.log('test');
       navigate(`/valorant/token/${match?.wagerid}`)
     }
 
