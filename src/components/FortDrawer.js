@@ -208,7 +208,7 @@ const FortDrawer = (props) => {
               />
             </NewListItem>
 
-            <NewListItem
+            {/* <NewListItem
               selected={selected === "leaderboard"}
               label="Leaderboard"
               onClick={() => {
@@ -221,9 +221,9 @@ const FortDrawer = (props) => {
                   fontSize: 24,
                 }}
               />
-            </NewListItem>
+            </NewListItem> */}
 
-            <NewListItem
+            {/* <NewListItem
               selected={selected === "premium"}
               label="Premium"
               onClick={() => {
@@ -236,7 +236,7 @@ const FortDrawer = (props) => {
                   fontSize: 24,
                 }}
               />
-            </NewListItem>
+            </NewListItem> */}
           </Grid>
         </Grid>
 

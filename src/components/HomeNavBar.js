@@ -54,7 +54,6 @@ import NewBracketTournamentMatchModal from "./NewBracketTournamentMatchModal";
 import NewBracketTournamentWinModal from "./NewBracketTournamentWinModal";
 import NewBracketTournamentEarnedModal from "./NewBracketTournamentEarnedModal";
 import ListItem from "../custom_components/ListItem";
-import newLogo from "../assets/tkns-logo.png";
 import GamesideLogoWord from "../assets/Gameside_White_Word_Trimmed.png";
 import CustomIconButton from "../custom_components/CustomIconButton";
 import logo from "../assets/tkns-red-logo-word.png";
@@ -93,7 +92,6 @@ const HomeNavBar = () => {
   // variables
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
-  const tknsLogo = newLogo;
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const isMobile = useMediaQuery("(max-width:500px)");
   const Img = styled("img")``;
@@ -397,9 +395,6 @@ const HomeNavBar = () => {
     }
     if (path === "/") {
       setSelected("home");
-    }
-    if (path === "/scrims") {
-      setSelected("scrims");
     }
     if (path === "/tournaments") {
       setSelected("tournaments");
@@ -849,7 +844,7 @@ const HomeNavBar = () => {
                   return;
                 }
                 // window.location.href = `${constants.clientURL}/token/${store?.currentTokenId}`;
-                navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}token/${store?.currentTokenId}`);
+                navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : 'fortnite/'}token/${store?.currentTokenId}`);
               }}
               onMouseEnter={(e) => {
                 setHovered(true);

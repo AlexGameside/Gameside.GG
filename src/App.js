@@ -5,9 +5,13 @@ import RequireAuth from "./components/RequireAuth";
 import { Grid, useMediaQuery } from "@mui/material";
 import Store, {
   SET_IS_HOME_PAGE,
+  SET_USER,
+  StoreDispatch,
   storeReducer,
 } from "./context/NewStoreContext";
-import { useEffect, useLayoutEffect, useReducer } from "react";
+import { useEffect, useLayoutEffect, useReducer, useContext } from "react";
+import { getUser } from "./utils/API";
+import useAxios from "./utils/useAxios";
 import NewProfile from "./components/NewProfile";
 import NewTeams from "./components/NewTeams";
 import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
@@ -49,9 +53,18 @@ import CountdownPage from "./views/Countdown.js";
 import CountdownSignupLoginModal from "./components/CountdownSignupLoginModal.js";
 import CountdownSupport from "./components/CountdownSupport.js";
 
+function getUserStore() {
+  try {
+    const user = JSON.parse(localStorage.getItem('user'))
+    return user;
+  } catch {
+    return null;
+  }
+}
+
 const initialStore = {
   mode: "dark",
-  user: null,
+  user: getUserStore(), // Retrieve user data from localStorage
   currentTokenId: null,
   activeTokens: [],
   openTokenDialogId: null,
@@ -84,11 +97,31 @@ function App() {
     },
   });
 
+  const api = useAxios()
+
   const [store, storeDispatch] = useReducer(storeReducer, initialStore);
 
   // Don't let anyone leave countdown route if they do not have a role less than 2
   const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown";
   const code = searchParams.get("code");
+
+  useEffect(() => {
+    const fetchCurrentUser = async () => {
+      try {
+        const currentUser = await getUser(api, store?.user?._id);
+        if (currentUser?.user !== store?.user) {
+          storeDispatch({ type: SET_USER, payload: currentUser?.user || '' });
+          localStorage.setItem('user', JSON.stringify(currentUser?.user || ''));
+      }
+      } catch {
+        
+      }
+    };
+  
+    // Initial call
+    fetchCurrentUser();
+  }, [store?.user]);
+  
 
   useEffect(() => {
     const isVerifyingEmail = Boolean(code);
@@ -98,11 +131,8 @@ function App() {
       navigate(`/countdown/verify?code=${code}`);
       return;
     }
-  
     if (shouldRedirectToCountdown && !isCountdown) {
       navigate("/countdown");
-    } else if (isCountdown && store?.user?.role >= 2) {
-      navigate("/");
     }
   }, [navigate, isCountdown, store, code]);
 
@@ -207,7 +237,7 @@ function App() {
                 paddingBottom: 4,
               }}
             >
-              <Wrapper />
+              {/* <Wrapper /> */}
               <Routes>
 
                 {/* Countdown */}
@@ -231,8 +261,8 @@ function App() {
 
                 {/* Fornite Routes */}
                 <Route path="/fortnite" element={<FortHome />} />
-                <Route path="/fortnite/premium" element={<PremiumHome />} />
-                <Route path="/fortnite/leaderboards" element={<NewLeaderboards />} />
+                {/* <Route path="/fortnite/premium" element={<PremiumHome />} />
+                <Route path="/fortnite/leaderboards" element={<NewLeaderboards />} /> */}
                 <Route path="/fortnite/cash-matches" element={<NewCashMatches />} />
                 <Route path="/fortnite/tournaments" element={<NewTournaments />} />
                 <Route path="/fortnite/tournament/:id" element={<NewBracketTournament />} />
@@ -243,8 +273,8 @@ function App() {
                   <Route path="/fortnite/profile/history" element={<RequireAuth><NewMatchHistory /></RequireAuth>} />
                   <Route path="/fortnite/profile/wallet" element={<RequireAuth><Wallet /></RequireAuth>} />
                   <Route path="/fortnite/profile/accounts" element={<RequireAuth><NewConnections /></RequireAuth>} />
-                  <Route path="/fortnite/profile/premium" element={<RequireAuth><Premium /></RequireAuth>} />
-                  <Route path="/fortnite/profile/badges" element={<RequireAuth><MyBadges /></RequireAuth>} />
+                  {/* <Route path="/fortnite/profile/premium" element={<RequireAuth><Premium /></RequireAuth>} />
+                  <Route path="/fortnite/profile/badges" element={<RequireAuth><MyBadges /></RequireAuth>} /> */}
                   <Route path="/fortnite/profile/staff-panel" element={<RequireAuth><StaffPanel /></RequireAuth>} />
                 </Route>
 
@@ -262,14 +292,14 @@ function App() {
                   <Route path="faq" element={<NewFAQ />} />
                 </Route>
                 <Route path="/valorant/verify" element={<Verify />} />
-                <Route path="/valorant/leaderboard" element={<NewLeaderboards />} />
+                {/* <Route path="/valorant/leaderboard" element={<NewLeaderboards />} /> */}
                 <Route path="/valorant/tournaments" element={<NewTournaments />} />
                 <Route path="/valorant/scrims" element={<NewScrims />} />
                 <Route path="/valorant/cash-matches" element={<NewCashMatches />} />
                 <Route path="/valorant/twitchWebhook" element={<LinkTwitch />} />
                 <Route path="/valorant/twitterWebhook" element={<TwitterRedirect />} />
-                <Route path="/valorant/premium" element={<PremiumHome />} />
-                <Route path="/valorant/badges" element={<AllBadges />} />
+                {/* <Route path="/valorant/premium" element={<PremiumHome />} /> */}
+                {/* <Route path="/valorant/badges" element={<AllBadges />} /> */}
                 <Route path="/valorant/oauth-signin" element={<OAuthSignIn />} />
                 <Route path="/valorant/discord-link" element={<LinkDiscord />} />
                 <Route path="/valorant/profile" element={<RequireAuth><NewProfile /></RequireAuth>}>
@@ -278,7 +308,7 @@ function App() {
                   <Route path="/valorant/profile/history" element={<RequireAuth><NewMatchHistory /></RequireAuth>} />
                   <Route path="/valorant/profile/wallet" element={<RequireAuth><Wallet /></RequireAuth>} />
                   <Route path="/valorant/profile/accounts" element={<RequireAuth><NewConnections /></RequireAuth>} />
-                  <Route path="/valorant/profile/premium" element={<RequireAuth><Premium /></RequireAuth>} />
+                  {/* <Route path="/valorant/profile/premium" element={<RequireAuth><Premium /></RequireAuth>} /> */}
                   <Route path="/valorant/profile/badges" element={<RequireAuth><MyBadges /></RequireAuth>} />
                   <Route path="/valorant/profile/staff-panel" element={<RequireAuth><StaffPanel /></RequireAuth>} />
                 </Route>

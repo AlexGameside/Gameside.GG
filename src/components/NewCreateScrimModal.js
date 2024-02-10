@@ -134,7 +134,7 @@ const NewCreateScrimModal = (props) => {
       if (!res?.error) {
         setLoading(false);
         dispatch({ type: SET_CURRENT_TOKEN, payload: res?.wager?._id });
-        navigate(`/token/${res?.wager?._id}`);
+        navigate(`/valorant/token/${res?.wager?._id}`);
         handleClose();
       } else {
         setLoading(false);

@@ -16,7 +16,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const NewCashMatchItem = (props) => {
   const { match, home = false } = props;
-  console.log(match);
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
   const navigate = useNavigate();

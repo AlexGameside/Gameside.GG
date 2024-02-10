@@ -121,7 +121,6 @@ const NewNavBar = () => {
   });
   const location = useLocation();
   const basePath = location.pathname.split('/')[1];
-  console.log(basePath);
   const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
   const isValorant = location.pathname.startsWith("/valorant");
 
@@ -864,8 +863,7 @@ const NewNavBar = () => {
                 if (params?.id === store?.currentTokenId) {
                   return;
                 }
-                // window.location.href = `${constants.clientURL}/token/${store?.currentTokenId}`; //  navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}token/${store?.currentTokenId}`);
-                navigate(`/${store?.currentGame}token/${store?.currentTokenId}`);
+             navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : 'fortnite/'}token/${store?.currentTokenId}`);
               }}
               onMouseEnter={(e) => {
                 setHovered(true);

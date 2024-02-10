@@ -179,21 +179,6 @@ const NavDrawer = (props) => {
             </NewListItem>
 
             <NewListItem
-              selected={selected === "scrims"}
-              label="Scrims"
-              onClick={() => {
-                navigate("/valorant/scrims");
-              }}
-            >
-              <FaSkullCrossbones
-                style={{
-                  color: theme.text(),
-                  fontSize: 24,
-                }}
-              />
-            </NewListItem>
-
-            <NewListItem
               selected={selected === "cash"}
               label="Cash Matches"
               onClick={() => {
@@ -223,7 +208,7 @@ const NavDrawer = (props) => {
               />
             </NewListItem>
 
-            <NewListItem
+            {/* <NewListItem
               selected={selected === "leaderboard"}
               label="Leaderboard"
               onClick={() => {
@@ -236,9 +221,9 @@ const NavDrawer = (props) => {
                   fontSize: 24,
                 }}
               />
-            </NewListItem>
+            </NewListItem> */}
 
-            <NewListItem
+            {/* <NewListItem
               selected={selected === "premium"}
               label="Premium"
               onClick={() => {
@@ -251,7 +236,7 @@ const NavDrawer = (props) => {
                   fontSize: 24,
                 }}
               />
-            </NewListItem>
+            </NewListItem> */}
           </Grid>
         </Grid>
 

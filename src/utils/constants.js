@@ -20,8 +20,8 @@ const constants = {
   //
   //serverUrl: "https://tkns-server.herokuapp.com",
   // serverUrl: "https://tkns-staff-beta.herokuapp.com",
-  serverUrl: "http://localhost:8080",
-  // serverUrl: "https://gamesideserver-d425191deecc.herokuapp.com",
+  // serverUrl: "http://localhost:8080",
+  serverUrl: "https://gamesideserver-d425191deecc.herokuapp.com",
   //clientUrl: "https://tkns.gg",
   // clientUrl: "https://fntokens.gg",
   // clientUrl: "https://gameside-gg.vercel.app/",

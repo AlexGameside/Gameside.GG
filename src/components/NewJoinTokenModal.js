@@ -50,7 +50,7 @@ const NewJoinTokenModal = (props) => {
   const [loading, setLoading] = useState(false);
   const [team, setTeam] = useState(null);
   const [teamMembers, setTeamMembers] = useState(null);
-  const [putUpRed, setPutUpRed] = useState(null);
+  const [putUpRed, setPutUpRed] = useState(true);
 
   // methods
   const clearFilters = () => {
@@ -603,7 +603,7 @@ const NewJoinTokenModal = (props) => {
                     </Grid>
                     <Grid item alignSelf="start">
                       <Typography style={styles.label}>
-                        Put up for teammates
+                        You are covering your teammates entry fee
                       </Typography>
                     </Grid>
                   </Grid>
