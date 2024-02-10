@@ -353,7 +353,7 @@ const NewCashMatches = () => {
 
                 <Grid item sx={{ minWidth: 150 }}>
                   <NewDropdown
-                    options={determineTeamSizeOptions(isFortnite ? "FN" : isValorant ? "VAL" : null, null)}
+                    options={determineTeamSizeOptions(isFortnite ? "FN" : isValorant ? "VAL" : null)}
                     placeholder="Team Size"
                     onChange={(value) => setTeamSize(value)}
                   />

@@ -206,7 +206,7 @@ const TokenFilters = () => {
       <Grid item>
         <Grid container direction="row">
           <div>
-            <FormControl sx={styles.form} sx={styles.form} variant="filled">
+            <FormControl sx={styles.form} variant="filled">
               <InputLabel sx={styles.inputLabel}>Region</InputLabel>
               <Select
                 value={region}

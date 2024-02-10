@@ -12,6 +12,7 @@ export const SET_OPEN_TOKEN_DIALOG_ID = "SET_OPEN_TOKEN_DIALOG_ID";
 export const SET_DRAWER_STATE = "SET_DRAWER_STATE";
 export const SET_OPEN_MATCH_DIALOG_ID = "SET_OPEN_MATCH_DIALOG_ID";
 export const SET_IS_HOME_PAGE = "SET_IS_HOME_PAGE";
+export const SET_CURRENT_GAME = "SET_CURRENT_GAME";
 
 // Reducer
 export const storeReducer = (state, action) => {
@@ -66,7 +67,13 @@ export const storeReducer = (state, action) => {
         isHomePage: payload,
       };
     }
-  }
+    case SET_CURRENT_GAME: {
+      return {
+        ...state,
+        currentGameType: payload,
+      };
+    }
+    }
 };
 
 const Store = (props) => {
