@@ -243,7 +243,7 @@ function App() {
                 paddingBottom: 4,
               }}
             >
-              <Wrapper />
+              {/* <Wrapper /> */}
               <Routes>
 
                 {/* Countdown */}
