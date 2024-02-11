@@ -109,18 +109,24 @@ function App() {
     const fetchCurrentUser = async () => {
       try {
         const currentUser = await getUser(api, store?.user?._id);
-        if (currentUser?.user !== store?.user) {
+        if (currentUser?.user && currentUser?.user !== store?.user) {
           storeDispatch({ type: SET_USER, payload: currentUser?.user || '' });
           localStorage.setItem('user', JSON.stringify(currentUser?.user || ''));
-      }
-      } catch {
-        
+        }
+      } catch (error) {
+        console.error("Error fetching user:", error);
       }
     };
-  
+    
     // Initial call
     fetchCurrentUser();
-  }, [store?.user]);
+
+    // Setting up interval
+    const intervalId = setInterval(fetchCurrentUser, 5000);
+
+    // Clearing interval on component unmount
+    return () => clearInterval(intervalId);
+  }, [api, store?.user, storeDispatch]); 
   
 
   useEffect(() => {
@@ -237,7 +243,7 @@ function App() {
                 paddingBottom: 4,
               }}
             >
-              {/* <Wrapper /> */}
+              <Wrapper />
               <Routes>
 
                 {/* Countdown */}
