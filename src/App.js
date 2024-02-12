@@ -108,35 +108,26 @@ function App() {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        if (store?.user?._id) {
         const currentUser = await getUser(api, store?.user?._id);
         if (currentUser?.user && currentUser?.user !== store?.user) {
           storeDispatch({ type: SET_USER, payload: currentUser?.user || '' });
           localStorage.setItem('user', JSON.stringify(currentUser?.user || ''));
         }
-      }
       } catch (error) {
         console.error("Error fetching user:", error);
       }
     };
     
-    // Initial call
     fetchCurrentUser();
-
-    // Setting up interval
-    const intervalId = setInterval(fetchCurrentUser, 5000);
-
-    // Clearing interval on component unmount
-    return () => clearInterval(intervalId);
-  }, []); 
+  }, [api, store?.user, storeDispatch]); 
   
 
   useEffect(() => {
-    const isReferral = Boolean(code);
+    const isVerifyingEmail = Boolean(code);
     const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
   
-    if (isReferral) {
-      navigate(`/countdown?code=${code}`);
+    if (isVerifyingEmail) {
+      navigate(`/countdown/verify?code=${code}`);
       return;
     }
     if (shouldRedirectToCountdown && !isCountdown) {
@@ -245,7 +236,7 @@ function App() {
                 paddingBottom: 4,
               }}
             >
-              {/* <Wrapper /> */}
+              <Wrapper />
               <Routes>
 
                 {/* Countdown */}
