@@ -105,36 +105,29 @@ function App() {
   const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown";
   const code = searchParams.get("code");
 
-  // useEffect(() => {
-  //   const fetchCurrentUser = async () => {
-  //     try {
-  //       const currentUser = await getUser(api, store?.user?._id);
-  //       if (currentUser?.user && currentUser?.user !== store?.user) {
-  //         storeDispatch({ type: SET_USER, payload: currentUser?.user || '' });
-  //         localStorage.setItem('user', JSON.stringify(currentUser?.user || ''));
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching user:", error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchCurrentUser = async () => {
+      try {
+        const currentUser = await getUser(api, store?.user?._id);
+        if (currentUser?.user && currentUser?.user !== store?.user) {
+          storeDispatch({ type: SET_USER, payload: currentUser?.user || '' });
+          localStorage.setItem('user', JSON.stringify(currentUser?.user || ''));
+        }
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
     
-  //   // Initial call
-  //   fetchCurrentUser();
-
-  //   // Setting up interval
-  //   const intervalId = setInterval(fetchCurrentUser, 5000);
-
-  //   // Clearing interval on component unmount
-  //   return () => clearInterval(intervalId);
-  // }, [api, store?.user, storeDispatch]); 
+    fetchCurrentUser();
+  }, [api, store?.user]); 
   
 
   useEffect(() => {
-    const isReferral = Boolean(code);
+    const isVerifyingEmail = Boolean(code);
     const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
   
-    if (isReferral) {
-      navigate(`/countdown?code=${code}`);
+    if (isVerifyingEmail) {
+      navigate(`/countdown/verify?code=${code}`);
       return;
     }
     if (shouldRedirectToCountdown && !isCountdown) {
@@ -243,7 +236,7 @@ function App() {
                 paddingBottom: 4,
               }}
             >
-              {/* <Wrapper /> */}
+              <Wrapper />
               <Routes>
 
                 {/* Countdown */}
