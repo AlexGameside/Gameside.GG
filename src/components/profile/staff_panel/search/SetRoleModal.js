@@ -70,8 +70,16 @@ const SetRoleModal = (props) => {
         <Grid item>
           <BubbleButton
             title="Player"
-            selected={newRole < 100}
+            selected={newRole === 1}
             onClick={() => setNewRole(1)}
+          />
+        </Grid>
+
+        <Grid item>
+          <BubbleButton
+            title="Beta Tester"
+            selected={newRole >= 2 && newRole < 100}
+            onClick={() => setNewRole(2)}
           />
         </Grid>
 
