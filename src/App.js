@@ -130,11 +130,11 @@ function App() {
   
 
   useEffect(() => {
-    const isVerifyingEmail = Boolean(code);
+    const isReferral = Boolean(code);
     const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
   
-    if (isVerifyingEmail) {
-      navigate(`/countdown/verify?code=${code}`);
+    if (isReferral) {
+      navigate(`/countdown?code=${code}`);
       return;
     }
     if (shouldRedirectToCountdown && !isCountdown) {
