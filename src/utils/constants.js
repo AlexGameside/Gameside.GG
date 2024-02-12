@@ -26,7 +26,7 @@ const constants = {
   // clientUrl: "https://fntokens.gg",
   // clientUrl: "https://gameside-gg.vercel.app/",
   // clientUrl: "https://www.gameside.gg",
-  clientUrl: "https://www.game-side.com",
+  clientUrl: "https://game-side.com",
   // clientUrl: "http://localhost:3000",
   // clientUrl: "https://battlewiseclient.z22.web.core.windows.net/",
   // serverUrl: "https://battlewise-server.herokuapp.com",
