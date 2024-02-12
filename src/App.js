@@ -105,28 +105,28 @@ function App() {
   const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown";
   const code = searchParams.get("code");
 
-  // useEffect(() => {
-  //   const fetchCurrentUser = async () => {
-  //     try {
-  //       const currentUser = await getUser(api, store?.user?._id);
-  //       if (currentUser?.user && currentUser?.user !== store?.user) {
-  //         storeDispatch({ type: SET_USER, payload: currentUser?.user || '' });
-  //         localStorage.setItem('user', JSON.stringify(currentUser?.user || ''));
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching user:", error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchCurrentUser = async () => {
+      try {
+        const currentUser = await getUser(api, store?.user?._id);
+        if (currentUser?.user && currentUser?.user !== store?.user) {
+          storeDispatch({ type: SET_USER, payload: currentUser?.user || '' });
+          localStorage.setItem('user', JSON.stringify(currentUser?.user || ''));
+        }
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
     
-  //   // Initial call
-  //   fetchCurrentUser();
+    // Initial call
+    fetchCurrentUser();
 
-  //   // Setting up interval
-  //   const intervalId = setInterval(fetchCurrentUser, 5000);
+    // Setting up interval
+    const intervalId = setInterval(fetchCurrentUser, 5000);
 
-  //   // Clearing interval on component unmount
-  //   return () => clearInterval(intervalId);
-  // }, [api, store?.user, storeDispatch]); 
+    // Clearing interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []); 
   
 
   useEffect(() => {
