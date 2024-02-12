@@ -119,7 +119,7 @@ function App() {
     };
     
     fetchCurrentUser();
-  }, [api, store?.user, storeDispatch]); 
+  }, [api, store?.user]); 
   
 
   useEffect(() => {
