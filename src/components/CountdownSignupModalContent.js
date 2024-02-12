@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import createTheme from "../utils/theme";
 import { StoreContext } from "../context/NewStoreContext";
-import { Alert, DialogContent, Grid, Typography, Divider } from "@mui/material";
+import { Alert, DialogContent, Grid, Typography } from "@mui/material";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import NewInput from "./NewInput";
 import { register } from "../utils/API";
@@ -69,7 +69,7 @@ const CountdownSignupModalContent = (props) => {
         setLoading(false);
         setError(null);
         setSuccess(
-          "Successfully registered. Verify your email and your account will be complete. Come back March 1!"
+          "Successfully registered. You can now login."
         );
         setDate("");
         setName("");
