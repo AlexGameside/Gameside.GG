@@ -26,6 +26,7 @@ const REMOVE_TOURNAMENT_EVENT = "removeTournament";
 const NEW_BRACKET_EVENT = "newBracket";
 const NEW_BRACKET_WIN_EVENT = "newBracketWin";
 
+
 const getChatTimeStamp = (id) => {
   if (id == null) {
     return "";
