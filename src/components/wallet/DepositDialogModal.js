@@ -367,7 +367,7 @@ const DepositDialogModal = (props) => {
                       textAlign: "center",
                     }}
                   >
-                    Try again later.
+                    Please make a ticket in our discord for support.
                   </Typography>
                 </Grid>
               </Grid>
