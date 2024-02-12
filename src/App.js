@@ -178,14 +178,6 @@ function App() {
   };
 
   const Wrapper = () => {
-    const location = useLocation();
-    useLayoutEffect(() => {
-      if (location?.pathname) {
-        window.scrollTo(0, 0);
-        return;
-      }
-    }, [location.pathname]);
-
     return null;
   };
 
