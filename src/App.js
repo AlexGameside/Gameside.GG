@@ -108,11 +108,13 @@ function App() {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
+        if (store?.user?._id) {
         const currentUser = await getUser(api, store?.user?._id);
         if (currentUser?.user && currentUser?.user !== store?.user) {
           storeDispatch({ type: SET_USER, payload: currentUser?.user || '' });
           localStorage.setItem('user', JSON.stringify(currentUser?.user || ''));
         }
+      }
       } catch (error) {
         console.error("Error fetching user:", error);
       }
