@@ -21,7 +21,7 @@ const CountdownPage = () => {
   const [openModal, setOpenModal] = useState(false);
   const [menuAnchor, setMenuAnchor] = useState(null);
 
-  const date = new Date('2024-03-01T18:00:00Z');
+  const date = new Date('2024-06-15T00:00:00Z');
   const epoch = date.getTime();
 
   const handleOpenModal = () => {
