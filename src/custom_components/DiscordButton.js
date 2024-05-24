@@ -26,4 +26,24 @@ const DiscordButton = (props) => {
   );
 };
 
+export const JoinDiscordButton = () => {
+  const store = useContext(StoreContext);
+  const theme = createTheme(store.mode);
+
+  const joinDiscord = () => {
+    window.open('https://discord.gg/EZvFmXgam2', '_blank');
+  };
+
+  return (
+    <NewPrimaryButton
+      label={'Join the Discord'}
+      backgroundColor="#7289da"
+      fullWidth
+      onClick={joinDiscord}
+    >
+      <FaDiscord style={{ fontSize: 22, color: theme.white() }} />
+    </NewPrimaryButton>
+  );
+};
+
 export default DiscordButton;

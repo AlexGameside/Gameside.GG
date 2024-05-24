@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Box, Button, Grid, Typography, useMediaQuery } from '@mui/material';
 import Logo from '../assets/gameside-logo.png';
 import NewPrimaryButton from '../custom_components/NewPrimaryButton';
+import {JoinDiscordButton} from '../custom_components/DiscordButton';
 import Countdown from 'react-countdown';
 import { StoreContext } from '../context/NewStoreContext';
 import createTheme from '../utils/theme';
@@ -23,6 +24,11 @@ const CountdownPage = () => {
 
   const date = new Date('2024-06-15T00:00:00Z');
   const epoch = date.getTime();
+
+  const handleJoinDiscord = (e) => {
+    e.preventDefault();
+    window.open('https://discord.gg/EZvFmXgam2', '_blank');
+  }
 
   const handleOpenModal = () => {
     setOpenModal(true);
@@ -110,6 +116,9 @@ const CountdownPage = () => {
             onClick={handleOpenModal}
           />
         )}
+        <div style={{marginTop: 20, width: '100%'}}>
+          <JoinDiscordButton />
+        </div>
       </div>
     </>
   )
