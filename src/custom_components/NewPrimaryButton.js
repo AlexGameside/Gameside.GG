@@ -17,6 +17,7 @@ const NewPrimaryButton = (props) => {
     children = null,
     backgroundColor = null,
     textColor = null,
+    childrenMarginTop = 1,
   } = props;
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
@@ -98,7 +99,7 @@ const NewPrimaryButton = (props) => {
               alignItems="center"
               gap={{ xs: 1 }}
             >
-              <Grid item sx={{ marginTop: 1 }}>
+              <Grid item sx={{ marginTop: childrenMarginTop }}>
                 {children}
               </Grid>
               <Grid item>{label}</Grid>
