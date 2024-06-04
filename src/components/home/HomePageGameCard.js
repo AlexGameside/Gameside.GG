@@ -43,6 +43,7 @@ const HomePageGameCard = ({ gameName, posterSrc }) => {
 const navigate = useNavigate();
 
 const handleGameClick = () => {
+  if(!gameName) return;
   const gamePath = `/${gameName.toLowerCase()}`;
   navigate(gamePath)
 }
@@ -50,10 +51,12 @@ const handleGameClick = () => {
 
   return (
     <CardWrapper onClick={handleGameClick}>
-    <CardImage style={{backgroundImage: `url(${posterSrc})`, backgroundPosition: 'center', backgroundSize: 'cover'}} alt={gameName}>
-    <FooterWrapper>
-    <Typography variant="h6">{gameName}</Typography>
-    </FooterWrapper>
+    <CardImage style={{backgroundImage: `url(${posterSrc})`, backgroundPosition: 'center', backgroundSize: 'cover'}} alt={gameName || "game card"}>
+    {gameName &&
+      <FooterWrapper>
+      <Typography variant="h6">{gameName}</Typography>
+      </FooterWrapper>
+    }
     </CardImage>
     </CardWrapper>
   );
