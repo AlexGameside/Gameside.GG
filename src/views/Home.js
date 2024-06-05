@@ -10,10 +10,12 @@ import NewPrimaryButton from '../custom_components/NewPrimaryButton.js';
 import useEmblaCarousel from 'embla-carousel-react';
 
 const HomeWrapper = styled.div`
+  top: 64px;
+  left: 0;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  height: 100%;
+  height: calc(100% - 64px);
   scroll-snap-type: y mandatory;
   width: 100%;
   overflow: hidden;
@@ -37,58 +39,59 @@ const Home = () => {
 
 
   return (
+    <div className="relative w-full min-h-screen lg:mt-[120px]">
     <HomeWrapper>
-    <ResponsiveSlider games={games} />
-    <div className="w-full bg-[#242527] rounded-3xl p-[30px] mt-[120px] flex-wrap flex flex-col lg:!flex-row lg:items-center gap-[50px]">
-      <div className="font-['Manrope'] flex flex-col w-full items-center lg:w-full">
-        <div className="font-extrabold text-[32px] leading-[43.71px]">Choose your game</div>
-        <div className="text-base leading-[21.86px] mt-2">Earn cash while competing to be the top</div>
-      </div>
-      <div className="flex flex-col lg:!flex-row w-full gap-[50px] lg-gap-[175px] justify-center items-center">
-        <div className="w-full h-[178px] sm:!w-[423px] sm:h-[252px] lg:w-auto">
-          <HomePageGameCard posterSrc={HomePageValorantImg} />
+      <ResponsiveSlider games={games} />
+      <div className="w-full bg-[#242527] rounded-3xl p-[30px] mt-[120px] flex-wrap flex flex-col lg:!flex-row lg:items-center gap-[50px]">
+        <div className="font-['Manrope'] flex flex-col w-full items-center lg:w-full">
+          <div className="font-extrabold text-[32px] leading-[43.71px]">Choose your game</div>
+          <div className="text-base leading-[21.86px] mt-2">Earn cash while competing to be the top</div>
         </div>
-        <div className="relative w-full h-[178px] sm:!w-[423px] sm:h-[252px] lg:w-auto">
-          <HomePageGameCard posterSrc={HomePageFortniteImg} />
-          <div className="absolute rounded-2xl top-0 left-0 w-full h-full flex justify-center items-center font-['Manrope'] font-extrabold text-[32px] leading-[43.71px] bg-gradient-to-b hover:from-transparent hover:to-[#E72953] opacity-0 hover:opacity-100 transition-opacity duration-300">Fortnite</div>
-        </div>
-      </div>
-    </div>
-    <div className="transition-all flex flex-col lg:!flex-row mt-[50px] min-[500px]:px-[50px] lg:gap-[98px] shrink-0 lg:ml-auto lg:mr-auto grow w-full max-w-[1380px]">
-      <div className="gap-[30px] font-['Manrope'] flex flex-col max-lg:w-full max-lg:items-center max-lg:text-center justify-center">
-        <div className="font-extrabold text-[32px] leading-[43.71px]">Monthly leaderboard rewards</div>
-        <div className="text-base leading-[21.86px]">Earn rewards by placing in the monthly leaderboard</div>
-          <div className="justify-start hidden lg:!flex">
-            <NewPrimaryButton
-              backgroundColor="#E72953"
-              label={"Check Leaderboard"}
-              onClick={()=>{}}
-              fullwidth={false}
-              mobileSmall
-            >
-            </NewPrimaryButton>
+        <div className="flex flex-col lg:!flex-row w-full gap-[50px] lg-gap-[175px] justify-center items-center">
+          <div className="w-full h-[178px] sm:!w-[423px] sm:h-[252px] lg:w-auto">
+            <HomePageGameCard posterSrc={HomePageValorantImg} />
           </div>
-      </div>
-      <div className="transition-all leaderboardCards flex justify-between md:justify-around mt-[225px] sm:mt-[150px] grow">
-        <div className="bg-[#242527] shrink-0 rounded-xl font-['Manrope'] w-[200px] h-[190px] flex flex-col gap-3 items-center justify-center">
-          <div className="rounded-full bg-[#A1A1A1] w-[84px] h-[84px]"></div>
-          <div className="font-bold flex gap-3"><span className="text-[#E72953]">#2</span><span>Name</span></div>
-          <div className="rounded-full">#200</div>
-        </div>
-        <div className="bg-[#242527] z-10 mt-[-150px] sm:mt-[-75px] ml-[-100px] shrink-0 rounded-xl font-['Manrope'] w-[200px] h-[190px] flex flex-col gap-3 items-center justify-center">
-          <div className="rounded-full bg-[#A1A1A1] w-[84px] h-[84px]"></div>
-          <div className="font-bold flex gap-3"><span className="text-[#E72953]">#1</span><span>Name</span></div>
-          <div className="rounded-full">#200</div>
-        </div>
-        <div className="bg-[#242527] z-20 ml-[-100px] shrink-0 rounded-xl font-['Manrope'] w-[200px] h-[190px] flex flex-col gap-3 items-center justify-center">
-          <div className="rounded-full bg-[#A1A1A1] w-[84px] h-[84px]"></div>
-          <div className="font-bold flex gap-3"><span className="text-[#E72953]">#3</span><span>Name</span></div>
-          <div className="rounded-full">#200</div>
+          <div className="relative w-full h-[178px] sm:!w-[423px] sm:h-[252px] lg:w-auto">
+            <HomePageGameCard posterSrc={HomePageFortniteImg} />
+            <div className="absolute rounded-2xl top-0 left-0 w-full h-full flex justify-center items-center font-['Manrope'] font-extrabold text-[32px] leading-[43.71px] bg-gradient-to-b hover:from-transparent hover:to-[#E72953] opacity-0 hover:opacity-100 transition-opacity duration-300">Fortnite</div>
+          </div>
         </div>
       </div>
-    </div>
-    
+      <div className="transition-all flex flex-col lg:!flex-row mt-[50px] min-[500px]:px-[50px] lg:gap-[98px] shrink-0 lg:ml-auto lg:mr-auto grow w-full max-w-[1380px]">
+        <div className="gap-[30px] font-['Manrope'] flex flex-col max-lg:w-full max-lg:items-center max-lg:text-center justify-center">
+          <div className="font-extrabold text-[32px] leading-[43.71px]">Monthly leaderboard rewards</div>
+          <div className="text-base leading-[21.86px]">Earn rewards by placing in the monthly leaderboard</div>
+            <div className="justify-start hidden lg:!flex">
+              <NewPrimaryButton
+                backgroundColor="#E72953"
+                label={"Check Leaderboard"}
+                onClick={()=>{}}
+                fullwidth={false}
+                mobileSmall
+              >
+              </NewPrimaryButton>
+            </div>
+        </div>
+        <div className="transition-all leaderboardCards flex justify-between md:justify-around mt-[225px] sm:mt-[150px] grow">
+          <div className="bg-[#242527] shrink-0 rounded-xl font-['Manrope'] w-[200px] h-[190px] flex flex-col gap-3 items-center justify-center">
+            <div className="rounded-full bg-[#A1A1A1] w-[84px] h-[84px]"></div>
+            <div className="font-bold flex gap-3"><span className="text-[#E72953]">#2</span><span>Name</span></div>
+            <div className="rounded-full">#200</div>
+          </div>
+          <div className="bg-[#242527] z-10 mt-[-150px] sm:mt-[-75px] ml-[-100px] shrink-0 rounded-xl font-['Manrope'] w-[200px] h-[190px] flex flex-col gap-3 items-center justify-center">
+            <div className="rounded-full bg-[#A1A1A1] w-[84px] h-[84px]"></div>
+            <div className="font-bold flex gap-3"><span className="text-[#E72953]">#1</span><span>Name</span></div>
+            <div className="rounded-full">#200</div>
+          </div>
+          <div className="bg-[#242527] z-20 ml-[-100px] shrink-0 rounded-xl font-['Manrope'] w-[200px] h-[190px] flex flex-col gap-3 items-center justify-center">
+            <div className="rounded-full bg-[#A1A1A1] w-[84px] h-[84px]"></div>
+            <div className="font-bold flex gap-3"><span className="text-[#E72953]">#3</span><span>Name</span></div>
+            <div className="rounded-full">#200</div>
+          </div>
+        </div>
+      </div>
     </HomeWrapper>
+    </div>
   );
 };
 
