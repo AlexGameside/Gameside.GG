@@ -28,9 +28,8 @@ const Home = () => {
     {name: 'Fortnite', poster:fortniteLogo},
     {name: 'Valorant', poster: valorantLogo},
   ];
-
-
-   useEffect(() => {
+  
+  useEffect(() => {
     // Set the initial scroll position to the maximum value
     if (endScrollViewRef.current) {
       endScrollViewRef.current.scrollLeft = endScrollViewRef.current.scrollWidth;
@@ -49,11 +48,10 @@ const Home = () => {
         </div>
         <div className="flex flex-col lg:!flex-row w-full gap-[50px] lg-gap-[175px] justify-center items-center">
           <div className="w-full h-[178px] sm:!w-[423px] sm:h-[252px] lg:w-auto">
-            <HomePageGameCard posterSrc={HomePageValorantImg} />
+            <HomePageGameCard gameName={'valorant'} posterSrc={HomePageValorantImg} />
           </div>
           <div className="relative w-full h-[178px] sm:!w-[423px] sm:h-[252px] lg:w-auto">
-            <HomePageGameCard posterSrc={HomePageFortniteImg} />
-            <div className="absolute rounded-2xl top-0 left-0 w-full h-full flex justify-center items-center font-['Manrope'] font-extrabold text-[32px] leading-[43.71px] bg-gradient-to-b hover:from-transparent hover:to-[#E72953] opacity-0 hover:opacity-100 transition-opacity duration-300">Fortnite</div>
+            <HomePageGameCard gameName={'fortnite'} posterSrc={HomePageFortniteImg} overlay />
           </div>
         </div>
       </div>
