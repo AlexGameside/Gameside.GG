@@ -502,7 +502,7 @@ const HomeNavBar = () => {
       alignItems: "center",
       height: isDesktop ? 56 : 50,
       width: "100%",
-      backgroundColor: "transparent",
+      // backgroundColor: "transparent",
       boxShadow: theme.shadow(),
     },
     logo: {

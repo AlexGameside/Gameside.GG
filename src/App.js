@@ -1,4 +1,5 @@
 import "./App.css";
+import "./output.css";
 import { Routes, Route, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import Verify from "./components/Verify.js";
 import RequireAuth from "./components/RequireAuth";
@@ -157,7 +158,7 @@ function App() {
   };
 
   const getPaddingLeft = () => {
-    if (path === "/" || path === "countdown") {
+    if (path === "" || path === "countdown") {
       return 0;
     }
     else if (path === "valorant" || path === "fortnite") {
@@ -168,7 +169,7 @@ function App() {
   };
 
   const getPaddingRight = () => {
-    if (path === "/" || path === "countdown") {
+    if (path === "" || path === "countdown") {
       return 0;
     }
     else if (path === "valorant" || path === "fortnite") {

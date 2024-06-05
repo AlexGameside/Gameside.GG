@@ -14,9 +14,11 @@ const NewPrimaryButton = (props) => {
     disabled = false,
     square = false,
     small = false,
+    mobileSmall=false,
     children = null,
     backgroundColor = null,
     textColor = null,
+    childrenMarginTop = 1,
   } = props;
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
@@ -25,6 +27,8 @@ const NewPrimaryButton = (props) => {
   const getSizeForButton = () => {
     if (small) {
       return 50;
+    } else if (mobileSmall) {
+      return 126;
     } else if (fullWidth) {
       return "100%";
     } else {
@@ -49,7 +53,7 @@ const NewPrimaryButton = (props) => {
       color: textColor ?? theme.white(),
       fontSize: 11,
       fontWeight: 700,
-      borderRadius: square || small ? 2 : 50,
+      borderRadius: square || small || mobileSmall ? 2 : 50,
       boxShadow: "0 0",
       transition: "all .2s ease-in-out",
       minWidth: getSizeForButton(),
@@ -98,7 +102,7 @@ const NewPrimaryButton = (props) => {
               alignItems="center"
               gap={{ xs: 1 }}
             >
-              <Grid item sx={{ marginTop: 1 }}>
+              <Grid item sx={{ marginTop: childrenMarginTop }}>
                 {children}
               </Grid>
               <Grid item>{label}</Grid>

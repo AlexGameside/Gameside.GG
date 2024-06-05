@@ -23,7 +23,6 @@ overflow: hidden;
 height: 100%;
 width: 100%;
 align-items: center;
-cursor: pointer;
 `;
 
 const CardImage = styled.div`
@@ -36,26 +35,34 @@ const CardImage = styled.div`
   align-items: flex-end;
 `;
 
-const HomePageGameCard = ({ gameName, posterSrc }) => {
+const HomePageGameCard = ({ gameName, posterSrc, enableFooter, overlay }) => {
 
 
   
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-const handleGameClick = () => {
-  const gamePath = `/${gameName.toLowerCase()}`;
-  navigate(gamePath)
-}
+  const handleGameClick = () => {
+    if(!gameName) return;
+    const gamePath = `/${gameName.toLowerCase()}`;
+    navigate(gamePath)
+  }
 
 
   return (
+    <>
     <CardWrapper onClick={handleGameClick}>
-    <CardImage style={{backgroundImage: `url(${posterSrc})`, backgroundPosition: 'center', backgroundSize: 'cover'}} alt={gameName}>
-    <FooterWrapper>
-    <Typography variant="h6">{gameName}</Typography>
-    </FooterWrapper>
+    <CardImage className={gameName && 'cursor-pointer'} style={{position:'relative', backgroundImage: `url(${posterSrc})`, backgroundPosition: 'center', backgroundSize: 'cover'}} alt={gameName || "game card"}>
+    {gameName && enableFooter &&
+      <FooterWrapper>
+      <Typography variant="h6">{gameName}</Typography>
+      </FooterWrapper>
+    }
     </CardImage>
+    {overlay &&
+      <div onClick={handleGameClick} className="cursor-pointer absolute rounded-2xl top-0 left-0 w-full h-full flex justify-center items-center font-['Manrope'] font-extrabold text-[32px] leading-[43.71px] bg-gradient-to-b hover:from-transparent hover:to-[#E72953] opacity-0 hover:opacity-100 transition-opacity duration-300">Fortnite</div>
+    }
     </CardWrapper>
+    </>
   );
 };
 
