@@ -210,6 +210,7 @@ const CountdownLoginModalContent = (props) => {
                     onChange={setUsername}
                     lowercase
                     value={username}
+                    onKeyDown={handleLogin}
                   />
                 </Grid>
               </Grid>
@@ -232,6 +233,7 @@ const CountdownLoginModalContent = (props) => {
                     onChange={setPassword}
                     value={password}
                     type="password"
+                    onKeyDown={handleLogin}
                   />
                 </Grid>
               </Grid>

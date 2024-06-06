@@ -237,6 +237,7 @@ const CountdownSignupModalContent = (props) => {
                     placeholder="Full Name"
                     onChange={setName}
                     value={name}
+                    onKeyDown={()=>{return;}}
                   />
                 </Grid>
               </Grid>
@@ -259,6 +260,7 @@ const CountdownSignupModalContent = (props) => {
                     onChange={setDate}
                     type="date"
                     value={date}
+                    onKeyDown={()=>{return;}}
                   />
                 </Grid>
               </Grid>
@@ -281,6 +283,7 @@ const CountdownSignupModalContent = (props) => {
                     onChange={setEmail}
                     value={email}
                     type="email"
+                    onKeyDown={()=>{return;}}
                   />
                 </Grid>
               </Grid>
@@ -302,6 +305,7 @@ const CountdownSignupModalContent = (props) => {
                     placeholder="Username"
                     onChange={setUsername}
                     value={username}
+                    onKeyDown={()=>{return;}}
                   />
                 </Grid>
               </Grid>
@@ -324,6 +328,7 @@ const CountdownSignupModalContent = (props) => {
                     onChange={setPassword}
                     value={password}
                     type="password"
+                    onKeyDown={handleRegister}
                   />
                 </Grid>
               </Grid>
@@ -348,6 +353,7 @@ const CountdownSignupModalContent = (props) => {
                     onChange={setConfirmPassword}
                     value={confirmPassword}
                     type="password"
+                    onKeyDown={handleRegister}
                   />
                 </Grid>
               </Grid>

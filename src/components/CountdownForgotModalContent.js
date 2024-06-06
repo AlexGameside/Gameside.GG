@@ -130,6 +130,7 @@ const CountdownForgotModalContent = (props) => {
                 type="email"
                 onChange={setEmail}
                 value={email}
+                onKeyDown={handleSubmitForgot}
               />
             </Grid>
           </Grid>
