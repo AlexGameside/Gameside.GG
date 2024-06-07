@@ -62,7 +62,7 @@ const HomeSignupModalContent = (props) => {
       setError("Please fill in all fields.");
       return;
     }
-    const promoCode = searchParams.get("code");
+    const promoCode = searchParams.get("rcode");
     register(name, date, email, username, password, promoCode).then((res) => {
       if (!res.error) {
         setLoading(false);
