@@ -76,7 +76,7 @@ const NewSignupLoginModal = (props) => {
 
   // useEffects
   useEffect(() => {
-    const code = searchParams.get("code");
+    const code = searchParams.get("rcode");
     const verify = searchParams.get("verify");
     const forgot = searchParams.get("forgot");
     const failed = searchParams.get("failed");
