@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import fortniteLogo from '../assets/fortniteCard.jpg';
 import valorantLogo from '../assets/valorantCard.png';
 import placeholderImg from '../assets/placeholder.png';
+import CashMatchesImg from '../assets/Gameside_CashMatches.webp';
 import HomePageValorantImg from '../assets/HomePageValorant.png';
 import HomePageFortniteImg from '../assets/HomePageFortnite.jpg';
 import NewPrimaryButton from '../custom_components/NewPrimaryButton.js';
@@ -144,7 +145,7 @@ const ResponsiveSlider = () => {
               </div>
             </div>
           </div>
-          <div className="embla__slide flex-none w-full">
+          <div className="embla__slide flex-none w-full mr-[1px]">
             <div className="flex flex-col lg:!flex-row gap-[60px] lg:gap-[181px] lg:justify-center">
       
               <div className="gap-[20px] font-['Manrope'] flex flex-col">
@@ -164,7 +165,7 @@ const ResponsiveSlider = () => {
               </div>
       
               <div className="w-full h-[184.569px] sm:h-[332px] sm:max-w-[590px]">
-                <HomePageGameCard posterSrc={placeholderImg} />
+                <HomePageGameCard posterSrc={CashMatchesImg} />
               </div>
             </div>
           </div>
