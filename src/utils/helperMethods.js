@@ -709,6 +709,38 @@ const currencyOptions = [
   { title: "ZMW", value: "ZMW" },
 ];
 
+/**
+ * 
+ * @param {string} password 
+ * @returns string
+ */
+const validatePassword = (password) => {
+  // Check if the length is at least 12 characters
+  if (password.length < 12) {
+    return 'Password must be at least 12 characters long.';
+  }
+
+  // Check if contains only letters, numbers, and specific special characters
+  const validCharacters = /^[A-Za-z0-9!@#$%^&*(),.?:{}|<>]+$/;
+  if (!validCharacters.test(password)) {
+    return 'Password contains invalid characters. Only letters, numbers, and special characters are allowed.';
+  }
+
+  // Check if contains at least one number
+  const hasNumber = /[0-9]/;
+  if (!hasNumber.test(password)) {
+    return 'Password must contain at least one number.';
+  }
+
+  // Check if contains at least one uppercase letter
+  const hasUppercase = /[A-Z]/;
+  if (!hasUppercase.test(password)) {
+    return 'Password must contain at least one uppercase letter.';
+  }
+
+  return '';
+}
+
 export {
   getDateForMatch,
   getTimeForMatch,
@@ -746,4 +778,5 @@ export {
   createSections,
   ValCreateMatchOptions,
   currencyOptions,
+  validatePassword,
 };

@@ -6,10 +6,11 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import NewInput from "./NewInput";
 import { register } from "../utils/API";
 import NewPrimaryButton from "../custom_components/NewPrimaryButton";
-import DiscordButton from "../custom_components/DiscordButton";
-import TwitchButton from "../custom_components/TwitchButton";
-import GoogleButton from "../custom_components/GoogleButton";
+// import DiscordButton from "../custom_components/DiscordButton";
+// import TwitchButton from "../custom_components/TwitchButton";
+// import GoogleButton from "../custom_components/GoogleButton";
 import constants from "../utils/constants";
+import { validatePassword } from "../utils/helperMethods";
 // import jwt_decode from "jwt-decode";
 
 const CountdownSignupModalContent = (props) => {
@@ -61,6 +62,12 @@ const CountdownSignupModalContent = (props) => {
     ) {
       setLoading(false);
       setError("Please fill in all fields.");
+      return;
+    }
+    const invalidPw = validatePassword(password);
+    if(invalidPw) {
+      setLoading(false);
+      setError(invalidPw);
       return;
     }
     const promoCode = searchParams.get("rcode");

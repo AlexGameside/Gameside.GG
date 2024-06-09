@@ -9,6 +9,7 @@ import NewPrimaryButton from "../custom_components/NewPrimaryButton";
 import DiscordButton from "../custom_components/DiscordButton";
 import TwitchButton from "../custom_components/TwitchButton";
 import GoogleButton from "../custom_components/GoogleButton";
+import { validatePassword } from "../utils/helperMethods";
 // import jwt_decode from "jwt-decode";
 
 const HomeSignupModalContent = (props) => {
@@ -60,6 +61,12 @@ const HomeSignupModalContent = (props) => {
     ) {
       setLoading(false);
       setError("Please fill in all fields.");
+      return;
+    }
+    const invalidPw = validatePassword(password);
+    if(invalidPw) {
+      setLoading(false);
+      setError(invalidPw);
       return;
     }
     const promoCode = searchParams.get("rcode");
