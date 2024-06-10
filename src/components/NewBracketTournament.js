@@ -115,6 +115,16 @@ const NewBracketTournament = () => {
     }
   };
 
+  const handleGoBackToParent = () => {
+    const pathParts = location.pathname.split('/').filter(Boolean);
+    if (pathParts.length > 1) {
+      // Remove the last part (page ID)
+      pathParts.pop();
+      const parentPath = '/' + pathParts.join('/');
+      navigate(parentPath);
+    }
+  };
+
   const handleCloseJoinModal = () => {
     setJoinModalOpen(false);
   };
@@ -157,7 +167,7 @@ const NewBracketTournament = () => {
       if (!res?.error) {
         setDeleteLoading(false);
         setSuccess(res?.message);
-        navigate("/valorant/tournaments");
+        handleGoBackToParent();
         return;
       } else {
         setError(res?.message);
@@ -747,7 +757,7 @@ const NewBracketTournament = () => {
       >
         <Grid item>
           <NewOutlineButton
-            onClick={() => navigate("/valorant/tournaments")}
+            onClick={handleGoBackToParent}
             label={"Back to Tournaments"}
           />
         </Grid>
