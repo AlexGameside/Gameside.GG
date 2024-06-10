@@ -531,7 +531,7 @@ const NewNavBar = () => {
       maxWidth: 120,
       "&:hover": {
         cursor: "pointer",
-        transform: "scale(1.1)",
+        // transform: "scale(1.1)",
       },
     },
     linkContainer: {
@@ -825,13 +825,14 @@ const NewNavBar = () => {
               alignItems="center"
               gap={{ xs: 5 }}
             >
-              <Grid item sx={{ ...styles.gamesideLogo, paddingTop: 1 }}>
-                <img
+              <Grid item sx={{ paddingTop: 1 }}>
+                {/* <img
                   src={GamesideLogoWord}
                   alt="logo"
                   style={styles.gamesideLogo}
                   onClick={() => navigate("/")}
-                />
+                /> */}
+                <div onClick={() => navigate("/")} className="cursor-pointer font-[Manrope] font-extrabold text-[24px] min-[430px]:text-[32px] ml-[20px] min-[430px]:ml-[50px]" >Gameside</div>
               </Grid>
               {isDesktop && (
                 <>
@@ -855,7 +856,6 @@ const NewNavBar = () => {
               )}
             </Grid>
           </Grid>
-
           {store?.currentTokenId && isDesktop ? (
             <Grid
               item

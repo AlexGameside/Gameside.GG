@@ -815,13 +815,14 @@ const HomeNavBar = () => {
             >
               {/* will put new logo when alex supplies it */}
               <Grid item sx={{ paddingTop: 1 }}>
-                <img
+                {/* <img
                   src={GamesideLogoWord}
                   alt="logo"
                   style={{
                     maxWidth: 120,
                   }}
-                />
+                /> */}
+                <div className="font-[Manrope] font-extrabold text-[24px] min-[430px]:text-[32px] min-[430px]:ml-[50px]" >Gameside</div>
               </Grid>
               {isDesktop && (
                 <>

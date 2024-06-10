@@ -115,7 +115,7 @@ const CustomizeAvatarDialogModal = (props) => {
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
   const avatarCopy = { ...store?.user?.avatar[0] };
-  const ref = useRef();
+  const ref = useRef(null);
   const { onMouseDown } = useDraggableScroll(ref, {
     direction: "horizontal",
   });
