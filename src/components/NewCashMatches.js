@@ -121,10 +121,10 @@ const NewCashMatches = () => {
     theme.changeWebsiteBackground();
   }, [store.mode]);
 
-  useEffect(() => {
-    setLoading(true);
-    getMatches({ isScrimMatch: null, limit: 9, skip });
-  }, []);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   getMatches({ isScrimMatch: null, limit: 9, skip });
+  // }, []);
 
   useEffect(() => {
     let newFilters = {
