@@ -53,6 +53,7 @@ import HomeNavBar from "./components/HomeNavBar.js";
 import CountdownPage from "./views/Countdown.js";
 import CountdownSignupLoginModal from "./components/CountdownSignupLoginModal.js";
 import CountdownSupport from "./components/CountdownSupport.js";
+import isEqual from 'lodash.isequal';
 
 function getUserStore() {
   try {
@@ -110,10 +111,10 @@ function App() {
     const fetchCurrentUser = async () => {
       try {
         const currentUser = await getUser(api, store?.user?._id);
-        if (currentUser?.user !== store?.user) {
+        if (!isEqual(currentUser?.user, store?.user)) {
           storeDispatch({ type: SET_USER, payload: currentUser?.user || '' });
           localStorage.setItem('user', JSON.stringify(currentUser?.user || ''));
-      }
+    }
       } catch {
         
       }
