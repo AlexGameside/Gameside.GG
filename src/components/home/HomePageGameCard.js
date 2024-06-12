@@ -59,7 +59,7 @@ const HomePageGameCard = ({ gameName, posterSrc, enableFooter, overlay }) => {
     }
     </CardImage>
     {overlay &&
-      <div onClick={handleGameClick} className="cursor-pointer absolute rounded-2xl top-0 left-0 w-full h-full flex justify-center items-center font-['Manrope'] font-extrabold text-[32px] leading-[43.71px] bg-gradient-to-b hover:from-transparent hover:to-[#E72953] opacity-0 hover:opacity-100 transition-opacity duration-300">Fortnite</div>
+      <div onClick={handleGameClick} className="cursor-pointer absolute rounded-2xl top-0 left-0 w-full h-full flex justify-center items-center font-['Manrope'] font-extrabold text-[32px] leading-[43.71px] bg-gradient-to-b hover:from-transparent hover:to-[#E72953] opacity-0 hover:opacity-100 transition-opacity duration-300">{gameName}</div>
     }
     </CardWrapper>
     </>

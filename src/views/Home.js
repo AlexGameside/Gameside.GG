@@ -48,11 +48,11 @@ const Home = () => {
           <div className="text-base leading-[21.86px] mt-2">Earn cash while competing to be the top</div>
         </div>
         <div className="flex flex-col lg:!flex-row w-full gap-[50px] lg-gap-[175px] justify-center items-center">
-          <div className="w-full h-[178px] sm:!w-[423px] sm:h-[252px] lg:w-auto">
-            <HomePageGameCard gameName={'valorant'} posterSrc={HomePageValorantImg} />
+          <div className="relative w-full h-[178px] sm:!w-[423px] sm:h-[252px] lg:w-auto">
+            <HomePageGameCard gameName={'Valorant'} posterSrc={HomePageValorantImg} overlay />
           </div>
           <div className="relative w-full h-[178px] sm:!w-[423px] sm:h-[252px] lg:w-auto">
-            <HomePageGameCard gameName={'fortnite'} posterSrc={HomePageFortniteImg} overlay />
+            <HomePageGameCard gameName={'Fortnite'} posterSrc={HomePageFortniteImg} overlay />
           </div>
         </div>
       </div>
