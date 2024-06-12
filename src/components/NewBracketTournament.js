@@ -120,7 +120,7 @@ const NewBracketTournament = () => {
     if (pathParts.length > 1) {
       // Remove the last part (page ID)
       pathParts.pop();
-      const parentPath = '/' + pathParts.join('/');
+      const parentPath = '/' + pathParts.join('/') + 's';
       navigate(parentPath);
     }
   };
