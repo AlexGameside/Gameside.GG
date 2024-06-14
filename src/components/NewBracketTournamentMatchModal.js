@@ -9,6 +9,7 @@ import {
   DialogContent,
   Typography,
   Grid,
+  Button,
   Divider,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
@@ -16,16 +17,12 @@ import constants from "../utils/constants";
 import newMatchSoundAudio from "../assets/new-match.mp3";
 import NewSecondaryButton from "../custom_components/NewSecondaryButton";
 import NewPrimaryButton from "../custom_components/NewPrimaryButton";
-import {
-  getBracketTournament,
-} from "../utils/API";
 
 const NewBracketTournamentMatchModal = (props) => {
   // variables
   const { open, onClose, tokenId } = props;
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
-  const [gameName, setGameName] = useState("");
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const isMobile = useMediaQuery("(max-width:500px)");
   const newMatchSound = new Audio(newMatchSoundAudio);
@@ -41,18 +38,9 @@ const NewBracketTournamentMatchModal = (props) => {
   // effects
   useEffect(() => {
     if (open) {
-      getBracketTournament(tokenId).then((res) => {
-        if (!res?.error) {
-          setGameName(res?.tourney?.game === 'FN' ? 'fortnite' : res?.tourney?.game === 'VAL' ? 'valorant' : '');
-          newMatchSound.volume = 0.5;
-          newMatchSound.load();
-          newMatchSound.play();
-          return;
-        } else {
-          onClose();
-          return;
-        }
-      });
+      newMatchSound.volume = 0.5;
+      newMatchSound.load();
+      newMatchSound.play();
     }
   }, [open]);
 
@@ -174,7 +162,7 @@ const NewBracketTournamentMatchModal = (props) => {
                 <NewPrimaryButton
                   label="join match"
                   onClick={() =>
-                    (window.location.href = `${constants.clientUrl}/${gameName}/token/${tokenId}`)
+                    (window.location.href = `${constants.clientUrl}/token/${tokenId}`)
                   }
                 />
               </Grid>

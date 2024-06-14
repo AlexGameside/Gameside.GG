@@ -64,7 +64,6 @@ const NewBracketTournament = () => {
   const theme = createTheme(store.mode);
   const params = useParams();
   const location = useLocation();
-  const gameName = location.pathname.split('/').filter(Boolean)[0];
   const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
   const isValorant = location.pathname.startsWith("/valorant");
   const isDesktop = useMediaQuery("(min-width:1025px)");
@@ -1853,7 +1852,7 @@ const NewBracketTournament = () => {
         ) : null}
 
         {selected === "bracket" ? (
-          <NewBracketTournamentBracket tournament={tournament} gameName={gameName} />
+          <NewBracketTournamentBracket tournament={tournament} />
         ) : null}
 
         {selected === "teams" ? (
