@@ -299,23 +299,7 @@ const WithdrawDialogModal = (props) => {
                             />
                           </Grid>
 
-                          <Grid item>
-                            <BubbleButton
-                              title="Valorant Points"
-                              selected={step === 1}
-                              onClick={() => {
-                                if (step === 1 || loading) {
-                                  return;
-                                }
-                                setStep(1);
-                                setPaypalAccount(null);
-                                setCustomAmount(0);
-                                setValorantPoints(0);
-                                setEmail(null);
-                                setCountry(null);
-                              }}
-                            />
-                          </Grid>
+                          
                         </Grid>
                       </Grid>
 
@@ -331,12 +315,12 @@ const WithdrawDialogModal = (props) => {
                             >
                               <Grid item sx={{ width: "100%" }}>
                                 <Typography style={styles.label}>
-                                  PayPal Email*
+                                  PayPal Email / $cashtag
                                 </Typography>
                               </Grid>
                               <Grid item sx={{ width: "100%" }}>
                                 <NewInput
-                                  placeholder="PayPal Email"
+                                  placeholder="Paypal / Cashtag (Cash app)"
                                   onChange={setPaypalAccount}
                                   value={paypalAccount}
                                   type="email"
@@ -443,7 +427,7 @@ const WithdrawDialogModal = (props) => {
 
                               <Grid item>
                                 <Typography sx={styles.label}>
-                                  24-48 hours
+                                  1 - 12 Hours
                                 </Typography>
                               </Grid>
                             </Grid>
