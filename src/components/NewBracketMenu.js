@@ -8,7 +8,7 @@ import { FaRocket } from "react-icons/fa";
 
 const NewBracketMenu = (props) => {
   // variables
-  const { anchor, handleClose, matchId } = props;
+  const { anchor, handleClose, matchId, gameName } = props;
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
 
@@ -42,7 +42,7 @@ const NewBracketMenu = (props) => {
           "&:hover": { backgroundColor: theme.skeleton() },
         }}
         onClick={() =>
-          window.open(`${constants.clientUrl}/token/${matchId}`, "_blank")
+          window.open(`${constants.clientUrl}/${gameName}/token/${matchId}`, "_blank")
         }
       >
         <Grid
