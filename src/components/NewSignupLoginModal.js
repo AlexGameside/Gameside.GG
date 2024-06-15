@@ -9,7 +9,7 @@ import NewSignupModalContent from "./NewSignupModalContent";
 import NewForgotModalContent from "./NewForgotModalContent";
 import { useSearchParams, useLocation } from "react-router-dom";
 import NewResetPassModalContent from "./NewResetPassModalContent";
-import whiteLogo from "../assets/blue-logo.png";
+import whiteLogo from "../assets/rebrand/Gameside_Logomark.svg";
 import NewAlert from "../custom_components/NewAlert";
 import { addRefCodeView } from "../utils/API";
 
