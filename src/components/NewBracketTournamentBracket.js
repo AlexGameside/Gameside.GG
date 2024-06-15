@@ -11,7 +11,7 @@ import NewBracketMenu from "./NewBracketMenu";
 
 const NewBracketTournamentBracket = (props) => {
   // variables
-  const { tournament } = props;
+  const { tournament, gameName } = props;
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
   const ref = useRef(null);
@@ -114,6 +114,7 @@ const NewBracketTournamentBracket = (props) => {
         anchor={menuAnchor}
         handleClose={handleMenuClose}
         matchId={currentMatchId}
+        gameName={gameName}
       />
       <NewBracketTournamentTeamModal
         open={teamModalOpen}

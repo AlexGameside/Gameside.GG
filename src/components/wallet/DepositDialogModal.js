@@ -12,7 +12,7 @@ import createTheme from "../../utils/theme";
 import NewPrimaryButton from "../../custom_components/NewPrimaryButton";
 import NewInput from "../NewInput";
 import useAxios from "../../utils/useAxios";
-import paypalIcon from "../../assets/paypal.svg";
+import gameSideLogo from "../../assets/rebrand/Gameside_Logomark.svg";
 import { FaCheckCircle } from "react-icons/fa";
 import { MdError } from "react-icons/md";
 import PaypalButtons from "./PaypalButtons";
@@ -175,7 +175,8 @@ const DepositDialogModal = (props) => {
       title={"Deposit"}
       onClose={handleClose}
       open={open}
-      icon={paypalIcon}
+      icon={gameSideLogo}
+      iconClasses={'w-[50px]'}
       checkout
     >
       <Grid
@@ -383,49 +384,49 @@ const DepositDialogModal = (props) => {
                 sx={{ width: "100%" }}
                 gap={{ xs: 1 }}
               >
-                <DepositBox
-                  // onClick={() => {}}
-                  title={numFormatter.format(5)}
-                  label={"USD"}
-                  onClick={() => {
-                    setAmount(5);
-                    setIsCheckoutState(true);
-                  }}
-                />
-
-                <DepositBox
-                  // onClick={() => {}}
-                  title={numFormatter.format(10)}
-                  label={"USD"}
-                  onClick={() => {
-                    setAmount(10);
-                    setIsCheckoutState(true);
-                  }}
-                />
-
-                <DepositBox
-                  // onClick={() => {}}
-                  title={numFormatter.format(25)}
-                  label={"USD"}
-                  onClick={() => {
-                    setAmount(25);
-                    setIsCheckoutState(true);
-                  }}
-                />
+                <Grid item >
+                  <button
+                    data-sellix-product="666c6a434c07d"
+                    type="submit"
+                    alt="Buy Now with sellix.io"
+                    data-sellix-custom-user={store?.user?.username}
+                  >
+                    <DepositBox
+                      onClick={() => {}}
+                      title={numFormatter.format(5)}
+                      label={"USD"}
+                    />
+                  </button>
+                </Grid>
+                <Grid item >
+                  <button
+                    data-sellix-product="666c6a4d8b0a7"
+                    type="submit"
+                    alt="Buy Now with sellix.io"
+                    data-sellix-custom-user={store?.user?.username}
+                  >
+                    <DepositBox
+                      onClick={() => {}}
+                      title={numFormatter.format(10)}
+                      label={"USD"}
+                    />
+                  </button>
+                </Grid>
+                <Grid item >
+                  <button
+                    data-sellix-product="666c6a7623f7b"
+                    type="submit"
+                    alt="Buy Now with sellix.io"
+                    data-sellix-custom-user={store?.user?.username}
+                  >
+                    <DepositBox
+                      onClick={() => {}}
+                      title={numFormatter.format(25)}
+                      label={"USD"}
+                    />
+                  </button>
+                </Grid>
               </Grid>
-            </Grid>
-
-            <Grid
-              item
-              onClick={() => {
-                setAmount(null);
-                setIsCustomState(true);
-                setIsCheckoutState(false);
-              }}
-            >
-              <Typography sx={styles.customLabel}>
-                or enter a custom amount
-              </Typography>
             </Grid>
           </>
         )}

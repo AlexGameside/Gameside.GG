@@ -28,6 +28,7 @@ const DialogModal = (props) => {
     success,
     setSuccess,
     icon,
+    iconClasses,
     checkout = false,
     centerTitle = false,
   } = props;
@@ -93,7 +94,7 @@ const DialogModal = (props) => {
       PaperProps={{ style: styles.card }}
     >
       <DialogTitle sx={styles.title}>
-        {icon ? <img src={icon} /> : null}
+        {icon ? <img className={iconClasses} src={icon} alt="deposit icon" /> : null}
         <Typography style={styles.title}>{title}</Typography>
         {description != null ? (
           <Typography sx={styles.subtitle}>{description}</Typography>
