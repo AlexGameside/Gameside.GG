@@ -257,7 +257,6 @@ const NewNavBar = () => {
   };
 
   const handleCloseModal = () => {
-    navigate("/valorant/");
     setOpenModal(false);
   };
 
