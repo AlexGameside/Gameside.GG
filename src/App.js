@@ -104,7 +104,7 @@ function App() {
   const [store, storeDispatch] = useReducer(storeReducer, initialStore);
 
   // Don't let anyone leave countdown route if they do not have a role less than 2
-  const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown";
+  // const isCountdown = location.pathname.startsWith("/countdown") || location.pathname === "/countdown";
   const code = searchParams.get("code");
 
   useEffect(() => {
@@ -125,18 +125,18 @@ function App() {
   }, [store?.user]);
   
 
-  useEffect(() => {
-    const isVerifyingEmail = Boolean(code);
-    const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
+  // useEffect(() => {
+  //   const isVerifyingEmail = Boolean(code);
+  //   const shouldRedirectToCountdown = !store?.user || store?.user?.role < 2;
   
-    if (isVerifyingEmail) {
-      navigate(`/countdown/verify?code=${code}`);
-      return;
-    }
-    if (shouldRedirectToCountdown && !isCountdown) {
-      navigate("/countdown");
-    }
-  }, [navigate, isCountdown, store, code]);
+  //   if (isVerifyingEmail) {
+  //     navigate(`/countdown/verify?code=${code}`);
+  //     return;
+  //   }
+  //   if (shouldRedirectToCountdown && !isCountdown) {
+  //     navigate("/countdown");
+  //   }
+  // }, [navigate, isCountdown, store, code]);
 
   const path = location?.pathname?.split("/")[1];
   useEffect(() => {
@@ -219,9 +219,9 @@ function App() {
                   <CreateButton />
                 </>
               ) : 
-              store?.user && store?.user?.role >= 2 ? (
+              // store?.user && store?.user?.role >= 2 ? (
                 <HomeNavBar />
-              ) : null
+              // ) : null
             }
             <Grid
               container
@@ -243,7 +243,7 @@ function App() {
               <Routes>
 
                 {/* Countdown */}
-                <Route path="/countdown" element={<CountdownPage />} />
+                {/* <Route path="/countdown" element={<CountdownPage />} />
                 <Route path="/countdown/signup" element={<CountdownSignupLoginModal />} />
                 <Route path="/countdown/login" element={<CountdownSignupLoginModal />} />
                 <Route path="/countdown/support" element={<CountdownSupport />}>
@@ -253,7 +253,7 @@ function App() {
                   <Route path="contact" element={<NewContactUs />} />
                   <Route path="faq" element={<NewFAQ />} />
                 </Route>
-                <Route path="/countdown/verify" element={<Verify />} />
+                <Route path="/countdown/verify" element={<Verify />} /> */}
 
                 {/* Base routes */}
                 <Route path="/" element={<Home />}>

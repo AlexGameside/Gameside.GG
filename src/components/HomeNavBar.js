@@ -54,7 +54,7 @@ import NewBracketTournamentMatchModal from "./NewBracketTournamentMatchModal";
 import NewBracketTournamentWinModal from "./NewBracketTournamentWinModal";
 import NewBracketTournamentEarnedModal from "./NewBracketTournamentEarnedModal";
 import ListItem from "../custom_components/ListItem";
-import GamesideLogoWord from "../assets/Gameside_White_Word_Trimmed.png";
+import GamesideLogoWord from "../assets/rebrand/Gameside_Logo-horizontal-light.svg";
 import CustomIconButton from "../custom_components/CustomIconButton";
 import logo from "../assets/tkns-red-logo-word.png";
 import UserProfileModal from "./user/UserProfileModal";
@@ -813,16 +813,12 @@ const HomeNavBar = () => {
               alignItems="center"
               gap={{ xs: 5 }}
             >
-              {/* will put new logo when alex supplies it */}
-              <Grid item sx={{ paddingTop: 1 }}>
-                {/* <img
+              <Grid>
+                <img
                   src={GamesideLogoWord}
                   alt="logo"
-                  style={{
-                    maxWidth: 120,
-                  }}
-                /> */}
-                <div className="font-[Manrope] font-extrabold text-[24px] min-[430px]:text-[32px] min-[430px]:ml-[50px]" >Gameside</div>
+                  className="min-[430px]:ml-[50px] w-[140px] sm:w-[180px]"
+                />
               </Grid>
               {isDesktop && (
                 <>

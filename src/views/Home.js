@@ -116,7 +116,7 @@ const ResponsiveSlider = () => {
     <div className="flex flex-col w-full px-4 sm:px-[50px] max-lg:mt-[100px]">
       <div className="embla overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex">
-          <div className="embla__slide flex-none w-full">
+          {/* <div className="embla__slide flex-none w-full">
             <div className="flex flex-col lg:!flex-row gap-[60px] lg:gap-[181px] lg:justify-center">
 
               <div className="gap-[20px] font-['Manrope'] flex flex-col">
@@ -144,7 +144,7 @@ const ResponsiveSlider = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="embla__slide flex-none w-full mr-[1px]">
             <div className="flex flex-col lg:!flex-row gap-[60px] lg:gap-[181px] lg:justify-center">
       
@@ -172,7 +172,7 @@ const ResponsiveSlider = () => {
         </div>
       </div>
     </div>
-    <div>
+    {/* <div>
       <div className="flex justify-center mt-4">
         <button
           type="button"
@@ -185,7 +185,7 @@ const ResponsiveSlider = () => {
           onClick={() => emblaApi.scrollTo(1)}
         />
       </div>
-    </div>
+    </div> */}
     </>
   );
 };

@@ -56,7 +56,7 @@ import NewBracketTournamentWinModal from "./NewBracketTournamentWinModal";
 import NewBracketTournamentEarnedModal from "./NewBracketTournamentEarnedModal";
 import ListItem from "../custom_components/ListItem";
 import newLogo from "../assets/tkns-logo.png";
-import GamesideLogoWord from "../assets/Gameside_White_Word_Trimmed.png";
+import GamesideLogoWord from "../assets/rebrand/Gameside_Logo-horizontal-light.svg";
 import CustomIconButton from "../custom_components/CustomIconButton";
 import logo from "../assets/tkns-red-logo-word.png";
 import UserProfileModal from "./user/UserProfileModal";
@@ -825,15 +825,14 @@ const NewNavBar = () => {
               alignItems="center"
               gap={{ xs: 5 }}
             >
-              <Grid item sx={{ paddingTop: 1 }}>
-                {/* <img
-                  src={GamesideLogoWord}
-                  alt="logo"
-                  style={styles.gamesideLogo}
-                  onClick={() => navigate("/")}
-                /> */}
-                <div onClick={() => navigate("/")} className="cursor-pointer font-[Manrope] font-extrabold text-[24px] min-[430px]:text-[32px] ml-[20px] min-[430px]:ml-[50px]" >Gameside</div>
-              </Grid>
+            <Grid>
+              <img
+                src={GamesideLogoWord}
+                alt="logo"
+                className="cursor-pointer min-[430px]:ml-[50px] w-[140px] sm:w-[180px]"
+                onClick={() => navigate("/")}
+              />
+            </Grid>
               {isDesktop && (
                 <>
                   <Grid item>
