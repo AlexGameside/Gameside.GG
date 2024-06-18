@@ -114,16 +114,14 @@ function App() {
         if (!isEqual(currentUser?.user, store?.user)) {
           storeDispatch({ type: SET_USER, payload: currentUser?.user || '' });
           localStorage.setItem('user', JSON.stringify(currentUser?.user || ''));
-    }
+        }
       } catch {
         
       }
     };
-  
     // Initial call
     fetchCurrentUser();
   }, [store?.user]);
-  
 
   // useEffect(() => {
   //   const isVerifyingEmail = Boolean(code);
@@ -261,10 +259,12 @@ function App() {
                   <Route path="login" element={<NewSignupLoginModal />} />
                 </Route>
 
-                {/* Fornite Routes */}
+                <Route path="/oauth-signin" element={<OAuthSignIn />} />
+
+                  {/* Fornite Routes */}
                 <Route path="/fortnite" element={<FortHome />} />
-                {/* <Route path="/fortnite/premium" element={<PremiumHome />} />
-                <Route path="/fortnite/leaderboards" element={<NewLeaderboards />} /> */}
+                {/* <Route path="/fortnite/premium" element={<PremiumHome />} /> */}
+                {/* <Route path="/fortnite/leaderboards" element={<NewLeaderboards />} /> */}
                 <Route path="/fortnite/cash-matches" element={<NewCashMatches />} />
                 <Route path="/fortnite/tournaments" element={<NewTournaments />} />
                 <Route path="/fortnite/tournament/:id" element={<NewBracketTournament />} />
@@ -302,7 +302,6 @@ function App() {
                 <Route path="/valorant/twitterWebhook" element={<TwitterRedirect />} />
                 {/* <Route path="/valorant/premium" element={<PremiumHome />} /> */}
                 {/* <Route path="/valorant/badges" element={<AllBadges />} /> */}
-                <Route path="/valorant/oauth-signin" element={<OAuthSignIn />} />
                 <Route path="/valorant/discord-link" element={<LinkDiscord />} />
                 <Route path="/valorant/profile" element={<RequireAuth><NewProfile /></RequireAuth>}>
                   <Route path="/valorant/profile/teams" element={<RequireAuth><NewTeams /></RequireAuth>} />
@@ -314,6 +313,7 @@ function App() {
                   <Route path="/valorant/profile/badges" element={<RequireAuth><MyBadges /></RequireAuth>} />
                   <Route path="/valorant/profile/staff-panel" element={<RequireAuth><StaffPanel /></RequireAuth>} />
                 </Route>
+                
               </Routes>
             </Grid>
             <Footer />

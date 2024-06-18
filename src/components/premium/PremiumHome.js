@@ -15,7 +15,8 @@ import { GiPresent } from "react-icons/gi";
 import { AiOutlineCheck, AiOutlineDown, AiOutlineUp } from "react-icons/ai";
 import uuid from "react-uuid";
 import NewPrimaryButton from "../../custom_components/NewPrimaryButton";
-import NewSignupLoginModal from "../../components/NewSignupLoginModal";
+// import NewSignupLoginModal from "../../components/NewSignupLoginModal";
+import NewSignupLoginModal from "../../components/CountdownSignupLoginModal";
 
 const PremiumItem = (props) => {
   const { icon, title, label } = props;

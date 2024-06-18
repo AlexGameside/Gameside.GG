@@ -6,7 +6,7 @@ import NewPrimaryButton from "./NewPrimaryButton";
 import constants from "../utils/constants";
 
 const DiscordButton = (props) => {
-  const { label } = props;
+  const { label, childrenMarginTop=1 } = props;
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
 
@@ -18,6 +18,7 @@ const DiscordButton = (props) => {
     <NewPrimaryButton
       label={label}
       backgroundColor="#7289da"
+      childrenMarginTop={childrenMarginTop}
       fullWidth
       onClick={verifyDiscord}
     >

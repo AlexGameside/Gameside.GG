@@ -21,7 +21,8 @@ import { StoreContext } from "../context/NewStoreContext";
 import createTheme from "../utils/theme";
 import { HiHome } from "react-icons/hi";
 import Avatar from "avataaars";
-import NewSignupLoginModal from "./NewSignupLoginModal";
+// import NewSignupLoginModal from "./NewSignupLoginModal";
+import NewSignupLoginModal from "./CountdownSignupLoginModal";
 import NewPrimaryButton from "../custom_components/NewPrimaryButton";
 
 const FortDrawer = (props) => {

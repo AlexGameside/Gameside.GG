@@ -6,7 +6,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import NewInput from "./NewInput";
 import { register } from "../utils/API";
 import NewPrimaryButton from "../custom_components/NewPrimaryButton";
-// import DiscordButton from "../custom_components/DiscordButton";
+import DiscordButton from "../custom_components/DiscordButton";
 // import TwitchButton from "../custom_components/TwitchButton";
 // import GoogleButton from "../custom_components/GoogleButton";
 import constants from "../utils/constants";
@@ -217,6 +217,14 @@ const CountdownSignupModalContent = (props) => {
               </Grid>
             </Grid>
           </Grid>
+        </Grid>
+
+        <Grid item sx={{ width: "100%" }}>
+          <DiscordButton childrenMarginTop={0} label="Sign up with Discord" />
+        </Grid>
+        
+        <Grid item sx={{ width: "100%" }}>
+          <div className="flex justify-center">or</div>
         </Grid>
 
         <Grid item sx={{ width: "100%" }}>

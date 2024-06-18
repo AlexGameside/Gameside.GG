@@ -25,7 +25,8 @@ import {
   import { logout } from "../utils/API";
   import createAuthProvider from "../utils/AuthProvider";
   import createTheme from "../utils/theme";
-  import NewSignupLoginModal from "./NewSignupLoginModal";
+  // import NewSignupLoginModal from "./NewSignupLoginModal";
+  import NewSignupLoginModal from "./CountdownSignupLoginModal";
   
   const HomeNavMenu = (props) => {
     // variables

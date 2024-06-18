@@ -16,7 +16,8 @@ import { generateRandomAvatarOptions } from "../utils/generateRandomAvatarOption
 import createTheme from "../utils/theme";
 import Avatar from "avataaars";
 import { AiFillLock } from "react-icons/ai";
-import NewSignupLoginModal from "./NewSignupLoginModal";
+// import NewSignupLoginModal from "./NewSignupLoginModal";
+import NewSignupLoginModal from "./CountdownSignupLoginModal";
 import NewTokenPasswordModal from "./NewTokenPasswordModal";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Countdown from "react-countdown";

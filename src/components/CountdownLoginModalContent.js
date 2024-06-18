@@ -18,6 +18,7 @@ import { useSearchParams } from "react-router-dom";
 import { login } from "../utils/API";
 import createTokenProvider from "../utils/TokenUtils";
 import NewPrimaryButton from "../custom_components/NewPrimaryButton";
+import DiscordButton from "../custom_components/DiscordButton";
 import constants from "../utils/constants";
 
 const CountdownLoginModalContent = (props) => {
@@ -147,7 +148,7 @@ const CountdownLoginModalContent = (props) => {
                 justifyContent="center"
               >
                 <Grid item>
-                  <Typography style={styles.title}>Login</Typography>
+                  <Typography style={styles.title}>Log in</Typography>
                 </Grid>
                 <Grid item>
                   <Grid
@@ -182,6 +183,14 @@ const CountdownLoginModalContent = (props) => {
               </Grid>
             </Grid>
           </Grid>
+        </Grid>
+
+        <Grid item sx={{ width: "100%" }}>
+          <DiscordButton childrenMarginTop={0} label="Log in with Discord" />
+        </Grid>
+        
+        <Grid item sx={{ width: "100%" }}>
+          <div className="flex justify-center">or</div>
         </Grid>
 
         <Grid item sx={{ width: "100%" }}>

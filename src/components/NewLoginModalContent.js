@@ -251,6 +251,7 @@ const NewLoginModalContent = (props) => {
                     onChange={setUsername}
                     lowercase
                     value={username}
+                    onKeyDown={handleLogin}
                   />
                 </Grid>
               </Grid>
@@ -273,6 +274,7 @@ const NewLoginModalContent = (props) => {
                     onChange={setPassword}
                     value={password}
                     type="password"
+                    onKeyDown={handleLogin}
                   />
                 </Grid>
               </Grid>

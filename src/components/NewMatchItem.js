@@ -8,7 +8,7 @@ import createTheme from "../utils/theme";
 import { Grid, Typography, Chip } from "@mui/material";
 import { getRankLabel, getTokenMatchType } from "../utils/helperMethods";
 import NewJoinScrimModal from "./NewJoinScrimModal";
-import NewSignupLoginModal from "./NewSignupLoginModal";
+import NewSignupLoginModal from "./CountdownSignupLoginModal";
 import NewTokenPasswordModal from "./NewTokenPasswordModal";
 import { AiFillLock } from "react-icons/ai";
 import NewPrimaryOutlineButton from "../custom_components/NewPrimaryOutlineButton";

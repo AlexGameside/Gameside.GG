@@ -42,7 +42,8 @@ import { AiFillCaretDown } from "react-icons/ai";
 import NewNavMenu from "./NewNavMenu";
 import { generateRandomAvatarOptions } from "../utils/generateRandomAvatarOptions";
 import Avatar from "avataaars";
-import NewSignupLoginModal from "./NewSignupLoginModal";
+// import NewSignupLoginModal from "./NewSignupLoginModal";
+import CountdownSignupLoginModal from "./CountdownSignupLoginModal";
 import createTokenProvider from "../utils/TokenUtils";
 import { getUser, isUserInWager, searchForUser } from "../utils/API";
 import useAxios from "../utils/useAxios";
@@ -85,7 +86,6 @@ import NewInput from "./NewInput";
 import SearchResults from "./search/SearchResults";
 import whiteLogo from "../assets/blue-logo.png";
 import BadgeHover from "./match/components/badges/BadgeHover";
-import CountdownSignupLoginModal from "./CountdownSignupLoginModal";
 import HomeNavMenu from "./HomeNavMenu";
 
 const HomeNavBar = () => {

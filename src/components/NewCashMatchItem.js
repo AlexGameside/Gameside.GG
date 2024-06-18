@@ -8,7 +8,8 @@ import createTheme from "../utils/theme";
 import { Grid, Typography, useMediaQuery } from "@mui/material";
 import { getCurrentTokenTitle } from "../utils/helperMethods";
 import { AiFillLock } from "react-icons/ai";
-import NewSignupLoginModal from "./NewSignupLoginModal";
+// import NewSignupLoginModal from "./NewSignupLoginModal";
+import CountdownSignupLoginModal from "./CountdownSignupLoginModal";
 import NewTokenPasswordModal from "./NewTokenPasswordModal";
 import NewJoinCashMatchModal from "./NewJoinCashMatchModal";
 import NewPrimaryOutlineButton from "../custom_components/NewPrimaryOutlineButton";
@@ -87,7 +88,7 @@ const NewCashMatchItem = (props) => {
 
   return (
     <>
-      <NewSignupLoginModal
+      <CountdownSignupLoginModal
         open={loginOpen}
         onClose={handleCloseLogin}
         handleMenuClose={() => {}}

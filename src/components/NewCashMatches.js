@@ -22,7 +22,8 @@ import {
   valRegions,
 } from "../utils/helperMethods";
 import { FaPiggyBank } from "react-icons/fa";
-import NewSignupLoginModal from "./NewSignupLoginModal";
+// import NewSignupLoginModal from "./NewSignupLoginModal";
+import NewSignupLoginModal from "./CountdownSignupLoginModal";
 import NewJoinScrimModal from "./NewJoinScrimModal";
 import { useSearchParams, useLocation } from "react-router-dom";
 import useSocket from "../utils/useSocket";

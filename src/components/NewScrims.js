@@ -22,7 +22,8 @@ import {
   determineTeamSizeOptions,
 } from "../utils/helperMethods";
 import { FaSkullCrossbones } from "react-icons/fa";
-import NewSignupLoginModal from "./NewSignupLoginModal";
+// import NewSignupLoginModal from "./NewSignupLoginModal";
+import NewSignupLoginModal from "./CountdownSignupLoginModal";
 import NewJoinScrimModal from "./NewJoinScrimModal";
 import { useSearchParams } from "react-router-dom";
 import useSocket from "../utils/useSocket";
