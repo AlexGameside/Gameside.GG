@@ -9,9 +9,11 @@ import StaffPanelWithdrawalsDashboard from "./withdraw_panel/StaffPanelWithdrawa
 import { useLocation, useNavigate } from "react-router-dom";
 import StaffPanelReferrals from "./referrals/StaffPanelReferrals";
 import StaffPanelSearch from "./search/StaffPanelSearch";
+import StaffPanelTmatch from "./tmatch/StaffPanelTmatch";
 
 const StaffPanelTabEnum = {
   disputes: "disputes",
+  tmatch: "tmatch", 
   search: "search",
   withdraw: "withdraw",
   referrals: "referrals",
@@ -117,6 +119,14 @@ const StaffPanel = () => {
                   onClick={() => setSelected(StaffPanelTabEnum.referrals)}
                 />
               ) : null}
+
+              {store?.user?.role >= 500 ? (
+                <TabButton
+                  label={"Tournament Matches"}
+                  selected={selected === StaffPanelTabEnum.tmatch}
+                  onClick={() => setSelected(StaffPanelTabEnum.tmatch)}
+                />
+              ) : null}
             </Grid>
           </Grid>
         </Grid>
@@ -138,6 +148,11 @@ const StaffPanel = () => {
         {selected === StaffPanelTabEnum.referrals &&
         store?.user?.role >= 500 ? (
           <StaffPanelReferrals />
+        ) : null}
+
+        {selected === StaffPanelTabEnum.tmatch &&
+        store?.user?.role >= 500 ? (
+          <StaffPanelTmatch />
         ) : null}
       </Grid>
     </Grid>
