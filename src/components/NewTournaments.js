@@ -335,7 +335,10 @@ const NewTournaments = () => {
             ) : loading ? null : (
               <>
                 {tournaments?.map((tourney, i) => {
-                  return <NewTournamentItem tournament={tourney} key={i} />;
+                  if(tourney.num_teams >= 8)
+                    return <NewTournamentItem tournament={tourney} key={i} />;
+                  if(tourney.num_teams < 8 && store.user?.role > 500)
+                    return <NewTournamentItem tournament={tourney} key={i} />;
                 })}
                 {hasMore ? (
                   <Grid
