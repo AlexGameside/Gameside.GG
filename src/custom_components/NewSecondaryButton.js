@@ -12,6 +12,7 @@ const NewSecondaryButton = (props) => {
     fullWidth = false,
     square = false,
     disabled = false,
+    className,
   } = props;
   const store = useContext(StoreContext);
   const theme = createTheme(store.mode);
@@ -65,6 +66,7 @@ const NewSecondaryButton = (props) => {
 
   return (
     <Button
+      className={className}
       variant="contained"
       size={small ? "small" : "large"}
       sx={loading || disabled ? styles.disabled : styles.button}

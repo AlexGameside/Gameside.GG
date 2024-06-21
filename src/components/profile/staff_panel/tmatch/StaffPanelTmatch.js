@@ -1,32 +1,15 @@
 import {
     Grid,
-    useMediaQuery,
   } from "@mui/material";
   import { useContext, useEffect, useState } from "react";
-  import { StoreContext }  from "../../../../context/NewStoreContext";
-  import createTheme       from "../../../../utils/theme";
-  import SectionHeader     from "../../../../custom_components/SectionHeader";
-  import NewInput          from "../../../NewInput";
-  import useAxios          from "../../../../utils/useAxios";
-  import SetRoleModal      from "../search/SetRoleModal";
-  import NewAlert          from "../../../../custom_components/NewAlert";
-  import {
-    banUser,
-    unbanUser,
-    giveUserPremium,
-  } from "../../../../utils/api/admin";
+  import { StoreContext }   from "../../../../context/NewStoreContext";
+  import createTheme        from "../../../../utils/theme";
+  import SectionHeader      from "../../../../custom_components/SectionHeader";
+  import NewInput           from "../../../NewInput";
+  import useAxios           from "../../../../utils/useAxios";
+  import NewPrimaryButton from "../../../../custom_components/NewPrimaryButton";
+  import NewSecondaryButton from "../../../../custom_components/NewSecondaryButton";
   import { isUserInWager, getCurrentWagerStatus } from "../../../../utils/API.js";
-  
-  const StaffPanelSearchUserTabsEnum = {
-    info: "info",
-    notes: "notes",
-    reports: "reports",
-    history: "history",
-    withdraw: "withdraw",
-    deposits: "deposits",
-    alts: "alts",
-    badges: "badges",
-  };
   
   const StaffPanelSearch = () => {
     // variables
@@ -43,42 +26,54 @@ import {
     // const [success, setSuccess] = useState(null);
     
     const [wagerId, setWagerId] = useState(null);
+    const [wagerDetails, setWagerDetails] = useState(null);
     
     const [first, setFirst] = useState(true);
   
     // methods
+    // const handleResetWager = () => {
+      
+    // }
+
     const searchByUsername = () => {
-    setSearchLoading(true);
+        setSearchLoading(true);
         setError(null);
         isUserInWager(api, username.toLowerCase()).then( async (res) => {
-            setSearchLoading(false);
             if(first) { setFirst(false); }
+            if(res?.error) {
+              setSearchLoading(false);
+              setError(res?.message);
+              setWagerId(""); 
+              return;
+            }
             if (!res?.error) {
-                console.log("RESULT: isUserInWager:", res.wager, res);
                 if(res.wager) { 
                     let wagerStuff; 
                     try {
                         wagerStuff = await getCurrentWagerStatus(api, res.wager, username.toLowerCase());
-                        if(wagerStuff) {
-                            setWagerId(res.wager); 
+                        if(wagerStuff && !wagerStuff.error) {
+                            setWagerId(res.wager);
+                            setWagerDetails(wagerStuff.wagerStatus);
                             console.log("wagerStuff:", wagerStuff);
+                        } else {
+                          res.message = 'Error getting wager details.';
+                          throw new Error("Error.");
                         }
-                        else { console.log("WHY THE RUCK NOT?"); }
                     }
                     catch(e) {
-                        console.log("WHY THE -f-UCK NOT?");
+                      console.log("ERROR: isUserInWager:", res);
+                      setError(res?.message);
+                      setWagerId("");
+                      setWagerDetails(null);
+                      return;
                     }
                 }
-                else { 
+                else {
                     setWagerId(""); 
                 }
                 setError("");
-            } else {
-                console.log("ERROR: isUserInWager:", res);
-                setError(res?.message);
-                setWagerId(""); 
-                return;
             }
+            setSearchLoading(false);
          });
     };
   
@@ -104,24 +99,6 @@ import {
         justifyContent="center"
         gap={{ xs: 2 }}
       >
-        {/* {error ? (
-          <NewAlert label={error} clearMessage={() => setError(null)} />
-        ) : null} */}
-        {/* {success ? (
-          <NewAlert
-            type="success"
-            label={success}
-            clearMessage={() => setSuccess(null)}
-          />
-        ) : null} */}
-        {
-        /* <SetRoleModal
-          open={open}
-          role={userRole}
-          onClose={() => setOpen(false)}
-          setRole={setUserRole}
-          username={userData?.username}
-        /> */}
         <Grid item sx={styles.searchContainer}>
           <Grid
             container
@@ -150,20 +127,58 @@ import {
         </Grid>
         
         {/* RESULTS */}
-        { wagerId &&
-            <Grid item className={`w-full rounded-lg p-4 border-solid border-[1px] border-[#10141a]`}>
-                WAGERID: { wagerId }
-                {/* DISPLAY A BUTTON HERE TO DO SOMETHING */}
+        { wagerId && wagerDetails && !searchLoading &&
+            <Grid 
+              container 
+              direction="column"
+              gap={{ xs: 1 }} 
+              item 
+              className={`w-full bg-[#10141a] rounded-lg p-4 border-solid border-[1px] border-[#242c39]`
+            }>
+                <Grid item className="flex justify-between pb-2 mb-2 border-b-[1px] border-solid border-[#242c39]">
+                  <SectionHeader label="Current Active Wager" />
+                    <NewPrimaryButton
+                      label={"Reset Wager"}
+                      className="w-full"
+                      small
+                      loading={false}
+                      onClick={() => {
+                        return;
+                      }}
+                    />
+                </Grid>
+                <Grid item>State of Wager: {wagerDetails.state}</Grid>
+                <Grid item>Is Tournament Match: {wagerDetails.isTourneyMatch.toString()}</Grid>
+                <Grid item><span className="text-blue-400">Blue Submit:</span> {wagerDetails.bluesubmit}</Grid>
+                <Grid item><span className="text-red-400">Red Submit:</span> {wagerDetails.redsubmit}</Grid>
+                <Grid item>Readied users: {wagerDetails.readied_users.join(', ')}</Grid>
+                <Grid item className='w-full flex justify-center'>
+                    <NewPrimaryButton
+                      label={"Reset Wager"}
+                      className="w-full"
+                      small
+                      loading={false}
+                      onClick={() => {
+                        return;
+                      }}
+                    />
+                </Grid>
             </Grid>
         }
         {
-            !error && !wagerId && !first && 
-            <Grid item className={`w-full rounded-lg p-4 border-solid border-[1px] border-[#10141a]`}>
+            searchLoading && 
+            <Grid item className={`w-full bg-[#10141a] rounded-lg p-4 border-solid border-[1px] border-[#242c39]`}>
+                Fetching wager
+            </Grid>
+        }
+        {
+            !error && !wagerId && !first && !searchLoading &&
+            <Grid item className={`w-full bg-[#10141a] rounded-lg p-4 border-solid border-[1px] border-[#242c39]`}>
                 User or Wager not found.
             </Grid>
         }
         { error && 
-            <Grid item className={`w-full rounded-lg p-4 border-solid border-[1px] border-[#10141a]`}>
+            <Grid item className={`w-full bg-[#10141a] rounded-lg p-4 border-solid border-[1px] border-[#242c39]`}>
                 ERROR: { error }
             </Grid>
         }
