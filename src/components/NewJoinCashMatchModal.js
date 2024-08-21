@@ -44,7 +44,7 @@ const NewJoinCashMatchModal = (props) => {
   const dispatch = useContext(StoreDispatch);
   const { sendJoinEvent, tokenToRemove } = useSocket(token?._id);
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant");
   const numFormatter = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -97,7 +97,7 @@ const NewJoinCashMatchModal = (props) => {
           wagerId: token?._id,
         });
         setLoading(false);
-        navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}token/${token?._id}`);
+        navigate(`/${isValorant ? 'valorant/' : isSpectre ? 'spectre/' : null}token/${token?._id}`);
         handleClose();
       } else {
         clearFilters();

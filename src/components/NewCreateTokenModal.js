@@ -51,14 +51,14 @@ const NewCreateTokenModal = (props) => {
   const gameOptions = shouldShowFiveM(store.user)
     ? [
         { title: "None", value: null },
-        { title: "Fortnite", value: "FN" },
+        { title: "Spectre Divide", value: "FN" },
         { title: "Valorant", value: "VAL" },
         { title: "Clash Royale", value: "CLASH" },
         { title: "FiveM", value: "FIVEM" },
       ]
     : [
         { title: "None", value: null },
-        { title: "Fortnite", value: "FN" },
+        { title: "Spectre Divide", value: "FN" },
         { title: "Valorant", value: "VAL" },
         { title: "Clash Royale", value: "CLASH" },
       ];

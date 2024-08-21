@@ -36,9 +36,9 @@ const GameCardHorizontalContainer = () => {
   return (
     <Grid item>
       <Grid container direction="row" justifyContent="center" alignItems="center" columnSpacing={{ xs: 1 }} rowSpacing={{ xs: 1 }}>
-        <GameCard name="Fortnite" backgroundColor="#00bbf9" />
-        <GameCard name="Valorant" backgroundColor="#06d6a0" />
-        <GameCard name="Clash Royale" backgroundColor="#ef476f" />
+        <GameCard name="Spectre Divide" backgroundColor="#00bbf9" />
+        {/* <GameCard name="Valorant" backgroundColor="#06d6a0" />
+        <GameCard name="Clash Royale" backgroundColor="#ef476f" /> */}
         {/* Add more GameCard components as needed */}
       </Grid>
     </Grid>

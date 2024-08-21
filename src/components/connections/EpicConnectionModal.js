@@ -18,7 +18,7 @@ import {
   import CloseIcon from "@mui/icons-material/Close";
   import NewInput from "../NewInput";
   import NewPrimaryButton from "../../custom_components/NewPrimaryButton";
-  import epicGames from '../../assets/NewAssets/fortnite-logo.PNG';
+  import epicGames from '../../assets/NewAssets/spectre-logo.PNG';
   import { submitEpicId } from "../../utils/API";
   import useAxios from "../../utils/useAxios";
   

@@ -40,7 +40,7 @@ const NewCreateMenu = (props) => {
   const dispatch = useContext(StoreDispatch);
   const wrapperRef = useRef(null);
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isDesktop = useMediaQuery("(min-width:1025px)");
 
   // state
@@ -218,7 +218,7 @@ const NewCreateMenu = (props) => {
                 handleCreateScrimOpen();
               }}
             >
-              {!isFortnite && (
+              {!isSpectre && (
               <Grid
                 container
                 justifyContent="start"

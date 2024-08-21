@@ -304,7 +304,7 @@ const Epic = (props) => {
             >
               <Grid item>
                 <Typography sx={styles.steps}>
-                  1. On Fortnite, Add{" "}
+                  1. On Spectre Divide, Add{" "}
                   <span style={{ fontWeight: 900 }}>
                     Gameside{" "}
                     <IconButton
@@ -356,7 +356,7 @@ const Epic = (props) => {
                     <>
                       <Typography sx={styles.epicInputText}>
                         FYI: Your Career Leaderboard Must be Public on your
-                        Fortnite Account in Order to Refresh your Epic!
+                        Spectre Divide Account in Order to Refresh your Shroud!
                       </Typography>
                       <Img
                         src={careerLeaderboard}

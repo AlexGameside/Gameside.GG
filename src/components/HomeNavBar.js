@@ -121,7 +121,7 @@ const HomeNavBar = () => {
   const location = useLocation();
   const path = location?.pathname?.split("/")[1];
   const isHome = Boolean(path === "");
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant");
 
   const anchorRef = useRef();
@@ -698,7 +698,7 @@ const HomeNavBar = () => {
         <NewNavMenu anchor={menuAnchor} handleClose={handleMenuClose} />
       )}
 
-      {isFortnite && (
+      {isSpectre && (
         <FortMenu anchor={menuAnchor} handleClose={handleMenuClose} />
       )}
 
@@ -822,10 +822,10 @@ const HomeNavBar = () => {
               {isDesktop && (
                 <>
                   <Grid item>
-                    <Link to="/fortnite/cash-matches" style={styles.link}>Matches</Link>
+                    <Link to="/spectre/cash-matches" style={styles.link}>Matches</Link>
                   </Grid>
                   <Grid item>
-                    <Link to="/fortnite/tournaments" style={styles.link}>Tournaments</Link>
+                    <Link to="/spectre/tournaments" style={styles.link}>Tournaments</Link>
                   </Grid>
                 </>
               )}
@@ -840,7 +840,7 @@ const HomeNavBar = () => {
                   return;
                 }
                 // window.location.href = `${constants.clientURL}/token/${store?.currentTokenId}`;
-                navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : 'fortnite/'}token/${store?.currentTokenId}`);
+                navigate(`/${isValorant ? 'valorant/' : isSpectre ? 'spectre/' : 'spectre/'}token/${store?.currentTokenId}`);
               }}
               onMouseEnter={(e) => {
                 setHovered(true);
@@ -956,7 +956,7 @@ const HomeNavBar = () => {
                 onMouseLeave={() => setAvatarHovered(false)}
                 onClick={() => {
                   if (store?.user) {
-                    navigate("/fortnite/profile/teams");
+                    navigate("/spectre/profile/teams");
                   }
                 }}
               >
@@ -993,7 +993,7 @@ const HomeNavBar = () => {
         </Grid>
       </AppBar>
       {drawerOpen && isDesktop ? (
-  isFortnite ? (
+  isSpectre ? (
     <FortDrawer
       setDrawerHovered={setDrawerHovered}
       inviteModalOpen={inviteModalOpen}

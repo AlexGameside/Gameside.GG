@@ -353,7 +353,7 @@ const ValHome = () => {
                               tournament={tournament}
                               key={i}
                               onClick={() =>
-                                navigate(`/fortnite/tournament/${tournament?._id}`)
+                                navigate(`/spectre/tournament/${tournament?._id}`)
                               }
                             />
                           );

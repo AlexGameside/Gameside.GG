@@ -35,7 +35,7 @@ const NewJoinTokenModal = (props) => {
   const navigate = useNavigate();
   const api = useAxios();
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant");
 
   const dispatch = useContext(StoreDispatch);
@@ -90,7 +90,7 @@ const NewJoinTokenModal = (props) => {
           wagerId: token?._id,
         });
         setLoading(false);
-        navigate(`/token/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}${token?._id}`);
+        navigate(`/token/${isValorant ? 'valorant/' : isSpectre ? 'spectre/' : null}${token?._id}`);
         handleClose();
       } else {
         clearFilters();
@@ -151,13 +151,13 @@ const NewJoinTokenModal = (props) => {
   const getGame = (g) => {
     switch (g) {
       case "FN":
-        return "Fortnite";
+        return "spectre";
       case "VAL":
         return "Valorant";
       case "CLASH":
         return "Clash";
       default:
-        return "Fortnite";
+        return "spectre";
     }
   };
 

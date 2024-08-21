@@ -256,9 +256,9 @@ const NewNavMenu = (props) => {
         </NewListItem> */}
 
         <NewListItem
-            label="Fortnite"
+            label="Spectre Divide"
             onClick={() => {
-              navigate("/fortnite");
+              navigate("/spectre");
             }}
           >
             <FaGamepad

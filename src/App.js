@@ -149,7 +149,7 @@ function App() {
     if (path === "" || path === "countdown") {
       return 0;
     }
-    else if (path === "valorant" || path === "fortnite") {
+    else if (path === "valorant" || path === "fortnite" || path === "spectre") {
       return isDesktop ? 10 : 9;
     } else {
       return isDesktop ? 10 : 8;
@@ -160,7 +160,7 @@ function App() {
     if (path === "" || path === "countdown") {
       return 0;
     }
-    else if (path === "valorant" || path === "fortnite") {
+    else if (path === "valorant" || path === "fortnite" || path === "spectre") {
       return store?.drawerOpen ? 40 : isDesktop ? 8 : 4;
     } else {
       return store?.drawerOpen ? 50 : isDesktop ? "15%" : isMobile ? 2 : 4;
@@ -171,7 +171,7 @@ function App() {
     if (path === "" || path === "countdown") {
       return 0;
     }
-    else if (path === "valorant" || path === "fortnite") {
+    else if (path === "valorant" || path === "fortnite" || path === "spectre") {
       return isDesktop ? 6 : 4;
     } else {
       return store?.drawerOpen ? 50 : isDesktop ? "15%" : isMobile ? 2 : 4;
@@ -190,7 +190,7 @@ function App() {
     return null;
   };
 
-  const isGameHomeRoute = location.pathname.startsWith("/valorant") || location.pathname.startsWith("/fortnite"); // Prob will expand this logic for future games
+  const isGameHomeRoute = location.pathname.startsWith("/spectre") || location.pathname.startsWith("/valorant") || location.pathname.startsWith("/fortnite"); // Prob will expand this logic for future games
 
   return (
     <Grid
@@ -211,7 +211,7 @@ function App() {
           <CssBaseline />
           <Store initialStore={store} dispatch={storeDispatch}>
             {
-              isGameHomeRoute | (location.pathname === "/valorant" || location.pathname === "/fortnite") ? (
+              isGameHomeRoute | (location.pathname === "/spectre" || location.pathname === "/valorant" || location.pathname === "/fortnite") ? (
                 <>
                   <NewNavBar />
                   <CreateButton />
@@ -262,22 +262,22 @@ function App() {
                 <Route path="/oauth-signin" element={<OAuthSignIn />} />
 
                   {/* Fornite Routes */}
-                <Route path="/fortnite" element={<FortHome />} />
-                {/* <Route path="/fortnite/premium" element={<PremiumHome />} /> */}
-                {/* <Route path="/fortnite/leaderboards" element={<NewLeaderboards />} /> */}
-                <Route path="/fortnite/cash-matches" element={<NewCashMatches />} />
-                <Route path="/fortnite/tournaments" element={<NewTournaments />} />
-                <Route path="/fortnite/tournament/:id" element={<NewBracketTournament />} />
-                <Route path="/fortnite/token/:id" element={<RequireAuth><NewMatchPage /></RequireAuth>} />
-                <Route path="/fortnite/profile" element={<RequireAuth><NewProfile /></RequireAuth>}>
-                  <Route path="/fortnite/profile/teams" element={<RequireAuth><NewTeams /></RequireAuth>} />
-                  <Route path="/fortnite/profile/team/:id" element={<RequireAuth><NewTeamProfile /></RequireAuth>} />
-                  <Route path="/fortnite/profile/history" element={<RequireAuth><NewMatchHistory /></RequireAuth>} />
-                  <Route path="/fortnite/profile/wallet" element={<RequireAuth><Wallet /></RequireAuth>} />
-                  <Route path="/fortnite/profile/accounts" element={<RequireAuth><NewConnections /></RequireAuth>} />
-                  {/* <Route path="/fortnite/profile/premium" element={<RequireAuth><Premium /></RequireAuth>} />
-                  <Route path="/fortnite/profile/badges" element={<RequireAuth><MyBadges /></RequireAuth>} /> */}
-                  <Route path="/fortnite/profile/staff-panel" element={<RequireAuth><StaffPanel /></RequireAuth>} />
+                <Route path="/spectre" element={<FortHome />} />
+                {/* <Route path="/spectre/premium" element={<PremiumHome />} /> */}
+                {/* <Route path="/spectre/leaderboards" element={<NewLeaderboards />} /> */}
+                <Route path="/spectre/cash-matches" element={<NewCashMatches />} />
+                <Route path="/spectre/tournaments" element={<NewTournaments />} />
+                <Route path="/spectre/tournament/:id" element={<NewBracketTournament />} />
+                <Route path="/spectre/token/:id" element={<RequireAuth><NewMatchPage /></RequireAuth>} />
+                <Route path="/spectre/profile" element={<RequireAuth><NewProfile /></RequireAuth>}>
+                  <Route path="/spectre/profile/teams" element={<RequireAuth><NewTeams /></RequireAuth>} />
+                  <Route path="/spectre/profile/team/:id" element={<RequireAuth><NewTeamProfile /></RequireAuth>} />
+                  <Route path="/spectre/profile/history" element={<RequireAuth><NewMatchHistory /></RequireAuth>} />
+                  <Route path="/spectre/profile/wallet" element={<RequireAuth><Wallet /></RequireAuth>} />
+                  <Route path="/spectre/profile/accounts" element={<RequireAuth><NewConnections /></RequireAuth>} />
+                  {/* <Route path="/spectre/profile/premium" element={<RequireAuth><Premium /></RequireAuth>} />
+                  <Route path="/spectre/profile/badges" element={<RequireAuth><MyBadges /></RequireAuth>} /> */}
+                  <Route path="/spectre/profile/staff-panel" element={<RequireAuth><StaffPanel /></RequireAuth>} />
                 </Route>
 
                 {/* Valorant routes */}

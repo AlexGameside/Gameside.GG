@@ -21,7 +21,7 @@ const NewTeams = () => {
   const dispatch = useContext(StoreDispatch);
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant");
   const isMobile = useMediaQuery("(max-width:500px)");
   const navigate = useNavigate();
@@ -182,7 +182,7 @@ const NewTeams = () => {
                     position: "relative",
                   }}
                   onClick={() =>
-                    navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/team/${team?._id}`, {
+                    navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/profile/team/${team?._id}`, {
                       state: {
                         team,
                         index: i,

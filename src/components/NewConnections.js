@@ -11,7 +11,7 @@ import useDraggableScroll from "use-draggable-scroll";
 import ConnectionButton from "../custom_components/ConnectionButton";
 import SectionHeader from "../custom_components/SectionHeader";
 import riotGames from "../assets/riot-games.svg";
-import epicGames from '../assets/NewAssets/fortnite-logo.PNG'
+import epicGames from '../assets/NewAssets/spectre-logo.PNG'
 import twitter from "../assets/twitter.svg";
 import twitch from "../assets/twitch.svg";
 import discord from "../assets/discord.svg";

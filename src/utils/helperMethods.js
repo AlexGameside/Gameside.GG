@@ -115,6 +115,8 @@ const getColorForGame = (game) => {
   switch (game) {
     case "FN":
       return "#00bbf9";
+    case "SD":
+      return "#00bbf9";
     case "VAL":
       return "#FF4653";
     case "CLASH":
@@ -144,8 +146,8 @@ const getTournamentDate = (startDate) => {
 
 const getGame = (g) => {
   switch (g) {
-    case "FN":
-      return "Fortnite";
+    case "SD":
+      return "Spectre Divide";
     case "VAL":
       return "Valorant";
     case "CLASH":
@@ -153,7 +155,7 @@ const getGame = (g) => {
     case "FIVEM":
       return "FiveM";
     default:
-      return "Fortnite";
+      return "Spectre Divide";
   }
 };
 
@@ -448,6 +450,10 @@ const determineRounds = (g, matchType, teamSize) => {
       return matchType === "ARENA_RACE" || matchType === "RACE"
         ? fortFirstToRaceOptions
         : fortFirstToOptions;
+    case "SD":
+      return matchType === "ARENA_RACE" || matchType === "RACE"
+        ? fortFirstToRaceOptions
+        : fortFirstToOptions;
     case "VAL":
       if (teamSize > 3) {
         return [
@@ -470,6 +476,8 @@ const determineMatchOptions = (g) => {
   switch (g) {
     case "FN":
       return fortMatchOptions;
+    case "SD":
+      return fortMatchOptions;
     case "VAL":
       return ValCreateMatchOptions;
     case "CLASH":
@@ -482,6 +490,8 @@ const determineMatchOptions = (g) => {
 const determineRegion = (g) => {
   switch (g) {
     case "FN":
+      return fortRegions;
+    case "SD":
       return fortRegions;
     case "VAL":
       return valRegions;
@@ -541,6 +551,14 @@ const determinePlaceEnd = (place) => {
 const determineTeamSizeOptions = (g, matchType) => {
   switch (g) {
     case "FN":
+      return [
+        { title: "None", value: null },
+        { title: "1v1", value: 1 },
+        { title: "2v2", value: 2 },
+        { title: "3v3", value: 3 },
+        { title: "4v4", value: 4 },
+      ];
+    case "SD":
       return [
         { title: "None", value: null },
         { title: "1v1", value: 1 },

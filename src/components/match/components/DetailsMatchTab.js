@@ -32,7 +32,7 @@ const DetailsMatchTab = (props) => {
     currency: "USD",
   });
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant");
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const ref = useRef(null);
@@ -275,7 +275,7 @@ const DetailsMatchTab = (props) => {
                 </Grid>
                 </>
               )}
-              {isFortnite && (
+              {isSpectre && (
                 <>
                 <Grid item>
                   <Typography sx={styles.rules}>

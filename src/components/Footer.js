@@ -26,7 +26,7 @@ const Footer = () => {
     if (path === "" || path === "countdown") {
       return 2;
     }
-    else if (path === "valorant" || path === "fortnite") {
+    else if (path === "valorant" || path === "fortnite" || path === "spectre") {
       return store?.drawerOpen ? 40 : isDesktop ? 8 : 4;
     } else {
       return store?.drawerOpen ? 50 : isDesktop ? "15%" : isMobile ? 2 : 4;
@@ -37,7 +37,7 @@ const Footer = () => {
     if (path === "" || path === "countdown") {
       return 2;
     }
-    else if (path === "valorant" || path === "fortnite") {
+    else if (path === "valorant" || path === "fortnite" || path === "spectre") {
       return isDesktop ? 6 : 4;
     } else {
       return store?.drawerOpen ? 10 : isDesktop ? "15%" : isMobile ? 2 : 4;

@@ -52,12 +52,12 @@ const NewMatchPage = () => {
   const [copied, setCopied] = useState(false);
   const [chatHovered, setChatHovered] = useState(false);
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant");
   const game = match?.gameTitle
 
-    if (!isFortnite && game === 'Fortnite') {
-      navigate(`/fortnite/token/${match?.wagerid}`)
+    if (!isSpectre && game === 'Spectre') {
+      navigate(`/spectre/token/${match?.wagerid}`)
     }
   
     if (!isValorant && game === 'Valorant') {
@@ -69,7 +69,7 @@ const NewMatchPage = () => {
   const handleCopyMatchURL = () => {
     if (match?.isTourneyMatch) {
       navigator.clipboard.writeText(
-        `${constants.clientUrl}/${isValorant ? 'valorant' : isFortnite ? 'fortnite' : null}tournament/${match?.tourneyId}`
+        `${constants.clientUrl}/${isValorant ? 'valorant' : isSpectre ? 'spectre' : null}tournament/${match?.tourneyId}`
       );
       setCopied(true);
       return;
@@ -84,14 +84,14 @@ const NewMatchPage = () => {
         return;
       } else {
         navigator.clipboard.writeText(
-          `${constants.clientUrl}/${isValorant ? 'valorant' : isFortnite ? 'fortnite' : null}/cash-matches?join=${match?.wagerid}`
+          `${constants.clientUrl}/${isValorant ? 'valorant' : isSpectre ? 'spectre' : null}/cash-matches?join=${match?.wagerid}`
         );
         setCopied(true);
         return;
       }
     } else {
       navigator.clipboard.writeText(
-        `${constants.clientUrl}/${isValorant ? 'valorant' : isFortnite ? 'fortnite' : null}/token/${match?.wagerid}`
+        `${constants.clientUrl}/${isValorant ? 'valorant' : isSpectre ? 'spectre' : null}/token/${match?.wagerid}`
       );
       setCopied(true);
       return;

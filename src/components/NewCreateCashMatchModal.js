@@ -46,7 +46,7 @@ const NewCreateCashMatchModal = (props) => {
   const isMobile = useMediaQuery("(max-width:500px)");
   const api = useAxios();
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant") || location.pathname === 'valorant'; 
   const navigate = useNavigate();
 
@@ -54,7 +54,7 @@ const NewCreateCashMatchModal = (props) => {
   const [closeHovered, setCloseHovered] = useState(false);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
-  const [game, _] = useState(location.pathname.startsWith("/fortnite") ? "FN" : location.pathname.startsWith("/valorant") ? "VAL" : null);
+  const [game, _] = useState(location.pathname.startsWith("/spectre") ? "SD" : location.pathname.startsWith("/valorant") ? "VAL" : null);
   const [entryFee, setEntryFee] = useState(null);
   const [region, setRegion] = useState(null);
   const [matchType, setMatchType] = useState(null);
@@ -170,7 +170,7 @@ const NewCreateCashMatchModal = (props) => {
       if (!res?.error) {
         setLoading(false);
         dispatch({ type: SET_CURRENT_TOKEN, payload: res?.wager?._id });
-        navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}token/${res?.wager?._id}`);
+        navigate(`/${isValorant ? 'valorant/' : isSpectre ? 'spectre/' : null}token/${res?.wager?._id}`);
         handleClose();
       } else {
         setLoading(false);
@@ -337,7 +337,7 @@ const NewCreateCashMatchModal = (props) => {
                           justifyContent="start"
                           columnSpacing={{ xs: 2 }}
                         >
-                        {!isFortnite && (
+                        {!isSpectre && (
                           <>
                           <Grid item>
                             <BubbleButton
@@ -366,7 +366,7 @@ const NewCreateCashMatchModal = (props) => {
                         </Grid>
                       </Grid>
 
-                      {chooseMap || isFortnite ? (
+                      {chooseMap || isSpectre ? (
                         <Grid item sx={{ width: "100%" }}>
                           <NewDropdown
                             options={determineMatchOptions(game)}

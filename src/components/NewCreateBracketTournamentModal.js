@@ -52,10 +52,10 @@ const NewCreateBracketTournamentModal = (props) => {
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1);
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant");
 
-  const [game, setGame] = useState(isFortnite ? "FN" : isValorant ? "VAL" : null);
+  const [game, setGame] = useState(isSpectre ? "SD" : isValorant ? "VAL" : null);
   const [region, setRegion] = useState(null);
   const [matchType, setMatchType] = useState("VOTE");
   const [teamSize, setTeamSize] = useState(null);
@@ -620,6 +620,26 @@ const NewCreateBracketTournamentModal = (props) => {
                         justifyContent="space-between"
                         gap={{ xs: 1 }}
                       >
+                        { store.user.role > 500 &&
+                          <Grid item>
+                            <BubbleButton
+                              title={"2"}
+                              selected={numTeams === 2}
+                              onClick={() => setNumTeams(2)}
+                              size="small"
+                            />
+                          </Grid>
+                        }
+                        { store.user.role > 500 &&
+                          <Grid item>
+                            <BubbleButton
+                              title={"4"}
+                              selected={numTeams === 4}
+                              onClick={() => setNumTeams(4)}
+                              size="small"
+                            />
+                          </Grid>
+                        }
                         <Grid item>
                           <BubbleButton
                             title={"8"}

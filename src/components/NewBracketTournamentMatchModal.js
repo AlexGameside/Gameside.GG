@@ -43,7 +43,7 @@ const NewBracketTournamentMatchModal = (props) => {
     if (open) {
       getBracketTournament(tokenId).then((res) => {
         if (!res?.error) {
-          setGameName(res?.tourney?.game === 'FN' ? 'fortnite' : res?.tourney?.game === 'VAL' ? 'valorant' : '');
+          setGameName(res?.tourney?.game === 'FN' ? 'spectre' : res?.tourney?.game === 'VAL' ? 'valorant' : '');
           newMatchSound.volume = 0.5;
           newMatchSound.load();
           newMatchSound.play();

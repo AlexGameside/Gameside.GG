@@ -36,7 +36,7 @@ const NewTeamProfile = () => {
     currency: "USD",
   });
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant");
   const navigate = useNavigate();
   const ref = useRef(null);
@@ -68,7 +68,7 @@ const NewTeamProfile = () => {
         newUserData.userTeams = [...newTeams];
         dispatch({ type: SET_USER, payload: newUserData });
         setLeaveLoading(false);
-        navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}profile/teams`);
+        navigate(`/${isValorant ? 'valorant/' : isSpectre ? 'spectre/' : null}profile/teams`);
         return;
       } else {
         setError(res?.message);
@@ -123,7 +123,7 @@ const NewTeamProfile = () => {
 
   useEffect(() => {
     if (teamToRemove) {
-      navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}profile/teams`);
+      navigate(`/${isValorant ? 'valorant/' : isSpectre ? 'spectre/' : null}profile/teams`);
       return;
     }
   }, [teamToRemove]);
@@ -171,7 +171,7 @@ const NewTeamProfile = () => {
       />
       <Grid item>
         <NewOutlineButton
-          onClick={() => navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : null}profile/teams`)}
+          onClick={() => navigate(`/${isValorant ? 'valorant/' : isSpectre ? 'spectre/' : null}profile/teams`)}
           label={"Back to Teams"}
         />
       </Grid>

@@ -11,7 +11,7 @@ const HomeMatchesScroller = (props) => {
   const ref = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant");
   const { onMouseDown } = useDraggableScroll(ref, {
     direction: "horizontal",
@@ -42,7 +42,7 @@ const HomeMatchesScroller = (props) => {
             <Grid item>
               <NewOutlineButton
                 label="View All"
-                onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/cash-matches`)}
+                onClick={() => navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/cash-matches`)}
               />
             </Grid>
           </Grid>

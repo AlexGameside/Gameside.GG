@@ -159,8 +159,8 @@ const NewTokenItem = (props) => {
 
   const getGame = (g) => {
     switch (g) {
-      case "FN":
-        return "Fortnite";
+      case "SD":
+        return "Spectre Divide";
       case "VAL":
         return "Valorant";
       case "CLASH":
@@ -168,7 +168,7 @@ const NewTokenItem = (props) => {
       case "FIVEM":
         return "FiveM";
       default:
-        return "Fortnite";
+        return "Spectre Divide";
     }
   };
 

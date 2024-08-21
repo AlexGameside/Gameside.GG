@@ -1,12 +1,12 @@
 import React, {useEffect, useRef, useState, useCallback} from 'react';
 import HomePageGameCard from '../components/home/HomePageGameCard.js';
 import styled from 'styled-components';
-import fortniteLogo from '../assets/fortniteCard.jpg';
+import spectreLogo from '../assets/spectreCard.jpg';
 import valorantLogo from '../assets/valorantCard.png';
 import placeholderImg from '../assets/placeholder.png';
 import CashMatchesImg from '../assets/Gameside_CashMatches.webp';
 import HomePageValorantImg from '../assets/HomePageValorant.png';
-import HomePageFortniteImg from '../assets/HomePageFortnite.jpg';
+import HomePageSpectreImg from '../assets/HomePageSpectre.jpg';
 import NewPrimaryButton from '../custom_components/NewPrimaryButton.js';
 import useEmblaCarousel from 'embla-carousel-react';
 
@@ -26,7 +26,7 @@ const HomeWrapper = styled.div`
 const Home = () => {
   const endScrollViewRef = useRef(null);
   const games = [
-    {name: 'Fortnite', poster:fortniteLogo},
+    {name: 'Spectre Divide', poster:spectreLogo},
     {name: 'Valorant', poster: valorantLogo},
   ];
   
@@ -52,7 +52,7 @@ const Home = () => {
             <HomePageGameCard gameName={'Valorant'} posterSrc={HomePageValorantImg} overlay />
           </div>
           <div className="relative w-full h-[178px] sm:!w-[423px] sm:h-[252px] lg:w-auto">
-            <HomePageGameCard gameName={'Fortnite'} posterSrc={HomePageFortniteImg} overlay />
+            <HomePageGameCard gameName={'Spectre'} posterSrc={HomePageSpectreImg} overlay />
           </div>
         </div>
       </div>

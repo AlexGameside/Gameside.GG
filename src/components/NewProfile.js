@@ -28,7 +28,7 @@ const NewProfile = () => {
   const theme = createTheme(store.mode);
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant");
   const navigate = useNavigate();
   const dispatch = useContext(StoreDispatch);
@@ -335,7 +335,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "teams" || selected === "team"}
                     label={"Teams"}
-                    onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/teams`)}
+                    onClick={() => navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/profile/teams`)}
                   >
                     <FaUsers
                       style={{
@@ -348,7 +348,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "history"}
                     label={"History"}
-                    onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/history`)}
+                    onClick={() => navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/profile/history`)}
                   >
                     <MdHistory
                       style={{
@@ -361,7 +361,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "accounts"}
                     label={"Connections"}
-                    onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/accounts`)}
+                    onClick={() => navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/profile/accounts`)}
                   >
                     <GiShare
                       style={{
@@ -374,7 +374,7 @@ const NewProfile = () => {
                   <NewListItem
                     selected={selected === "wallet"}
                     label={"Transactions"}
-                    onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/wallet`)}
+                    onClick={() => navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/profile/wallet`)}
                   >
                     <MdCompareArrows
                       style={{
@@ -387,7 +387,7 @@ const NewProfile = () => {
                   {/* <NewListItem
                     selected={selected === "premium"}
                     label={"Premium"}
-                    onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/premium`)}
+                    onClick={() => navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/profile/premium`)}
                   >
                     <FaCrown
                       style={{
@@ -400,7 +400,7 @@ const NewProfile = () => {
                   {/* <NewListItem
                     selected={selected === "badges"}
                     label={"My Badges"}
-                    onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/badges`)}
+                    onClick={() => navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/profile/badges`)}
                   >
                     <BsPersonBadgeFill
                       style={{
@@ -414,7 +414,7 @@ const NewProfile = () => {
                     <NewListItem
                       selected={selected === "staff-panel"}
                       label={"Staff Panel"}
-                      onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/staff-panel`)}
+                      onClick={() => navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/profile/staff-panel`)}
                     >
                       <FaShieldAlt
                         style={{
@@ -478,7 +478,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="Teams"
                   small={true}
-                  onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/teams`)}
+                  onClick={() => navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/profile/teams`)}
                 />
               </Grid>
 
@@ -486,7 +486,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="history"
                   small={true}
-                  onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/history`)}
+                  onClick={() => navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/profile/history`)}
                 />
               </Grid>
 
@@ -494,7 +494,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="connections"
                   small={true}
-                  onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/accounts`)}
+                  onClick={() => navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/profile/accounts`)}
                 />
               </Grid>
 
@@ -502,7 +502,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="transactions"
                   small={true}
-                  onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/wallet`)}
+                  onClick={() => navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/profile/wallet`)}
                 />
               </Grid>
 
@@ -510,7 +510,7 @@ const NewProfile = () => {
                 <NewSecondaryButton
                   label="premium"
                   small={true}
-                  onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/premium`)}
+                  onClick={() => navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/profile/premium`)}
                 />
               </Grid> */}
 
@@ -519,7 +519,7 @@ const NewProfile = () => {
                   <NewSecondaryButton
                     label="staff"
                     small={true}
-                    onClick={() => navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/profile/staff-panel`)}
+                    onClick={() => navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/profile/staff-panel`)}
                   />
                 </Grid>
               )}

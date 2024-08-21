@@ -122,7 +122,7 @@ const NewNavBar = () => {
   });
   const location = useLocation();
   const basePath = location.pathname.split('/')[1];
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant");
 
   const anchorRef = useRef();
@@ -488,7 +488,7 @@ const NewNavBar = () => {
   }, [newTeam]);
 
   useEffect(() => {
-    if(basePath === 'fortnite' || basePath === 'valorant') {
+    if(basePath === 'spectre' || basePath === 'valorant') {
       dispatch({
         type: SET_CURRENT_GAME,
         payload: basePath,
@@ -716,7 +716,7 @@ const NewNavBar = () => {
         <NewNavMenu anchor={menuAnchor} handleClose={handleMenuClose} />
       )}
 
-      {isFortnite && (
+      {isSpectre && (
         <FortMenu anchor={menuAnchor} handleClose={handleMenuClose} />
       )}
 
@@ -841,9 +841,9 @@ const NewNavBar = () => {
                   <Grid item>
                     <Link to={`/${baseRoute}/tournaments`} style={styles.link}>Tournaments</Link>
                   </Grid>
-                  {baseRoute !== 'fortnite' && (
+                  {baseRoute !== 'spectre' && (
                     <Grid item>
-                      <Link to="fortnite" style={styles.link}>Fortnite</Link>
+                      <Link to="spectre" style={styles.link}>Spectre Divide</Link>
                     </Grid>
                   )}
                   {baseRoute !== 'valorant' && (
@@ -862,7 +862,7 @@ const NewNavBar = () => {
                 if (params?.id === store?.currentTokenId) {
                   return;
                 }
-             navigate(`/${isValorant ? 'valorant/' : isFortnite ? 'fortnite/' : 'fortnite/'}token/${store?.currentTokenId}`);
+             navigate(`/${isValorant ? 'valorant/' : isSpectre ? 'spectre/' : 'spectre/'}token/${store?.currentTokenId}`);
               }}
               onMouseEnter={(e) => {
                 setHovered(true);
@@ -1013,7 +1013,7 @@ const NewNavBar = () => {
         </Grid>
       </AppBar>
       {drawerOpen && isDesktop ? (
-  isFortnite ? (
+  isSpectre ? (
     <FortDrawer
       setDrawerHovered={setDrawerHovered}
       inviteModalOpen={inviteModalOpen}

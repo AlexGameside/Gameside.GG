@@ -21,7 +21,7 @@ const NewCashMatchItem = (props) => {
   const theme = createTheme(store.mode);
   const navigate = useNavigate();
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite");
+  const isSpectre = location.pathname.startsWith("/spectre");
   const isValorant = location.pathname.startsWith("/valorant");
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const numFormatter = new Intl.NumberFormat("en-US", {
@@ -38,7 +38,7 @@ const NewCashMatchItem = (props) => {
   // methods
   const handleJoinOpen = () => {
     if (home) {
-      navigate(`${isFortnite ? '/fortnite' : isValorant ? '/valorant' : null}/cash-matches`);
+      navigate(`${isSpectre ? '/spectre' : isValorant ? '/valorant' : null}/cash-matches`);
       return;
     }
     if (store?.user) {

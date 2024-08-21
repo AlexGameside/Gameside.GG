@@ -226,8 +226,8 @@ const NewConnectionCard = (props) => {
 
   const getConnectionTitle = () => {
     switch (connection) {
-      case "FN":
-        return "Fortnite";
+      case "SD":
+        return "Spectre";
       case "VAL":
         return "Valorant";
       case "CLASH":
@@ -458,7 +458,7 @@ const NewConnectionCard = (props) => {
                   <Typography style={styles.steps}>
                     1. On{" "}
                     <span style={{ color: theme.blue(), fontWeight: 900 }}>
-                      Fortnite
+                      Spectre Divide
                     </span>
                     , add{" "}
                     <div

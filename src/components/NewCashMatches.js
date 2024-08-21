@@ -41,7 +41,7 @@ const NewCashMatches = () => {
   const dispatch = useContext(StoreDispatch);
   const { socketTokens, tokenToRemove } = useSocket();
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant");
 
   // state
@@ -59,7 +59,7 @@ const NewCashMatches = () => {
   const [searchParams, _] = useSearchParams();
   const [hasMore, setHasMore] = useState(true);
   const [skip, setSkip] = useState(0);
-  const gameId = isValorant ? "VAL" : isFortnite ? "FN" : null;
+  const gameId = isValorant ? "VAL" : isSpectre ? "SD" : null;
 
   // methods
   const getMatches = (filters, filtered = false) => {
@@ -338,7 +338,7 @@ const NewCashMatches = () => {
               >
                 <Grid item sx={{ minWidth: 150 }}>
                   <NewDropdown
-                    options={isFortnite ? fortMatchOptions : isValorant ? ValMatchOptions : null}
+                    options={isSpectre ? fortMatchOptions : isValorant ? ValMatchOptions : null}
                     placeholder="Map"
                     onChange={(value) => setMap(value)}
                   />
@@ -354,7 +354,7 @@ const NewCashMatches = () => {
 
                 <Grid item sx={{ minWidth: 150 }}>
                   <NewDropdown
-                    options={determineTeamSizeOptions(isFortnite ? "FN" : isValorant ? "VAL" : null)}
+                    options={determineTeamSizeOptions(isSpectre ? "SD" : isValorant ? "VAL" : null)}
                     placeholder="Team Size"
                     onChange={(value) => setTeamSize(value)}
                   />

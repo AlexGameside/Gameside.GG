@@ -35,9 +35,9 @@ const NewTournaments = () => {
 
   // state
   const location = useLocation();
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant");
-  const [game, _] = useState(isFortnite ? "FN" : isValorant ? "VAL" : null);
+  const [game, _] = useState(isSpectre ? "SD" : isValorant ? "VAL" : null);
   const [tournamentState, setTournamentState] = useState(0);
   const [tournaments, setTournaments] = useState(null);
   const [openCreateModal, setOpenCreateModal] = useState(false);

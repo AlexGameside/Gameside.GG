@@ -166,9 +166,9 @@ const FortDrawer = (props) => {
           <Grid container direction="column" alignItems="start">
             <NewListItem
               selected={selected === "home"}
-              label="Fortnite Home"
+              label="Spectre Divide Home"
               onClick={() => {
-                navigate("/fortnite");
+                navigate("/spectre");
               }}
             >
               <HiHome
@@ -183,7 +183,7 @@ const FortDrawer = (props) => {
               selected={selected === "cash"}
               label="Cash Matches"
               onClick={() => {
-                navigate("/fortnite/cash-matches");
+                navigate("/spectre/cash-matches");
               }}
             >
               <FaPiggyBank
@@ -198,7 +198,7 @@ const FortDrawer = (props) => {
               selected={selected === "tournaments"}
               label="Tournaments"
               onClick={() => {
-                navigate("/fortnite/tournaments");
+                navigate("/spectre/tournaments");
               }}
             >
               <FaTrophy
@@ -213,7 +213,7 @@ const FortDrawer = (props) => {
               selected={selected === "leaderboard"}
               label="Leaderboard"
               onClick={() => {
-                navigate("/fortnite/leaderboard");
+                navigate("/spectre/leaderboard");
               }}
             >
               <MdLeaderboard
@@ -228,7 +228,7 @@ const FortDrawer = (props) => {
               selected={selected === "premium"}
               label="Premium"
               onClick={() => {
-                navigate("/fortnite/premium");
+                navigate("/spectre/premium");
               }}
             >
               <FaCrown
@@ -304,7 +304,7 @@ const FortDrawer = (props) => {
                             },
                           }}
                           onClick={() =>
-                            navigate(`/fortnite/tournament/${tournament?._id}`)
+                            navigate(`/spectre/tournament/${tournament?._id}`)
                           }
                         >
                           <Grid
@@ -472,7 +472,7 @@ const FortDrawer = (props) => {
                           onMouseLeave={() => setHoveredTeam(null)}
                           onClick={() => {
                             setSelectedTeam(team);
-                            navigate(`/fortnite/profile/team/${team?._id}`, {
+                            navigate(`/spectre/profile/team/${team?._id}`, {
                               state: {
                                 team,
                                 index: i,
@@ -600,7 +600,7 @@ const FortDrawer = (props) => {
             }}
             onClick={() => {
               if (store?.user) {
-                navigate("/fortnite/profile/teams");
+                navigate("/spectre/profile/teams");
               }
             }}
             onMouseEnter={() => {

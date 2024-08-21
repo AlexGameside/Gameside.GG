@@ -65,7 +65,7 @@ const NewBracketTournament = () => {
   const params = useParams();
   const location = useLocation();
   const gameName = location.pathname.split('/').filter(Boolean)[0];
-  const isFortnite = location.pathname.startsWith("/fortnite") || location.pathname === 'fortnite'; 
+  // const isSpectre = location.pathname.startsWith("/spectre") || location.pathname === 'spectre'; 
   const isValorant = location.pathname.startsWith("/valorant");
   const isDesktop = useMediaQuery("(min-width:1025px)");
   const navigate = useNavigate();
@@ -878,6 +878,12 @@ const NewBracketTournament = () => {
                                     )}
                                   </Grid>
                                 ) : null}
+                                <Grid item>
+                                    <NewPrimaryButton
+                                      label="register BOBS"
+                                      onClick={handleOpenJoinModal}
+                                    />
+                                </Grid>
 
                                 {tournament?.state === 0 &&
                                 tournament?.num_teams ===

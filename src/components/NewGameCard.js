@@ -2,6 +2,7 @@ import { Typography, Button } from "@mui/material";
 import constants from "../utils/constants";
 import valorantLogo from "../assets/valorant-logo.PNG";
 import fortniteLogo from "../assets/fortnite-logo.PNG";
+import spectreLogo from "../assets/spectre-logo.PNG";
 import fifaLogo from "../assets/fifa-logo.PNG";
 import clashLogo from "../assets/clash-logo.png";
 import fiveMLogo from "../assets/fivem-logo.png";
@@ -14,6 +15,7 @@ const NewGameCard = (props) => {
   const gameEnum = {
     VALORANT: valorantLogo,
     FORTNITE: fortniteLogo,
+    SPECTRE: spectreLogo,
     FIFA: fifaLogo,
     FIVEM: fiveMLogo,
     // "2K": twoklogo,
@@ -28,6 +30,8 @@ const NewGameCard = (props) => {
         return gameEnum.VALORANT;
       case "FORTNITE":
         return gameEnum.FORTNITE;
+      case "SPECTRE":
+        return gameEnum.SPECTRE;
       case "FIFA":
         return gameEnum.FIFA;
       case "2K":
@@ -45,6 +49,8 @@ const NewGameCard = (props) => {
         return "#06d6a0";
       case "FORTNITE":
         return "#00bbf9";
+      case "SPECTRE":
+        return "#00bbf9";
       case "FIFA":
         return "#ef476f";
       case "2K":
@@ -59,6 +65,8 @@ const NewGameCard = (props) => {
       case "VALORANT":
         return "#05faba";
       case "FORTNITE":
+        return "#66d9ff";
+      case "SPECTRE":
         return "#66d9ff";
       case "FIFA":
         return "#ef476f";
@@ -76,6 +84,8 @@ const NewGameCard = (props) => {
       case "VALORANT":
         return "#87ffe0";
       case "FORTNITE":
+        return "#a1e8ff";
+      case "SPECTRE":
         return "#a1e8ff";
       case "FIFA":
         return "#ef476f";
@@ -168,6 +178,8 @@ const NewGameCard = (props) => {
         return "Valorant";
       case "FORTNITE":
         return "Fortnite";
+      case "SPECTRE":
+        return "Spectre Divide";
       case "FIFA":
         return "FIFA 22";
       case "2K":

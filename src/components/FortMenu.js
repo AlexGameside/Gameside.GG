@@ -127,7 +127,7 @@ import {
                     backgroundColor: theme.cardHover(),
                   },
                 }}
-                onClick={() => navigate("/fortnite/profile/teams")}
+                onClick={() => navigate("/spectre/profile/teams")}
               >
                 <Grid
                   container
@@ -189,20 +189,20 @@ import {
           store?.currentTokenId != null ? (
             <NewListItem
               label="Current Match"
-              onClick={() => navigate(`/fortnite/token/${store?.currentTokenId}`)}
+              onClick={() => navigate(`/spectre/token/${store?.currentTokenId}`)}
             >
               <BsRecordFill style={{ color: theme.red(), fontSize: 24 }} />
             </NewListItem>
           ) : null}
   
-          <NewListItem label="Home" onClick={() => navigate("/fortnite")}>
+          <NewListItem label="Home" onClick={() => navigate("/spectre")}>
             <HiHome style={{ color: theme.text(), fontSize: 24 }} />
           </NewListItem>
 
           <NewListItem
             label="Cash Matches"
             onClick={() => {
-              navigate("/fortnite/cash-matches");
+              navigate("/spectre/cash-matches");
             }}
           >
             <FaPiggyBank
@@ -216,7 +216,7 @@ import {
           <NewListItem
             label="Tournaments"
             onClick={() => {
-              navigate("/fortnite/tournaments");
+              navigate("/spectre/tournaments");
             }}
           >
             <FaTrophy
@@ -230,7 +230,7 @@ import {
           {/* <NewListItem
             label="Leaderboard"
             onClick={() => {
-              navigate("/fortnite/leaderboard");
+              navigate("/spectre/leaderboard");
             }}
           >
             <MdLeaderboard
@@ -260,7 +260,7 @@ import {
             <NewListItem
               label="Staff Panel"
               onClick={() => {
-                navigate("/fortnite/profile/staff-panel");
+                navigate("/spectre/profile/staff-panel");
               }}
             >
               <FaShieldAlt
@@ -279,7 +279,7 @@ import {
           {/* <NewListItem
             label="Premium"
             onClick={() => {
-              navigate("/fortnite/premium");
+              navigate("/spectre/premium");
             }}
           >
             <FaCrown
@@ -293,7 +293,7 @@ import {
           {/* <NewListItem
             label="Badges"
             onClick={() => {
-              navigate("/fortnite/badges");
+              navigate("/spectre/badges");
             }}
           >
             <BsPersonBadgeFill

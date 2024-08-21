@@ -1,39 +1,39 @@
 import { useContext, useEffect, useState, useRef } from "react";
 import { Grid, Typography } from "@mui/material";
-import Footer from "./Footer.js";
+// import Footer from "./Footer.js";
 import { getBracketTournaments, getWagers } from "../utils/API.js";
-import { FaTrophy } from "react-icons/fa";
+// import { FaTrophy } from "react-icons/fa";
 import createTheme from "../utils/theme.js";
 import { StoreContext } from "../context/NewStoreContext";
 import { useMediaQuery } from "@mui/material";
-import NewNavBar from "./NewNavBar.js";
+// import NewNavBar from "./NewNavBar.js";
 import FortniteBus from '../assets/NewAssets/fortnite_bus.png';
-import FortniteBusMobile from '../assets/NewAssets/fortnite_bus_mobile.png';
-import FortniteCash from '../assets/NewAssets/fortnite_cash.png'
-import FortniteCashMobile from '../assets/NewAssets/fortnite_cash_mobile.png'
+// import FortniteBusMobile from '../assets/NewAssets/fortnite_bus_mobile.png';
+// import FortniteCash from '../assets/NewAssets/fortnite_cash.png'
+// import FortniteCashMobile from '../assets/NewAssets/fortnite_cash_mobile.png'
 import { useNavigate } from "react-router-dom";
 import useDraggableScroll from "use-draggable-scroll";
 import SectionHeader from "../custom_components/SectionHeader";
 import NewOutlineButton from "../custom_components/NewOutlineButton";
 import NewHomeTournamentItem from "./NewHomeTournamentItem.js";
-import { SiRiotgames } from "react-icons/si";
-import yellowCardBackground from "../assets/yellow-card-background.svg";
-import blueCardBackground from "../assets/blue-card-background.svg";
-import NewPrimaryButton from "../custom_components/NewPrimaryButton.js";
+// import { SiRiotgames } from "react-icons/si";
+// import yellowCardBackground from "../assets/yellow-card-background.svg";
+// import blueCardBackground from "../assets/blue-card-background.svg";
+// import NewPrimaryButton from "../custom_components/NewPrimaryButton.js";
 import NewHomeTournametGlimmer from "./glimmers/HomeTournamentGlimmer";
-import HomeScrimsScroller from "./scrims/HomeScrimsScroller.js";
+// import HomeScrimsScroller from "./scrims/HomeScrimsScroller.js";
 import HomeMatchesScroller from "./cash-matches/HomeMatchesScroller.js";
-import tournamentHome from "../assets/tournament-home.png";
-import tournamentHomeMobile from "../assets/tournament-home-mobile.png";
+// import tournamentHome from "../assets/tournament-home.png";
+// import tournamentHomeMobile from "../assets/tournament-home-mobile.png";
 import cashMatchesHome from "../assets/cash-matches-home.png";
-import cashMatchesHomeMobile from "../assets/cash-matches-home-mobile.png";
-import scrimsHome from "../assets/scrims-home.png";
-import scrimsHomeMobile from "../assets/scrims-home-mobile.png";
-import vetoHome from "../assets/veto-home.png";
-import vetoHomeMobile from "../assets/veto-home-mobile.png";
-import vpHome from "../assets/vp-home.png";
-import vpHomeMobile from "../assets/vp-home-mobile.png";
-import whiteLogo from "../assets/blue-logo.png";
+// import cashMatchesHomeMobile from "../assets/cash-matches-home-mobile.png";
+// import scrimsHome from "../assets/scrims-home.png";
+// import scrimsHomeMobile from "../assets/scrims-home-mobile.png";
+// import vetoHome from "../assets/veto-home.png";
+// import vetoHomeMobile from "../assets/veto-home-mobile.png";
+// import vpHome from "../assets/vp-home.png";
+// import vpHomeMobile from "../assets/vp-home-mobile.png";
+// import whiteLogo from "../assets/blue-logo.png";
 import GamesideWhiteLogo from "../assets/Gameside_White_Word_Trimmed.png";
 import backgroundVideo from "../assets/fort-vid-background.mp4";
 import HomeFeatureItem from "./home/HomeFeatureItem.js";
@@ -209,6 +209,7 @@ const FortHome = () => {
               <img
                 src={GamesideWhiteLogo}
                 style={{ width: isDesktop ? 600 : isMobile ? 200 : 400 }}
+                alt={'Gameside Logo'}
               />
             </Grid>
 
@@ -221,7 +222,7 @@ const FortHome = () => {
                   textAlign: "center",
                 }}
               >
-                The home of competitive Fortnite.
+                The home of competitive Spectre Divide.
               </Typography>
             </Grid>
           </Grid>
@@ -328,7 +329,7 @@ const FortHome = () => {
                               tournament={tournament}
                               key={i}
                               onClick={() =>
-                                navigate(`/fortnite/tournament/${tournament?._id}`)
+                                navigate(`/spectre/tournament/${tournament?._id}`)
                               }
                             />
                           );
@@ -360,7 +361,7 @@ const FortHome = () => {
               description="Compete in wager style matches to start earning today."
               buttonLabel="Find cash matches"
               image={cashMatchesHome}
-              onClick={() => navigate("/fortnite/cash-matches")}
+              onClick={() => navigate("/spectre/cash-matches")}
             />
 
             <HomeFeatureItem
@@ -368,7 +369,7 @@ const FortHome = () => {
               description="Compete in bracket style tournaments and ladders to take home cash prizes."
               buttonLabel="Find tournaments"
               image={FortniteBus}
-              onClick={() => navigate("/fortnite/tournaments")}
+              onClick={() => navigate("/spectre/tournaments")}
             />
 
           </Grid>

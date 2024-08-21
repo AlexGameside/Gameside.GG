@@ -483,7 +483,7 @@ const NewTokenMatchInfo = (props) => {
                       <Grid item>
                         <Typography sx={styles.value}>
                           {token?.first_to}
-                          {token?.game === "FN" || token?.game === "FIVEM" ? (
+                          {token?.game === "SD" || token?.game === "FIVEM" ? (
                             <sup> +2</sup>
                           ) : null}
                           {token?.game === "FIVEM" ? " | 2 series" : null}
@@ -543,7 +543,7 @@ const NewTokenMatchInfo = (props) => {
               </Grid>
             ) : null}
 
-            {token?.game === "FN" && token?.console_only ? (
+            {token?.game === "SD" && token?.console_only ? (
               <Grid
                 item
                 sx={{
