@@ -20,13 +20,13 @@ const constants = {
   //
   //serverUrl: "https://tkns-server.herokuapp.com",
   // serverUrl: "https://tkns-staff-beta.herokuapp.com",
-  // serverUrl: "http://localhost:8080",
-   serverUrl: "https://gamesideserver-636ca9cfc635.herokuapp.com",
+   //serverUrl: "http://localhost:8080",
+   serverUrl: "https://gameside.up.railway.app",
   //clientUrl: "https://tkns.gg",
   // clientUrl: "https://fntokens.gg",
-  clientUrl: "https://gameside.cc",
-  // clientUrl: "https://www.gameside.gg",
-  // clientUrl: "http://localhost:3000",
+  //clientUrl: "https://gameside.cc",
+   clientUrl: "https://www.gameside.gg",
+  //clientUrl: "http://localhost:3000",
   // clientUrl: "https://battlewiseclient.z22.web.core.windows.net/",
   // serverUrl: "https://battlewise-server.herokuapp.com",
   // new colors
