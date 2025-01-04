@@ -162,7 +162,7 @@ const Footer = () => {
           >
             <Grid item>
               <Typography sx={{ color: theme.text() }}>
-                &copy; 2024 Gameside LLC
+                &copy; 2025 Gameside LLC
               </Typography>
             </Grid>
 
