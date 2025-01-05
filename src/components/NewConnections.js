@@ -104,7 +104,7 @@ const NewConnections = () => {
 
   const handleOpenDiscordOAuth = () => {
     window.open(
-      "https://discord.com/api/oauth2/authorize?client_id=1022275373305696356&redirect_uri=https%3A%2F%2Ftkns.gg%2Fdiscord-link&response_type=code&scope=identify%20guilds",
+      "https://discord.com/oauth2/authorize?client_id=1247069283775942776&response_type=code&redirect_uri=https%3A%2F%2Fgameside-server-production.up.railway.app%2Fapi%2FverifyDiscord%2Fredirect&scope=identify+guilds+email",
       "_self"
     );
   };
