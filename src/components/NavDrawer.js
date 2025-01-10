@@ -1,5 +1,10 @@
 import NewListItem from "../custom_components/NewListItem";
-import { FaSkullCrossbones, FaPiggyBank, FaCrown } from "react-icons/fa";
+import {
+  FaSkullCrossbones,
+  FaPiggyBank,
+  FaCrown,
+  FaChessRook,
+} from "react-icons/fa";
 import { MdLeaderboard } from "react-icons/md";
 import { RiUserAddFill } from "react-icons/ri";
 import NewTeamModal from "./NewTeamModal";
@@ -172,6 +177,21 @@ const NavDrawer = (props) => {
               }}
             >
               <HiHome
+                style={{
+                  color: theme.text(),
+                  fontSize: 24,
+                }}
+              />
+            </NewListItem>
+
+            <NewListItem
+              selected={selected === "scrims"}
+              label="Scrims"
+              onClick={() => {
+                navigate("/valorant/scrims");
+              }}
+            >
+              <FaChessRook
                 style={{
                   color: theme.text(),
                   fontSize: 24,
