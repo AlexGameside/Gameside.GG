@@ -54,6 +54,7 @@ import CountdownPage from "./views/Countdown.js";
 import CountdownSignupLoginModal from "./components/CountdownSignupLoginModal.js";
 import CountdownSupport from "./components/CountdownSupport.js";
 import isEqual from 'lodash.isequal';
+import Riot from "./components/Riot.js";
 
 function getUserStore() {
   try {
@@ -291,7 +292,9 @@ function App() {
                   <Route path="tos" element={<NewTOS />} />
                   <Route path="privacy-policy" element={<NewPrivacyPolicy />} />
                   <Route path="contact" element={<NewContactUs />} />
+                  <Route path="/valorant/riot.txt" element={<Riot />} />
                   <Route path="faq" element={<NewFAQ />} />
+              
                 </Route>
                 <Route path="/valorant/verify" element={<Verify />} />
                 {/* <Route path="/valorant/leaderboard" element={<NewLeaderboards />} /> */}

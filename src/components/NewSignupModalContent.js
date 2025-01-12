@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions, no-undef */
+
 import { useContext, useState } from "react";
 import createTheme from "../utils/theme";
 import { StoreContext } from "../context/NewStoreContext";
@@ -10,7 +12,7 @@ import DiscordButton from "../custom_components/DiscordButton";
 import TwitchButton from "../custom_components/TwitchButton";
 import GoogleButton from "../custom_components/GoogleButton";
 import { validatePassword } from "../utils/helperMethods";
-// import jwt_decode from "jwt-decode";
+ import jwt_decode from "jwt-decode";
 
 const NewSignupModalContent = (props) => {
   // variables
@@ -91,28 +93,28 @@ const NewSignupModalContent = (props) => {
     });
   };
 
-  // const handleGoogleCB = (response) => {
-  //   const userObject = jwt_decode(response.credential);
-  //   console.log(userObject);
-  // };
+   const handleGoogleCB = (response) => {
+     const userObject = jwt_decode(response.credential);
+     console.log(userObject);
+   };
 
-  // effects
-  // useEffect(() => {
-  //   window.google?.accounts?.id?.initialize({
-  //     context: "signup",
-  //     client_id:
-  //       "413079839400-o3736c7i0sfqqbvbdh6rm2d1ft86ec3d.apps.googleusercontent.com",
-  //     callback: handleGoogleCB,
-  //   });
+   effects
+   useEffect(() => {
+     window.google?.accounts?.id?.initialize({
+       context: "signup",
+      client_id:
+         "413079839400-o3736c7i0sfqqbvbdh6rm2d1ft86ec3d.apps.googleusercontent.com",
+       callback: handleGoogleCB,
+     });
 
-  //   window.google?.accounts?.id?.renderButton(
-  //     document.getElementById("signInDiv"),
-  //     {
-  //       theme: "outline",
-  //       size: "large",
-  //     }
-  //   );
-  // }, []);
+     window.google?.accounts?.id?.renderButton(
+       document.getElementById("signInDiv"),
+       {
+         theme: "outline",
+         size: "large",
+      }
+     );
+   }, []);
 
   // styles
   const styles = {
@@ -482,3 +484,4 @@ const NewSignupModalContent = (props) => {
 };
 
 export default NewSignupModalContent;
+/* eslint-enable no-unused-expressions, no-undef */
