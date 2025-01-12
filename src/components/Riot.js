@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const RiotText = () => {
-  const [riotText, setRiotText] = useState("");
+  const riotText = `98f02986-d14a-4148-8fe7-c1b12739db7b`; // Replace with the exact content of your riot.txt file.
 
-  useEffect(() => {
-    fetch("/valorant/riot.txt")
-      .then((response) => response.text())
-      .then((data) => setRiotText(data))
-      .catch(() => setRiotText("Error: Could not load riot.txt"));
-  }, []);
-
-  return <>{riotText}</>;
+  return <pre style={{ fontFamily: "monospace", whiteSpace: "pre-wrap" }}>{riotText}</pre>;
 };
 
 export default RiotText;
